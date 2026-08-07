@@ -137,7 +137,6 @@ hub_html = '''<!DOCTYPE html>
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 255, 255, 0.05);
     }
 
-    /* Adapt cover to full natural aspect ratio without cropping */
     .card-cover {
       width: 100%;
       border-radius: 14px;
@@ -300,15 +299,15 @@ hub_html = '''<!DOCTYPE html>
       <div class="card" style="--card-color: #D4AF37;">
         <div>
           <div class="card-cover">
-            <img src="./ruk-el-heroe/fichas_img/ruk.png" alt="Portada de Ruk el Héroe" class="cover-img">
+            <img src="./ruk-el-heroe/fichas_img/ruk_en_creacion.png" alt="Portada de Ruk el Héroe (En Creación)" class="cover-img">
           </div>
-          <span class="card-badge">Fantasía Épica</span>
+          <span class="card-badge" style="color: #D4AF37; border-color: #D4AF37;">En Creación</span>
           <h2 class="card-title">Ruk el Héroe</h2>
-          <p class="card-desc">Novela completa de 9 capítulos editados. Diseño Blanco & Dorado Imperial (#FAF8F5, #D4AF37) con fichas de personajes ilustradas.</p>
+          <p class="card-desc">Saga fantástica imperial en desarrollo. 9 capítulos editados, diseño Blanco & Dorado Imperial con fichas de personajes ilustradas.</p>
           <div class="card-features">
             <span class="feat-tag">9 Capítulos Editados</span>
             <span class="feat-tag">Blanco & Dorado</span>
-            <span class="feat-tag">Fichas Ilustradas</span>
+            <span class="feat-tag">En Creación</span>
           </div>
         </div>
         <a href="./ruk-el-heroe/index.html" class="card-btn">Abrir Sitio Web de la Historia →</a>
@@ -382,4 +381,4 @@ hub_html = '''<!DOCTYPE html>
 with open(r'C:\Users\Barra\Documents\UNIVERSO LIGNUM\index.html', 'w', encoding='utf-8') as f:
     f.write(hub_html)
 
-print('Updated index.html to adapt full cover aspect ratios without cropping!')
+print('Master hub updated with Ruk el Héroe "En Creación" cover!')
