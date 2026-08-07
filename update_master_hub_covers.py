@@ -1,5 +1,4 @@
 import os
-import re
 
 hub_html = '''<!DOCTYPE html>
 <html lang="es">
@@ -117,6 +116,7 @@ hub_html = '''<!DOCTYPE html>
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
       gap: 2.2rem;
+      align-items: start;
     }
 
     .card {
@@ -136,25 +136,31 @@ hub_html = '''<!DOCTYPE html>
       border-color: var(--card-color);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 255, 255, 0.05);
     }
+
+    /* Adapt cover to full natural aspect ratio without cropping */
     .card-cover {
       width: 100%;
-      height: 240px;
       border-radius: 14px;
       overflow: hidden;
       margin-bottom: 1.25rem;
       border: 1px solid rgba(255, 255, 255, 0.12);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-      background: #11141D;
+      background: #0B0E17;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .cover-img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      display: block;
+      object-fit: contain;
       transition: transform 0.4s ease;
     }
     .card:hover .cover-img {
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
+
     .card-badge {
       display: inline-block;
       font-size: 0.72rem;
@@ -376,4 +382,4 @@ hub_html = '''<!DOCTYPE html>
 with open(r'C:\Users\Barra\Documents\UNIVERSO LIGNUM\index.html', 'w', encoding='utf-8') as f:
     f.write(hub_html)
 
-print('Updated index.html with official story covers!')
+print('Updated index.html to adapt full cover aspect ratios without cropping!')
