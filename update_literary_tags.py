@@ -1,5 +1,6 @@
-# Master Hub Generator Script
-<!DOCTYPE html>
+import os
+
+hub_html = '''<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -383,3 +384,12 @@
 
 </body>
 </html>
+'''
+
+with open(r'C:\Users\Barra\Documents\UNIVERSO LIGNUM\index.html', 'w', encoding='utf-8') as f:
+    f.write(hub_html)
+
+with open(r'C:\Users\Barra\Documents\UNIVERSO LIGNUM\update_master_hub_covers.py', 'w', encoding='utf-8') as f:
+    f.write(f'# Master Hub Generator Script\n{hub_html}')
+
+print('Updated index.html and update_master_hub_covers.py with literary tags & descriptions!')
