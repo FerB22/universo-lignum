@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+import os
+import re
+
+hub_html = '''<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -368,3 +371,9 @@
 
 </body>
 </html>
+'''
+
+with open(r'C:\Users\Barra\Documents\UNIVERSO LIGNUM\index.html', 'w', encoding='utf-8') as f:
+    f.write(hub_html)
+
+print('Updated index.html with official story covers!')
