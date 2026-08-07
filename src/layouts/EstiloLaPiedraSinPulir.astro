@@ -1,0 +1,70 @@
+---
+import HeaderNavegacion from '../components/HeaderNavegacion.astro';
+import FooterUniverso from '../components/FooterUniverso.astro';
+
+export interface Props {
+  tituloCapitulo?: string;
+}
+
+const { tituloCapitulo = "La Piedra sin Pulir" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{tituloCapitulo} | La Piedra sin Pulir - Universo Lignum</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="emerald-layout-body">
+  <HeaderNavegacion tituloActual="La Piedra sin Pulir" subtituloActual="Estilo Místico Esmeralda #10B981" colorTema="#10B981" />
+
+  <div class="emerald-universe-wrapper">
+    <slot />
+  </div>
+
+  <FooterUniverso />
+</body>
+</html>
+
+<!-- Scoped CSS Strategy for La Piedra sin Pulir Universe -->
+<style scoped>
+  .emerald-layout-body {
+    background-color: #04120B !important;
+    color: #ECFDF5 !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+  }
+
+  .emerald-universe-wrapper {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    background: #081C13;
+    border-radius: 16px;
+    border: 2px solid #10B981;
+    box-shadow: 0 0 35px rgba(16, 185, 129, 0.3);
+  }
+
+  :global(.emerald-universe-wrapper h1) {
+    font-family: 'Cinzel', serif;
+    color: #34D399;
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #10B981;
+    padding-bottom: 0.85rem;
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  }
+
+  :global(.emerald-universe-wrapper p) {
+    font-size: 1.08rem;
+    line-height: 1.85;
+    color: #D1FAE5;
+    margin-bottom: 1.2rem;
+  }
+</style>

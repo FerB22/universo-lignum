@@ -1,0 +1,225 @@
+---
+import LayoutPortal from '../layouts/LayoutPortal.astro';
+import TarjetaHistoria from '../components/TarjetaHistoria.astro';
+
+const historias = [
+  {
+    titulo: "Ruk el Héroe",
+    genero: "Fantasía Épica & Imperio",
+    descripcion: "La saga completa de Ruk y sus compañeros en la guerra contra el Reino Demeti. Edición restaurada de 9 capítulos con linaje militar y magia de éter.",
+    ruta: "/ruk-el-heroe/",
+    etiquetaColor: "#D4AF37",
+    badge: "Saga Completa",
+    capitulos: 9,
+    estiloNombre: "EstiloImperativoRuk"
+  },
+  {
+    titulo: "Forgotten Sword",
+    genero: "Fantasía Oscura & Gótico",
+    descripcion: "Historias y fichas de guerreros atrapados en un mundo gótico de plata y carmesí. Duelos de honor y reliquias malditas.",
+    ruta: "/forgotten-sword/",
+    etiquetaColor: "#8B0000",
+    badge: "Edición Especial",
+    capitulos: 5,
+    estiloNombre: "EstiloForgottenSword"
+  },
+  {
+    titulo: "Sangre y Cadáveres",
+    genero: "Terror Crudo & Escarlata",
+    descripcion: "Narrativa visceral en tonos escarlata y negro vaciado (#CA0B0B). Tensión constante y batallas brutales por la supervivencia.",
+    ruta: "/sangre-y-cadaveres/",
+    etiquetaColor: "#CA0B0B",
+    badge: "Publicación Principal",
+    capitulos: 4,
+    estiloNombre: "EstiloSangreCadaveres"
+  },
+  {
+    titulo: "The Marriage of the Republic",
+    genero: "Ficción Histórica & Republicana",
+    descripcion: "Crónica política e intrigas de Estado en un ambiente de marrón claro y dorado republicano. Alianzas matrimoniales y poder militar.",
+    ruta: "/marriage-of-the-republic/",
+    etiquetaColor: "#8B5A2B",
+    badge: "En Desarrollo",
+    capitulos: 3,
+    estiloNombre: "EstiloMarriageRepublic"
+  },
+  {
+    titulo: "Getting to Know",
+    genero: "Cyberpunk & Neón",
+    descripcion: "Futuro distópico de turquesa brillante (#00F2FE) y púrpura. Fichas de personajes cibernéticos, implantes y redes de datos.",
+    ruta: "/getting-to-know/",
+    etiquetaColor: "#00F2FE",
+    badge: "Fichas & Historia",
+    capitulos: 6,
+    estiloNombre: "EstiloGettingToKnow"
+  },
+  {
+    titulo: "La Piedra sin Pulir",
+    genero: "Fábula Mística & Esmeralda",
+    descripcion: "El viaje interior de transformación espiritual y alquimia. Estética verde esmeralda y bosques antiguos de meditación.",
+    ruta: "/la-piedra-sin-pulir/",
+    etiquetaColor: "#10B981",
+    badge: "Ensayo Místico",
+    capitulos: 2,
+    estiloNombre: "EstiloLaPiedraSinPulir"
+  }
+];
+---
+
+<LayoutPortal title="Universo Lignum | Portal Principal">
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="sparkle">✦</span>
+        <span>Ecosistema de Monorepositorio Literario</span>
+      </div>
+      <h1 class="hero-title">UNIVERSO LIGNUM</h1>
+      <p class="hero-subtitle">
+        Todas tus historias conviven bajo un mismo techo con <strong>Scoped CSS Layouts</strong>. Cada historia mantiene su propio universo visual sin conflictos de diseño.
+      </p>
+
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-num">6</span>
+          <span class="stat-label">Universos</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">6</span>
+          <span class="stat-label">Scoped Layouts</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">29+</span>
+          <span class="stat-label">Capítulos Unificados</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stories-grid-section">
+    <div class="section-header">
+      <h2>Descubre tus Universos</h2>
+      <p>Selecciona una historia para sumergirte en su plantilla maestra y diseño exclusivo.</p>
+    </div>
+
+    <div class="grid-container">
+      {historias.map((h) => (
+        <TarjetaHistoria
+          titulo={h.titulo}
+          genero={h.genero}
+          descripcion={h.descripcion}
+          ruta={h.ruta}
+          etiquetaColor={h.etiquetaColor}
+          badge={h.badge}
+          capitulos={h.capitulos}
+          estiloNombre={h.estiloNombre}
+        />
+      ))}
+    </div>
+  </section>
+</LayoutPortal>
+
+<style scoped>
+  .hero-section {
+    position: relative;
+    padding: 5rem 1.5rem 4rem;
+    text-align: center;
+    background: radial-gradient(circle at top, rgba(56, 189, 248, 0.15) 0%, rgba(9, 11, 16, 1) 70%);
+  }
+
+  .hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1.1rem;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.85rem;
+    color: #38BDF8;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, #FFFFFF 0%, #38BDF8 50%, #D4AF37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    color: #94A3B8;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-subtitle strong {
+    color: #F8FAFC;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .stat-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.25rem 2rem;
+    border-radius: 14px;
+    min-width: 140px;
+  }
+
+  .stat-num {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #38BDF8;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: #64748B;
+  }
+
+  .stories-grid-section {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-header h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    color: #FFF;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-header p {
+    color: #94A3B8;
+    font-size: 1rem;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+</style>
