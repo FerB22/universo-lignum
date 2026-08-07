@@ -359,9 +359,51 @@
             transform: translateY(-3px);
         }
     </style>
+
+<style>
+  .btn-back-to-hub-floating {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 999999;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 15px;
+    background: rgba(15, 20, 30, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    color: #F8FAFC !important;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.25s ease;
+  }
+  .btn-back-to-hub-floating:hover {
+    background: #38BDF8;
+    color: #000000 !important;
+    border-color: #38BDF8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+  }
+  @media (max-width: 600px) {
+    .btn-back-to-hub-floating {
+      top: 10px;
+      left: 10px;
+      padding: 5px 12px;
+      font-size: 11px;
+    }
+  }
+</style>
+
 </head>
 
 <body>
+<a href="../index.html" class="btn-back-to-hub-floating">🌌 Volver a Historias</a>
 
     <!-- Barra de progreso -->
     <div id="progress-bar"></div>

@@ -36,9 +36,51 @@
             }
         }
     </style>
+
+<style>
+  .btn-back-to-hub-floating {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 999999;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 15px;
+    background: rgba(15, 20, 30, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    color: #F8FAFC !important;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.25s ease;
+  }
+  .btn-back-to-hub-floating:hover {
+    background: #38BDF8;
+    color: #000000 !important;
+    border-color: #38BDF8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+  }
+  @media (max-width: 600px) {
+    .btn-back-to-hub-floating {
+      top: 10px;
+      left: 10px;
+      padding: 5px 12px;
+      font-size: 11px;
+    }
+  }
+</style>
+
 </head>
 
-<body style="margin:0; padding:20px 10px; background-color:#1a120a; font-family:Georgia, serif; min-height:100vh; display:flex; justify-content:center; align-items:flex-start;">>>
+<body style="margin:0; padding:20px 10px; background-color:#1a120a; font-family:Georgia, serif; min-height:100vh; display:flex; justify-content:center; align-items:flex-start;">
+<a href="../../index.html" class="btn-back-to-hub-floating">🌌 Volver a Historias</a>>>
 
     <!-- TARJETA PRINCIPAL -->
     <div class="tarjeta-contenedor" style="width:100%; max-width:460px; background-color:#f2e8d5; background-image:radial-gradient(ellipse at 20% 30%, rgba(180,140,80,0.15) 0%, transparent 60%), radial-gradient(ellipse at 80% 70%, rgba(120,80,30,0.12) 0%, transparent 55%), url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'><filter id=\'n\'><feTurbulence type=\'fractalNoise\' baseFrequency=\'0.75\' numOctaves=\'4\' stitchTiles=\'stitch\'/><feColorMatrix type=\'saturate\' values=\'0\'/></filter><rect width=\'200\' height=\'200\' filter=\'url(%23n)\' opacity=\'0.04\'/></svg>'); border-radius:4px; border:1px solid rgba(90,60,20,0.4); box-shadow:0 0 0 6px rgba(90,60,20,0.12), 0 8px 40px rgba(0,0,0,0.7), inset 0 0 40px rgba(120,80,20,0.18), inset 0 0 8px rgba(90,60,20,0.1); padding:28px 28px 22px 28px; box-sizing:border-box; position:relative; overflow:hidden;">
