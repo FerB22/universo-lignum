@@ -1,0 +1,523 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitulo 01: El peso de los tatuajes - Forgotten Sword</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #120c08;
+            --card-bg: #1c130c;
+            --text-color: #e8dcc4;
+            --accent-gold: #d4af37;
+            --accent-bright: #f0c952;
+            --muted-gold: #9e8237;
+            --text-dim: #b8a686;
+            --border-color: #3b2818;
+            --quote-bg: rgba(212,175,55,0.06);
+            --sidebar-bg: #160f09;
+            --font-size-base: 18px;
+        }
+        body.theme-sepia {
+            --bg-color:#241c14; --card-bg:#2d241a; --text-color:#edd9be;
+            --border-color:#4a3a2a; --sidebar-bg:#1e160f;
+        }
+        body.theme-dark {
+            --bg-color:#0a0705; --card-bg:#120e0a; --text-color:#d1c5b0;
+            --border-color:#291e14; --sidebar-bg:#080604;
+        }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lora', Georgia, serif;
+            font-size: var(--font-size-base);
+            line-height: 1.85;
+            min-height: 100vh;
+            padding: 20px;
+            transition: background-color .3s, color .3s;
+            background-image: radial-gradient(circle at 50% 0%, rgba(212,175,55,.07) 0%, transparent 65%);
+        }
+        .page-layout {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            grid-template-rows: auto 1fr auto;
+            gap: 0 24px;
+            align-items: start;
+        }
+        /* Nav bar */
+        .nav-bar {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 13px 22px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 24px;
+            box-shadow: 0 6px 24px rgba(0,0,0,.45);
+        }
+        .nav-back {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color .2s, transform .2s;
+        }
+        .nav-back:hover { color:var(--accent-bright); transform:translateX(-3px); }
+        .reader-controls { display:flex; align-items:center; gap:10px; }
+        .btn-ctrl {
+            background:rgba(212,175,55,.1); border:1px solid var(--border-color);
+            color:var(--accent-gold); padding:5px 11px; border-radius:4px;
+            cursor:pointer; font-family:'Cinzel',serif; font-size:13px; transition:all .2s;
+        }
+        .btn-ctrl:hover { background:var(--accent-gold); color:#120c08; }
+        /* Main reading column */
+        .main-col { min-width:0; }
+        .chapter-header {
+            text-align:center; margin-bottom:38px;
+            padding-bottom:24px; position:relative;
+        }
+        .chapter-header::after {
+            content:'&#10042; &#10042; &#10042;';
+            position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+            color:var(--muted-gold); font-size:13px; letter-spacing:10px;
+        }
+        .sub-label {
+            font-family:'Cinzel',serif; font-size:11px; letter-spacing:4px;
+            text-transform:uppercase; color:var(--accent-gold);
+            margin-bottom:10px; display:block;
+        }
+        .main-title {
+            font-family:'Cinzel',serif; font-size:32px; font-weight:700;
+            color:#f5eedc; letter-spacing:1px;
+            text-shadow:0 4px 14px rgba(0,0,0,.7); margin-bottom:6px;
+        }
+        /* Reader frame */
+        .reader-container {
+            background:var(--card-bg); border:1px solid var(--border-color);
+            border-radius:12px; padding:44px 50px;
+            box-shadow:0 10px 38px rgba(0,0,0,.5); position:relative;
+        }
+        .reader-container::before {
+            content:''; position:absolute; top:8px; left:8px; right:8px; bottom:8px;
+            border:1px solid rgba(212,175,55,.12); border-radius:8px; pointer-events:none;
+        }
+        /* Prose */
+        .prose p {
+            margin-bottom: 20px;
+            text-align: justify;
+            text-indent: 0.75em;
+        }
+        .prose p.dialogue {
+            text-indent: 0;
+            padding-left: 10px;
+            border-left: 2px solid rgba(212,175,55,.22);
+            margin-bottom: 14px;
+        }
+        .prose p.dialogue-cont {
+            text-indent: 0;
+            padding-left: 10px;
+            margin-top: -14px;
+            margin-bottom: 14px;
+            color: var(--text-dim);
+        }
+        .prose .scene-break {
+            text-align:center; color:var(--muted-gold);
+            font-size:15px; letter-spacing:10px; margin:32px 0; user-select:none;
+        }
+        .prose blockquote.epigraph {
+            background:var(--quote-bg); border-left:3px solid var(--accent-gold);
+            border-right:3px solid var(--accent-gold); padding:18px 24px;
+            margin:0 auto 34px auto; border-radius:4px; text-align:center;
+            font-style:italic; color:#f0e6d2; font-size:.97em;
+            max-width:600px; box-shadow:0 3px 14px rgba(0,0,0,.25); text-indent:0;
+        }
+        /* Prev/Next nav */
+        .chapter-nav {
+            display:flex; justify-content:space-between; align-items:center;
+            margin-top:34px; padding-top:20px; border-top:1px solid var(--border-color);
+        }
+        .chapter-nav a {
+            font-family:'Cinzel',serif; font-size:13px; font-weight:600;
+            color:var(--accent-gold); text-decoration:none; transition:color .2s;
+        }
+        .chapter-nav a:hover { color:var(--accent-bright); }
+        /* Sidebar */
+        .sidebar {
+            background:var(--sidebar-bg); border:1px solid var(--border-color);
+            border-radius:10px; padding:18px 14px;
+            box-shadow:0 6px 22px rgba(0,0,0,.4);
+            position:sticky; top:20px;
+            max-height:calc(100vh - 40px); overflow-y:auto;
+        }
+        .sidebar::-webkit-scrollbar { width:4px; }
+        .sidebar::-webkit-scrollbar-thumb { background:var(--border-color); border-radius:4px; }
+        .sidebar-title {
+            font-family:'Cinzel',serif; font-size:11px; letter-spacing:3px;
+            text-transform:uppercase; color:var(--accent-gold);
+            margin-bottom:14px; padding-bottom:10px;
+            border-bottom:1px solid var(--border-color); text-align:center;
+        }
+        .sidebar-list { list-style:none; }
+        .sidebar-list li { border-bottom:1px solid rgba(59,40,24,.5); }
+        .sidebar-list li a {
+            display:block; padding:8px 7px; font-size:12.5px;
+            color:var(--text-dim); text-decoration:none; line-height:1.4;
+            transition:color .2s, background .2s; border-radius:4px;
+        }
+        .sidebar-list li a:hover { color:var(--accent-gold); background:rgba(212,175,55,.06); }
+        .sidebar-list li.active a {
+            color:var(--accent-bright); font-weight:600;
+            background:rgba(212,175,55,.1);
+        }
+        .ch-num {
+            font-family:'Cinzel',serif; font-size:10px;
+            color:var(--muted-gold); margin-right:5px;
+        }
+        /* Footer */
+        .page-footer {
+            grid-column:1 / -1; text-align:center;
+            font-family:'Cinzel',serif; font-size:11.5px;
+            color:var(--text-dim); margin-top:34px; opacity:.8;
+        }
+        .page-footer a { color:var(--accent-gold); text-decoration:none; }
+        /* Responsive */
+        @media (max-width:900px) {
+            .page-layout { grid-template-columns:1fr; }
+            .sidebar { position:static; max-height:none; display:none; }
+            .sidebar.open { display:block; margin-top:18px; }
+            .btn-sidebar { display:inline-block !important; }
+        }
+        @media (max-width:600px) {
+            .reader-container { padding:26px 16px; }
+            .main-title { font-size:22px; }
+            .prose p { text-align:left; }
+        }
+        .btn-sidebar { display:none; }
+    </style>
+</head>
+<body>
+<div class="page-layout">
+
+    <nav class="nav-bar">
+        <a href="../capitulos.html" class="nav-back">&#8592; Cap&iacute;tulos</a>
+        <div class="reader-controls">
+            <button class="btn-ctrl btn-sidebar" onclick="toggleSidebar()">&#9776; Lista</button>
+            <button class="btn-ctrl" onclick="changeFontSize(-1)">A-</button>
+            <button class="btn-ctrl" onclick="changeFontSize(1)">A+</button>
+            <button class="btn-ctrl" onclick="toggleTheme()">&#127912; Tema</button>
+        </div>
+    </nav>
+
+    <main class="main-col">
+        <header class="chapter-header">
+            <span class="sub-label">Forgotten Sword &middot; Cap&iacute;tulo 01</span>
+            <h1 class="main-title">El peso de los tatuajes</h1>
+        </header>
+        <div class="reader-container">
+            <article class="prose">
+<blockquote class="epigraph">&#171;Incluso en lo m&#225;s oscuro del espacio hay estrellas que fulguran&#187;.</blockquote>
+<p>En el atardecer, en un claro del bosque, un anciano con tatuajes azules que cubr&#237;an casi todo su cuerpo con extra&#241;as l&#237;neas descansaba en meditaci&#243;n, arrodillado y con los ojos cerrados. En medio de la armon&#237;a del canto de los &#225;rboles y los animales, prorrumpi&#243; el crujido de las ramas en el suelo. Entonces apareci&#243; un soldado que bland&#237;a una espada resplandeciente.</p>
+<p>—Un largo viaje tan solo por un anciano —ironiz&#243; el soldado sin inmutarse.</p>
+<p>—Ambos sabemos que no soy solo un anciano y que la recompensa por mi cabeza vale cualquier viaje, por muy cansador que sea —afirm&#243; el reci&#233;n llegado sin quitarle el ojo de encima.</p>
+<p>—&#191;Y sabes t&#250; que no es por m&#237;, sino por lo que s&#233;? &#191;En serio quieres acabar con el conocimiento de miles de a&#241;os en vez de recibir la revelaci&#243;n que necesitas, novel?</p>
+<p>—&#191;C&#243;mo…? —pregunt&#243; extra&#241;ado.</p>
+<p>—Un soldado versado empu&#241;ar&#237;a esa larga espada con m&#225;s firmeza. Tus brazos se cansan y la posici&#243;n de tus pies revela que has caminado mucho. &#191;Est&#225;s seguro de que matarme lo vale, o te interesar&#237;a saber c&#243;mo cuidar a tu peque&#241;a hermana?</p>
+<p>—&#191;C&#243;mo…, en serio, c&#243;mo lo sabes?</p>
+<p>—El sabio es inteligente, pero el inteligente nunca ser&#225; sabio —respondi&#243; el anciano pac&#237;ficamente—. La cinta roja atada a tu pantal&#243;n no es un simple adorno: en las provincias del sur es el voto sagrado que se realiza ante los dioses para rogar por la salud de una hermana o hija enferma. Que la lleves contigo demuestra por qui&#233;n haces esto.</p>
+<p>&#187;As&#237; que pregunto: &#191;qu&#233; quieres saber?, &#191;algo mayor que el oro que te den por matarme?</p>
+<p>El soldado mostr&#243; un rostro cargado de duda, an&#225;lisis y necesidad.</p>
+<p>—&#191;D&#243;nde puedo hallar suficiente oro para nunca volver a hacer algo como esto?</p>
+<p>—Entiendo que necesites oro para vivir, pero ese oro terminar&#225; alg&#250;n d&#237;a y tendr&#225;s que volver a hacer algo semejante.</p>
+<p>—Por favor, mi hermana necesita un buen m&#233;dico —suplic&#243;, esta vez dejando caer la punta de su espada hasta tocar el suelo.</p>
+<p>—Responde a esto y te dir&#233; c&#243;mo vivir con comodidad hasta que mueras: &#191;Qui&#233;n salva su vida a costa de la muerte de otro es mayor que aquel que se sacrifica por los dem&#225;s?</p>
+<p>Luego de pensar profundamente, el soldado envain&#243; su espada.</p>
+<p>—No. Ambos son iguales: uno act&#250;a por temor a la muerte; el otro, por valent&#237;a. No es cobard&#237;a salvarse: es instinto. Ambos preservan una vida; solo uno la pierde.</p>
+<p>—Excelente respuesta. Bendita la madre que te tuvo, porque has hallado sabidur&#237;a y buen entendimiento. Ahora bien, mi respuesta es que si vas a las monta&#241;as altas, hallar&#225;s a sus pies una cueva; all&#237; estar&#225; cuanto oro quieras. &#191;O prefieres seguirme y aprender de m&#237; sin que me limite a responderte?</p>
+<p>—Si voy contigo, &#191;mi hermana sanar&#225;? —pregunt&#243; con duda.</p>
+<p>—No soy solo un anciano, soldado, sino lo que s&#233; y lo que puedo hacer —sonri&#243; con iron&#237;a.</p>
+<div class="scene-break">&#10042; &#10042; &#10042;</div>
+<blockquote class="epigraph">&#171;Es inmensurable el poder que pueden tener los padres en sus hijos: pueden motivarlos a que hagan grandes cosas o llevarlos a la perdici&#243;n&#187;.</blockquote>
+<p>En la zona de entrenamiento, los j&#243;venes soldados practicaban d&#237;a a d&#237;a; esta jornada no era la excepci&#243;n.</p>
+<p>Wald&#225;in choc&#243; el acero contra el de su compa&#241;ero. Con voracidad, ambos luchaban en el cercado donde una docena de muchachos entrenaba. Wal le hab&#237;a confesado semanas atr&#225;s a Taika, su mejor amigo, lo mucho que le gustaba Alva, confi&#225;ndole aquel secreto con absoluta sinceridad.</p>
+<p>—Te veo m&#225;s lento, Wal —alarde&#243; Taika cara a cara, mientras empu&#241;aba su espada con firmeza.</p>
+<p>—Pesta&#241;ea m&#225;s seguido y ver&#225;s si soy lento, Taika.</p>
+<p>Wal esquiv&#243; sus ataques movi&#233;ndose a la derecha y lanz&#243; una feroz estocada hacia el torso de Taika; pero este de s&#250;bito interfiri&#243; con su espada y bloque&#243; el golpe.</p>
+<p>Ambos se miraron sorprendidos, con los ojos exaltados.</p>
+<p>—Nada mal, chicos —afirm&#243; Skaivan, acerc&#225;ndose a ellos.</p>
+<p>—&#191;Qu&#233; haces aqu&#237;, Skaivan? Deber&#237;as estar con mi padre.</p>
+<p>—Ey, tranquilo, solo quer&#237;a ver a mi hermanito —Skaivan pas&#243; la mano bruscamente por el cabello de Wal y lo despein&#243; sin cuidado.</p>
+<p>—Ya, ya, para.</p>
+<p>—Bueno, nos vemos por la tarde.</p>
+<p>Terminado el entrenamiento, Wal y Taika caminaron bajando por la senda de tierra. A sus espaldas se erig&#237;a una gran fortaleza con plantas trepadoras en sus muros y &#225;rboles cuyos troncos parec&#237;an fusionarse con la piedra.</p>
+<p>—Ahora habr&#225; una reuni&#243;n del consejo, &#191;quieres ir? —propuso Taika.</p>
+<p>—De lujo.</p>
+<p>Se escabulleron por los arbustos y observaron a trav&#233;s de los ventanales a una docena de personas sentadas a la mesa.</p>
+<p>—La tribu F&#233;umar se ha unido al reino de Klabach —declar&#243; uno de los hombres con evidente lamento.</p>
+<p>—&#191;&#161;C&#243;mo!? —exclam&#243; el m&#225;s anciano.</p>
+<p>—Apareci&#243; un hombre y los convenci&#243; a todos, Sr. Ronat.</p>
+<p>—&#191;Cu&#225;l es su nombre? —pregunt&#243; el padre de Wal, Nauren, con voz firme.</p>
+<p>Todos se miraron tensos, con rostros serios y postura r&#237;gida.</p>
+<p>—Deschast; es de la tribu Roy&#225;i. Apareci&#243; de la nada y, de repente, todos estaban a favor de sus ideas unificacionistas.</p>
+<p>—Tendr&#233; que reunirme con el Sr. Schaik, de la tribu Klignak —revel&#243; el l&#237;der anciano, el Sr. Ronat, antes de levantarse de su asiento y salir de la habitaci&#243;n.</p>
+<p>—Y yo visitar&#233; a la tribu Ezrak, ya que sus alianzas nos podr&#237;an ayudar a esclarecer todo esto —avis&#243; un hombre de mediana edad.</p>
+<p>Minutos despu&#233;s, el Sr. Ronat charl&#243; con el padre de Wal en su oficina, mientras Wal y Taika escuchaban desde la ventana sin ser vistos.</p>
+<p>—Mientras yo no est&#233;, t&#250; estar&#225;s a cargo, Nauren —expuso Ronat, sentado en su sill&#243;n.</p>
+<p>—Gracias por el voto de confianza, pero &#191;por qu&#233; se reunir&#225; con el l&#237;der de la tribu Klignak?</p>
+<p>—Es un buen hombre y congeniamos la mayor&#237;a de las veces.</p>
+<p>Nauren retrocedi&#243; y mir&#243; por el ventanal. Wal se apeg&#243; a la pared para esconderse.</p>
+<p>—La independencia de las tribus es lo que nos representa. Los reinos siempre han querido doblegarnos para obtener nuestros recursos —explic&#243; Nauren.</p>
+<p>—Han pasado mil seiscientos setenta y un a&#241;os desde la Gran Guerra… —murmur&#243; el Sr. Ronat.</p>
+<p>—La antigua guerra de independencia… —a&#241;adi&#243; Nauren, pensativo.</p>
+<p>—Aquel conflicto hist&#243;rico nos ense&#241;&#243; que los reinos jam&#225;s respetar&#225;n la autonom&#237;a tribal si nos debilitamos. Miles de nuestros ancestros murieron para legarnos esta libertad, y ahora pretenden unificarnos olvidando el sacrificio fundacional de nuestra alianza —declar&#243; el Sr. Ronat.</p>
+<p>Wal y Taika, que oyeron todo, se miraron cara a cara con el rostro at&#243;nito.</p>
+<p>—Tai, parece que habr&#225; problemas —murmur&#243; Wal, compungido.</p>
+<p>Al d&#237;a siguiente, Wal visit&#243; la casa de su amiga Alva, una vivienda acogedora con bonitas decoraciones de madera.</p>
+<p>—Si es cierto lo que o&#237;ste, ser&#225; interesante de ver —mencion&#243; ella mientras amasaba el pan.</p>
+<p>—Quiz&#225;s, pero mi padre no se ve&#237;a contento.</p>
+<p>—Ese tal Deschast, &#191;ser&#225; guapo? —brome&#243; Alva chocando ligeramente su hombro contra el de Wal.</p>
+<p>En ese momento entr&#243; el padre de la chica con una canasta llena de tomates.</p>
+<p>—&#161;Wal! &#191;C&#243;mo est&#225;s? —salud&#243; el hombre antes de colocar la canasta sobre la mesa.</p>
+<p>—Estoy bien, Sr. Haufeld —respondi&#243; educadamente.</p>
+<p>—Cocinaremos potaje. &#191;Te gusta, Wal? —pregunt&#243; mientras preparaba los ingredientes.</p>
+<p>—Mmm, no tanto.</p>
+<p>—Ja, ja. Pero es saludable. Alva, &#191;cu&#225;nto te falta?</p>
+<p>—Si Wal me ayudara m&#225;s r&#225;pido, ya estar&#237;a listo —dijo ella mir&#225;ndolo con una sonrisa juguetona.</p>
+<p>Wal ayud&#243; a Alva amasando el pan sobre la mesa.</p>
+<p>—H&#225;ganlo r&#225;pido, este pan ser&#225; para el Sr. Ronat.</p>
+<p>El Sr. Haufeld se retir&#243; de la cocina llevando consigo un cuenco de madera.</p>
+<p>—Me gustar&#237;a decirle a mi padre que quiero unirme a la arquer&#237;a —murmur&#243; Alva, pensativa.</p>
+<p>—D&#237;selo.</p>
+<p>—&#201;l quiere que me dedique a la panader&#237;a, pero lo m&#237;o no es la cocina.</p>
+<p>—Si no se lo dices, tu padre nunca lo sabr&#225; —aclar&#243; Wal.</p>
+<p>De repente, entr&#243; la hermana menor de Alva a la cocina.</p>
+<p>—Hola, Wali —salud&#243; la peque&#241;a Kalene mientras miraba por todas partes.</p>
+<p>—Hola, Kalene.</p>
+<p>—&#191;Han visto mi espada de madera? —pregunt&#243; revisando los cajones de los muebles.</p>
+<p>—&#191;Espada de madera? No me vayas a atacar, &#191;eh? —brome&#243; Wal.</p>
+<p>—Podr&#237;amos jugar si la encuentro.</p>
+<p>—Mejor no la encuentres, podr&#237;as herirme —a&#241;adi&#243; entre risas.</p>
+<p>Minutos despu&#233;s, Wal y Alva caminaron por las calles de la aldea llevando la cesta llena de pan hasta llegar al carruaje del Sr. Ronat. Este conversaba con un lugare&#241;o que luego se retir&#243;.</p>
+<p>—Sr. Ronat, le trajimos este pan —declar&#243; Wal con una gran sonrisa.</p>
+<p>—Gracias, Wal —el anciano quit&#243; el mantel de la cesta y la oli&#243;—. Huele de maravilla. Gracias a los dos.</p>
+<p>El Sr. Ronat coloc&#243; la cesta en la parte trasera del carruaje y se acomod&#243; en el pescante. Luego arre&#243; los caballos y se alej&#243; hasta perderse en el horizonte.</p>
+<p>—&#191;Quieres ir a los juegos, Wal? &#161;Hoy empiezan! —propuso Alva.</p>
+<p>—No puedo, tengo entrenamiento —respondi&#243; &#233;l poniendo cara triste.</p>
+<p>—Bueeeeno, despu&#233;s me cuentas si Taika te gan&#243; de nuevo, ja, ja —vacil&#243; Alva mientras caminaba de espaldas.</p>
+<p>—Ja… ja… —rio Wal con iron&#237;a.</p>
+<p>Horas despu&#233;s, el Sr. Ronat lleg&#243; a la tribu Klignak, al sur, donde fue recibido por el Sr. Schaik, l&#237;der de aquella tribu, y por los pobladores que lo aclamaban.</p>
+<p>—Ronat, &#191;qu&#233; te trae por aqu&#237;? —salud&#243; Schaik mientras el Sr. Ronat bajaba del carruaje.</p>
+<p>—Tengo inquietudes urgentes que tratar contigo; conciernen al futuro de todas las tribus.</p>
+<p>Poco despu&#233;s, charlaron en la sobria oficina del Sr. Schaik.</p>
+<p>—Entonces ese tipo llamado Deschast est&#225; convenciendo a las tribus de unirse a los reinos. Debe ser astuto para persuadir a tantos.</p>
+<p>—Los l&#237;deres actuales parecen haber olvidado las lecciones de la Gran Guerra. Muchas tribus desaparecieron en aquel entonces por confiar en las promesas de las grandes potencias.</p>
+<p>—Lo s&#233; bien, pero no entiendo por qu&#233; est&#225;n haciendo la vista gorda.</p>
+<p>—Tienes que hablar con tu hermana Retha —afirm&#243; el Sr. Ronat.</p>
+<p>—&#191;Con Retha? No hablo con mi hermana desde hace casi veinte a&#241;os —respondi&#243; Schaik mientras caminaba de un lado a otro por la habitaci&#243;n.</p>
+<p>—Tu hermana conserva una enorme influencia. Aunque renunci&#243; a la jefatura de su asentamiento, sus consejos a&#250;n pesan entre los nobles.</p>
+<p>—Es complicado —admiti&#243; Schaik sent&#225;ndose tras su escritorio.</p>
+<p>—&#191;Qu&#233; ocurri&#243; exactamente entre ustedes, Schaik? —pregunt&#243; Ronat con calma.</p>
+<p>—Cuando Retha asumi&#243; el mando tras la muerte de nuestro padre, implement&#243; reformas con las que no estuve de acuerdo. Discutimos acaloradamente y me march&#233; para fundar esta tribu.</p>
+<p>Entretanto, en el territorio Raumo, Nauren ejerc&#237;a la jefatura provisional y supervisaba los cultivos junto a los agricultores.</p>
+<p>—&#161;El nivel del agua disminuy&#243;! Y estas cosechas se secar&#225;n si no hacemos algo —reclam&#243; un campesino se&#241;alando los extensos sembrad&#237;os.</p>
+<p>—Hay un lago al norte de aqu&#237; —indic&#243; Nauren con aplomo—. Si organizan las carretas con los baldes grandes, podr&#225;n canalizar el agua suficiente para salvar la siembra.</p>
+<p>—&#161;Es verdad! No lo hab&#237;amos pensado. Muchas gracias, Sr. Nauren —exclam&#243; el agricultor aliviado.</p>
+<p>Nauren regres&#243; al centro de la aldea flanqueado por los ancianos del consejo.</p>
+<p>—Nada mal, Nauren. El Sr. Ronat est&#225; pr&#243;ximo a retirarse; podr&#237;as postularte para sucederlo —sugiri&#243; el Sr. Lorevan mientras caminaban por las calles pedregosas.</p>
+<p>—Se lo agradezco, Sr. Lorevan, pero no creo que el liderazgo pol&#237;tico sea lo m&#237;o.</p>
+<p>—Nauren, est&#225;s entrado en a&#241;os y quedaste cojo tras la batalla; seg&#250;n veo, no te quedan muchas opciones —coment&#243; Lorevan antes de tomar otro camino. Nauren permaneci&#243; inm&#243;vil en silencio, reflexivo.</p>
+<p>Mientras tanto, Wal charlaba con su madre en el taller de costura de la aldea.</p>
+<p>—Alva quiere decirle a su padre que desea ser arquera, y no s&#233; c&#243;mo ayudarla, mam&#225; —confes&#243; Wal con voz preocupada.</p>
+<p>—Hijo, el Sr. Haufeld pertenece a una larga estirpe de panaderos; no le resultar&#225; sencillo aceptarlo.</p>
+<p>—&#191;Entonces qu&#233; puedo hacer?</p>
+<p>—Te interesa mucho esa chica, &#191;verdad? —sonri&#243; la madre mientras trabajaba en el telar—. An&#237;mala a hablar con su padre con honestidad. Eso es lo mejor que puedes hacer por ella.</p>
+<p>Al d&#237;a siguiente, en Klignak, el Sr. Ronat convers&#243; nuevamente con el Sr. Schaik en el p&#243;rtico de la residencia, bebiendo t&#233; sentados en las escaleras.</p>
+<p>—Ronat, &#191;por qu&#233; no vas t&#250; mismo y hablas con Retha? —cuestion&#243; Schaik.</p>
+<p>—Pensaba que, siendo su hermano, te prestar&#237;a mayor atenci&#243;n. Adem&#225;s, tu hermana no suele tomar decisiones precipitadas.</p>
+<p>—Precisamente por eso dudo que acepte las intenciones de Deschast.</p>
+<p>Ambos guardaron silencio observando el ir y venir de los aldeanos.</p>
+<p>—Si tanto te preocupa, expong&#225;moslo hoy mismo ante el consejo —propuso el Sr. Schaik, provocando un gesto de alivio en Ronat.</p>
+<p>Esa misma tarde, Wal desafi&#243; a Taika a un nuevo duelo en la fortaleza.</p>
+<p>—Wal, &#191;por qu&#233; quieres pelear de nuevo? —pregunt&#243; Taika con tono desinteresado.</p>
+<p>—Esta vez no me ganar&#225;s —asegur&#243; Wal con la espada empu&#241;ada y el cuerpo tenso.</p>
+<p>Wal lanz&#243; el primer ataque, pero Taika repeli&#243; el embate con soltura apoyando la hoja con fuerza. Ambos comenzaron a girar en c&#237;rculos sin perderse de vista.</p>
+<p>Wal lanz&#243; una estocada r&#225;pida que oblig&#243; a Taika a retroceder, y acto seguido ejecut&#243; un corte vertical que tom&#243; por sorpresa a su rival, rozando su pechera de cuero y dejando una marca visible.</p>
+<p>—&#161;M&#225;s cuidado, Wal! &#191;&#161;Acaso quieres matarme!? —se air&#243; Taika quit&#225;ndose las protecciones de cuero antes de retirarse a zancadas del campo de entrenamiento.</p>
+<p>Aquella noche se discuti&#243; en el consejo de la tribu Klignak la posici&#243;n que adoptar&#237;an ante el movimiento unificacionista.</p>
+<p>—Sostengo que si ya hay tribus uni&#233;ndose a los reinos, es cuesti&#243;n de tiempo para que las dem&#225;s sigan el mismo camino —expuso un consejero con severidad.</p>
+<p>Los asistentes comenzaron a murmurar.</p>
+<p>—Debemos evitar que esto se extienda. Desde fuera parece una alianza ventajosa, pero en el fondo busca arrebatar nuestra soberan&#237;a —afirm&#243; el Sr. Ronat.</p>
+<p>—Demostremos a las tribus que los reinos solo quieren someternos. Hay dificultades econ&#243;micas, pero podemos resolverlas entre nosotros sin ceder la independencia —a&#241;adi&#243; un hombre canoso.</p>
+<p>—Ma&#241;ana viajar&#233; a la tribu Revenst junto al Sr. Ronat para buscar el respaldo de su consejo —anunci&#243; Schaik.</p>
+<p>Mientras tanto, Wal aguardaba a Alva afuera de su casa.</p>
+<p>—Alva, tienes que hablar con tu padre. Si no lo haces, nunca podr&#225;s entrenar como arquera.</p>
+<p>—Es que… me da mucho temor su reacci&#243;n, Wal.</p>
+<p>—Conf&#237;a en ti misma, lo har&#225;s bien —Wal coloc&#243; sus manos en los hombros de su amiga para darle seguridad.</p>
+<p>—Est&#225; bien, lo har&#233;.</p>
+<p>Poco despu&#233;s, en la cocina, el Sr. Haufeld picaba cebollas sobre una tabla de madera.</p>
+<p>—Hola, hija. &#191;Buscas algo?</p>
+<p>—Tengo algo importante que decirte, pap&#225;.</p>
+<p>—Dime, &#191;discutiste con tu hermana?</p>
+<p>—No, no es eso… Quiero unirme al cuerpo de arqueros —el hombre detuvo el cuchillo de golpe y se qued&#243; en silencio.</p>
+<p>—Mira, s&#233; que esperas que siga el negocio familiar, pero la panader&#237;a no es mi vocaci&#243;n, pap&#225;.</p>
+<p>El Sr. Haufeld suspir&#243; hondo, dej&#243; el cuchillo sobre la mesa y se dio la vuelta.</p>
+<p>—Est&#225; bien. Si es lo que realmente te apasiona, cuentas con mi apoyo.</p>
+<p>—&#191;En serio?</p>
+<p>—S&#237;. En el fondo intu&#237;a que prefer&#237;as las armas a la harina —sonri&#243; el padre abriendo los brazos—. Ven aqu&#237;.</p>
+<p>Ambos se fundieron en un c&#225;lido abrazo mientras Wal contemplaba la escena complacido desde la ventana.</p>
+<p>Ca&#237;da la noche, Wal cen&#243; con su familia en su hogar.</p>
+<p>—&#191;Le diste a tu amiga el consejo que te suger&#237;, Wal? —pregunt&#243; su madre mientras serv&#237;a la comida.</p>
+<p>—&#191;Qu&#233; consejo, madre? —intervino Skaivan con curiosidad.</p>
+<p>—A tu hermano le gusta la hija del panadero —revel&#243; la madre con tono afable.</p>
+<p>—&#161;&#191;En serio!? Vaya, Wal, te ten&#237;as guardado ese lado rom&#225;ntico —brome&#243; Skaivan.</p>
+<p>—Ya, d&#233;jenme en paz —dijo Wal avergonzado.</p>
+<p>—Alva es una buena muchacha; me alegra verte crecer, hijo —a&#241;adi&#243; Nauren con una sonrisa.</p>
+<p>D&#237;as despu&#233;s, el Sr. Ronat y el Sr. Schaik emprendieron viaje hacia la tribu Revenst y llegaron al caer la noche. Frente a ellos se erig&#237;a una pr&#243;spera ciudad amurallada, protegida por torres donde los guardias manten&#237;an encendidos potentes faroles de vig&#237;a.</p>
+<p>—&#191;De d&#243;nde provienen? —inquiri&#243; el centinela a la entrada.</p>
+<p>—De la tribu Raumo, se&#241;or —respondi&#243; Schaik.</p>
+<p>—&#191;Sus nombres?</p>
+<p>—Nos llamamos Herdo y Guilak —improvis&#243; Schaik empleando nombres falsos por precauci&#243;n.</p>
+<p>—&#191;Motivo de la visita?</p>
+<p>—Venimos a visitar a una antigua familiar, se&#241;or.</p>
+<p>El guardia los examin&#243; minuciosamente de pies a cabeza antes de asentir.</p>
+<p>—De acuerdo, pueden pasar.</p>
+<p>Recorrieron las avenidas bien pavimentadas, iluminadas por elegantes farolas, donde los transe&#250;ntes caminaban por las aceras y las carretas transitaban organizadamente.</p>
+<p>Tras unos minutos de caminata, llegaron a una distinguida casona con jard&#237;n frontal. Al llamar a la puerta, los recibi&#243; una joven elegantemente vestida.</p>
+<p>—&#191;A qui&#233;n buscan? —pregunt&#243; la muchacha con curiosidad.</p>
+<p>En ese momento apareci&#243; Retha en el vest&#237;bulo. Al reconocer a Schaik, su expresi&#243;n se endureci&#243;.</p>
+<p>—Schaik… —pronunci&#243; con voz fr&#237;a antes de darse la vuelta hacia la sala principal.</p>
+<p>Los reci&#233;n llegados entraron en la residencia, ornamentada con sutiles esculturas de cuarzo y utensilios de plata.</p>
+<p>—Veo que la vida te ha tratado bien, Retha —coment&#243; Schaik.</p>
+<p>—Tampoco a ti se te ve desamparado —respondi&#243; ella desde un sill&#243;n.</p>
+<p>—Retha, necesitamos hablar contigo sobre un asunto crucial —intervino el Sr. Ronat.</p>
+<p>—Es bueno verte a ti tambi&#233;n, Ronat —salud&#243; ella reduciendo un poco la frialdad.</p>
+<p>—&#191;Desean tomar algo de beber? —ofreci&#243; la joven educadamente.</p>
+<p>—Un t&#233; estar&#237;a bien, gracias —agradeci&#243; Ronat. La muchacha se retir&#243; hacia la cocina.</p>
+<p>Ronat y Schaik tomaron asiento frente a la due&#241;a de casa.</p>
+<p>—&#191;Qui&#233;n es la joven? —quiso saber Schaik.</p>
+<p>—Es Lenith, mi nieta; la hija de Lorien —explic&#243; Retha.</p>
+<p>—&#161;As&#237; que Lorien tuvo una hija! Veo que ha pasado mucho tiempo —expres&#243; Schaik con cierta nostalgia.</p>
+<p>—&#191;A qu&#233; vinieron realmente? —pregunt&#243; Retha directa.</p>
+<p>—Hay un enviado llamado Deschast que est&#225; persuadiendo a varias tribus para que se sometan a la autoridad de los reinos.</p>
+<p>—&#191;Y qu&#233; pretenden que haga yo? Dej&#233; la pol&#237;tica activa hace a&#241;os.</p>
+<p>—Sabemos que tu opini&#243;n a&#250;n es respetada por el consejo de Revenst y por tu yerno —manifest&#243; Ronat.</p>
+<p>En ese instante reapareci&#243; Lenith sirviendo las tazas en la mesa central antes de tomar asiento en un extremo.</p>
+<p>—Lenith, &#233;l es mi hermano Schaik, a quien no ve&#237;a en dos d&#233;cadas; y &#233;l es el Sr. Ronat —los present&#243; Retha.</p>
+<p>—Un placer conocerlos —salud&#243; Lenith con timidez.</p>
+<p>—Retha, adem&#225;s del problema pol&#237;tico, me gustar&#237;a que pudi&#233;ramos dejar atr&#225;s los antiguos rencores familiares —expres&#243; Schaik con sinceridad.</p>
+<p>Retha lo mir&#243; en silencio durante unos segundos antes de ponerse de pie con gesto cansado.</p>
+<p>—Es tarde. Las sirvientas prepararon las habitaciones de hu&#233;spedes en la planta alta; descansen hoy y hablaremos ma&#241;ana.</p>
+<p>Mientras Schaik sub&#237;a las escaleras, Ronat aguard&#243; un momento en el sal&#243;n.</p>
+<p>—&#191;A&#250;n conservas resentimiento hacia Schaik? —pregunt&#243; suavemente.</p>
+<p>—El tiempo suaviza las cosas, Ronat. Ve a descansar —respondi&#243; ella con una tenue sonrisa.</p>
+<p>De pronto, un golpe seco reson&#243; en la entrada principal y varios guardias armados irrumpieron en la residencia. El Sr. Ronat se posicion&#243; de inmediato frente a Retha para protegerla.</p>
+<p>Tras los soldados ingres&#243; un hombre de porte imponente y ropajes se&#241;oriales.</p>
+<p>—Retha, me informan que est&#225;s alojando a visitantes sin registrarlos ante la guardia —declar&#243; con voz firme.</p>
+<p>—&#191;Qui&#233;n es &#233;l? —susurr&#243; Ronat.</p>
+<p>—Es Ronan, mi yerno y actual l&#237;der de la tribu Revenst —aclar&#243; Retha.</p>
+<p>—Soy el Sr. Ronat, l&#237;der de la tribu Raumo, y venimos en cultura de paz —aclar&#243; el anciano.</p>
+<p>En ese momento descendieron apresuradamente Schaik y Lenith por las escaleras.</p>
+<p>—Vaya, qu&#233; sorpresa: Schaik en persona —expres&#243; Ronan analizando a los presentes—. La guardia detect&#243; el ingreso de dos l&#237;deres tribales bajo identidades falsas. &#191;Por qu&#233; visitan a la antigua jefa en lugar de presentarse formalmente ante mi despacho?</p>
+<p>—Quer&#237;amos tratar un asunto delicado sin generar alarmas innecesarias —explic&#243; Schaik.</p>
+<p>—Acompa&#241;en a mis hombres al edificio central —orden&#243; Ronan con serenidad pero sin dar margen a r&#233;plicas.</p>
+<p>A la ma&#241;ana siguiente, en la sede del consejo conocida como &#171;Los Tres Pilares&#187;, Ronan se reuni&#243; con Ronat y Schaik en presencia de sus asesores.</p>
+<p>—Entiendo sus aprensiones respecto a Deschast —manifest&#243; Ronan tras escucharlos—. Sin embargo, Revenst ha rechazado formalmente cualquier propuesta de integraci&#243;n con los reinos. Mantendremos nuestra soberan&#237;a.</p>
+<p>—Nos alegra escuchar eso, Sr. Ronan —expres&#243; Ronat aliviado—. Pero las tribus menores est&#225;n cediendo, y eso terminar&#225; afect&#225;ndonos a todos.</p>
+<p>—Nos mantendremos vigilantes —asegur&#243; Ronan—. Ahora les sugiero regresar a sus asentamientos; no es conveniente que Raumo y Klignak permanezcan sin sus l&#237;deres en momentos de incertidumbre.</p>
+<p>Mientras tanto, en la capital Raumo, Nauren encomend&#243; una misi&#243;n a Skaivan.</p>
+<p>—El Sr. Ronat lleva d&#237;as fuera y no hemos recibido noticias suyas desde que parti&#243; hacia la regi&#243;n de Revenst —explic&#243; Nauren desde su escritorio.</p>
+<p>—Ir&#233; a buscarlo y me asegurar&#233; de que se encuentre a salvo —asinti&#243; Skaivan con determinaci&#243;n.</p>
+<p>A la ma&#241;ana siguiente, mientras Skaivan preparaba su caballo en los establos, Wal apareci&#243; en el lugar.</p>
+<p>—&#191;A d&#243;nde vas, Skai? —pregunt&#243; el muchacho al verlo equipado.</p>
+<p>—Voy en marcha hacia H&#237;ltar para verificar el estado del Sr. Ronat.</p>
+<p>—&#191;Puedo ir contigo?</p>
+<p>—Sabes que no, hermanito; es un encargo oficial y el camino puede ser peligroso.</p>
+<p>—Entiendo. Cu&#237;date mucho y regresa pronto —expres&#243; Wal abraz&#225;ndolo con fuerza.</p>
+<p>Unos d&#237;as m&#225;s tarde, Skaivan cruz&#243; los arcos de entrada de la majestuosa ciudad de H&#237;ltar, capital de Revenst. Decidido a no dejar su b&#250;squeda al azar, se dirigi&#243; activamente a los puestos del mercado cercano para averiguar el paradero de la delegaci&#243;n de Raumo o la ubicaci&#243;n de la residencia de Retha, la renombrada antigua l&#237;der.</p>
+<p>Un anciano comerciante le indic&#243; el barrio residencial donde habitaba Retha. Skaivan camin&#243; a paso firme hasta la casona y toc&#243; el portal justo cuando Retha sal&#237;a acompa&#241;ada por su nieta Lenith.</p>
+<p>—Disculpe la interrupci&#243;n, se&#241;ora Retha. Soy Skaivan, mensajero de la tribu Raumo —se present&#243; haciendo una reverencia—. Busco al Sr. Ronat, quien parti&#243; a esta ciudad hace unos d&#237;as.</p>
+<p>Retha lo mir&#243; con amabilidad y sonri&#243;.</p>
+<p>—Llegas un poco tarde, muchacho. El Sr. Ronat y mi hermano Schaik concluyeron sus conversaciones con el consejo ayer por la tarde y emprendieron el viaje de regreso a Raumo a primera hora de la ma&#241;ana.</p>
+<p>—&#161;Qu&#233; alivio escuchar que est&#225; a salvo! Muchas gracias por la informaci&#243;n, Sra. Retha —expres&#243; Skaivan reconfortado.</p>
+<p>Tranquilizado, Skaivan inici&#243; el retorno hacia las puertas de la ciudad. Sin embargo, al aproximarse a la avenida principal, una muchedumbre enfurecida irrumpi&#243; en las calles protestando contra las pol&#237;ticas del consejo local. Los manifestantes comenzaron a derribar puestos y a enfrentarse a los guardias.</p>
+<p>En medio del tumulto y la confusi&#243;n, las tropas de pacificaci&#243;n rodearon la zona y comenzaron a arrestar indiscriminadamente a los presentes. Pese a sus explicaciones de que solo era un viajero de paso, un soldado empuj&#243; a Skaivan y lo redujo por la fuerza.</p>
+<p>—&#161;Se&#241;or, soy un mensajero de Raumo, no tengo nada que ver con los desmanes! —reclam&#243; Skaivan forcejeando.</p>
+<p>—Eso se lo explicar&#225;s al tribunal —sentenci&#243; el guardia subi&#233;ndolo a una carroza de metal para prisioneros.</p>
+<p>Mientras tanto, en Raumo, Wal continuaba entrenando en solitario en el patio de la fortaleza, descargando su frustraci&#243;n contra los mu&#241;ecos de pr&#225;ctica. En ese momento se le acerc&#243; Taika con gesto dubitativo.</p>
+<p>—&#191;Qu&#233; quieres, Taika? —cuestion&#243; Wal sin mirarlo.</p>
+<p>—Quer&#237;a hablar contigo... Te he notado distante desde ayer.</p>
+<p>Wal se detuvo en seco, baj&#243; su espada y encar&#243; a su amigo con los ojos encendidos de furia y decepci&#243;n.</p>
+<p>—Sab&#237;as perfectamente cu&#225;nto me gustaba Alva. Te lo cont&#233; en confianza porque eras mi mejor amigo, &#191;y aun as&#237; fuiste a galantear con ella a mis espaldas? &#191;C&#243;mo pudiste hacer eso, Taika?</p>
+<p>—&#161;Por favor, Wal! Llevas meses suspirando por ella sin atreverte a decirle nada —respondi&#243; Taika a la defensiva—. Siempre juegas a la defensiva y nunca das un paso al frente. No puedes pretender que el mundo se detenga a esperarte.</p>
+<p>—Aun si fuera as&#237;… &#161;Se supon&#237;a que eras mi hermano de armas! —replic&#243; Wal con la voz quebrada—. Pero ahora veo que solo te importa tu propio beneficio.</p>
+<p>Entretanto, en el tribunal central de H&#237;ltar, Skaivan comparec&#237;a ante el magistrado.</p>
+<p>—Caso n&#250;mero 24: alteraci&#243;n del orden p&#250;blico y desmanes —anunci&#243; el bail&#237;o mientras el murmullo de la sala se apagaba.</p>
+<p>—Inocente, su se&#241;or&#237;a. Soy un enviado diplom&#225;tico de la tribu Raumo y qued&#233; atrapado en el tumulto —declar&#243; Skaivan con firmeza.</p>
+<p>En ese instante se abrieron las puertas de la sala y Retha ingres&#243; a paso firme, dirigi&#233;ndose directamente hacia el estrado.</p>
+<p>Minutos antes, su nieta Lenith, que se encontraba en las inmediaciones del mercado durante las detenciones, hab&#237;a reconocido el capote con los bordados caracter&#237;sticos de Raumo que vest&#237;a Skaivan y hab&#237;a corrido a informarle a su abuela: *&#171;&#161;Abuela, los guardias arrestaron por error al joven mensajero que vino a buscar al Sr. Ronat!&#187;*.</p>
+<p>—Su se&#241;or&#237;a —solicit&#243; Retha con autoridad gestual—, pido la palabra en car&#225;cter de urgencia.</p>
+<p>El juez Vyndek, quien guardaba un profundo respeto por los a&#241;os de servicio de Retha al mando de la ciudad, le concedi&#243; una breve audiencia privada en su despacho.</p>
+<p>—Vyndek, ese muchacho es el emisario oficial de la tribu Raumo y no tuvo participaci&#243;n alguna en las revueltas. Te pido su inmediata liberaci&#243;n —expuso Retha con calma.</p>
+<p>—Est&#225; bien, Retha. En consideraci&#243;n a tu palabra y a tu impecable trayectoria, retirar&#233; los cargos —asinti&#243; el juez.</p>
+<p>Momentos despu&#233;s, Skaivan y Retha sal&#237;an juntos por la escalinata del tribunal.</p>
+<p>—Le agradezco profundamente su intervenci&#243;n, Sra. Retha —expres&#243; Skaivan aliviado—. Si no fuera por usted y por su nieta Lenith, habr&#237;a pasado semanas en un calabozo.</p>
+<p>—Lenith te reconoci&#243; entre los detenidos y me avis&#243; de inmediato —sonri&#243; Retha—. Me alegra haber llegado a tiempo. Ahora ve con cuidado y alcanza al Sr. Ronat en el camino de regreso.</p>
+<p>D&#237;as m&#225;s tarde, el Sr. Ronat arrib&#243; finalmente a la capital Raumo, donde fue recibido por Nauren.</p>
+<p>—Sr. Ronat, &#161;por fin regresa! —salud&#243; Nauren acudiendo a su encuentro—. &#191;Todo bien en su traves&#237;a?</p>
+<p>—Las conversaciones fueron complejas, Nauren, pero mantendremos la alianza firme. Por cierto, &#191;Skaivan no ha regresado a&#250;n?</p>
+<p>—&#191;Skaivan? Parti&#243; a buscarlo a H&#237;ltar hace unos d&#237;as.</p>
+<p>—Descuida, Nauren; me cruc&#233; con noticias en el camino y s&#233; que Retha lo asisti&#243; en la capital. Es un muchacho h&#225;bil y no tardar&#225; en retornar.</p>
+<p>Ca&#237;da la noche en Raumo, Wal cenaba en silencio junto a sus padres. Su madre, notando la pesadumbre en la mirada de su hijo, esper&#243; a que Nauren se retirara a revisar unos documentos para acercarse al joven.</p>
+<p>—Wal, mi ni&#241;o, s&#233; que algo te turba profundamente —dijo coloc&#225;ndole con ternura una mano sobre el hombro—. &#191;Ocurri&#243; algo con Alva o con Taika?</p>
+<p>Wal baj&#243; la mirada y suspir&#243; con amargura.</p>
+<p>—Le cont&#233; a Taika lo que sent&#237;a por Alva, mam&#225;... y ayer los vi juntos riendo. Siento que perd&#237; a mi amiga y a mi mejor amigo al mismo tiempo.</p>
+<p>—El dolor de sentirse desplazado es dif&#237;cil, hijo —respondi&#243; la madre abraz&#225;ndolo con calidez—. Pero no permitas que la amargura cierre tu coraz&#243;n. Acepta que las cosas no resultaron como esperabas, aprende de esta experiencia y sigue adelante con la cabeza en alto. Hay un gran camino por delante para ti.</p>
+<p>—Gracias, mam&#225; —murmur&#243; Wal correspondiendo al abrazo con fuerza mientras encontraba la paz que necesitaba.</p>
+
+            </article>
+            <nav class="chapter-nav">
+                <a href="../prologo.html">&larr; Prologo</a>
+                <a href="../capitulos.html" style="font-size:12px;opacity:.7;">&#8593; Cap&iacute;tulos</a>
+                <a href="capitulo_02.html">Cap. 2 &rarr;</a>
+            </nav>
+        </div>
+    </main>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-title">&#10022; Cap&iacute;tulos</div>
+<ul class="sidebar-list"><li><a href="../prologo.html">Prologo</a></li><li class="active"><a href="capitulo_01.html"><span class="ch-num">01</span> El peso de los tatuajes</a></li><li><a href="capitulo_02.html"><span class="ch-num">02</span> El consejo de H&iacute;ltar</a></li><li><a href="capitulo_03.html"><span class="ch-num">03</span> Tierra sagrada</a></li><li><a href="capitulo_04.html"><span class="ch-num">04</span> Entrenamiento y temores</a></li><li><a href="capitulo_05.html"><span class="ch-num">05</span> El C&oacute;nclave tribal</a></li><li><a href="capitulo_06.html"><span class="ch-num">06</span> Bajo la lluvia embarrada</a></li><li><a href="capitulo_07.html"><span class="ch-num">07</span> La responsabilidad del l&iacute;der</a></li><li><a href="capitulo_08.html"><span class="ch-num">08</span> El nacimiento en tiempos de guerra</a></li><li><a href="capitulo_09.html"><span class="ch-num">09</span> La necesidad de la guerra</a></li><li><a href="capitulo_10.html"><span class="ch-num">10</span> El perd&oacute;n y el vac&iacute;o</a></li><li><a href="capitulo_11.html"><span class="ch-num">11</span> Miedo al conflicto</a></li><li><a href="capitulo_12.html"><span class="ch-num">12</span> La ca&iacute;da de las murallas</a></li><li><a href="capitulo_13.html"><span class="ch-num">13</span> El retorno de la caballer&iacute;a</a></li><li style="opacity:0.6; cursor:default;"><a href="javascript:void(0)" style="cursor:default; pointer-events:none; color:#a89274;"><span class="ch-num">14</span> El renacer de la paz (En proceso)</a></li></ul>
+    </aside>
+
+    <footer class="page-footer">
+        Forgotten Sword &copy; 2026 &middot; Fernando Barra &nbsp;&middot;&nbsp;
+        <a href="../index.html">Galer&iacute;a de Personajes</a>
+    </footer>
+</div>
+<script>
+    var fontSize = 18;
+    var themes = ['', 'theme-sepia', 'theme-dark'];
+    var themeIdx = 0;
+    function changeFontSize(d) {
+        fontSize = Math.min(Math.max(14, fontSize + d), 26);
+        document.documentElement.style.setProperty('--font-size-base', fontSize + 'px');
+    }
+    function toggleTheme() {
+        document.body.classList.remove(themes[themeIdx]);
+        themeIdx = (themeIdx + 1) % themes.length;
+        if (themes[themeIdx]) document.body.classList.add(themes[themeIdx]);
+    }
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('open');
+    }
+</script>
+</body>
+</html>

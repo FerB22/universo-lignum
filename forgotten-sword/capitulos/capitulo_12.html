@@ -1,0 +1,505 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitulo 12: La caida de las murallas - Forgotten Sword</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #120c08;
+            --card-bg: #1c130c;
+            --text-color: #e8dcc4;
+            --accent-gold: #d4af37;
+            --accent-bright: #f0c952;
+            --muted-gold: #9e8237;
+            --text-dim: #b8a686;
+            --border-color: #3b2818;
+            --quote-bg: rgba(212,175,55,0.06);
+            --sidebar-bg: #160f09;
+            --font-size-base: 18px;
+        }
+        body.theme-sepia {
+            --bg-color:#241c14; --card-bg:#2d241a; --text-color:#edd9be;
+            --border-color:#4a3a2a; --sidebar-bg:#1e160f;
+        }
+        body.theme-dark {
+            --bg-color:#0a0705; --card-bg:#120e0a; --text-color:#d1c5b0;
+            --border-color:#291e14; --sidebar-bg:#080604;
+        }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lora', Georgia, serif;
+            font-size: var(--font-size-base);
+            line-height: 1.85;
+            min-height: 100vh;
+            padding: 20px;
+            transition: background-color .3s, color .3s;
+            background-image: radial-gradient(circle at 50% 0%, rgba(212,175,55,.07) 0%, transparent 65%);
+        }
+        .page-layout {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            grid-template-rows: auto 1fr auto;
+            gap: 0 24px;
+            align-items: start;
+        }
+        /* Nav bar */
+        .nav-bar {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 13px 22px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 24px;
+            box-shadow: 0 6px 24px rgba(0,0,0,.45);
+        }
+        .nav-back {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color .2s, transform .2s;
+        }
+        .nav-back:hover { color:var(--accent-bright); transform:translateX(-3px); }
+        .reader-controls { display:flex; align-items:center; gap:10px; }
+        .btn-ctrl {
+            background:rgba(212,175,55,.1); border:1px solid var(--border-color);
+            color:var(--accent-gold); padding:5px 11px; border-radius:4px;
+            cursor:pointer; font-family:'Cinzel',serif; font-size:13px; transition:all .2s;
+        }
+        .btn-ctrl:hover { background:var(--accent-gold); color:#120c08; }
+        /* Main reading column */
+        .main-col { min-width:0; }
+        .chapter-header {
+            text-align:center; margin-bottom:38px;
+            padding-bottom:24px; position:relative;
+        }
+        .chapter-header::after {
+            content:'&#10042; &#10042; &#10042;';
+            position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+            color:var(--muted-gold); font-size:13px; letter-spacing:10px;
+        }
+        .sub-label {
+            font-family:'Cinzel',serif; font-size:11px; letter-spacing:4px;
+            text-transform:uppercase; color:var(--accent-gold);
+            margin-bottom:10px; display:block;
+        }
+        .main-title {
+            font-family:'Cinzel',serif; font-size:32px; font-weight:700;
+            color:#f5eedc; letter-spacing:1px;
+            text-shadow:0 4px 14px rgba(0,0,0,.7); margin-bottom:6px;
+        }
+        /* Reader frame */
+        .reader-container {
+            background:var(--card-bg); border:1px solid var(--border-color);
+            border-radius:12px; padding:44px 50px;
+            box-shadow:0 10px 38px rgba(0,0,0,.5); position:relative;
+        }
+        .reader-container::before {
+            content:''; position:absolute; top:8px; left:8px; right:8px; bottom:8px;
+            border:1px solid rgba(212,175,55,.12); border-radius:8px; pointer-events:none;
+        }
+        /* Prose */
+        .prose p {
+            margin-bottom: 20px;
+            text-align: justify;
+            text-indent: 0.75em;
+        }
+        .prose p.dialogue {
+            text-indent: 0;
+            padding-left: 10px;
+            border-left: 2px solid rgba(212,175,55,.22);
+            margin-bottom: 14px;
+        }
+        .prose p.dialogue-cont {
+            text-indent: 0;
+            padding-left: 10px;
+            margin-top: -14px;
+            margin-bottom: 14px;
+            color: var(--text-dim);
+        }
+        .prose .scene-break {
+            text-align:center; color:var(--muted-gold);
+            font-size:15px; letter-spacing:10px; margin:32px 0; user-select:none;
+        }
+        .prose blockquote.epigraph {
+            background:var(--quote-bg); border-left:3px solid var(--accent-gold);
+            border-right:3px solid var(--accent-gold); padding:18px 24px;
+            margin:0 auto 34px auto; border-radius:4px; text-align:center;
+            font-style:italic; color:#f0e6d2; font-size:.97em;
+            max-width:600px; box-shadow:0 3px 14px rgba(0,0,0,.25); text-indent:0;
+        }
+        /* Prev/Next nav */
+        .chapter-nav {
+            display:flex; justify-content:space-between; align-items:center;
+            margin-top:34px; padding-top:20px; border-top:1px solid var(--border-color);
+        }
+        .chapter-nav a {
+            font-family:'Cinzel',serif; font-size:13px; font-weight:600;
+            color:var(--accent-gold); text-decoration:none; transition:color .2s;
+        }
+        .chapter-nav a:hover { color:var(--accent-bright); }
+        /* Sidebar */
+        .sidebar {
+            background:var(--sidebar-bg); border:1px solid var(--border-color);
+            border-radius:10px; padding:18px 14px;
+            box-shadow:0 6px 22px rgba(0,0,0,.4);
+            position:sticky; top:20px;
+            max-height:calc(100vh - 40px); overflow-y:auto;
+        }
+        .sidebar::-webkit-scrollbar { width:4px; }
+        .sidebar::-webkit-scrollbar-thumb { background:var(--border-color); border-radius:4px; }
+        .sidebar-title {
+            font-family:'Cinzel',serif; font-size:11px; letter-spacing:3px;
+            text-transform:uppercase; color:var(--accent-gold);
+            margin-bottom:14px; padding-bottom:10px;
+            border-bottom:1px solid var(--border-color); text-align:center;
+        }
+        .sidebar-list { list-style:none; }
+        .sidebar-list li { border-bottom:1px solid rgba(59,40,24,.5); }
+        .sidebar-list li a {
+            display:block; padding:8px 7px; font-size:12.5px;
+            color:var(--text-dim); text-decoration:none; line-height:1.4;
+            transition:color .2s, background .2s; border-radius:4px;
+        }
+        .sidebar-list li a:hover { color:var(--accent-gold); background:rgba(212,175,55,.06); }
+        .sidebar-list li.active a {
+            color:var(--accent-bright); font-weight:600;
+            background:rgba(212,175,55,.1);
+        }
+        .ch-num {
+            font-family:'Cinzel',serif; font-size:10px;
+            color:var(--muted-gold); margin-right:5px;
+        }
+        /* Footer */
+        .page-footer {
+            grid-column:1 / -1; text-align:center;
+            font-family:'Cinzel',serif; font-size:11.5px;
+            color:var(--text-dim); margin-top:34px; opacity:.8;
+        }
+        .page-footer a { color:var(--accent-gold); text-decoration:none; }
+        /* Responsive */
+        @media (max-width:900px) {
+            .page-layout { grid-template-columns:1fr; }
+            .sidebar { position:static; max-height:none; display:none; }
+            .sidebar.open { display:block; margin-top:18px; }
+            .btn-sidebar { display:inline-block !important; }
+        }
+        @media (max-width:600px) {
+            .reader-container { padding:26px 16px; }
+            .main-title { font-size:22px; }
+            .prose p { text-align:left; }
+        }
+        .btn-sidebar { display:none; }
+    </style>
+</head>
+<body>
+<div class="page-layout">
+
+    <nav class="nav-bar">
+        <a href="../capitulos.html" class="nav-back">&#8592; Cap&iacute;tulos</a>
+        <div class="reader-controls">
+            <button class="btn-ctrl btn-sidebar" onclick="toggleSidebar()">&#9776; Lista</button>
+            <button class="btn-ctrl" onclick="changeFontSize(-1)">A-</button>
+            <button class="btn-ctrl" onclick="changeFontSize(1)">A+</button>
+            <button class="btn-ctrl" onclick="toggleTheme()">&#127912; Tema</button>
+        </div>
+    </nav>
+
+    <main class="main-col">
+        <header class="chapter-header">
+            <span class="sub-label">Forgotten Sword &middot; Cap&iacute;tulo 12</span>
+            <h1 class="main-title">La ca&iacute;da de las murallas</h1>
+        </header>
+        <div class="reader-container">
+            <article class="prose">
+<blockquote class="epigraph">&#171;Hay marcas que, como en la arena, se las lleva el agua. Y hay otras que est&#225;n marcadas en roca&#187;.</blockquote>
+<p>Con la baja de decenas de guardas, los gricanos cruzaron la muralla y asesinaron sin pavor. Los guardas restantes retrocedieron a la segunda muralla, pero los atacaron sin que pudieran defenderse.</p>
+<p>En el oeste de la entrada, los guardas apenas resisten tras la segunda muralla y el aceite hirviendo se acab&#243;.</p>
+<p>Azame subi&#243; al segundo piso de la mansi&#243;n con nerviosismo notorio, y Arhai la sigui&#243; a hurtadillas por las escaleras. Azame mir&#243; por la ventana, sus nervios se incrementan con avistar las banderas gricanas en la muralla exterior.</p>
+<p>—No, no, no. Mi padre dijo que esto iba a salir bien, que me iba a salvar. —Se come las u&#241;as—. Gric&#225;i llegar&#225; antes que ellos, me dejar&#225; morir —murmur&#243; con consternaci&#243;n.</p>
+<p>Arhai la observ&#243; asom&#225;ndose poco en la entrada de la habitaci&#243;n.</p>
+<p>—M&#225;s de dos a&#241;os, cre&#237; que me valorar&#237;a, que por fin me iba a tomar en cuenta. Solo soy un pe&#243;n… &#191;Matar&#225; a su &#250;nica hija con tal de tomar venganza? Ay, no s&#233; qu&#233; har&#233;.</p>
+<p>&#187;Es un malnacido, un canalla. Qu&#233; padre dejar&#237;a morir a su hija as&#237;.</p>
+<p>Arhai se descubri&#243; frente a ella con una gran sonrisa de decepci&#243;n.</p>
+<p>—Conque eres una traidora, &#191;eh? —afirm&#243; Arhai con resentimiento.</p>
+<p>—&#191;Qu&#233;? &#191;Me estabas…?</p>
+<p>—Eres una traidora, estuviste detr&#225;s de esto, &#191;cierto?</p>
+<p>—&#191;Escuchaste todo? —lo asimila—. Igual, nadie te va a creer, no eres nadie aqu&#237;.</p>
+<p>—&#191;Eso crees? Cuando llegue Wal vas a sufrir —aclar&#243; Arhai con desprecio, y se retira de la habitaci&#243;n.</p>
+<p>Azame mir&#243; por la ventana con tristeza.</p>
+<p>—Si es que llega antes…</p>
+<p>Desde oeste y este, los guardas resisten con sus &#250;ltimas fuerzas, y los enemigos atacaron con recelo.</p>
+<p>En un momento, se sinti&#243; un silencio inquietante. Los guardas no entendieron, miraron a todos lados sin hallar causa. De repente, se avista en el norte banderas negriblancas alz&#225;ndose, una mezcla entre el bosque a sus espaldas y la llanura enfrente.</p>
+<p>Los enemigos alzaron la mirada con pasmo, las tropas se movilizan por todo el umbral norte del bosque, pareciendo ser miles de soldados.</p>
+<p>Las tropas del oeste huyeron despavoridos, y sus banderas cayeron a la tierra. Entonces las tropas gricanas intentaron tomar posesi&#243;n, atacando con ferocidad, pero los guardas resisten al ataque. El pu&#241;ado de gricanos en la llanura este decidi&#243; retirarse hacia el bosque.</p>
+<p>Mientras avanzaron las tropas, observaron la mortandad y la destrucci&#243;n. Se horrorizaron y se quitaron sus cascos en honor de los muertos.</p>
+<p>A la izquierda, flechas incrustadas y cad&#225;veres. A la derecha, polvo y la muralla destruida.</p>
+<p>Ellos caminaron con imponencia, con banderas y espadas, pero solo vieron muerte. Los guardas j&#243;venes cayeron de rodillas con el &#225;nimo deca&#237;do.</p>
+<p>Wal corri&#243; hacia su mansi&#243;n, cruz&#243; las calles con velocidad mientras los dem&#225;s llevaron con prisa a los heridos. Tambi&#233;n de camino mir&#243; algunas casas destruidas por rocas gigantes. Su rostro lleno de temor.</p>
+<p>Luego de subir las largas escaleras, gir&#243; a la derecha y encontr&#243; a los soldados afuera, ellos bajaron sus arcos y lanzas con alivio.</p>
+<p>De la puerta sali&#243; Azame con apuro tras &#233;l	, ella lo abraz&#243; con fuerza, lo que extra&#241;a a Wal.</p>
+<p>—Viniste a salvarnos —exclam&#243; Azame, posando su rostro en su pecho.</p>
+<p>—&#191;Est&#225;n bien?</p>
+<p>—S&#237;, no llegaron hasta aqu&#237;.</p>
+<p>As&#237;, Hlied y dem&#225;s salieron aliviados de la mansi&#243;n. Wal se acerc&#243; a Hlied y la abraz&#243;, y Arhai y Azame se miraron con recelo.</p>
+<p>Tambi&#233;n apareci&#243; Kaswer, quien le abraz&#243; la pierna, mir&#225;ndolo con alegr&#237;a.</p>
+<p>Luego, Wal, en su oficina, se reuni&#243; con Orven en la mansi&#243;n. Se sientan en el sill&#243;n frente a frente. Sus rostros reflejan la tragedia sucedida.</p>
+<p>—Perdimos m&#225;s de cien hombres. Es un desastre, no lo previmos —declar&#243; Orven, cabizbajo.</p>
+<p>—&#161;Es fastidioso! Qu&#233; impotencia. &#191;Qu&#233; haremos? Los l&#237;deres tribales atacar&#225;n otras ciudades. Los reinos se han aliado, nos superan.</p>
+<p>—Tienes que reunirte con ellos, vengarlos. No puede ser que algo como esto suceda aun con esta alianza. &#161;Solo quieren nuestra fuerza! —exclam&#243; Orven, molesto.</p>
+<p>—Atacaremos Gric&#225;i. Re&#250;ne a nuestras tropas, casi todas si es posible —orden&#243; con decisi&#243;n.</p>
+<p>En la alacena, Arhai increpa a Azame apunt&#225;ndola con el dedo.</p>
+<p>—&#161;&#191;C&#243;mo te atreves a traicionarnos?! &#161;Tienes que decirle a Wal que lo traicionaste, por el bien de tu hijo!</p>
+<p>—&#161;Yo-yo no quer&#237;a! Pero lo hice porque por fin mi padre me tom&#243; en cuenta. Ahora s&#233; que nunca le import&#233; —declar&#243; Azame con tristeza.</p>
+<p>Arhai la mir&#243; con un rostro conmovido, empatizando con ella.</p>
+<p>—Aun as&#237;, debes decirle, tomar venganza contra tu padre —enfatiza Arhai. —Azame la mira con duda.</p>
+<p>En el patio, en direcci&#243;n a la muralla destruida, Wald&#225;in mir&#243; el suelo con los brazos en jarra, pensativo, y Orven, atr&#225;s, escrib&#237;a en su libreta.</p>
+<p>—&#191;Qu&#233; dicen los generales? —pregunt&#243; Wal.</p>
+<p>—La muralla fue vital, y los soldados lograron resistir.</p>
+<p>—&#191;Cu&#225;ntos murieron? —pregunt&#243; con lamento.</p>
+<p>—M&#225;s de cien.</p>
+<p>—&#191;Y sobrevivieron…?</p>
+<p>—Veinte.</p>
+<p>—Dimos nuestras tropas a las tribus para que lucharan, y nos abandonan cuando m&#225;s lo necesitamos —afirm&#243; Wal con molestia—. Quiero que los condecoren, a los sobrevivientes. Y a los muertos denle un buen entierro, con los m&#225;ximos honores —orden&#243; con resignaci&#243;n.</p>
+<p>Orven se retir&#243; y, en ese momento, Azame se le acerc&#243; caminando con timidez, ella se qued&#243; atr&#225;s, cabizbaja.</p>
+<p>—&#191;Necesitas algo? —pregunt&#243; Wal, firme.</p>
+<p>—No, Kovai est&#225; bien.</p>
+<p>—&#191;Entonces por qu&#233; hablas as&#237;, con temor? —mencion&#243; Wal sin voltearse.</p>
+<p>Azame se sorprendi&#243;, temerosa.</p>
+<p>—&#191;Qu&#233;? No, no es nada. —Ella desv&#237;a la mirada con temor—. Bueno, todo esto… es mi culpa.</p>
+<p>—&#191;Ah? —Wal gir&#243; su cabeza, extra&#241;ado.</p>
+<p>—P&#233;rdoname, Wal. Con nuestro casamiento, mi padre quer&#237;a vengarse de Revenst y de Raumo. Estableci&#243; una alianza con el reino Gric&#225;i y atac&#243; Raumo y ahora a H&#237;ltar.</p>
+<p>Wal, furioso, se acerc&#243; con lentitud mientras ella explic&#243;, poco a poco Azame se puso m&#225;s temerosa.</p>
+<p>—Pens&#233; que mi padre me sacar&#237;a de aqu&#237;, pero ahora veo que nunca le import&#233;, Wal. Yo quer&#237;a que me valorara, como con mis hermanos. Ahora s&#233; que… —Wal la estrangula, mir&#225;ndola con furia, y Azame no se resiste, entonces &#233;l la suelta. Ella cay&#243; al suelo, tosiendo entre l&#225;grimas.</p>
+<p>Wal camin&#243; sin rumbo, pensando, y con un rostro iracundo.</p>
+<p>—&#161;&#161;Vienes aqu&#237; porque sientes remordimiento, porque tu padre te abandon&#243;!! &#191;&#161;Por qu&#233; no deber&#237;a ahora mismo ordenar que te azoten hasta matarte! —exclam&#243; con rabia.</p>
+<p>—&#161;Fue mi culpa, lo s&#233;! Merezco que me azoten, merezco la muerte. Pero, por favor, esto tambi&#233;n me molesta. Perm&#237;teme vengarme, Wal —afirm&#243; en llanto.</p>
+<p>Wal camin&#243; mostrando furia descontrolada, cabizbajo y pensativo. Al instante, &#233;l desenvaina su espada y la apunta a Azema.</p>
+<p>—No, Wal, por favor. —&#201;l se acerca con su espada en alto—.&#161;&#161;&#161;Wal!!! —&#201;l se detiene cuando se percata de que est&#225; Hlied en la entrada, mirando.</p>
+<p>Hlied camin&#243; con decisi&#243;n, Wal descendi&#243; su espada, y Azame se levant&#243; con un rostro lleno de l&#225;grimas, fingiendo bienestar. Hlied la mir&#243;, enrabiada, y la cachetea con mucha fuerza, y Azame cay&#243; otra vez, llorando sin consuelo.</p>
+<p>—Guardias —llama Hlied. Dos guardias salieron de la mansi&#243;n—. Am&#225;rrenla.</p>
+<p>Wal se gir&#243; con molestia y decepci&#243;n, envain&#243; su espada con l&#225;grimas en sus ojos y retrocedi&#243; m&#225;s en el jard&#237;n.</p>
+<p>—&#161;Yo-yo s&#233; d&#243;nde est&#225;n los asentamientos militares de mi padre! —aclar&#243; Azame mientras se la llevaron.</p>
+<p>—Alto —orden&#243; Hlied—. Habla.</p>
+<p>—Primero quiero que me aseguren que nada me pasar&#225; —declar&#243;.</p>
+<p>—&#161;Ja! No seas est&#250;pida, Azame. Con a&#250;n estar viva deber&#237;a ser raz&#243;n para hablar.</p>
+<p>Wal se aproxim&#243; sec&#225;ndose las l&#225;grimas.</p>
+<p>—Si hablas, no morir&#225;s —aclar&#243; Wal, imponente.</p>
+<p>—Gracias.</p>
+<p>—Lo har&#233; por mi hijo, no por ti —declar&#243;, y Azame agacha la cabeza, lament&#225;ndose.</p>
+<p>En los d&#237;as posteriores, reconstruyeron la muralla y atacaron reinos y tribus enemigas. Pero algo no cuadraba, el rumor de que la batalla de Maldevai hab&#237;a fallado y que todos hab&#237;an muerto empezaba a inquietar las filas militares.</p>
+<p>Los l&#237;deres se reunieron en la tienda principal a discutir alrededor del mapa en la mesa.</p>
+<p>—Necesitamos corroborar el rumor que corre entre la gente —declar&#243; un general con inquietud.</p>
+<p>—Envi&#233; a un mensajero a la tribu M&#228;rik, ellos revisar&#225;n. Ahora, nosotros tenemos que concentrarnos en la batalla de Jous. Taika es un buen l&#237;der, &#233;l dirigir&#225; la batalla —afirm&#243; otro general enfrente con tranquilidad disfrazada.</p>
+<p>En el umbral del bosque, al oeste, Wal y sus tropas se alistaron para asediar una base militar zaitana. Con sus lanzas y estandartes negros, parec&#237;an miles.</p>
+<p>La alerta entre los guardas zaitanos se percibi&#243; a lo lejos, ellos corrieron a sus lugares, listos para resistir.</p>
+<p>En principio, los arqueros dispararon con sus arcos largos, y guardas respondieron, pero sus flechas no los alcanzaron.</p>
+<p>Cuando las flechas enemigas cesaron, los soldados desenvainan sus espadas y descendieron hacia los muros. Los guardas se vieron diezmados.</p>
+<p>Minutos despu&#233;s, la fuerza revenense acab&#243; con todos los enemigos, excepto uno: el hijo del rey Bergkai.</p>
+<p>—&#191;Eres el pr&#237;ncipe tercero de Zaita? —pregunt&#243; Wal con intimidaci&#243;n, frente al sujeto-</p>
+<p>—&#161;Mi padre te matar&#225;, hijo de p#$&amp;! —vocifer&#243; desde el suelo.</p>
+<p>Wal se hinca frente a &#233;l, serio.</p>
+<p>—&#191;Est&#225;s seguro? &#201;l iba a dejar morir a tu hermana.</p>
+<p>—&#191;Azame? Ella es una bastarda, mi padre nunca la quiso —declar&#243; el pr&#237;ncipe.</p>
+<p>Wal se levant&#243; y se retir&#243;. Los soldados lo aprisionan y lo llevaron a la rastra a la jaula mientras se burlan de &#233;l.</p>
+<p>De noche, Wal y una peque&#241;a comitiva llegaron al campamento avanzado. Wal descendi&#243; de su caballo e ingres&#243; en la tienda de mando. En el fondo, Azame permanec&#237;a bajo estricta vigilancia, custodiada por dos guardas revenenses.</p>
+<p>—Wal... &#191;cu&#225;ndo ver&#233; a Kovai? —pregunt&#243; Azame con voz ronca.</p>
+<p>—Kovai est&#225; a salvo en H&#237;ltar —respondi&#243; Wal con voz fr&#237;a y distante—. T&#250; permanecer&#225;s bajo custodia del alto mando.</p>
+<p>—Pens&#233; que me dar&#237;as un trato m&#225;s humano...</p>
+<p>—Traicionaste a nuestra tribu y pusiste en peligro mortal a mi esposa e hijo —enfatiz&#243; Wal fijando una mirada g&#233;lida sobre ella—. Tu vida se preserva &#250;nicamente porque eres la hija del rey Bergkai y la clave para derrocar a la dinast&#237;a zaitana sin derramar la sangre de m&#225;s soldados.</p>
+<p>—Mi padre nunca me quiso, solo me utiliz&#243; como una pieza descartable —admiti&#243; Azame agachando la cabeza entre l&#225;grimas.</p>
+<p>—Y por esa misma raz&#243;n utilizar&#233; tu posici&#243;n leg&#237;tima para reclamar el trono de Zaita tras su ca&#237;da —concluy&#243; Wal con absoluta firmeza estrat&#233;gica—. No esperes afecto ni perd&#243;n personal; esto es estricta justicia pol&#237;tica y resguardo para nuestra gente.</p>
+<p>Soldados m&#228;rik llegaron a hurtadillas al umbral del bosque en Maldevai, observaron la ciudad con recelo. Todav&#237;a los cuerpos permanecieron en el suelo, las plantas los tomaron como posesi&#243;n.</p>
+<p>Entre los cuerpos, H&#228;ksa reconoce el rostro de Sauri y corri&#243; hacia &#233;l mientras los dem&#225;s le susurraron que no vaya. Lleg&#243; hasta &#233;l con incredulidad, posa su cabeza en su regazo entre llanto descontrolado.</p>
+<p>Los dem&#225;s se sorprendieron con amargura, H&#228;ksa solloz&#243; mientras lo sostuvo. Arregl&#243; su peinado, y sus l&#225;grimas cayeron en su rostro.</p>
+<p>—Dijiste que volver&#237;as…</p>
+<p>En contraste con el brillante cielo, la muerte convive a su lado, recordando que, aunque opuestos, estaban m&#225;s cerca de lo que parece.</p>
+<p>Minutos despu&#233;s, Wal entr&#243; de nuevo a su tienda y vio a Azame apoyada en el poste, con signos de cansancio y con el andrajo en el suelo.</p>
+<p>—&#191;Tienes comida? —pregunt&#243; Azame con voz cansada.</p>
+<p>Wal sac&#243; de su morral colgado a su izquierda un pan envuelto y se lo lanz&#243; frente a sus pies.</p>
+<p>—Entiende que solo busco corregir el da&#241;o... —suplic&#243; Azame.</p>
+<p>Wal la soslay&#243;, sent&#225;ndose a su mesa para lustrar su espada. Afuera se escuchaba el paso r&#237;tmico de la guardia.</p>
+<p>—No se trata de perd&#243;n, Azame, sino de responsabilidad —sentenci&#243; Wal sin mirarla—. Tu padre te abandon&#243; a tu suerte. Ahora tu nombre servir&#225; para restaurar la paz en Zaita.</p>
+<p>—Mi padre nunca le import&#233;... —admiti&#243; ella con aflicci&#243;n.</p>
+<p>—Si me lo hubieras dicho, podr&#237;a haber hecho algo, pero de qu&#233; sirve que lo digas, sus muertes seguir&#225;n susurrando —afirm&#243; Wal.</p>
+<p>—Quiero que me entiendas, no lo quise hacer, pero me obligaron, Wal. —&#201;l se acerca, desenvuelve el pan y lo mete en su boca sin dudar.</p>
+<p>—Yo pensaba que eras buena aunque altiva. Cre&#237;a que habr&#237;a paz, lo &#250;nico que hubo fue una daga incrustada por detr&#225;s.</p>
+<p>Wal sali&#243; de la tienda y un soldado lo intercepta.</p>
+<p>—La base militar de Zert fue derrotada —inform&#243; el soldado.</p>
+<p>—Perfecto, prepara el equipo, iremos all&#225;.</p>
+<p>Horas de trayecto, Wal lleg&#243; a una fortaleza amurallada con troncos en forma de p&#250;a. Cruzaron la entrada a caballo, se miraron los cuerpos de los guardas alrededor. Y enfrente se hallaron dos soldados de armadura en el suelo, de rodillas y amarrados, y los soldados los vigilan.</p>
+<p>Wal descendi&#243; de su caballo, camin&#243; con intimidaci&#243;n y par&#243; frente a ellos.</p>
+<p>—&#191;Sabes qui&#233;nes somos? —pregunt&#243; el de la izquierda con soberbia.</p>
+<p>Se avistan soldados en las inmediaciones del lugar, en el bosque y m&#225;s lejos.</p>
+<p>—&#191;Has visto nuestra bandera? —cuestiona Wal.</p>
+<p>—&#191;Qu&#233;? &#191;Acaso son bandidos?</p>
+<p>—No, somos m&#225;s que eso: somos la tribu Revenst.</p>
+<p>De repente, el de la izquierda cambia el semblante, mostrando su miedo.</p>
+<p>—M&#225;talo —orden&#243; Wal sin reparo.</p>
+<p>Un soldado atr&#225;s de &#233;l lo agarr&#243; por el cuello, alej&#225;ndolo hacia atr&#225;s.</p>
+<p>—&#161;Su&#233;ltame! &#191;&#161;Acaso no sabes qui&#233;n soy! —exclam&#243; mientras intent&#243; liberarse.</p>
+<p>Pero el soldado lo deg&#252;ella sin m&#225;s. Entonces, la sangre se esparce por la tierra, y el otro soldado le ayud&#243; a mover su cuerpo.</p>
+<p>El que estaba a la derecha se enerva y su respiraci&#243;n se volvi&#243; agitada.</p>
+<p>—Si son de Revenst, t&#250; debes ser Wal —afirm&#243; el sujeto.</p>
+<p>—Mi nombre se ha esparcido —ironiz&#243; Wal.</p>
+<p>—Eres el esposo de Azame. Supongo que ya sabes que todo fue planeado, o no estar&#237;as aqu&#237;.</p>
+<p>—Muy inteligente —se burla.</p>
+<p>—Nuestro padre nunca la quiso de veras, ella siempre intent&#243; que la quisiera. Si puedes, perd&#243;nala; ella no merece lo que nosotros s&#237;.</p>
+<p>Wal tom&#243; aliento.</p>
+<p>—Pareces ser buena persona, l&#225;stima que promet&#237; matar a todos.</p>
+<p>El sujeto lo mir&#243; fijamente.</p>
+<p>—Lo merecemos. Espero que puedas matar a mi padre. Yo no fui valiente, aun cuando ve&#237;a a Azame tratar de impresionarlo; y &#233;l la echaba.</p>
+<p>Wal le hizo un gesto al soldado a su derecha para que ejecutara la orden.</p>
+<p>—Por favor, perd&#243;nala.</p>
+<p>El soldado desenvaina su espada y atraves&#243; su cuerpo por el torso. Vomita sangre, y la espada se mancha de ella. Cay&#243; su cuerpo con dureza al suelo.</p>
+<p>Skaivan y Deschast llegaron a un asentamiento en el nordeste, por los bosques altos. Al entrar, observaron la muchedumbre de soldados que trotan en grupos. En el fondo, los arqueros practicaban sus disparos.</p>
+<p>Entonces un hombre de vestiduras ostentosas sali&#243; a recibirlos.</p>
+<p>—&#161;Deschast!, &#191;c&#243;mo has estado? —saluda con tacto, abraz&#225;ndose el uno al otro.</p>
+<p>—Muy bien, Gral. Borte. &#191;C&#243;mo ha estado su familia? —pregunt&#243; con amistad.</p>
+<p>Skaivan mir&#243; a su alrededor, sorprendido y nervioso por la cantidad de soldados.</p>
+<p>—&#191;Y &#233;l qui&#233;n es?</p>
+<p>—&#201;l es mi mano derecha Skaivan.</p>
+<p>Skaivan le estrecha la mano con nervios.</p>
+<p>—Ah, bienvenido. Los amigos de Deschast tambi&#233;n son mis amigos. Si necesitas algo, av&#237;same.</p>
+<p>Ellos caminaron, y Skai mir&#243; con asombro el asentamiento militar. Luego, entraron a la tienda del general.</p>
+<p>—Este es el mapa. —Indica el Gral. frente a la mesa con el mapa extendido sobre ella—. Necesito que alguien confiable lo lleve a Gumar hoy —inform&#243; el Gral.</p>
+<p>Deschast camin&#243; hacia la izquierda y mir&#243; el mapa con curiosidad.</p>
+<p>—&#191;Es la estrategia para vencer a Revenst? —pregunt&#243; Deschast.</p>
+<p>—S&#237;. En el &#250;ltimo ataque no vencimos, pero ahora que tenemos la ayuda del reino M&#225;der, podremos con todo —afirm&#243;.</p>
+<p>Skaivan alz&#243; las pesta&#241;as, sorprendido.</p>
+<p>—Si quieres a alguien confiable, Skaivan puede hacerlo —mencion&#243; Deschast. Y Skaivan se enerva.</p>
+<p>—Bueno, es tu mano derecha. —Enrolla el mapa y se lo acerca con su mano. SkaEn ese momento, Wald&#225;in entr&#243; a la tienda acompa&#241;ado por sus capitanes.</p>
+<p>—Las tropas ya rodean el per&#237;metro de Zaita —declar&#243; Wal dirigi&#233;ndose a Azame—. Ha llegado el momento de cumplir tu parte en la sucesi&#243;n real.</p>
+<p>Wal desenvain&#243; una daga y cort&#243; las ataduras de sus mu&#241;ecas. Azame se frot&#243; los brazos, observando las marcas rojas.</p>
+<p>—Si me presento ante las murallas de mi padre, me considerar&#225;n una renegada —advirti&#243; ella con temor.</p>
+<p>—Te presentar&#225;s como la leg&#237;tima heredera de la corona —aclar&#243; Wal serenamente—. El pueblo zaitano sabe que Bergkai pretend&#237;a sacrificar la ciudad. Cuando asumas el trono, firmar&#225;s la rendici&#243;n formal y la integraci&#243;n defensiva con el C&#243;nclave.. Y le extendi&#243; su cuchara con sopa.</p>
+<p>—&#191;Libre? &#191;En serio crees que confiar&#233; en ti?, apuesto que me echar&#225;s como laste.</p>
+<p>—&#191;Eso crees? —Exhala—. Cuando nos casamos, me regalaste un libro de los proverbios del sabio S&#228;, a&#250;n lo recuerdo, dec&#237;a: &#171;perdonar no borra la herida, pero ense&#241;a al alma a dejar de sangrar◄5.</p>
+<p>&#187;Te perdono, Azame. A&#250;n guardo amor par&#243; ti.</p>
+<p>Entonces, Wal sac&#243; una daga y cort&#243; las cuerdas que amarraban a Azame. Ella acarici&#243; sus mu&#241;ecas, toc&#243; las marcas en ellas.</p>
+<p>—&#191;Por qu&#233; lo haces? Lo que hice no merece perd&#243;n. Si t&#250; no me conocieras, me matar&#237;as por lo que hice —afirm&#243; Azame con tristeza.</p>
+<p>Wal la mir&#243; con atenci&#243;n, agachando la cabeza.</p>
+<p>—Tienes raz&#243;n. Pero por conocerte, mereces perd&#243;n. Azame, el perd&#243;n es una segunda oportunidad, t&#250; decides si aprovecharla o no.</p>
+<p>Wal sali&#243; de la habitaci&#243;n y un joven soldado se le acerc&#243;.</p>
+<p>—Sr., la pendiente es muy escarpada. Hemos intentado subir, pero no hemos podido —notific&#243; con una voz nerviosa.</p>
+<p>Wal observ&#243; la pendiente y a quienes intentaron escalarla, pensativo.</p>
+<p>—Usen las ramas y los troncos de los &#225;rboles. Determinen un camino viable para subir. Una pendiente no nos detendr&#225; —declar&#243; con decisi&#243;n.</p>
+<p>En H&#237;ltar, una muchedumbre de personas de M&#228;rik avanz&#243; hacia la entrada. Con camillas trasladan cuerpos tapados con s&#225;banas blancas. Y los guardas se pasman en la entrada.</p>
+<p>Hlied sali&#243; al encuentro, y H&#228;ksa se quit&#243; la m&#225;scara mostrando su rostro conturbado.</p>
+<p>Hlied aparta la s&#225;bana con recelo, descubriendo el rostro de Sauri. Ella retrocedi&#243; con pasmo e incredulidad. La gente alrededor comprendi&#243; y se conturban.</p>
+<p>H&#228;ksa la abraz&#243;, consol&#225;ndola. Y Hlied lloraba con desconsuelo, cayendo al suelo de rodillas.</p>
+<p>La gente murmur&#243;, se oyeron voces de tristeza y el lloro de aflicci&#243;n alrededor.</p>
+<p>De ma&#241;ana, Wal sali&#243; de su habitaci&#243;n y se percat&#243; de que Azame duerme en el sof&#225;, as&#237; que la cubre con una de las s&#225;banas de su cama. Al salir de su tienda, los soldados escalaron la pendiente, algunos se deslizan por la tierra. Pero un soldado se avista sobre la pendiente, alz&#243; las manos con felicidad, y los dem&#225;s se contentan.</p>
+<p>Un par de horas despu&#233;s, las tropas revenenses escalaron la pendiente. Avistan la muralla gigante ante ellos. Imponente y de bastantes metros de altura. Los &#225;rboles frondosos los ocultaron, y los pasos de los guardas se oyeron arriba.</p>
+<p>Un par de soldados subi&#243; una escalera larga y la colocaron en la muralla. Y otros se prepararon con cuerdas y ganchos. Un soldado subi&#243; por la escalera con cuidado, se asoma y mir&#243; al guard&#243; que mir&#243; hacia dentro de la muralla.</p>
+<p>Entonces, dio la se&#241;al. Lanzaron los ganchos y se agarraron arriba. Con sigilo subieron la muralla. En la cima de muralla se observ&#243; la vastedad de la ciudad zaitana.</p>
+<p>Cerca de treinta soldados, uno tras otro. Los guardas se alarmaron y avisaron al resto. Nad&#243; pod&#237;an hacer, solo luchar. Los soldados atacaron en coordinaci&#243;n, matando a los guardas sin obstrucci&#243;n.</p>
+<p>Los arqueros abajo dispararon con frenes&#237;, pero los soldados se defendieron, todos en sinton&#237;a.</p>
+<p>Dentro de la muralla hay casas y gente que corri&#243; despavorida por las calles. Los guardas en las calles corrieron en busc&#243; de los infiltrados.</p>
+<p>Los arqueros se quedaron en la muralla, atacando a quien vean.</p>
+<p>A hurtadillas pasaron junto a las casas, matando sin que los avisten. Wal los dirigi&#243;, indic&#225;ndoles ad&#243;nde ir y por qu&#233; calle pasar.</p>
+<p>A la izquierda de donde pasaron, caminaron mientras la gente se refugia en sus casas y los guardas corrieron en grupos, revisando cada rinc&#243;n y encontrando los cad&#225;veres de sus compa&#241;eros.</p>
+<p>Pronto las calles se llenaron de guardas y soldados zaitanos, pero Wal y su grupo ya no estaba en donde buscaron. Sin ser vistos llegaron al palacio, los guardas reales llevaron al rey Bergkai al sal&#243;n de resguardo.</p>
+<p>Dentro del palacio, Wal avanz&#243; con sigilo junto a sus soldados, mientras algunos se divid&#237;an para cubrir m&#225;s terreno.</p>
+<p>En un momento, Wal se asom&#243; a la derecha y divis&#243; a cuatro guardas fuertemente armados custodiando el umbral de los aposentos reales.</p>
+<p>Wal hizo una se&#241;a a dos de sus mejores arqueros. A una se&#241;al silenciosa, las cuerdas de las ballestas chasquearon simult&#225;neamente y dos saetas certeras abatieron a los guardias del flanco exterior. Acto seguido, Wal y sus batidores irrumpieron a gran velocidad, neutralizando al resto antes de que pudieran dar la alarma.</p>
+<p>Fuerzan la puerta y dentro hallaron al rey Bergkai junto a sus guardias y sirvientes. Los guardias desenfundan sus espadas, pero los arqueros, en la entrada, los mataron con rapidez en los puntos d&#233;biles de sus armaduras.</p>
+<p>Con la muerte de sus guardias, el rey Bergkai suda con temor.</p>
+<p>—Ten&#237;a que hacerlo, mataron a mis hombres. El pueblo exig&#237;a venganza —se excusa el rey Bergkai.</p>
+<p>—Lo entiendo, es natural buscar venganza. &#161;Pero entregar a tu propia hija para lograrlo! —afirm&#243; Wal, molesto.</p>
+<p>Con la punta de su espada, Wal mat&#243; a unos de los guardias que agonizaba al incrust&#225;rsela en el pecho.</p>
+<p>—Sacrificios. Seguro que lo entiendes —declar&#243;, recuperando la compostura.</p>
+<p>Los sirvientes mostraron rostro de temor, y los soldados a su espalda vigilan la puerta. Wal lo mir&#243; con desprecio y aversi&#243;n.</p>
+<p>—No, no lo entiendo. Eres como eres, como cualquier rey. Lo cierto es que, en esencia, lo que nos diferencia entre t&#250; y yo es el honor y el compromiso para con los nuestros.</p>
+<p>El rey Bergkai exhala con resignaci&#243;n.</p>
+<p>—S&#233; que morir&#233; hoy, as&#237; que lo &#250;nico que te pido es Azame tome la corona. —Un arquero le dispara en el abdomen, cay&#243; hacia atr&#225;s, at&#243;nito—. Hazlo, por favor, por mi reino —indica el rey Bergkai con dificultad.</p>
+<p>&#201;l tom&#243; el resto de la flecha mientras se desangra en el suelo y los sirvientes se pasman y gritaron de miedo. Luego de unos segundos, Bergkai muri&#243; mirando el suelo de su alcoba.</p>
+<p>—*Kesch gor hulm —*Justicia para el pueblo —declar&#243; Wal en lengua rosch a sus capitanes.</p>
+<p>Minutos despu&#233;s, los soldados bajaron el estandarte real que flameaba en la entrada del palacio. Los pobladores se agruparon al pie de la gran escalinata interior. El murmullo de incertidumbre llenaba la plaza.</p>
+<p>Entonces, Wal se present&#243; ante todos desde lo alto de las escaleras, y la muchedumbre mostr&#243; signos de temor expectante.</p>
+<p>—&#161;El rey Bergkai ha ca&#237;do! —anunci&#243; Wal con voz resonante—. &#161;Garantizamos la vida y el respeto a todo ciudadano que entregue las armas!</p>
+<p>Wald&#225;in hizo un gesto firme para que alguien a su espalda avanzara. Azame emergi&#243; vestida con el manto ceremonial zaitano, erguida con soberan&#237;a.</p>
+<p>—&#161;Pueblo de Zaita, les presento a su nueva reina: Azame Nor, heredera leg&#237;tima de la corona!</p>
+<p>El silencio domin&#243; la plaza por un instante, hasta que un respetado anciano del consejo local alz&#243; la voz, respaldando la l&#237;nea sucesoria. Los v&#237;tores no tardaron en expandirse por la multitud. Los guardas chocaron sus lanzas contra los escudos al son del momento solemne.</p>
+<p>Aunque resultaba un giro impensado para los revenenses, los pobladores de Zaita aclamaron la llegada de una nueva era. Wal alz&#243; solemnemente el brazo de Azame y le ci&#241;&#243; la tiara real ante la multitud, sellando p&#250;blicamente el pacto diplom&#225;tico y la rendici&#243;n incondicional del reino a la causa aliada.</p>
+<p>En las planicies orientales, Taika lidera una vasta guerra entre tribus y un reino, secundado por otros generales. La batalla estrat&#233;gica, peleando por los costados hacia dentro de la formaci&#243;n enemiga. Los arqueros de arcos largos dispararon desde la altura del monte, detr&#225;s de los enemigos.</p>
+<p>Taika pele&#243; con fiereza, hiriendo y matando sin reparo y temor en sus movimientos.</p>
+<p>La batalla, feroz como pocas, se detuvo con la tormenta que dificulta la movilidad de las tropas en el barro.</p>
+<p>Los enemigos retrocedieron hacia el monte a sus espaldas, y los aliados se asientan en el lugar. Recogen a los heridos y muertos; un caos de mortandad.</p>
+<p>Bajo el azote de la lluvia tormentosa, Taika discut&#237;a con los generales en la tienda. Miraron el mapa y las estrategias planteadas.</p>
+<p>—&#161;Las tropas del lado izquierdo no resistieron lo suficiente! —afirm&#243; un general frente a Taika con un rostro preocupado.</p>
+<p>—&#161;Refuercen ese lado con soldados del centro! —declar&#243; Taika.</p>
+<p>Con el cielo restaurado al azul, las tropas aliadas se enfilan en forma de rect&#225;ngulo. Avanzaron hacia el enemigo con decisi&#243;n y con las armas al descubierto.</p>
+<p>—No del todo: hubo muchos heridos y algunos muertos —declar&#243; un general a la izquierda.</p>
+<p>Taika guard&#243; silencio, mostrando un rostro inquieto.</p>
+<p>—Podremos con esto. El reino de Netyak derrot&#243; al reino Jednat en el norte del continente, as&#237; que el reino Gric&#225;i est&#225; contra las cuerdas.</p>
+<p>—&#191;En serio? &#191;C&#243;mo lo supiste antes que nosotros? —cuestiona Taika.</p>
+<p>—Hace un a&#241;o acordamos ayudas mutuas en caso de ser necesario.</p>
+<p>—&#191;Y por qu&#233; nunca lo supimos?</p>
+<p>—Fue una alianza oculta. No quer&#237;a que se supiera.</p>
+<p>Taika mostr&#243; un rostro de desprecio.</p>
+<p>—Es bueno saberlo. Ahora sabemos que Gric&#225;i est&#225; vulnerable —declar&#243; el general a la siniestra, mostrando incomodidad.</p>
+<p>Wal avanz&#243; unos pasos y revisa el mapa en la mesa.</p>
+<p>—Mis tropas acampan cerca del valle. Si unimos nuestras tropas, ganar&#237;amos en cantidad contra la fortaleza que resguarda la frontera m&#225;s pr&#243;xima a la ciudad gricana —inform&#243; Wal con entusiasmo.</p>
+<p>—&#191;Pretendes liderar a mis tropas y hacerme a un lado? —cuestiona Taika.</p>
+<p>—&#191;Qu&#233;? &#161;No! Solo vi que est&#225;s con un bast&#243;n y pens&#233; que ibas a dejar que otro dirigiera. —Taika lo encara, frente a frente y desafiante.</p>
+<p>Los generales se extra&#241;an y se molestaron, se tomaron la cabeza, mostrando decepci&#243;n.</p>
+<p>—A ver, chicos. Ya est&#225;n bastante grandes, y Wal tiene raz&#243;n, est&#225;s herido, no puedes liderar ahora —explica el general anterior, entre ellos dos.</p>
+<p>—&#161;En serio, Gral. Hest, lo apoya a &#233;l! —exclam&#243; Taika, enojado.</p>
+<p>Al instante, Taika sali&#243; de la tienda caminando, apoyado de su bast&#243;n.</p>
+<p>—Generales, quiz&#225;s esta es la &#250;nica oportunidad que tenemos —enfatiza Wal mir&#225;ndolos con seriedad.</p>
+<p>Rato despu&#233;s, Wal com&#237;a carne junto a sus soldados cuando en ese momento se le acerc&#243; un soldado que ven&#237;a de correr.</p>
+<p>—Sr. Wald&#225;in, tengo informaci&#243;n urgente —inform&#243; con agitaci&#243;n.</p>
+<p>Wal levant&#243; la mirada con preocupaci&#243;n y miedo en sus ojos.</p>
+
+            </article>
+            <nav class="chapter-nav">
+                <a href="capitulo_11.html">&larr; Cap. 11</a>
+                <a href="../capitulos.html" style="font-size:12px;opacity:.7;">&#8593; Cap&iacute;tulos</a>
+                <a href="capitulo_13.html">Cap. 13 &rarr;</a>
+            </nav>
+        </div>
+    </main>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-title">&#10022; Cap&iacute;tulos</div>
+<ul class="sidebar-list"><li><a href="../prologo.html">Prologo</a></li><li><a href="capitulo_01.html"><span class="ch-num">01</span> El peso de los tatuajes</a></li><li><a href="capitulo_02.html"><span class="ch-num">02</span> El consejo de H&iacute;ltar</a></li><li><a href="capitulo_03.html"><span class="ch-num">03</span> Tierra sagrada</a></li><li><a href="capitulo_04.html"><span class="ch-num">04</span> Entrenamiento y temores</a></li><li><a href="capitulo_05.html"><span class="ch-num">05</span> El C&oacute;nclave tribal</a></li><li><a href="capitulo_06.html"><span class="ch-num">06</span> Bajo la lluvia embarrada</a></li><li><a href="capitulo_07.html"><span class="ch-num">07</span> La responsabilidad del l&iacute;der</a></li><li><a href="capitulo_08.html"><span class="ch-num">08</span> El nacimiento en tiempos de guerra</a></li><li><a href="capitulo_09.html"><span class="ch-num">09</span> La necesidad de la guerra</a></li><li><a href="capitulo_10.html"><span class="ch-num">10</span> El perd&oacute;n y el vac&iacute;o</a></li><li><a href="capitulo_11.html"><span class="ch-num">11</span> Miedo al conflicto</a></li><li class="active"><a href="capitulo_12.html"><span class="ch-num">12</span> La ca&iacute;da de las murallas</a></li><li><a href="capitulo_13.html"><span class="ch-num">13</span> El retorno de la caballer&iacute;a</a></li><li style="opacity:0.6; cursor:default;"><a href="javascript:void(0)" style="cursor:default; pointer-events:none; color:#a89274;"><span class="ch-num">14</span> El renacer de la paz (En proceso)</a></li></ul>
+    </aside>
+
+    <footer class="page-footer">
+        Forgotten Sword &copy; 2026 &middot; Fernando Barra &nbsp;&middot;&nbsp;
+        <a href="../index.html">Galer&iacute;a de Personajes</a>
+    </footer>
+</div>
+<script>
+    var fontSize = 18;
+    var themes = ['', 'theme-sepia', 'theme-dark'];
+    var themeIdx = 0;
+    function changeFontSize(d) {
+        fontSize = Math.min(Math.max(14, fontSize + d), 26);
+        document.documentElement.style.setProperty('--font-size-base', fontSize + 'px');
+    }
+    function toggleTheme() {
+        document.body.classList.remove(themes[themeIdx]);
+        themeIdx = (themeIdx + 1) % themes.length;
+        if (themes[themeIdx]) document.body.classList.add(themes[themeIdx]);
+    }
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('open');
+    }
+</script>
+</body>
+</html>

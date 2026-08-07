@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Piedra sin Pulir — Historia Interactiva</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Palette defined by user request with vibrant #FFCC33 & multi-colors */
+            --color-gold: #FFCC33;
+            --color-gold-glow: rgba(255, 204, 51, 0.35);
+            --color-gold-dark: #cc9900;
+            --color-crimson: #EF4444;
+            --color-crimson-bg: rgba(239, 68, 68, 0.12);
+            --color-emerald: #10B981;
+            --color-emerald-bg: rgba(16, 185, 129, 0.12);
+            --color-purple: #A855F7;
+            --color-purple-bg: rgba(168, 85, 247, 0.12);
+            --color-cyan: #06B6D4;
+            --color-cyan-bg: rgba(6, 182, 212, 0.12);
+            
+            --bg-dark: #0A0D14;
+            --card-bg: rgba(22, 28, 42, 0.85);
+            --card-border: rgba(255, 204, 51, 0.2);
+            --text-main: #F1F5F9;
+            --text-muted: #94A3B8;
+            --text-gold: #FFE066;
+            
+            --font-title: 'Cinzel', serif;
+            --font-body: 'Lora', Georgia, serif;
+            --font-ui: 'Outfit', sans-serif;
+
+            --reader-font-size: 19px;
+            --line-height: 1.9;
+        }
+
+        /* Themes */
+        body.theme-sepia {
+            --bg-dark: #1F1914;
+            --card-bg: rgba(38, 30, 24, 0.9);
+            --card-border: rgba(217, 119, 6, 0.3);
+            --text-main: #F3E5D8;
+            --text-muted: #B4A08F;
+            --text-gold: #FFCC33;
+        }
+
+        body.theme-dark-obsidian {
+            --bg-dark: #050608;
+            --card-bg: rgba(15, 18, 26, 0.92);
+            --card-border: rgba(255, 204, 51, 0.25);
+            --text-main: #E2E8F0;
+            --text-muted: #64748B;
+            --text-gold: #FFCC33;
+        }
+
+        body.theme-emerald-night {
+            --bg-dark: #061412;
+            --card-bg: rgba(12, 33, 30, 0.9);
+            --card-border: rgba(16, 185, 129, 0.3);
+            --text-main: #E6F4F1;
+            --text-muted: #7FAFA6;
+            --text-gold: #FFCC33;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 15px;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(255, 204, 51, 0.12) 0%, transparent 55%),
+                radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 0% 50%, rgba(16, 185, 129, 0.06) 0%, transparent 40%);
+            background-attachment: fixed;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* Ambient Glow Header Header */
+        .site-header {
+            width: 100%;
+            max-width: 960px;
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 20px 10px;
+        }
+
+        .header-emblem {
+            font-family: var(--font-ui);
+            font-size: 13px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-shadow: 0 0 12px var(--color-gold-glow);
+        }
+
+        .header-title {
+            font-family: var(--font-title);
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 900;
+            color: var(--color-gold);
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 204, 51, 0.25);
+            background: linear-gradient(135deg, #FFFFFF 0%, #FFCC33 60%, #FF9900 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-subtitle {
+            font-family: var(--font-ui);
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        /* -------------------------------------------------------------
+           VISTA 1: MENÚ PRINCIPAL (HUB INICIAL)
+           ------------------------------------------------------------- */
+        .main-container {
+            width: 100%;
+            max-width: 900px;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .main-container.hidden {
+            display: none !important;
+        }
+
+        .main-container.closing {
+            animation: fadeOut 0.3s ease-in forwards;
+        }
+
+        .main-container.fadeIn {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            width: 100%;
+            margin-top: 25px;
+        }
+
+        .card-opcion {
+            background: var(--card-bg);
+            border: 2px solid var(--card-border);
+            border-radius: 16px;
+            padding: 30px 24px;
+            text-align: left;
+            cursor: pointer;
+            backdrop-filter: blur(12px);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-opcion::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--card-accent, var(--color-gold));
+            transition: width 0.3s ease;
+        }
+
+        .card-opcion:hover {
+            transform: translateY(-6px) scale(1.02);
+            border-color: var(--card-accent, var(--color-gold));
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 204, 51, 0.2);
+        }
+
+        .card-opcion:hover::before {
+            width: 8px;
+        }
+
+        /* Custom color accent variables for cards */
+        .card-historia { --card-accent: #FFCC33; }
+        .card-actos { --card-accent: #EF4444; }
+        .card-personajes { --card-accent: #10B981; }
+        .card-moraleja { --card-accent: #A855F7; }
+
+        .card-icon {
+            font-size: 36px;
+            margin-bottom: 14px;
+            display: inline-block;
+        }
+
+        .card-title {
+            font-family: var(--font-title);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-desc {
+            font-family: var(--font-ui);
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .card-action {
+            margin-top: 18px;
+            font-family: var(--font-ui);
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--card-accent, var(--color-gold));
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-action span {
+            transition: transform 0.2s ease;
+        }
+
+        .card-opcion:hover .card-action span {
+            transform: translateX(5px);
+        }
+
+        /* -------------------------------------------------------------
+           VISTAS SECUNDARIAS (OCULTAS POR DEFECTO)
+           ------------------------------------------------------------- */
+        .seccion-oculta {
+            display: none;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px 0 60px 0;
+        }
+
+        .seccion-oculta.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .seccion-oculta.closing {
+            animation: fadeOut 0.3s ease-in forwards;
+        }
+
+        /* Toolbar Top Navigation & Controls */
+        .sticky-toolbar {
+            position: sticky;
+            top: 15px;
+            z-index: 100;
+            background: rgba(10, 13, 20, 0.9);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 50px;
+            padding: 10px 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn-cerrar {
+            background: rgba(255, 204, 51, 0.12);
+            color: var(--color-gold);
+            border: 1px solid var(--color-gold);
+            padding: 8px 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: var(--font-ui);
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-cerrar:hover {
+            background: var(--color-gold);
+            color: #0A0D14;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px var(--color-gold-glow);
+        }
+
+        .toolbar-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .ctrl-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-main);
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-family: var(--font-ui);
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .ctrl-btn:hover {
+            background: var(--color-gold);
+            color: #0A0D14;
+            border-color: var(--color-gold);
+        }
+
+        .theme-select {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-main);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-family: var(--font-ui);
+            font-size: 13px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .theme-select option {
+            background: #0A0D14;
+            color: #FFF;
+        }
+
+        /* Article / Reading Content Container */
+        .reader-container {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 45px 40px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+        }
+
+        .chapter-header-box {
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 204, 51, 0.2);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .chapter-tag {
+            font-family: var(--font-ui);
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .chapter-title {
+            font-family: var(--font-title);
+            font-size: clamp(24px, 4vw, 38px);
+            color: var(--color-gold);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 15px;
+        }
+
+        .chapter-meta {
+            font-family: var(--font-ui);
+            font-size: 13px;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Story Paragraphs & Indentation */
+        .story-body {
+            font-size: var(--reader-font-size);
+            line-height: var(--line-height);
+            color: var(--text-main);
+        }
+
+        .story-body p {
+            margin-bottom: 22px;
+            text-indent: 0.75em;
+            text-align: justify;
+        }
+
+        /* Drop cap for first paragraph */
+        .story-body p.first-paragraph {
+            text-indent: 0;
+        }
+
+        .story-body p.first-paragraph::first-letter {
+            font-family: var(--font-title);
+            font-size: 3.4em;
+            float: left;
+            line-height: 0.8;
+            margin-right: 12px;
+            margin-top: 4px;
+            color: var(--color-gold);
+            font-weight: 900;
+            text-shadow: 0 0 10px var(--color-gold-glow);
+        }
+
+        /* Multi-color highlight blocks in story */
+        .quote-block {
+            margin: 35px 0;
+            padding: 22px 28px;
+            border-left: 4px solid var(--quote-accent, var(--color-gold));
+            background: var(--quote-bg, rgba(255, 204, 51, 0.08));
+            border-radius: 0 14px 14px 0;
+            font-style: italic;
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: var(--text-gold);
+        }
+
+        .quote-block strong {
+            font-style: normal;
+            font-family: var(--font-ui);
+            font-size: 0.85em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: block;
+            margin-top: 10px;
+            color: var(--text-muted);
+        }
+
+        .section-separator {
+            text-align: center;
+            margin: 40px 0;
+            color: var(--color-gold);
+            font-size: 20px;
+            letter-spacing: 12px;
+            opacity: 0.6;
+        }
+
+        /* Act Cards Grid */
+        .acts-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .act-card {
+            background: var(--card-bg);
+            border: 2px solid var(--act-color, var(--color-gold));
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .act-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 20px var(--act-glow);
+        }
+
+        .act-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+
+        .act-badge {
+            background: var(--act-color);
+            color: #0A0D14;
+            font-family: var(--font-ui);
+            font-size: 12px;
+            font-weight: 900;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .act-title {
+            font-family: var(--font-title);
+            font-size: 22px;
+            color: var(--act-color);
+            font-weight: 700;
+        }
+
+        /* Characters Cards Grid */
+        .char-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        .char-card {
+            background: var(--card-bg);
+            border: 1px solid var(--char-border, var(--card-border));
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .char-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--char-color, var(--color-gold));
+        }
+
+        .char-avatar {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: var(--char-color, var(--color-gold));
+            color: #0A0D14;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            box-shadow: 0 0 15px var(--char-glow, var(--color-gold-glow));
+        }
+
+        .char-name {
+            font-family: var(--font-title);
+            font-size: 20px;
+            color: var(--char-color, var(--color-gold));
+            margin-bottom: 6px;
+        }
+
+        .char-role {
+            font-family: var(--font-ui);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .char-desc {
+            font-family: var(--font-body);
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-main);
+        }
+
+        /* Moraleja & Reflection Section */
+        .reflection-hero {
+            background: linear-gradient(135deg, rgba(255, 204, 51, 0.12) 0%, rgba(168, 85, 247, 0.12) 100%);
+            border: 2px solid var(--color-gold);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .reflection-hero h2 {
+            font-family: var(--font-title);
+            font-size: 28px;
+            color: var(--color-gold);
+            margin-bottom: 20px;
+        }
+
+        .reflection-hero p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+
+        .moral-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .moral-card {
+            background: var(--card-bg);
+            border: 1px solid var(--moral-color);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .moral-card h3 {
+            font-family: var(--font-title);
+            font-size: 18px;
+            color: var(--moral-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .moral-card p {
+            font-family: var(--font-ui);
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 50px;
+            text-align: center;
+            font-family: var(--font-ui);
+            font-size: 13px;
+            color: var(--text-muted);
+            padding: 20px;
+            border-top: 1px solid rgba(255, 204, 51, 0.15);
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* -------------------------------------------------------------
+           REGLAS DE ANIMACIÓN CSS (@keyframes)
+           ------------------------------------------------------------- */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+        }
+
+        /* Responsive Mobile Styles */
+        @media (max-width: 600px) {
+            .reader-container {
+                padding: 25px 18px;
+            }
+            .sticky-toolbar {
+                border-radius: 20px;
+                justify-content: center;
+            }
+            .story-body p {
+                text-indent: 0.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- BARRA DE PROGRESO DE LECTURA SUPERIOR EN TIEMPO REAL -->
+    <div id="progress-bar-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 6px; background: rgba(255, 204, 51, 0.12); z-index: 9999; display: none; pointer-events: none;">
+        <div id="reading-progress-bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #FFCC33 0%, #FF9900 50%, #EF4444 100%); transition: width 0.1s ease-out; box-shadow: 0 0 12px rgba(255, 204, 51, 0.8);"></div>
+    </div>
+    
+    <!-- TOAST NOTIFICACIÓN PARA COPIAR CITAS -->
+    <div id="toast-notification" style="position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%) translateY(100px); background: #FFCC33; color: #0A0D14; padding: 12px 24px; border-radius: 30px; font-family: var(--font-ui); font-size: 14px; font-weight: 700; box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 10000; opacity: 0; transition: all 0.35s ease; pointer-events: none;">
+        ✨ ¡Frase copiada al portapapeles!
+    </div>
+
+    <!-- ENCABEZADO PRINCIPAL DE LA HISTORIA -->
+    <header class="site-header">
+        <div class="header-emblem">✦ FÁBULA DRAMÁTICA Y MORAL ✦</div>
+        <h1 class="header-title">LA PIEDRA SIN PULIR</h1>
+        <p class="header-subtitle">
+            El trágico relato del Señor de las Siete Esposas, el peso del orgullo sin ley y el precio ineludible de la verdadera justicia.
+        </p>
+    </header>
+
+    <!-- =============================================================
+         VISTA 1: MENÚ PRINCIPAL (HUB CON ANIMACIÓN Y VISTAS EXCLUSIVAS)
+         ============================================================= -->
+    <main class="main-container" id="menu-principal">
+        <div class="menu-grid">
+            
+            <!-- Opción 1: Lectura Completa -->
+            <div class="card-opcion card-historia" onclick="mostrarSeccion('sec-historia', 'historia')">
+                <div>
+                    <div class="card-icon">📖</div>
+                    <div class="card-title">
+                        Historia Completa
+                        <span>✦</span>
+                    </div>
+                    <div class="card-desc">
+                        Lee el relato narrativo original y completo, formateado con tipografía clásica e iluminación dorada.
+                    </div>
+                </div>
+                <div class="card-action">
+                    Iniciar Lectura <span>→</span>
+                </div>
+            </div>
+
+            <!-- Opción 2: Actos Dramáticos -->
+            <div class="card-opcion card-actos" onclick="mostrarSeccion('sec-actos', 'actos')">
+                <div>
+                    <div class="card-icon">🏛️</div>
+                    <div class="card-title">
+                        Actos Escénicos
+                        <span>✦</span>
+                    </div>
+                    <div class="card-desc">
+                        Explora la estructura de la historia dividida en sus 4 momentos cumbre: de la soberbia a la tumba.
+                    </div>
+                </div>
+                <div class="card-action" style="color: var(--color-crimson);">
+                    Ver Actos <span>→</span>
+                </div>
+            </div>
+
+            <!-- Opción 3: Personajes -->
+            <div class="card-opcion card-personajes" onclick="mostrarSeccion('sec-personajes', 'personajes')">
+                <div>
+                    <div class="card-icon">⚖️</div>
+                    <div class="card-title">
+                        Linaje & Personajes
+                        <span>✦</span>
+                    </div>
+                    <div class="card-desc">
+                        Conoce al Señor de las Siete Esposas, a la esposa menor, al campesino del niño y a los 20 hijos.
+                    </div>
+                </div>
+                <div class="card-action" style="color: var(--color-emerald);">
+                    Ver Personajes <span>→</span>
+                </div>
+            </div>
+
+            <!-- Opción 4: Moraleja -->
+            <div class="card-opcion card-moraleja" onclick="mostrarSeccion('sec-moraleja', 'moraleja')">
+                <div>
+                    <div class="card-icon">📜</div>
+                    <div class="card-title">
+                        Reflexión al Lector
+                        <span>✦</span>
+                    </div>
+                    <div class="card-desc">
+                        Descubre las enseñanzas universales sobre la justicia, la responsabilidad y la lección perpetua.
+                    </div>
+                </div>
+                <div class="card-action" style="color: var(--color-purple);">
+                    Ver Moraleja <span>→</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+    <!-- =============================================================
+         VISTA SECUNDARIA 1: HISTORIA COMPLETA
+         ============================================================= -->
+    <section class="seccion-oculta" id="sec-historia">
+        
+        <!-- Barra de herramientas flotante -->
+        <div class="sticky-toolbar">
+            <button class="btn-cerrar" onclick="ocultarSeccion('sec-historia')">
+                ← Volver al Menú Principal
+            </button>
+            <div class="toolbar-controls">
+                <button class="ctrl-btn" onclick="changeFontSize(-1)" title="Reducir fuente">A-</button>
+                <button class="ctrl-btn" onclick="changeFontSize(1)" title="Aumentar fuente">A+</button>
+                <select class="theme-select" onchange="changeTheme(this.value)">
+                    <option value="default">Oro Imperial (#FFCC33)</option>
+                    <option value="sepia">Pergamino Sepia</option>
+                    <option value="dark-obsidian">Obsidiana Oscura</option>
+                    <option value="emerald-night">Noche Esmeralda</option>
+                </select>
+            </div>
+        </div>
+
+        <article class="reader-container">
+            <div class="chapter-header-box">
+                <span class="chapter-tag">✦ TEXTO COMPLETO ✦</span>
+                <h2 class="chapter-title">LA PIEDRA SIN PULIR</h2>
+                <div class="chapter-meta">
+                    <span id="reading-time-badge">⏱️ ~4 min restantes</span>
+                    <span id="reading-percent-badge">📊 0% leído</span>
+                    <span>📜 79 Párrafos</span>
+                </div>
+            </div>
+
+            <div class="story-body" id="story-content">
+                <p class="first-paragraph">
+                    En aquellos días, cuando los reinos se disputaban tierras y tribus, hubo un hombre cuya hacienda se extendía más allá de lo que la vista abarcaba, y cuyo cofre rebosaba oro, joyas y tributos de muchos pueblos.
+                </p>
+                <p>
+                    Se le llamaba simplemente «el Señor de las Siete Esposas», pues se tomó siete mujeres, no por amor, sino por cálculo: deseaba que su sangre se multiplicase como semilla en tiempo de lluvias abundantes.
+                </p>
+                
+                <div class="quote-block" style="--quote-accent: #FFCC33; --quote-bg: rgba(255, 204, 51, 0.08);">
+                    «Que mi linaje sea como bosque espeso, que nadie pueda cruzar estas tierras sin tropezar con mi sangre».
+                    <strong>— El Señor de las Siete Esposas</strong>
+                </div>
+
+                <p>
+                    Pasaron los años y su deseo se cumplió con exceso: más de veinte hijos nacieron bajo sus techos, cada uno cubierto con telas finas y alimentado con lo mejor de los graneros. Mas al mismo tiempo que crecía el número de sus vástagos, menguaba la prudencia en el corazón del padre, que nunca supo corregirlos ni enseñarles templanza.
+                </p>
+                <p>
+                    Buscando fortalecer su nombre, dio a sus hijos caballos veloces, espadas bruñidas y anillos como los de los grandes señores, y les permitió cabalgar libres por villas y aldeas. Los hijos, al verse temidos y servidos, creyeron que la sangre noble era permiso para todo y que las leyes de los hombres no pesaban sobre ellos.
+                </p>
+                <p>
+                    Al principio, fueron sólo abusos pequeños que muchos callaron: un saco de grano tomado sin pagar, una hija de campesino forzada a compartir lecho bajo amenaza de acero. Las bocas del pueblo se cerraron con miedo, pues todo reclamo se perdía en corredores vigilados por los hombres del señor.
+                </p>
+
+                <div class="section-separator">✦ ✦ ✦</div>
+
+                <p>
+                    Con el tiempo, la soberbia inflamó los corazones de aquellos hijos. Entraban en las tabernas como reyes en marcha triunfal, exigían vino, comida y cuerpos, y cuando alguien osaba negarles algo, respondían con la hoja desenvainada.
+                </p>
+                <p>
+                    Hubo un año nefasto en que tres de ellos, ebrios de licor y de orgullo, cabalgaron hacia una aldea que había demorado en pagar el tributo. Quemaron establos, tomaron por juego lanzar antorchas a los techos de paja y atravesaron con lanzas a quienes huían, riendo como si se tratara de una cacería de animales.
+                </p>
+                
+                <div class="quote-block" style="--quote-accent: #EF4444; --quote-bg: rgba(239, 68, 68, 0.1); color: #FCA5A5;">
+                    «Tu linaje se está pudriendo desde dentro, como manzana guardada demasiado tiempo en un cofre cerrado».
+                    <strong>— La Esposa Menor al Señor</strong>
+                </div>
+
+                <p>
+                    Las madres lloraban en secreto, mas pocas alzaban la voz abiertamente, temiendo la furia de los propios hijos y el juicio del marido. Sólo una de las siete esposas, la menor, se atrevió a susurrar al señor que su linaje se estaba pudriendo desde dentro, como manzana guardada demasiado tiempo en un cofre cerrado.
+                </p>
+                <p>
+                    Por mucho tiempo, el señor escuchó los rumores como quien oye viento entre ramas: molestos, pero fáciles de ignorar. Decía para sí: <em>«son jóvenes, la sangre fuerte hierve; el pueblo exagera sus quejas»</em>.
+                </p>
+                <p>
+                    Mas la verdad es paciente y no deja de golpear a la puerta del corazón. Una tarde, llegó a su sala un campesino con el rostro gris de espanto, llevando en brazos el cuerpo sin vida de un niño, marcado con el blasón de la casa del señor en el pecho, estampado con fuego.
+                </p>
+
+                <div class="quote-block" style="--quote-accent: #06B6D4; --quote-bg: rgba(6, 182, 212, 0.1); color: #A5F3FC;">
+                    «Que tu mirada no aparte la vista de lo que tu sangre ha hecho».
+                    <strong>— El Campesino ante el Trono</strong>
+                </div>
+
+                <p>
+                    El campesino no pidió oro ni venganza; sólo dejó al niño a los pies del trono y dijo aquellas palabras. Cuando el eco de su voz se apagó en la sala, el señor supo que ya no podía esconderse tras la comodidad de la duda.
+                </p>
+                <p>
+                    Esa noche, caminó solo por los pasillos de su casa, oyendo en su memoria los llantos, gritos y susurros que había decidido no escuchar durante años. Comprendió entonces que no había engendrado herederos, sino verdugos sin conciencia, criados al calor de su propia ambición y negligencia.
+                </p>
+
+                <div class="section-separator">✦ ✦ ✦</div>
+
+                <p>
+                    Al alba del día siguiente, el señor llamó a sus guardias más viejos, aquellos que le debían la vida desde antiguas batallas. Les habló con voz que ninguno había oído antes, pesada como hierro:
+                </p>
+
+                <div class="quote-block" style="--quote-accent: #A855F7; --quote-bg: rgba(168, 85, 247, 0.1); color: #E9D5FF;">
+                    «Lo que voy a mandar es atroz, pero más atroz ha sido mi omisión. Escuchad y obedeced sin armas de duda».
+                    <strong>— Decreto del Señor de las Siete Esposas</strong>
+                </div>
+
+                <p>
+                    Ordenó que todos sus hijos fueran apresados, desde el mayor hasta el más pequeño que ya pudiera sostener una espada. No hubo sala de juicio, ni escribano, ni acusación formal: las culpas estaban escritas en la memoria del pueblo y en las llagas de los inocentes.
+                </p>
+                <p>
+                    Algunos hijos rieron, creyendo que se trataba de una lección pasajera, un castigo teatral. Otros lloraron y juraron inocencia, aunque sus manos aún olían a humo de aldeas quemadas y a sangre reseca.
+                </p>
+                <p>
+                    En las horas siguientes, la casa del señor se llenó de gritos que no eran de guerra ni de victoria, sino de sorpresa, de furia impotente y de miedo. Uno a uno, los hijos fueron ejecutados fuera de los muros, lejos de la vista del padre, aunque no lejos del peso de su conciencia.
+                </p>
+                <p>
+                    Cuando el sol alcanzó la mitad del cielo, los cuerpos de los hijos fueron llevados a la plaza principal, frente a la residencia del señor. El pueblo fue convocado a contemplar aquella macabra procesión: más de veinte cadáveres alineados, aún vistiendo ropas de seda manchadas de rojo.
+                </p>
+                <p>
+                    Las siete esposas, rotas de dolor, se aferraban a los cuerpos, besaban frentes frías, maldecían y rogaban al cielo que aquel día no hubiera amanecido jamás. El señor, en cambio, se mantuvo de pie, pálido como quien mira su reflejo en un espejo roto, sabiendo que cada cuerpo era un trozo de sí mismo arrojado sobre la tierra.
+                </p>
+
+                <div class="section-separator">✦ ✦ ✦</div>
+
+                <p>
+                    Mandó callar los lamentos y pidió que todos escucharan. Su voz, aunque quebrada, se extendió como campana:
+                </p>
+
+                <div class="quote-block" style="--quote-accent: #FFCC33; --quote-bg: rgba(255, 204, 51, 0.12);">
+                    «Estos son mis hijos. De mi sangre salieron, y mi sangre les hizo creer que estaban por encima de la ley. Yo les di poder y negué disciplina. Yo sembré esta cosecha maldita».
+                    <strong>— Confesión del Señor al Pueblo</strong>
+                </div>
+
+                <p>
+                    Tras decir esto, ordenó que cavaran una fosa grande, lo bastante ancha como para que cupieran todos los cuerpos de su linaje. Los aldeanos obedecieron en silencio, con las manos temblando al hundir la pala en la tierra, pues enterraban a la vez a sus opresores y a sus propias esperanzas de justicia humana.
+                </p>
+                <p>
+                    Cuando los cuerpos fueron dispuestos en la fosa, el señor descendió unos pasos, hasta que el borde de la tumba le llegó a la cintura. Sacó de su cinto una daga corta, antigua, que había llevado a muchas batallas y que jamás había probado su propia carne.
+                </p>
+
+                <div class="quote-block" style="--quote-accent: #10B981; --quote-bg: rgba(16, 185, 129, 0.12); color: #A7F3D0;">
+                    «No pidáis venganza a los reyes ni a los jueces; la justicia que negué, hoy la reclamo contra mí mismo. Que mi sangre cierre esta herida que abrí en la tierra».
+                    <strong>— Últimas palabras del Señor</strong>
+                </div>
+
+                <p>
+                    Y, sin dejar que nadie se adelantara, clavó la hoja en su abdomen y giró la mano con firmeza, como quien firma un decreto irrevocable.
+                </p>
+                <p>
+                    Cayó entre los cuerpos de sus hijos, mezclando su sangre con la de ellos. Algunos aldeanos se taparon los ojos, otros no pudieron apartar la mirada, como si contemplaran la caída de una torre que durante años había oscurecido el cielo.
+                </p>
+                <p>
+                    Nadie corrió a socorrerlo. Ninguna mano se alzó para detener el acero ni para cerrar la herida; el pueblo, que tanto había sufrido, se quedó inmóvil, pesado por una mezcla de horror, alivio y cansancio antiguo.
+                </p>
+                <p>
+                    Una vez muerto el señor, los aldeanos, ayudados por los pocos criados que quedaban, cubrieron la fosa con tierra. No hubo cantos fúnebres ni estandartes; sólo el sonido de la tierra cayendo sobre la carne, como lluvia seca sobre un campo que ya no dará fruto.
+                </p>
+                <p>
+                    Le hicieron una tumba sencilla, sin estatua ni inscripción gloriosa, marcada apenas por una piedra sin pulir. Dicen los viejos que así se decidió, para que su nombre no fuera motivo de honor, sino de advertencia silenciosa para las generaciones venideras.
+                </p>
+
+                <div class="quote-block" style="--quote-accent: #A855F7; --quote-bg: rgba(168, 85, 247, 0.12); border-left-width: 6px;">
+                    <strong>Palabras al lector</strong><br>
+                    Si tus ojos han llegado hasta esta última página, recuerda que no hay linaje tan noble que pueda vivir sin justicia, ni poder tan grande que no se pudra cuando se alimenta solo de orgullo. Las tierras del Señor de las Siete Esposas cambiaron de manos, los reyes alzaron otros escudos y las guerras siguieron, como siguen los inviernos y las sequías.
+                </div>
+            </div>
+        </article>
+    </section>
+
+
+    <!-- =============================================================
+         VISTA SECUNDARIA 2: ACTOS DRAMÁTICOS
+         ============================================================= -->
+    <section class="seccion-oculta" id="sec-actos">
+        <div class="sticky-toolbar">
+            <button class="btn-cerrar" onclick="ocultarSeccion('sec-actos')">
+                ← Volver al Menú Principal
+            </button>
+        </div>
+
+        <h2 style="font-family: var(--font-title); color: var(--color-gold); text-align: center; margin-bottom: 25px; font-size: 28px;">
+            ✦ ESTRUCTURA DE LA HISTORIA EN 4 ACTOS ✦
+        </h2>
+
+        <div class="acts-grid">
+            
+            <!-- Acto 1 -->
+            <div class="act-card" style="--act-color: #FFCC33; --act-glow: rgba(255, 204, 51, 0.2);">
+                <div class="act-header">
+                    <span class="act-badge">Acto I</span>
+                    <h3 class="act-title">La Cosecha del Orgullo</h3>
+                </div>
+                <p style="font-family: var(--font-ui); color: var(--text-muted); line-height: 1.7; margin-bottom: 15px;">
+                    El Señor de las Siete Esposas acumula riquezas y desea que su linaje se extienda como un bosque denso. Engendra más de 20 hijos a quienes colma de caballos, espadas y lujos, pero niega toda disciplina.
+                </p>
+                <div style="font-family: var(--font-ui); font-size: 13px; color: var(--color-gold); font-weight: 600;">
+                    ✦ Hito clave: "Que mi linaje sea como bosque espeso..."
+                </div>
+            </div>
+
+            <!-- Acto 2 -->
+            <div class="act-card" style="--act-color: #EF4444; --act-glow: rgba(239, 68, 68, 0.2);">
+                <div class="act-header">
+                    <span class="act-badge" style="background: #EF4444; color: #FFF;">Acto II</span>
+                    <h3 class="act-title" style="color: #EF4444;">El Clamor del Pueblo</h3>
+                </div>
+                <p style="font-family: var(--font-ui); color: var(--text-muted); line-height: 1.7; margin-bottom: 15px;">
+                    Los hijos se convierten en tiranos impunes. Queman una aldea y asesinan sin piedad. La esposa menor advierte la pudrición, pero es la llegada del campesino con el niño marcado a fuego lo que rompe la ceguera del padre.
+                </p>
+                <div style="font-family: var(--font-ui); font-size: 13px; color: #EF4444; font-weight: 600;">
+                    ✦ Hito clave: "Que tu mirada no aparte la vista de lo que tu sangre ha hecho."
+                </div>
+            </div>
+
+            <!-- Acto 3 -->
+            <div class="act-card" style="--act-color: #A855F7; --act-glow: rgba(168, 85, 247, 0.2);">
+                <div class="act-header">
+                    <span class="act-badge" style="background: #A855F7; color: #FFF;">Acto III</span>
+                    <h3 class="act-title" style="color: #A855F7;">La Sentencia Implacable</h3>
+                </div>
+                <p style="font-family: var(--font-ui); color: var(--text-muted); line-height: 1.7; margin-bottom: 15px;">
+                    El Señor despierta a su propia negligencia. Ordena a sus guardias antiguos arrestar y ejecutar fuera de los muros a todos sus más de 20 hijos. Expone sus cuerpos en seda roja en la plaza pública frente a sus madres.
+                </p>
+                <div style="font-family: var(--font-ui); font-size: 13px; color: #A855F7; font-weight: 600;">
+                    ✦ Hito clave: "Yo les di poder y negué disciplina. Yo sembré esta cosecha maldita."
+                </div>
+            </div>
+
+            <!-- Acto 4 -->
+            <div class="act-card" style="--act-color: #10B981; --act-glow: rgba(16, 185, 129, 0.2);">
+                <div class="act-header">
+                    <span class="act-badge" style="background: #10B981; color: #0A0D14;">Acto IV</span>
+                    <h3 class="act-title" style="color: #10B981;">La Piedra sin Pulir</h3>
+                </div>
+                <p style="font-family: var(--font-ui); color: var(--text-muted); line-height: 1.7; margin-bottom: 15px;">
+                    El Señor desciende a la fosa común con sus hijos y se clava su propia daga en el abdomen para sellar la justicia contra sí mismo. Es enterrado bajo una piedra sin pulir ni inscripción para que sirva de advertencia eterna.
+                </p>
+                <div style="font-family: var(--font-ui); font-size: 13px; color: #10B981; font-weight: 600;">
+                    ✦ Hito clave: "Que mi sangre cierre esta herida que abrí en la tierra."
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =============================================================
+         VISTA SECUNDARIA 3: LINAJE Y PERSONAJES
+         ============================================================= -->
+    <section class="seccion-oculta" id="sec-personajes">
+        <div class="sticky-toolbar">
+            <button class="btn-cerrar" onclick="ocultarSeccion('sec-personajes')">
+                ← Volver al Menú Principal
+            </button>
+        </div>
+
+        <h2 style="font-family: var(--font-title); color: var(--color-gold); text-align: center; margin-bottom: 25px; font-size: 28px;">
+            ✦ PERSONAJES DEL LINAJE Y LA HISTORIA ✦
+        </h2>
+
+        <div class="char-grid">
+            
+            <!-- Personaje 1 -->
+            <div class="char-card" style="--char-color: #FFCC33; --char-glow: rgba(255, 204, 51, 0.3);">
+                <div class="char-avatar">👑</div>
+                <h3 class="char-name">El Señor de las 7 Esposas</h3>
+                <span class="char-role">Patriarca & Juez Final</span>
+                <p class="char-desc">
+                    Hombre de inmensa riqueza y ambición. Creó un linaje numeroso por vanidad pero descuidó su moral. Al comprender el monstruo que engendró, ejecuta a sus propios hijos y se quita la vida en la fosa común.
+                </p>
+            </div>
+
+            <!-- Personaje 2 -->
+            <div class="char-card" style="--char-color: #10B981; --char-glow: rgba(16, 185, 129, 0.3);">
+                <div class="char-avatar">🕯️</div>
+                <h3 class="char-name">La Esposa Menor</h3>
+                <span class="char-role">Voz de la Conciencia</span>
+                <p class="char-desc">
+                    La única de las siete mujeres que se atrevió a confrontar al Señor, advirtiéndole que su linaje se estaba pudriendo internamente como una manzana guardada demasiado tiempo en un cofre.
+                </p>
+            </div>
+
+            <!-- Personaje 3 -->
+            <div class="char-card" style="--char-color: #06B6D4; --char-glow: rgba(6, 182, 212, 0.3);">
+                <div class="char-avatar">🌾</div>
+                <h3 class="char-name">El Campesino de la Verdad</h3>
+                <span class="char-role">Emisario del Pueblo</span>
+                <p class="char-desc">
+                    Llevó el cuerpo sin vida de su niño marcado a fuego al trono del Señor. No exigió oro ni venganza, solo pronunció las palabras que quebraron definitivamente la ceguera del patriarca.
+                </p>
+            </div>
+
+            <!-- Personaje 4 -->
+            <div class="char-card" style="--char-color: #EF4444; --char-glow: rgba(239, 68, 68, 0.3);">
+                <div class="char-avatar">⚔️</div>
+                <h3 class="char-name">Los Veinte Hijos</h3>
+                <span class="char-role">El Linaje Descarriado</span>
+                <p class="char-desc">
+                    Criados en la impunidad y el privilegio. Creyeron que la nobleza de su sangre les daba derecho a saquear, forzar y quemar aldeas. Fueron ejecutados todos en un solo día por orden de su padre.
+                </p>
+            </div>
+
+            <!-- Personaje 5 -->
+            <div class="char-card" style="--char-color: #A855F7; --char-glow: rgba(168, 85, 247, 0.3);">
+                <div class="char-avatar">🥀</div>
+                <h3 class="char-name">Las Siete Esposas</h3>
+                <span class="char-role">Madres en Duelo</span>
+                <p class="char-desc">
+                    Tomadas por cálculo político para multiplicar el linaje. Sufrieron el dolor desgarrador de ver a sus hijos ejecutados y alineados en ropa de seda sobre la plaza pública.
+                </p>
+            </div>
+
+            <!-- Personaje 6 -->
+            <div class="char-card" style="--char-color: #F59E0B; --char-glow: rgba(245, 158, 11, 0.3);">
+                <div class="char-avatar">🗿</div>
+                <h3 class="char-name">El Pueblo & los Viejos Guardias</h3>
+                <span class="char-role">Testigos Inmóviles</span>
+                <p class="char-desc">
+                    Sufrieron años de abusos en silencio. Guardaron los cuerpos en la fosa y sellaron el lugar con una piedra sin pulir para recordar que el orgullo sin disciplina trae la ruina total.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =============================================================
+         VISTA SECUNDARIA 4: MORALEJA Y REFLEXIÓN
+         ============================================================= -->
+    <section class="seccion-oculta" id="sec-moraleja">
+        <div class="sticky-toolbar">
+            <button class="btn-cerrar" onclick="ocultarSeccion('sec-moraleja')">
+                ← Volver al Menú Principal
+            </button>
+        </div>
+
+        <div class="reflection-hero">
+            <h2>✦ MORALEJA & ENSEÑANZA UNIVERSAL ✦</h2>
+            <p>
+                «No hay linaje tan noble que pueda vivir sin justicia, ni poder tan grande que no se pudra cuando se alimenta solo de orgullo.»
+            </p>
+        </div>
+
+        <div class="moral-grid">
+            <div class="moral-card" style="--moral-color: #FFCC33;">
+                <h3>⚖️ El Poder sin Disciplina</h3>
+                <p>
+                    Darle armas, lujos y poder a las nuevas generaciones sin enseñarles valores ni templanza no engendra líderes ni herederos, sino tiranos irresponsables.
+                </p>
+            </div>
+
+            <div class="moral-card" style="--moral-color: #EF4444;">
+                <h3>👁️ La Ceguera Voluntaria</h3>
+                <p>
+                    Ignorar las quejas del pueblo o excusar las faltas de los seres queridos bajo el pretexto de que "la sangre hierve" solo posterga un castigo aún más devastador.
+                </p>
+            </div>
+
+            <div class="moral-card" style="--moral-color: #10B981;">
+                <h3>🪨 La Piedra sin Pulir</h3>
+                <p>
+                    El Señor no quiso una estatua de mármol ni honores gloriosos. Su tumba se marcó con una piedra tosca sin inscripción como símbolo de humildad y advertencia eterna.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        ✦ La Piedra sin Pulir - Por Fernando Barra ✦
+    </footer>
+
+    <!-- =============================================================
+         LÓGICA JAVASCRIPT DE ANIMACIÓN Y TRANSICIÓN DE VISTAS
+         ============================================================= -->
+    <script>
+        // Función principal para mostrar una vista secundaria excluyendo el menú
+        function mostrarSeccion(idTarget, hash) {
+            const menu = document.getElementById('menu-principal');
+            const target = document.getElementById(idTarget);
+
+            if (!target) return;
+
+            // 1. Ocultar cualquier otra sección secundaria abierta
+            ['sec-historia', 'sec-actos', 'sec-personajes', 'sec-moraleja'].forEach(secId => {
+                if (secId !== idTarget) {
+                    const el = document.getElementById(secId);
+                    if (el) {
+                        el.classList.remove('active', 'closing');
+                        el.style.display = 'none';
+                    }
+                }
+            });
+
+            // 2. Iniciar animación de salida (fadeOut) en el Menú Principal
+            menu.classList.add('closing');
+
+            // 3. Esperar 250 milisegundos para sincronizar la animación CSS con JavaScript
+            setTimeout(() => {
+                menu.classList.add('hidden');
+                menu.classList.remove('closing');
+
+                // 4. Desplegar la sección elegida con animación de entrada (fadeIn)
+                target.style.display = 'block';
+                target.classList.remove('closing');
+                target.classList.add('active');
+                
+                // Mostrar u ocultar barra de progreso si estamos en la vista de historia
+                const progressBarContainer = document.getElementById('progress-bar-container');
+                if (idTarget === 'sec-historia') {
+                    progressBarContainer.style.display = 'block';
+                    updateReadingProgress();
+                } else {
+                    progressBarContainer.style.display = 'none';
+                }
+
+                // Actualizar la URL hash y hacer desplazamiento suave al inicio
+                if (hash) {
+                    window.location.hash = hash;
+                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 250);
+        }
+
+        // Función para ocultar una sección y retornar al Menú Principal
+        function ocultarSeccion(idTarget) {
+            const target = document.getElementById(idTarget);
+            const menu = document.getElementById('menu-principal');
+            const progressBarContainer = document.getElementById('progress-bar-container');
+
+            if (!target) return;
+
+            // Ocultar barra de progreso
+            if (progressBarContainer) progressBarContainer.style.display = 'none';
+
+            // 1. Iniciar animación de salida (fadeOut) en la vista activa
+            target.classList.add('closing');
+
+            // 2. Esperar 250ms a que termine el desvanecimiento
+            setTimeout(() => {
+                target.classList.remove('active', 'closing');
+                target.style.display = 'none';
+
+                // 3. Reaparecer el Menú Principal limpiamente con animación de entrada (fadeIn)
+                menu.classList.remove('hidden');
+                menu.classList.add('fadeIn');
+
+                // Limpiar la URL hash y hacer scroll arriba
+                history.pushState("", document.title, window.location.pathname + window.location.search);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // Remover clase auxiliar tras completar el fadeIn
+                setTimeout(() => {
+                    menu.classList.remove('fadeIn');
+                }, 400);
+            }, 250);
+        }
+
+        // Control de tamaño de fuente del lector
+        let currentFontSize = 19;
+        function changeFontSize(delta) {
+            currentFontSize += delta;
+            if (currentFontSize < 14) currentFontSize = 14;
+            if (currentFontSize > 28) currentFontSize = 28;
+            document.documentElement.style.setProperty('--reader-font-size', currentFontSize + 'px');
+        }
+
+        // Control de selector de tema visual
+        function changeTheme(themeName) {
+            document.body.className = '';
+            if (themeName !== 'default') {
+                document.body.classList.add('theme-' + themeName);
+            }
+        }
+
+        // Cálculo de progreso de lectura y tiempo restante en tiempo real
+        function updateReadingProgress() {
+            const secHistoria = document.getElementById('sec-historia');
+            if (!secHistoria || secHistoria.style.display === 'none') return;
+
+            const progressBar = document.getElementById('reading-progress-bar');
+            const percentBadge = document.getElementById('reading-percent-badge');
+            const timeBadge = document.getElementById('reading-time-badge');
+
+            const totalHeight = secHistoria.scrollHeight - window.innerHeight;
+            const scrollPos = window.scrollY - secHistoria.offsetTop;
+
+            if (totalHeight > 0) {
+                let progress = Math.min(Math.max((scrollPos / totalHeight) * 100, 0), 100);
+                let roundedPercent = Math.round(progress);
+                
+                if (progressBar) progressBar.style.width = roundedPercent + '%';
+                if (percentBadge) percentBadge.innerText = '📊 ' + roundedPercent + '% leído';
+
+                // Calcular tiempo restante (4 minutos base)
+                let remainingMins = Math.ceil(4 * (1 - progress / 100));
+                if (remainingMins <= 0) remainingMins = 0;
+
+                if (timeBadge) {
+                    if (roundedPercent >= 98) {
+                        timeBadge.innerText = '🎉 Lectura completada';
+                    } else {
+                        timeBadge.innerText = '⏱️ ~' + remainingMins + ' min restantes';
+                    }
+                }
+            }
+        }
+
+        window.addEventListener('scroll', updateReadingProgress);
+
+        // Copiar citas al hacer clic en un quote-block
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.replace('#', '');
+            if (hash === 'historia') {
+                mostrarSeccion('sec-historia', 'historia');
+            } else if (hash === 'actos') {
+                mostrarSeccion('sec-actos', 'actos');
+            } else if (hash === 'personajes') {
+                mostrarSeccion('sec-personajes', 'personajes');
+            } else if (hash === 'moraleja') {
+                mostrarSeccion('sec-moraleja', 'moraleja');
+            }
+
+            // Asignar comportamiento de copia a cada cita destacada
+            document.querySelectorAll('.quote-block').forEach(quote => {
+                quote.style.cursor = 'pointer';
+                quote.title = 'Haz clic para copiar esta frase';
+                quote.addEventListener('click', () => {
+                    const textToCopy = quote.innerText.trim();
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        showToast('✨ ¡Frase copiada al portapapeles!');
+                    });
+                });
+            });
+        });
+
+        // Mostrar notificación flotante (toast)
+        function showToast(message) {
+            const toast = document.getElementById('toast-notification');
+            if (toast) {
+                toast.innerText = message;
+                toast.style.transform = 'translateX(-50%) translateY(0)';
+                toast.style.opacity = '1';
+                setTimeout(() => {
+                    toast.style.transform = 'translateX(-50%) translateY(100px)';
+                    toast.style.opacity = '0';
+                }, 2500);
+            }
+        }
+    </script>
+</body>
+</html>

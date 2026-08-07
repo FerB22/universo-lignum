@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitulo 09: La necesidad de la guerra - Forgotten Sword</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #120c08;
+            --card-bg: #1c130c;
+            --text-color: #e8dcc4;
+            --accent-gold: #d4af37;
+            --accent-bright: #f0c952;
+            --muted-gold: #9e8237;
+            --text-dim: #b8a686;
+            --border-color: #3b2818;
+            --quote-bg: rgba(212,175,55,0.06);
+            --sidebar-bg: #160f09;
+            --font-size-base: 18px;
+        }
+        body.theme-sepia {
+            --bg-color:#241c14; --card-bg:#2d241a; --text-color:#edd9be;
+            --border-color:#4a3a2a; --sidebar-bg:#1e160f;
+        }
+        body.theme-dark {
+            --bg-color:#0a0705; --card-bg:#120e0a; --text-color:#d1c5b0;
+            --border-color:#291e14; --sidebar-bg:#080604;
+        }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lora', Georgia, serif;
+            font-size: var(--font-size-base);
+            line-height: 1.85;
+            min-height: 100vh;
+            padding: 20px;
+            transition: background-color .3s, color .3s;
+            background-image: radial-gradient(circle at 50% 0%, rgba(212,175,55,.07) 0%, transparent 65%);
+        }
+        .page-layout {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            grid-template-rows: auto 1fr auto;
+            gap: 0 24px;
+            align-items: start;
+        }
+        /* Nav bar */
+        .nav-bar {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 13px 22px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 24px;
+            box-shadow: 0 6px 24px rgba(0,0,0,.45);
+        }
+        .nav-back {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color .2s, transform .2s;
+        }
+        .nav-back:hover { color:var(--accent-bright); transform:translateX(-3px); }
+        .reader-controls { display:flex; align-items:center; gap:10px; }
+        .btn-ctrl {
+            background:rgba(212,175,55,.1); border:1px solid var(--border-color);
+            color:var(--accent-gold); padding:5px 11px; border-radius:4px;
+            cursor:pointer; font-family:'Cinzel',serif; font-size:13px; transition:all .2s;
+        }
+        .btn-ctrl:hover { background:var(--accent-gold); color:#120c08; }
+        /* Main reading column */
+        .main-col { min-width:0; }
+        .chapter-header {
+            text-align:center; margin-bottom:38px;
+            padding-bottom:24px; position:relative;
+        }
+        .chapter-header::after {
+            content:'&#10042; &#10042; &#10042;';
+            position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+            color:var(--muted-gold); font-size:13px; letter-spacing:10px;
+        }
+        .sub-label {
+            font-family:'Cinzel',serif; font-size:11px; letter-spacing:4px;
+            text-transform:uppercase; color:var(--accent-gold);
+            margin-bottom:10px; display:block;
+        }
+        .main-title {
+            font-family:'Cinzel',serif; font-size:32px; font-weight:700;
+            color:#f5eedc; letter-spacing:1px;
+            text-shadow:0 4px 14px rgba(0,0,0,.7); margin-bottom:6px;
+        }
+        /* Reader frame */
+        .reader-container {
+            background:var(--card-bg); border:1px solid var(--border-color);
+            border-radius:12px; padding:44px 50px;
+            box-shadow:0 10px 38px rgba(0,0,0,.5); position:relative;
+        }
+        .reader-container::before {
+            content:''; position:absolute; top:8px; left:8px; right:8px; bottom:8px;
+            border:1px solid rgba(212,175,55,.12); border-radius:8px; pointer-events:none;
+        }
+        /* Prose */
+        .prose p {
+            margin-bottom: 20px;
+            text-align: justify;
+            text-indent: 0.75em;
+        }
+        .prose p.dialogue {
+            text-indent: 0;
+            padding-left: 10px;
+            border-left: 2px solid rgba(212,175,55,.22);
+            margin-bottom: 14px;
+        }
+        .prose p.dialogue-cont {
+            text-indent: 0;
+            padding-left: 10px;
+            margin-top: -14px;
+            margin-bottom: 14px;
+            color: var(--text-dim);
+        }
+        .prose .scene-break {
+            text-align:center; color:var(--muted-gold);
+            font-size:15px; letter-spacing:10px; margin:32px 0; user-select:none;
+        }
+        .prose blockquote.epigraph {
+            background:var(--quote-bg); border-left:3px solid var(--accent-gold);
+            border-right:3px solid var(--accent-gold); padding:18px 24px;
+            margin:0 auto 34px auto; border-radius:4px; text-align:center;
+            font-style:italic; color:#f0e6d2; font-size:.97em;
+            max-width:600px; box-shadow:0 3px 14px rgba(0,0,0,.25); text-indent:0;
+        }
+        /* Prev/Next nav */
+        .chapter-nav {
+            display:flex; justify-content:space-between; align-items:center;
+            margin-top:34px; padding-top:20px; border-top:1px solid var(--border-color);
+        }
+        .chapter-nav a {
+            font-family:'Cinzel',serif; font-size:13px; font-weight:600;
+            color:var(--accent-gold); text-decoration:none; transition:color .2s;
+        }
+        .chapter-nav a:hover { color:var(--accent-bright); }
+        /* Sidebar */
+        .sidebar {
+            background:var(--sidebar-bg); border:1px solid var(--border-color);
+            border-radius:10px; padding:18px 14px;
+            box-shadow:0 6px 22px rgba(0,0,0,.4);
+            position:sticky; top:20px;
+            max-height:calc(100vh - 40px); overflow-y:auto;
+        }
+        .sidebar::-webkit-scrollbar { width:4px; }
+        .sidebar::-webkit-scrollbar-thumb { background:var(--border-color); border-radius:4px; }
+        .sidebar-title {
+            font-family:'Cinzel',serif; font-size:11px; letter-spacing:3px;
+            text-transform:uppercase; color:var(--accent-gold);
+            margin-bottom:14px; padding-bottom:10px;
+            border-bottom:1px solid var(--border-color); text-align:center;
+        }
+        .sidebar-list { list-style:none; }
+        .sidebar-list li { border-bottom:1px solid rgba(59,40,24,.5); }
+        .sidebar-list li a {
+            display:block; padding:8px 7px; font-size:12.5px;
+            color:var(--text-dim); text-decoration:none; line-height:1.4;
+            transition:color .2s, background .2s; border-radius:4px;
+        }
+        .sidebar-list li a:hover { color:var(--accent-gold); background:rgba(212,175,55,.06); }
+        .sidebar-list li.active a {
+            color:var(--accent-bright); font-weight:600;
+            background:rgba(212,175,55,.1);
+        }
+        .ch-num {
+            font-family:'Cinzel',serif; font-size:10px;
+            color:var(--muted-gold); margin-right:5px;
+        }
+        /* Footer */
+        .page-footer {
+            grid-column:1 / -1; text-align:center;
+            font-family:'Cinzel',serif; font-size:11.5px;
+            color:var(--text-dim); margin-top:34px; opacity:.8;
+        }
+        .page-footer a { color:var(--accent-gold); text-decoration:none; }
+        /* Responsive */
+        @media (max-width:900px) {
+            .page-layout { grid-template-columns:1fr; }
+            .sidebar { position:static; max-height:none; display:none; }
+            .sidebar.open { display:block; margin-top:18px; }
+            .btn-sidebar { display:inline-block !important; }
+        }
+        @media (max-width:600px) {
+            .reader-container { padding:26px 16px; }
+            .main-title { font-size:22px; }
+            .prose p { text-align:left; }
+        }
+        .btn-sidebar { display:none; }
+    </style>
+</head>
+<body>
+<div class="page-layout">
+
+    <nav class="nav-bar">
+        <a href="../capitulos.html" class="nav-back">&#8592; Cap&iacute;tulos</a>
+        <div class="reader-controls">
+            <button class="btn-ctrl btn-sidebar" onclick="toggleSidebar()">&#9776; Lista</button>
+            <button class="btn-ctrl" onclick="changeFontSize(-1)">A-</button>
+            <button class="btn-ctrl" onclick="changeFontSize(1)">A+</button>
+            <button class="btn-ctrl" onclick="toggleTheme()">&#127912; Tema</button>
+        </div>
+    </nav>
+
+    <main class="main-col">
+        <header class="chapter-header">
+            <span class="sub-label">Forgotten Sword &middot; Cap&iacute;tulo 09</span>
+            <h1 class="main-title">La necesidad de la guerra</h1>
+        </header>
+        <div class="reader-container">
+            <article class="prose">
+<blockquote class="epigraph">&#171;La guerra es a veces una necesidad, pero nunca un bien&#187;.</blockquote>
+<p>Por la ma&#241;ana, &#218;nval regres&#243; a la caba&#241;a trayendo un conejo blanco en su mano derecha y una pieza de caza sobre el hombro izquierdo. Mientras caminaba, observ&#243; a Kazlia aliment&#225;ndose en la cocina. &#201;l ingres&#243; a la estancia y la joven permaneci&#243; en silencio mientras consum&#237;a un trozo de carne salada.</p>
+<p>—&#191;Te encuentras m&#225;s serena? —pregunt&#243; &#218;nval con tono severo.</p>
+<p>Coloc&#243; las piezas de caza sobre la mesa de madera. Ella desvi&#243; la mirada sin responder.</p>
+<p>—A&#250;n conservas la molestia. Pens&#233; que darte un d&#237;a de espacio ser&#237;a suficiente —coment&#243; desollando la pieza.</p>
+<p>—Lleva eso afuera, llenar&#225;s la estancia de mal olor —reclam&#243; Kazlia.</p>
+<p>—Esta ser&#225; parte de nuestras raciones, as&#237; que guarda silencio —respondi&#243; cortando los trozos de carne y acomod&#225;ndolos a un costado.</p>
+<p>—Uff, esto es desagradable —expres&#243; cubri&#233;ndose la nariz mientras sal&#237;a al p&#243;rtico—. &#161;&#161;&#218;nval!!</p>
+<p>&#218;nval observ&#243; por la ventana y divis&#243; a varios hombres desconocidos en el patio exterior, portando espadas y arcos de guerra. Empu&#241;&#243; su hoja y sali&#243; al p&#243;rtico, cubriendo a Kazlia tras su espalda.</p>
+<p>—&#191;Qui&#233;nes son ustedes y qu&#233; buscan aqu&#237;? —inquiri&#243; &#218;nval con firmeza.</p>
+<p>—Si se entregan sin resistirse, garantizaremos sus vidas —declar&#243; uno de los asaltantes.</p>
+<p>—Kazlia, ingresa a la casa, sal por la ventana trasera y busca cobertura en los &#225;rboles —murmur&#243; &#218;nval sin quitarles la vista de encima.</p>
+<p>Los sujetos permanecieron inm&#243;viles, pero con sus armas listas para atacar.</p>
+<p>—&#161;Ahora! —orden&#243;. Kazlia se adentr&#243; de inmediato en la residencia.</p>
+<p>Dos mercenarios arremetieron contra &#233;l, pero &#218;nval repeli&#243; sus ataques con la espada, empuj&#243; a uno de ellos a la distancia y contraatac&#243; atravesando el abdomen del segundo, quien cay&#243; por la escalinata. Un arquero dispar&#243; una flecha que &#218;nval esquiv&#243; por poco. Se abalanz&#243; sobre el oponente que hab&#237;a empujado y, sobre la hierba, le propin&#243; varios impactos hasta dejarlo fuera de combate.</p>
+<p>Otro atacante le asest&#243; una patada en el abdomen, pero &#218;nval sujet&#243; su pierna, desenvain&#243; una daga del ca&#237;do y se la clav&#243; en la muslo. El agresor se repleg&#243; por el dolor, momento que aprovecho &#218;nval para atacarlo en el cuello y dejarlo moribundo.</p>
+<p>Los dos arqueros restantes dispararon al un&#237;sono. &#218;nval utiliz&#243; la estructura de la cerca para cubrirse. Uno de los tiradores guard&#243; el arco, desenvain&#243; un mandoble pesado y lanz&#243; un estacazo que se incrust&#243; en la madera de la barandilla, quedando trabado.</p>
+<p>&#218;nval lanz&#243; la daga impactando en el hombro del sujeto, pero el mercenario logr&#243; destrabar la hoja pesada y le provoc&#243; un corte profundo a lo largo del pecho a &#218;nval.</p>
+<p>El &#250;ltimo tirador se aproxim&#243; manteniendo la distancia.</p>
+<p>&#218;nval permaneci&#243; recostado sobre el porche, con una herida sangrante en el t&#243;rax mientras intentaba recuperar el aliento.</p>
+<p>—Esperaremos a que atrapen a la muchacha antes de rematarlo —coment&#243; el mercenario observando los alrededores.</p>
+<p>Desde la maleza lateral, Kazlia enflech&#243; su arco, apunt&#243; con precisi&#243;n y dispar&#243;. La flecha impact&#243; en la nuca del centinela, haci&#233;ndolo caer abatido. El mercenario herido intent&#243; correr hacia la casa, pero Kazlia se aproxim&#243; con agilidad, le incrust&#243; una flecha en la espalda y el hombre pereci&#243; en el suelo de la entrada.</p>
+<p>De inmediato, Kazlia acudi&#243; a socorrer a &#218;nval, quien respiraba con fatiga.</p>
+<p>—Resiste, estar&#225;s bien —expres&#243; rasgando parte de su t&#250;nica para presionar la herida.</p>
+<p>—&#161;Aparato de dolor! —exclam&#243; &#233;l apretando los dientes—. &#191;Qu&#233; ocurri&#243; con los centinelas del per&#237;metro?</p>
+<p>—Fueron abatidos antes del asalto —afirm&#243; Kazlia.</p>
+<p>—Debimos haber asignado veteranos W&#243;ltak para la guardia —murmur&#243; &#218;nval.</p>
+<p>—Ir&#233; por el botiqu&#237;n de campo para coser esa herida —dijo Kazlia poni&#233;ndose de pie.</p>
+<p>—S&#233; r&#225;pida; perdi mucho fluido, debemos cerrar la incisi&#243;n y vendar a presi&#243;n —indic&#243; &#218;nval apretando las telas sobre su t&#243;rax.</p>
+<p>Kazlia regres&#243; de inmediato con hilo medicinal, aguja e hilaza limpia. Con manos firmes, procedi&#243; a suturar el corte tor&#225;cico y a colocar compresas antis&#233;pticas ajustadas con un vendaje apretado.</p>
+<p>—Gracias... realizaste un buen trabajo, Kazlia —admiti&#243; &#218;nval reponi&#233;ndose poco a poco.</p>
+<p>—Aprende a valorar el apoyo —respondi&#243; ella sent&#225;ndose a su lado—. &#191;Qu&#233; haremos ahora?</p>
+<p>—Descubrir qu&#233; facci&#243;n orden&#243; este atentado.</p>
+<p>Horas m&#225;s tarde, la escuadra de Sauri alcanz&#243; las fronteras de la tribu Yui, donde el jefe Viokal los recibi&#243; en la entrada del poblado.</p>
+<p>—&#191;La amenaza mercenaria es real? —pregunt&#243; Viokal preocupado.</p>
+<p>—As&#237; es, Sr. Viokal. Despachamos emisarios hacia nuestra comandancia central; las patrullas aliadas reforzar&#225;n el sector —asegur&#243; Sauri.</p>
+<p>En el territorio de Raumo, el l&#237;der Nauren observ&#243; desde la atalaya la aproximaci&#243;n de un contingente invasor con estandartes del reino Gric&#225;i. Nauren orden&#243; la evacuaci&#243;n de mujeres y ni&#241;os hacia los pasos monta&#241;osos, mientras los guerreros locales tomaron sus posiciones para la defensa final.</p>
+<p>A pesar de la feroz resistencia en la empalizada, la superioridad de la caballer&#237;a enemiga quebr&#243; las defensas. Nauren combati&#243; con valent&#237;a en la plaza central hasta caer abatido en combate, defendiendo la retirada de las carretas de refugiados.</p>
+<p>D&#237;as despu&#233;s, en la sede de Los Tres Pilares, se celebr&#243; la ceremonia diplom&#225;tica de uni&#243;n entre Wal y la princesa Azame de Zaita. El rey Bergkai, su s&#233;quito noble, Ronan y los delegados del C&#243;nclave asistieron al acto oficial.</p>
+<p>El oficiante de la corte avanz&#243; hacia el estrados y declar&#243; solemnemente:</p>
+<p>—Las leyes de la alta alianza reconocen que las casas de los l&#237;deres se unen por el deber sagrado de proteger a nuestros pueblos y expandir la fortaleza de nuestras familias. Azame de Zaita y Wald&#225;in de Raumo, &#191;aceptan sellar este tratado din&#225;stico hasta que la vida los separe?</p>
+<p>—Acepto —declar&#243; Azame observ&#225;ndolo con serenidad.</p>
+<p>—Acepto —respondi&#243; Wal con voz sobria y contenida.</p>
+<p>—Por el poder de los acuerdos de estado, promulgo este enlace. Puede besar a la novia.</p>
+<p>Ambos se miraron con solemnidad y se dieron un breve beso formal ante los aplausos de las delegaciones.</p>
+<p>Durante la recepci&#243;n posterior, Orven se aproxim&#243; a Ronan y le entreg&#243; un informe de urgencia tra&#237;do por los exploradores fronterizos. Ronan mud&#243; el rostro y se acerc&#243; a Wal con profunda aflicci&#243;n.</p>
+<p>—Wal, debo darte una noticia tr&#225;gica —murmur&#243; Ronan apart&#225;ndolo unos pasos de la multitud—. Los exploradores confirman que Raumo cay&#243; ante la ofensiva de Gric&#225;i. Tu padre Nauren falleci&#243; defendiendo la evacuaci&#243;n.</p>
+<p>Wal qued&#243; conmocionado; las l&#225;grimas brotaron de sus ojos mientras busc&#243; refugio en las escaleras exteriores del recinto. Azame se aproxim&#243; al notar su dolor.</p>
+<p>—Mi hogar fue devastado... mi padre ha muerto —expres&#243; Wal desolado.</p>
+<p>—Comprendo la magnitud de tu p&#233;rdida —expres&#243; Azame respetando su pesar—. Si hay algo que la corona de Zaita pueda aportar para la respuesta militar, cuentas con mi respaldo.</p>
+<p>—Agradezco el gesto, pero mi compromiso emocional y mi coraz&#243;n permanecen con Hlied —aclar&#243; Wal con franqueza poni&#233;ndose de pie. Azame asent&#243; con dignidad, comprendiendo las barreras de aquel matrimonio pol&#237;tico.</p>
+<p>Al d&#237;a siguiente, los sobrevivientes de Raumo y las patrullas de refugiados llegaron al campamento central de Revenst. Wal se reuni&#243; con Hlied en su estancia de mando.</p>
+<p>—Wal, lamento profundamente la p&#233;rdida de tu padre —expres&#243; Hlied abraz&#225;ndolo con ternura mientras &#233;l se desahogaba en su hombro. La nodriza ingres&#243; trayendo al peque&#241;o Kaswer, quien al ver a su padre se tranquiliz&#243;, devolvi&#233;ndole a Wal una chispa de esperanza entre la tragedia.</p>
+<p>Horas despu&#233;s, Wal convoc&#243; a una asamblea extraordinaria con los l&#237;deres del C&#243;nclave Tribal para planificar la contraofensiva.</p>
+<p>—El ataque a Raumo demuestra que ning&#250;n territorio estar&#225; a salvo si no unificamos nuestras fuerzas defensivas —declar&#243; Wal ante la mesa de comandantes.</p>
+<p>Durante el debate, el joven J&#228;ika, nuevo l&#237;der de su tribu tras el retiro de su abuelo Schaik, intervino con tono altivo:</p>
+<p>—Nuestras tropas no se arriesgar&#225;n sin garant&#237;as sobre la distribuci&#243;n de botines y suministros de guerra.</p>
+<p>Tras la reuni&#243;n, Azame abord&#243; a J&#228;ika en la galer&#237;a de mando.</p>
+<p>—Una postura muy exigente para alguien que requiere de la alianza para proteger sus fronteras, J&#228;ika —coment&#243; Azame examinando la empu&#241;adura de su daga.</p>
+<p>J&#228;ika no se amedrent&#243; y respondi&#243; con compostura arrogante:</p>
+<p>—Una met&#225;fora sugerente, princesa. Pero en estas tierras tribales no nos impresionan los t&#237;tulos de Zaita ni las advertencias de palacio.</p>
+<p>—No es una amenaza, J&#228;ika —sonri&#243; Azame con frialdad pol&#237;tica—; es un recordatorio de qui&#233;nes manejan los recursos y la log&#237;stica que mantendr&#225;n a tu tribu a salvo.</p>
+<p>M&#225;s tarde, Azame se present&#243; respetuosamente ante Hlied en el campamento central.</p>
+<p>—Hlied, reconozco tu posici&#243;n como comandanta y esposa de Wal —expres&#243; Azame con sinceridad—. Mi presencia aqu&#237; responde &#250;nicamente a consolidar el acuerdo defensivo de mi reino con la alianza.</p>
+<p>—Aprecio la claridad, Azame —respondi&#243; Hlied manteniendo la postura de mando—. Colaboraremos en lo que exija la defensa de nuestros pueblos.</p>
+<p>Al caer la noche, los guerreros de la escuadra de Sauri y Hald se reunieron en torno a la fogata del campamento, reafirmando su lealtad a Wal y prepar&#225;ndose para las batallas que definir&#237;an el destino de las tribus.</p>
+
+            </article>
+            <nav class="chapter-nav">
+                <a href="capitulo_08.html">&larr; Cap. 8</a>
+                <a href="../capitulos.html" style="font-size:12px;opacity:.7;">&#8593; Cap&iacute;tulos</a>
+                <a href="capitulo_10.html">Cap. 10 &rarr;</a>
+            </nav>
+        </div>
+    </main>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-title">&#10022; Cap&iacute;tulos</div>
+<ul class="sidebar-list"><li><a href="../prologo.html">Prologo</a></li><li><a href="capitulo_01.html"><span class="ch-num">01</span> El peso de los tatuajes</a></li><li><a href="capitulo_02.html"><span class="ch-num">02</span> El consejo de H&iacute;ltar</a></li><li><a href="capitulo_03.html"><span class="ch-num">03</span> Tierra sagrada</a></li><li><a href="capitulo_04.html"><span class="ch-num">04</span> Entrenamiento y temores</a></li><li><a href="capitulo_05.html"><span class="ch-num">05</span> El C&oacute;nclave tribal</a></li><li><a href="capitulo_06.html"><span class="ch-num">06</span> Bajo la lluvia embarrada</a></li><li><a href="capitulo_07.html"><span class="ch-num">07</span> La responsabilidad del l&iacute;der</a></li><li><a href="capitulo_08.html"><span class="ch-num">08</span> El nacimiento en tiempos de guerra</a></li><li class="active"><a href="capitulo_09.html"><span class="ch-num">09</span> La necesidad de la guerra</a></li><li><a href="capitulo_10.html"><span class="ch-num">10</span> El perd&oacute;n y el vac&iacute;o</a></li><li><a href="capitulo_11.html"><span class="ch-num">11</span> Miedo al conflicto</a></li><li><a href="capitulo_12.html"><span class="ch-num">12</span> La ca&iacute;da de las murallas</a></li><li><a href="capitulo_13.html"><span class="ch-num">13</span> El retorno de la caballer&iacute;a</a></li><li style="opacity:0.6; cursor:default;"><a href="javascript:void(0)" style="cursor:default; pointer-events:none; color:#a89274;"><span class="ch-num">14</span> El renacer de la paz (En proceso)</a></li></ul>
+    </aside>
+
+    <footer class="page-footer">
+        Forgotten Sword &copy; 2026 &middot; Fernando Barra &nbsp;&middot;&nbsp;
+        <a href="../index.html">Galer&iacute;a de Personajes</a>
+    </footer>
+</div>
+<script>
+    var fontSize = 18;
+    var themes = ['', 'theme-sepia', 'theme-dark'];
+    var themeIdx = 0;
+    function changeFontSize(d) {
+        fontSize = Math.min(Math.max(14, fontSize + d), 26);
+        document.documentElement.style.setProperty('--font-size-base', fontSize + 'px');
+    }
+    function toggleTheme() {
+        document.body.classList.remove(themes[themeIdx]);
+        themeIdx = (themeIdx + 1) % themes.length;
+        if (themes[themeIdx]) document.body.classList.add(themes[themeIdx]);
+    }
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('open');
+    }
+</script>
+</body>
+</html>

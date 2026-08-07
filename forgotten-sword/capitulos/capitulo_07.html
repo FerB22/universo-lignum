@@ -1,0 +1,378 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitulo 07: La responsabilidad del lider - Forgotten Sword</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #120c08;
+            --card-bg: #1c130c;
+            --text-color: #e8dcc4;
+            --accent-gold: #d4af37;
+            --accent-bright: #f0c952;
+            --muted-gold: #9e8237;
+            --text-dim: #b8a686;
+            --border-color: #3b2818;
+            --quote-bg: rgba(212,175,55,0.06);
+            --sidebar-bg: #160f09;
+            --font-size-base: 18px;
+        }
+        body.theme-sepia {
+            --bg-color:#241c14; --card-bg:#2d241a; --text-color:#edd9be;
+            --border-color:#4a3a2a; --sidebar-bg:#1e160f;
+        }
+        body.theme-dark {
+            --bg-color:#0a0705; --card-bg:#120e0a; --text-color:#d1c5b0;
+            --border-color:#291e14; --sidebar-bg:#080604;
+        }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lora', Georgia, serif;
+            font-size: var(--font-size-base);
+            line-height: 1.85;
+            min-height: 100vh;
+            padding: 20px;
+            transition: background-color .3s, color .3s;
+            background-image: radial-gradient(circle at 50% 0%, rgba(212,175,55,.07) 0%, transparent 65%);
+        }
+        .page-layout {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            grid-template-rows: auto 1fr auto;
+            gap: 0 24px;
+            align-items: start;
+        }
+        /* Nav bar */
+        .nav-bar {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 13px 22px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 24px;
+            box-shadow: 0 6px 24px rgba(0,0,0,.45);
+        }
+        .nav-back {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color .2s, transform .2s;
+        }
+        .nav-back:hover { color:var(--accent-bright); transform:translateX(-3px); }
+        .reader-controls { display:flex; align-items:center; gap:10px; }
+        .btn-ctrl {
+            background:rgba(212,175,55,.1); border:1px solid var(--border-color);
+            color:var(--accent-gold); padding:5px 11px; border-radius:4px;
+            cursor:pointer; font-family:'Cinzel',serif; font-size:13px; transition:all .2s;
+        }
+        .btn-ctrl:hover { background:var(--accent-gold); color:#120c08; }
+        /* Main reading column */
+        .main-col { min-width:0; }
+        .chapter-header {
+            text-align:center; margin-bottom:38px;
+            padding-bottom:24px; position:relative;
+        }
+        .chapter-header::after {
+            content:'&#10042; &#10042; &#10042;';
+            position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+            color:var(--muted-gold); font-size:13px; letter-spacing:10px;
+        }
+        .sub-label {
+            font-family:'Cinzel',serif; font-size:11px; letter-spacing:4px;
+            text-transform:uppercase; color:var(--accent-gold);
+            margin-bottom:10px; display:block;
+        }
+        .main-title {
+            font-family:'Cinzel',serif; font-size:32px; font-weight:700;
+            color:#f5eedc; letter-spacing:1px;
+            text-shadow:0 4px 14px rgba(0,0,0,.7); margin-bottom:6px;
+        }
+        /* Reader frame */
+        .reader-container {
+            background:var(--card-bg); border:1px solid var(--border-color);
+            border-radius:12px; padding:44px 50px;
+            box-shadow:0 10px 38px rgba(0,0,0,.5); position:relative;
+        }
+        .reader-container::before {
+            content:''; position:absolute; top:8px; left:8px; right:8px; bottom:8px;
+            border:1px solid rgba(212,175,55,.12); border-radius:8px; pointer-events:none;
+        }
+        /* Prose */
+        .prose p {
+            margin-bottom: 20px;
+            text-align: justify;
+            text-indent: 0.75em;
+        }
+        .prose p.dialogue {
+            text-indent: 0;
+            padding-left: 10px;
+            border-left: 2px solid rgba(212,175,55,.22);
+            margin-bottom: 14px;
+        }
+        .prose p.dialogue-cont {
+            text-indent: 0;
+            padding-left: 10px;
+            margin-top: -14px;
+            margin-bottom: 14px;
+            color: var(--text-dim);
+        }
+        .prose .scene-break {
+            text-align:center; color:var(--muted-gold);
+            font-size:15px; letter-spacing:10px; margin:32px 0; user-select:none;
+        }
+        .prose blockquote.epigraph {
+            background:var(--quote-bg); border-left:3px solid var(--accent-gold);
+            border-right:3px solid var(--accent-gold); padding:18px 24px;
+            margin:0 auto 34px auto; border-radius:4px; text-align:center;
+            font-style:italic; color:#f0e6d2; font-size:.97em;
+            max-width:600px; box-shadow:0 3px 14px rgba(0,0,0,.25); text-indent:0;
+        }
+        /* Prev/Next nav */
+        .chapter-nav {
+            display:flex; justify-content:space-between; align-items:center;
+            margin-top:34px; padding-top:20px; border-top:1px solid var(--border-color);
+        }
+        .chapter-nav a {
+            font-family:'Cinzel',serif; font-size:13px; font-weight:600;
+            color:var(--accent-gold); text-decoration:none; transition:color .2s;
+        }
+        .chapter-nav a:hover { color:var(--accent-bright); }
+        /* Sidebar */
+        .sidebar {
+            background:var(--sidebar-bg); border:1px solid var(--border-color);
+            border-radius:10px; padding:18px 14px;
+            box-shadow:0 6px 22px rgba(0,0,0,.4);
+            position:sticky; top:20px;
+            max-height:calc(100vh - 40px); overflow-y:auto;
+        }
+        .sidebar::-webkit-scrollbar { width:4px; }
+        .sidebar::-webkit-scrollbar-thumb { background:var(--border-color); border-radius:4px; }
+        .sidebar-title {
+            font-family:'Cinzel',serif; font-size:11px; letter-spacing:3px;
+            text-transform:uppercase; color:var(--accent-gold);
+            margin-bottom:14px; padding-bottom:10px;
+            border-bottom:1px solid var(--border-color); text-align:center;
+        }
+        .sidebar-list { list-style:none; }
+        .sidebar-list li { border-bottom:1px solid rgba(59,40,24,.5); }
+        .sidebar-list li a {
+            display:block; padding:8px 7px; font-size:12.5px;
+            color:var(--text-dim); text-decoration:none; line-height:1.4;
+            transition:color .2s, background .2s; border-radius:4px;
+        }
+        .sidebar-list li a:hover { color:var(--accent-gold); background:rgba(212,175,55,.06); }
+        .sidebar-list li.active a {
+            color:var(--accent-bright); font-weight:600;
+            background:rgba(212,175,55,.1);
+        }
+        .ch-num {
+            font-family:'Cinzel',serif; font-size:10px;
+            color:var(--muted-gold); margin-right:5px;
+        }
+        /* Footer */
+        .page-footer {
+            grid-column:1 / -1; text-align:center;
+            font-family:'Cinzel',serif; font-size:11.5px;
+            color:var(--text-dim); margin-top:34px; opacity:.8;
+        }
+        .page-footer a { color:var(--accent-gold); text-decoration:none; }
+        /* Responsive */
+        @media (max-width:900px) {
+            .page-layout { grid-template-columns:1fr; }
+            .sidebar { position:static; max-height:none; display:none; }
+            .sidebar.open { display:block; margin-top:18px; }
+            .btn-sidebar { display:inline-block !important; }
+        }
+        @media (max-width:600px) {
+            .reader-container { padding:26px 16px; }
+            .main-title { font-size:22px; }
+            .prose p { text-align:left; }
+        }
+        .btn-sidebar { display:none; }
+    </style>
+</head>
+<body>
+<div class="page-layout">
+
+    <nav class="nav-bar">
+        <a href="../capitulos.html" class="nav-back">&#8592; Cap&iacute;tulos</a>
+        <div class="reader-controls">
+            <button class="btn-ctrl btn-sidebar" onclick="toggleSidebar()">&#9776; Lista</button>
+            <button class="btn-ctrl" onclick="changeFontSize(-1)">A-</button>
+            <button class="btn-ctrl" onclick="changeFontSize(1)">A+</button>
+            <button class="btn-ctrl" onclick="toggleTheme()">&#127912; Tema</button>
+        </div>
+    </nav>
+
+    <main class="main-col">
+        <header class="chapter-header">
+            <span class="sub-label">Forgotten Sword &middot; Cap&iacute;tulo 07</span>
+            <h1 class="main-title">La responsabilidad del l&iacute;der</h1>
+        </header>
+        <div class="reader-container">
+            <article class="prose">
+<blockquote class="epigraph">&#171;Cuando aparece la responsabilidad la valent&#237;a debe emerger&#187;.</blockquote>
+<p>Un a&#241;o transcurri&#243;, periodo durante el cual m&#225;s tribus se unieron al C&#243;nclave Tribal para evitar la Unificaci&#243;n impuesta por los reinos.</p>
+<p>En el s&#233;ptimo mes del embarazo de Hlied, Wal viaj&#243; a un nuevo asentamiento militar enclavado entre las monta&#241;as. All&#237; busc&#243; la gu&#237;a del Sr. Lorim, un reconocido instructor de j&#243;venes reclutas. Wal esperaba perfeccionar sus habilidades de combate y su capacidad de mando bajo su tutela.</p>
+<p>Por la ma&#241;ana, Wal acompa&#241;&#243; al Sr. Lorim por el campo de maniobras, observando a los muchachos practicar con espadas y lanzas.</p>
+<p>Finalmente llegaron ante un soldado corpulento, vestido con armadura ligera y portando una lanza de asta larga.</p>
+<p>—El Sr. Linden te entrenar&#225; —indic&#243; el Sr. Lorim antes de retirarse hacia el &#225;rea de los otros escuadrones.</p>
+<p>El soldado, un hombre calvo y de espesa barba, se le aproxim&#243; con imponente presencia.</p>
+<p>—Reconozco tu destreza con la espada, pero en la guerra no basta con dominar una sola arma —expres&#243; arroj&#225;ndole una lanza que Wal atrap&#243; en el aire—. Como ves, hay j&#243;venes aqu&#237; que jam&#225;s han participado en una batalla real, pero no los subestimes; su determinaci&#243;n es tan firme como la de cualquiera.</p>
+<p>A lo largo de las horas, Wal practic&#243; las posturas de guardia, las estocadas a distancia y los bloqueos con asta. Al finalizar la jornada, Wal concluy&#243; bastante fatigado y se acomod&#243; en una banca cercana mientras los reclutas continuaban ejercit&#225;ndose en parejas.</p>
+<p>El Sr. Linden correg&#237;a los movimientos errados de los combatientes, algo que Wal observaba con creciente inter&#233;s.</p>
+<p>En ese momento, un recluta de mayor estatura lo examin&#243; con actitud altiva y coment&#243; entre sus compa&#241;eros:</p>
+<p>—&#191;Qui&#233;n es ese muchacho? —pregunt&#243; despectivo.</p>
+<p>—Es el yerno del comandante Ronan —respondi&#243; uno.</p>
+<p>—Apuesto a que lo derrotar&#237;a en un duelo de armas —afirm&#243; el joven con vanidad.</p>
+<p>El sujeto se aproxim&#243; a la banca flanqueado por dos acompa&#241;antes.</p>
+<p>—&#191;Te gustar&#237;a medirte en un duelo amistoso? —sugiri&#243; con falsa cortes&#237;a.</p>
+<p>—Estoy exhausto por la jornada —respondi&#243; Wal.</p>
+<p>—Vamos, solo ser&#225; una r&#225;pida demostraci&#243;n —insisti&#243; el recluta.</p>
+<p>Wal se puso de pie y los encar&#243; sin vacilar.</p>
+<p>—Conozco a los de tu clase: no caer&#233; en tus provocaciones —aclar&#243; con firmeza mir&#225;ndolo fijamente.</p>
+<p>—&#191;&#161;Qu&#233; ocurre ah&#237;!? —vocifer&#243; el Sr. Linden a la distancia. Ante la advertencia, los tres j&#243;venes se retiraron para continuar sus ejercicios.</p>
+<p>Al caer la noche, Wal convers&#243; con el Sr. Lorim en su caba&#241;a.</p>
+<p>—&#191;Deseas una copa? —ofreci&#243; el anciano.</p>
+<p>—No, gracias —respondi&#243; Wal. El Sr. Lorim se acomod&#243; frente a &#233;l.</p>
+<p>—Haces bien; yo ya estoy viejo para esos excesos. En mi juventud beb&#237;a sin control, hasta que la salud me pas&#243; factura y comprend&#237; el da&#241;o que causaba.</p>
+<p>—&#191;Por qu&#233; aqu&#237; construyeron caba&#241;as de madera, mientras que en el asentamiento central solo hay tiendas de campa&#241;a? —inquiri&#243; Wal con curiosidad.</p>
+<p>—Este es un centro de formaci&#243;n para j&#243;venes soldados; necesitan un entorno estable. En las carpas el fr&#237;o mina el &#225;nimo, pero una caba&#241;a les da refugio —Wal guard&#243; silencio pensativo—. Te noto preocupado, &#191;ocurre algo?</p>
+<p>—He alcanzado el rango que deseaba y por el que tanto me esforc&#233;, pero siento un vac&#237;o en mi interior —confes&#243; Wal.</p>
+<p>—La monta&#241;a parece imponente desde la base, pero al escalarla descubres que solo era el primer cumbre —respondi&#243; el anciano con franqueza—. Lo importante es continuar el ascenso, y en este momento nuestra monta&#241;a es la supervivencia en esta guerra.</p>
+<p>Esa misma noche, Hlied se reuni&#243; con los cinco sabios de la tribu en la sede de Los Tres Pilares.</p>
+<p>—Aunque el frente se ha estabilizado en las fronteras, a&#250;n existen tribus oprimidas por los reinos —declar&#243; uno de los sabios veteranos.</p>
+<p>—Si decide intervenir por esas tribus apartadas, estar&#225; arriesgando la vida de nuestros mejores pelotones, Srta. Hlied —advirti&#243; otro con preocupaci&#243;n.</p>
+<p>Hlied contemplaba la noche a trav&#233;s de los ventanales con la mano descansando sobre su vientre. Se gir&#243; hacia ellos con aplomo.</p>
+<p>—La decisi&#243;n es compleja: proteger a unos implica arriesgar a otros —manifest&#243; midiendo cada palabra.</p>
+<p>—Todo depende del enfoque estrat&#233;gico que adoptemos —intervino el sabio Marvo con entusiasmo.</p>
+<p>—&#191;Qu&#233; sugiere, Sr. Marvo? —cuestion&#243; Hlied mientras los dem&#225;s consejeros lo observaban con reserva.</p>
+<p>—Concentrar las fuerzas en fortalecer nuestro n&#250;cleo militar y permitir que los reinos se desgasten en las provincias lejanas antes de lanzar un contraataque —propuso Marvo sin titubeos.</p>
+<p>—&#161;Pretende que abandonemos a miles a su suerte! —reproch&#243; un consejero indignado, aunque Marvo permaneci&#243; impasible.</p>
+<p>—Cualquier camino que elijamos conllevar&#225; p&#233;rdidas; si no actuamos con pragmatismo, el impacto final ser&#225; peor —anunci&#243; Hlied con autoridad—. Calculen los presupuestos y las bajas estimadas. Eso es todo por hoy.</p>
+<p>Hlied tom&#243; asiento en su sill&#243;n con cierta dificultad por el avance de su embarazo, mientras los sabios se retiraban del recinto.</p>
+<p>—Cada d&#237;a esta responsabilidad se siente m&#225;s pesada —murmur&#243; Hlied acariciando su vientre—. Espero que cuando nazcas a&#250;n conservemos la paz.</p>
+<p>D&#237;as despu&#233;s, Nolle y su madre arribaron a la ciudad de Vinkar, en la provincia de Aur&#237;s, custodiadas por guerreros W&#243;ltak. Avanzaron por el camino pedregoso y fueron recibidas a las puertas de una casona fortificada por delegados locales.</p>
+<p>Kivi&#225;i desmont&#243; flanqueada por su guardia personal.</p>
+<p>—Kivi&#225;i, &#191;qu&#233; te trae a nuestras tierras? —salud&#243; con iron&#237;a un jefe barbudo llamado V&#246;lkai.</p>
+<p>—S&#233; que planeas una alianza secreta a nuestras espaldas, V&#246;lkai —revel&#243; ella sin rodeos.</p>
+<p>—&#191;Y si fuera as&#237;? Podr&#237;a ordenar tu detenci&#243;n ahora mismo.</p>
+<p>—Vine a ofrecerte un pacto ventajoso: tu hija Kazlia posee un talento notable. Propongo formalizar su uni&#243;n con &#218;nval para consolidar nuestras provincias.</p>
+<p>—&#191;Por qu&#233; habr&#237;a de aceptar? Tus fuerzas est&#225;n divididas —cuestion&#243; V&#246;lkai.</p>
+<p>—Porque ambos sabemos que sin el respaldo de los W&#243;ltak tu territorio caer&#225; ante las ambiciones de los reinos en cuesti&#243;n de meses.</p>
+<p>—De acuerdo. Pero exijo que la descendencia de esa uni&#243;n conserve tambi&#233;n el apellido de mi linaje.</p>
+<p>Esa tarde, en H&#237;ltar, Ronan ingres&#243; a la estancia principal donde la partera examinaba a Hlied.</p>
+<p>—El desarrollo es adecuado. Faltan aproximadamente dos meses para el parto —anunci&#243; la sanadora antes de retirarse con sus asistentes.</p>
+<p>—&#191;Sucede algo, padre? —pregunt&#243; Hlied notando la mirada de Ronan.</p>
+<p>—Solo reflexionaba —respondi&#243; &#233;l desde la puerta—. Cargo con muchos arrepentimientos por la rigidez con que los trat&#233; a ti y a tus hermanos en el pasado —expres&#243; conmovido.</p>
+<p>—Padre —dijo Hlied con ternura.</p>
+<p>—&#191;S&#237;?</p>
+<p>—Eres el abuelo sabio que deseo para mi hijo —afirm&#243; ella con una sonrisa. Ronan se acerc&#243; y la abraz&#243; con afecto sincero.</p>
+<p>En ese momento Wal ingres&#243; a la habitaci&#243;n trayendo un ramo de flores silvestres.</p>
+<p>—Veo que llegaste —sonri&#243; Ronan toc&#225;ndole el hombro a Wal—. Los dejar&#233; solos.</p>
+<p>—La partera dice que faltan dos meses —coment&#243; Hlied acomod&#225;ndose en la cama. Wal se sent&#243; a su lado y coloc&#243; las flores sobre la mesa de noche, posando suavemente su mano sobre el vientre de su esposa mientras sent&#237;a los movimientos del beb&#233;.</p>
+<p>—Te ves radiante —sonri&#243; Wal.</p>
+<p>—No digas tonter&#237;as, el &#250;ltimo tramo del embarazo es agotador —brome&#243; ella d&#225;ndole un toque cari&#241;oso en el hombro.</p>
+<p>—&#191;C&#243;mo lo llamaremos? —pregunt&#243; Wal.</p>
+<p>—Kaswer, como el legendario guerrero de nuestros relatos antiguos.</p>
+<p>Mientras tanto, en las fronteras de Raumo, Nauren encabezaba una incursi&#243;n nocturna contra un puesto de mando del reino enemigo. Los guerreros tribales avanzaron en silencio entre la maleza.</p>
+<p>—Las tropas est&#225;n listas, Nauren. &#191;Est&#225;s seguro de este movimiento? —inquiri&#243; su segundo al mando.</p>
+<p>—Si ejecutamos el plan con precisi&#243;n, asestaremos un golpe decisivo al reino Zaita —asegur&#243; Nauren.</p>
+<p>Los arqueros en los &#225;rboles eliminaron a los centinelas del muro, permitiendo a los soldados utilizar cuerdas para escalar la empalizada. Nauren atraves&#243; las puertas y avanz&#243; hasta el pabell&#243;n principal, donde hall&#243; al comandante enemigo malherido.</p>
+<p>—&#191;Qui&#233;n orquest&#243; este ataque? —pregunt&#243; el oficial enemigo ensangrentado.</p>
+<p>—Soy Nauren, de Raumo —declar&#243; con voz implacable.</p>
+<p>—Has destruido la mitad de nuestras guarniciones fronterizas —reproch&#243; el oficial.</p>
+<p>—Soy el castigo por la sangre que tu reino derram&#243; en nuestras tierras —sentenci&#243; Nauren antes de asestarle una estocada definitiva.</p>
+<p>Al d&#237;a siguiente, Wal caminaba por las avenidas pavimentadas de H&#237;ltar hasta ingresar a la sede de Los Tres Pilares, donde fue recibido por el Sr. Schaik.</p>
+<p>—Wal, qu&#233; gusto verte —salud&#243; el anciano abraz&#225;ndolo.</p>
+<p>—El hombre que conversa all&#237; es el rey Bergkai de Zaita —susurr&#243; Schaik se&#241;alando a un visitante se&#241;orial de vestiduras sencillas.</p>
+<p>Wal se aproxim&#243; y el rey se puso de pie para saludarlo.</p>
+<p>—Me llamo Bergkai Daschvo. Me informan que eres el joven combatiente de la espada r&#250;nica —dijo estrechando su mano.</p>
+<p>—As&#237; es. &#191;Qu&#233; asunto lo trae ante el consejo?</p>
+<p>—En los &#250;ltimos meses varias de mis guarniciones fronterizas han sido atacadas de forma sistem&#225;tica —expuso el rey—. Entiendo su rechazo a la unificaci&#243;n, pero mi reino no busca la violencia. Deseo invitarte a Helwa para mostrarte que nuestras intenciones no son las que crees.</p>
+<p>Posteriormente, en el sal&#243;n principal, Wal compart&#237;a alimentos con Hlied.</p>
+<p>—&#191;As&#237; que piensas aceptar su invitaci&#243;n? —pregunt&#243; Hlied con cierta duda.</p>
+<p>—Debo verificar por m&#237; mismo la situaci&#243;n en esas fronteras —respondi&#243; Wal.</p>
+<p>En ese instante ingres&#243; Orven trayendo los informes semanales.</p>
+<p>—Tengo el reporte de las novedades tribales —anunci&#243; Orven—. Un artesano del sur dise&#241;&#243; un dispositivo port&#225;til para medir el tiempo llamado &#39;reloj de bolsillo&#39;. Adem&#225;s, en las minas se descubri&#243; una sustancia explosiva que caus&#243; un accidente, e inventores locales perfeccionaron una ballesta de repetici&#243;n.</p>
+<p>Poco despu&#233;s, los sabios del consejo ingresaron a la estancia.</p>
+<p>—Srta. Hlied, el plan de repliegue defensivo est&#225; calculado —expuso el sabio Marvo—. En seis meses consolidaremos nuestras tropas, aunque estimamos que las tribus perif&#233;ricas desprotegidas sufrir&#225;n unas mil trescientas cincuenta bajas antes del contraataque.</p>
+<p>Wal se puso de pie indignado al escuchar las cifras.</p>
+<p>—&#161;&#161;Vas a permitir que arrasen con m&#225;s de mil familias!! &#161;Hlied, m&#237;rame y dime que no vas a dejarlos morir! —exclam&#243; alterado.</p>
+<p>—Es una decisi&#243;n estrat&#233;gica dolorosa, Wal. Si dispersamos nuestras tropas ahora, perderemos la capacidad de defender el n&#250;cleo tribal —explic&#243; Hlied conteniendo la angustia.</p>
+<p>—Entre esas tribus vulnerables est&#225; Raumo... &#161;Tu plan dejar&#225; a mi propia gente expuesta al reino Gric&#225;i! —reproch&#243; Wal desolado.</p>
+<p>—Los esp&#237;as reportan movimientos hacia Raumo, pero si intervenimos prematuramente revelaremos nuestra red de inteligencia —admiti&#243; Hlied afligida—. Te pido que permanezcas en la ciudad para no comprometer la operaci&#243;n.</p>
+<p>Wal sali&#243; furioso del recinto. Decidido a evitar la tragedia, contact&#243; en secreto a Orven para que enviara emisarios de alerta hacia Raumo.</p>
+<p>Al anochecer, Wal acudi&#243; a los mercados locales y compr&#243; una manzana crujiente del valle para despejar la mente. Poco despu&#233;s, una carroza oficial se detuvo a su lado e Hlied lo hizo subir.</p>
+<p>Dentro del carruaje, Hlied lo encar&#243; con evidente molestia.</p>
+<p>—Descubr&#237; que enviaste emisarios a Raumo desobedeciendo la resoluci&#243;n del consejo —manifest&#243; Hlied.</p>
+<p>—No me quedar&#233; de brazos cruzados mientras mi familia corre peligro —replic&#243; Wal.</p>
+<p>El carruaje se detuvo ante la mazmorra central. Dos guardias abrieron la portezuela y sujetaron a Wal por los brazos.</p>
+<p>—Quedar&#225;s bajo custodia preventiva hasta que la situaci&#243;n en el frente se resuelva —orden&#243; Hlied con la voz quebrada por la pena antes de alejarse en el veh&#237;culo.</p>
+<p>Horas m&#225;s tarde, Ronan descendi&#243; a los calabozos y orden&#243; al guardia liberar a Wal.</p>
+<p>—Hlied act&#250;a bajo una presi&#243;n desmedida —expres&#243; Ronan acompa&#241;ando a Wal fuera del recinto—. Ma&#241;ana conversar&#233; con ella, pero hoy descansar&#225;s en mi residencia.</p>
+<p>Entretanto, esa misma noche, una facci&#243;n de disidentes armados liderada por el Sr. Lorim forz&#243; los accesos a la casona de Hlied.</p>
+<p>—Sr. Lorim, &#191;qu&#233; significa esto? —exclam&#243; Hlied desencajada al ver a los hombres armados irrumpir en su c&#225;mara.</p>
+<p>—Tu falta de firmeza y tus vacilaciones llevar&#225;n a esta alianza a la ruina —declar&#243; Lorim con frialdad—. Quedas destituida de la comandancia.</p>
+<p>En ese instante, la carroza de Ronan y Wal arrib&#243; a las puertas de la casona. Al presenciar el asedio, Ronan desenvain&#243; su espada pese a sus heridas de guerra, mientras Wal avanzaba a su lado. Los dos guardias de Lorim arremetieron contra ellos, pero Wal y Ronan los redujeron con presteza.</p>
+<p>Al verse acorralado y notar la llegada de la caballer&#237;a de la guardia central, el Sr. Lorim sujet&#243; a Hlied por el brazo y le coloc&#243; su daga en el cuello para usarla de reh&#233;n.</p>
+<p>—&#161;Un paso m&#225;s y le corto el cuello! &#161;Esta joven nos llevar&#225; al desastre! —amenaz&#243; Lorim aterrorizado.</p>
+<p>Wal mantuvo la calma. Recordando las t&#233;cnicas de agarre y desv&#237;o aprendidas con el instructor Linden, avanz&#243; un paso, fingi&#243; una embestida frontal y ejecut&#243; un golpe seco al mu&#241;eca de Lorim con el asta de su lanza de pr&#225;ctica, liberando a Hlied de inmediato.</p>
+<p>Desarmado, rodeado por las tropas a caballo y consciente de la pena de ejecuci&#243;n que le aguardaba por alta traici&#243;n, el Sr. Lorim exclam&#243; con desesperaci&#243;n:</p>
+<p>—&#161;Prefiero morir antes que presenciar la ca&#237;da de mi pueblo!</p>
+<p>Acto seguido, desenfund&#243; un estilete oculto, se lo clav&#243; en el abdomen y cay&#243; al suelo, moribundo.</p>
+<p>Wal corri&#243; a abrazar a Hlied, quien temblaba conmocionada mientras la guardia aseguraba el recinto.</p>
+<p>Al d&#237;a siguiente, un mensajero trajo noticias del frente: los emisarios de alerta hab&#237;an llegado a tiempo a Raumo y las patrullas enemigas se hab&#237;an replegado sin concretar el ataque. Hlied mir&#243; a Wal con profunda gratitud y alivio, reconociendo el valor de su determinaci&#243;n.</p>
+
+            </article>
+            <nav class="chapter-nav">
+                <a href="capitulo_06.html">&larr; Cap. 6</a>
+                <a href="../capitulos.html" style="font-size:12px;opacity:.7;">&#8593; Cap&iacute;tulos</a>
+                <a href="capitulo_08.html">Cap. 8 &rarr;</a>
+            </nav>
+        </div>
+    </main>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-title">&#10022; Cap&iacute;tulos</div>
+<ul class="sidebar-list"><li><a href="../prologo.html">Prologo</a></li><li><a href="capitulo_01.html"><span class="ch-num">01</span> El peso de los tatuajes</a></li><li><a href="capitulo_02.html"><span class="ch-num">02</span> El consejo de H&iacute;ltar</a></li><li><a href="capitulo_03.html"><span class="ch-num">03</span> Tierra sagrada</a></li><li><a href="capitulo_04.html"><span class="ch-num">04</span> Entrenamiento y temores</a></li><li><a href="capitulo_05.html"><span class="ch-num">05</span> El C&oacute;nclave tribal</a></li><li><a href="capitulo_06.html"><span class="ch-num">06</span> Bajo la lluvia embarrada</a></li><li class="active"><a href="capitulo_07.html"><span class="ch-num">07</span> La responsabilidad del l&iacute;der</a></li><li><a href="capitulo_08.html"><span class="ch-num">08</span> El nacimiento en tiempos de guerra</a></li><li><a href="capitulo_09.html"><span class="ch-num">09</span> La necesidad de la guerra</a></li><li><a href="capitulo_10.html"><span class="ch-num">10</span> El perd&oacute;n y el vac&iacute;o</a></li><li><a href="capitulo_11.html"><span class="ch-num">11</span> Miedo al conflicto</a></li><li><a href="capitulo_12.html"><span class="ch-num">12</span> La ca&iacute;da de las murallas</a></li><li><a href="capitulo_13.html"><span class="ch-num">13</span> El retorno de la caballer&iacute;a</a></li><li style="opacity:0.6; cursor:default;"><a href="javascript:void(0)" style="cursor:default; pointer-events:none; color:#a89274;"><span class="ch-num">14</span> El renacer de la paz (En proceso)</a></li></ul>
+    </aside>
+
+    <footer class="page-footer">
+        Forgotten Sword &copy; 2026 &middot; Fernando Barra &nbsp;&middot;&nbsp;
+        <a href="../index.html">Galer&iacute;a de Personajes</a>
+    </footer>
+</div>
+<script>
+    var fontSize = 18;
+    var themes = ['', 'theme-sepia', 'theme-dark'];
+    var themeIdx = 0;
+    function changeFontSize(d) {
+        fontSize = Math.min(Math.max(14, fontSize + d), 26);
+        document.documentElement.style.setProperty('--font-size-base', fontSize + 'px');
+    }
+    function toggleTheme() {
+        document.body.classList.remove(themes[themeIdx]);
+        themeIdx = (themeIdx + 1) % themes.length;
+        if (themes[themeIdx]) document.body.classList.add(themes[themeIdx]);
+    }
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('open');
+    }
+</script>
+</body>
+</html>

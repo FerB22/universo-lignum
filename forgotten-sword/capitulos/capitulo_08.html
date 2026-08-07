@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitulo 08: El nacimiento en tiempos de guerra - Forgotten Sword</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #120c08;
+            --card-bg: #1c130c;
+            --text-color: #e8dcc4;
+            --accent-gold: #d4af37;
+            --accent-bright: #f0c952;
+            --muted-gold: #9e8237;
+            --text-dim: #b8a686;
+            --border-color: #3b2818;
+            --quote-bg: rgba(212,175,55,0.06);
+            --sidebar-bg: #160f09;
+            --font-size-base: 18px;
+        }
+        body.theme-sepia {
+            --bg-color:#241c14; --card-bg:#2d241a; --text-color:#edd9be;
+            --border-color:#4a3a2a; --sidebar-bg:#1e160f;
+        }
+        body.theme-dark {
+            --bg-color:#0a0705; --card-bg:#120e0a; --text-color:#d1c5b0;
+            --border-color:#291e14; --sidebar-bg:#080604;
+        }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lora', Georgia, serif;
+            font-size: var(--font-size-base);
+            line-height: 1.85;
+            min-height: 100vh;
+            padding: 20px;
+            transition: background-color .3s, color .3s;
+            background-image: radial-gradient(circle at 50% 0%, rgba(212,175,55,.07) 0%, transparent 65%);
+        }
+        .page-layout {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            grid-template-rows: auto 1fr auto;
+            gap: 0 24px;
+            align-items: start;
+        }
+        /* Nav bar */
+        .nav-bar {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 13px 22px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 24px;
+            box-shadow: 0 6px 24px rgba(0,0,0,.45);
+        }
+        .nav-back {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color .2s, transform .2s;
+        }
+        .nav-back:hover { color:var(--accent-bright); transform:translateX(-3px); }
+        .reader-controls { display:flex; align-items:center; gap:10px; }
+        .btn-ctrl {
+            background:rgba(212,175,55,.1); border:1px solid var(--border-color);
+            color:var(--accent-gold); padding:5px 11px; border-radius:4px;
+            cursor:pointer; font-family:'Cinzel',serif; font-size:13px; transition:all .2s;
+        }
+        .btn-ctrl:hover { background:var(--accent-gold); color:#120c08; }
+        /* Main reading column */
+        .main-col { min-width:0; }
+        .chapter-header {
+            text-align:center; margin-bottom:38px;
+            padding-bottom:24px; position:relative;
+        }
+        .chapter-header::after {
+            content:'&#10042; &#10042; &#10042;';
+            position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+            color:var(--muted-gold); font-size:13px; letter-spacing:10px;
+        }
+        .sub-label {
+            font-family:'Cinzel',serif; font-size:11px; letter-spacing:4px;
+            text-transform:uppercase; color:var(--accent-gold);
+            margin-bottom:10px; display:block;
+        }
+        .main-title {
+            font-family:'Cinzel',serif; font-size:32px; font-weight:700;
+            color:#f5eedc; letter-spacing:1px;
+            text-shadow:0 4px 14px rgba(0,0,0,.7); margin-bottom:6px;
+        }
+        /* Reader frame */
+        .reader-container {
+            background:var(--card-bg); border:1px solid var(--border-color);
+            border-radius:12px; padding:44px 50px;
+            box-shadow:0 10px 38px rgba(0,0,0,.5); position:relative;
+        }
+        .reader-container::before {
+            content:''; position:absolute; top:8px; left:8px; right:8px; bottom:8px;
+            border:1px solid rgba(212,175,55,.12); border-radius:8px; pointer-events:none;
+        }
+        /* Prose */
+        .prose p {
+            margin-bottom: 20px;
+            text-align: justify;
+            text-indent: 0.75em;
+        }
+        .prose p.dialogue {
+            text-indent: 0;
+            padding-left: 10px;
+            border-left: 2px solid rgba(212,175,55,.22);
+            margin-bottom: 14px;
+        }
+        .prose p.dialogue-cont {
+            text-indent: 0;
+            padding-left: 10px;
+            margin-top: -14px;
+            margin-bottom: 14px;
+            color: var(--text-dim);
+        }
+        .prose .scene-break {
+            text-align:center; color:var(--muted-gold);
+            font-size:15px; letter-spacing:10px; margin:32px 0; user-select:none;
+        }
+        .prose blockquote.epigraph {
+            background:var(--quote-bg); border-left:3px solid var(--accent-gold);
+            border-right:3px solid var(--accent-gold); padding:18px 24px;
+            margin:0 auto 34px auto; border-radius:4px; text-align:center;
+            font-style:italic; color:#f0e6d2; font-size:.97em;
+            max-width:600px; box-shadow:0 3px 14px rgba(0,0,0,.25); text-indent:0;
+        }
+        /* Prev/Next nav */
+        .chapter-nav {
+            display:flex; justify-content:space-between; align-items:center;
+            margin-top:34px; padding-top:20px; border-top:1px solid var(--border-color);
+        }
+        .chapter-nav a {
+            font-family:'Cinzel',serif; font-size:13px; font-weight:600;
+            color:var(--accent-gold); text-decoration:none; transition:color .2s;
+        }
+        .chapter-nav a:hover { color:var(--accent-bright); }
+        /* Sidebar */
+        .sidebar {
+            background:var(--sidebar-bg); border:1px solid var(--border-color);
+            border-radius:10px; padding:18px 14px;
+            box-shadow:0 6px 22px rgba(0,0,0,.4);
+            position:sticky; top:20px;
+            max-height:calc(100vh - 40px); overflow-y:auto;
+        }
+        .sidebar::-webkit-scrollbar { width:4px; }
+        .sidebar::-webkit-scrollbar-thumb { background:var(--border-color); border-radius:4px; }
+        .sidebar-title {
+            font-family:'Cinzel',serif; font-size:11px; letter-spacing:3px;
+            text-transform:uppercase; color:var(--accent-gold);
+            margin-bottom:14px; padding-bottom:10px;
+            border-bottom:1px solid var(--border-color); text-align:center;
+        }
+        .sidebar-list { list-style:none; }
+        .sidebar-list li { border-bottom:1px solid rgba(59,40,24,.5); }
+        .sidebar-list li a {
+            display:block; padding:8px 7px; font-size:12.5px;
+            color:var(--text-dim); text-decoration:none; line-height:1.4;
+            transition:color .2s, background .2s; border-radius:4px;
+        }
+        .sidebar-list li a:hover { color:var(--accent-gold); background:rgba(212,175,55,.06); }
+        .sidebar-list li.active a {
+            color:var(--accent-bright); font-weight:600;
+            background:rgba(212,175,55,.1);
+        }
+        .ch-num {
+            font-family:'Cinzel',serif; font-size:10px;
+            color:var(--muted-gold); margin-right:5px;
+        }
+        /* Footer */
+        .page-footer {
+            grid-column:1 / -1; text-align:center;
+            font-family:'Cinzel',serif; font-size:11.5px;
+            color:var(--text-dim); margin-top:34px; opacity:.8;
+        }
+        .page-footer a { color:var(--accent-gold); text-decoration:none; }
+        /* Responsive */
+        @media (max-width:900px) {
+            .page-layout { grid-template-columns:1fr; }
+            .sidebar { position:static; max-height:none; display:none; }
+            .sidebar.open { display:block; margin-top:18px; }
+            .btn-sidebar { display:inline-block !important; }
+        }
+        @media (max-width:600px) {
+            .reader-container { padding:26px 16px; }
+            .main-title { font-size:22px; }
+            .prose p { text-align:left; }
+        }
+        .btn-sidebar { display:none; }
+    </style>
+</head>
+<body>
+<div class="page-layout">
+
+    <nav class="nav-bar">
+        <a href="../capitulos.html" class="nav-back">&#8592; Cap&iacute;tulos</a>
+        <div class="reader-controls">
+            <button class="btn-ctrl btn-sidebar" onclick="toggleSidebar()">&#9776; Lista</button>
+            <button class="btn-ctrl" onclick="changeFontSize(-1)">A-</button>
+            <button class="btn-ctrl" onclick="changeFontSize(1)">A+</button>
+            <button class="btn-ctrl" onclick="toggleTheme()">&#127912; Tema</button>
+        </div>
+    </nav>
+
+    <main class="main-col">
+        <header class="chapter-header">
+            <span class="sub-label">Forgotten Sword &middot; Cap&iacute;tulo 08</span>
+            <h1 class="main-title">El nacimiento en tiempos de guerra</h1>
+        </header>
+        <div class="reader-container">
+            <article class="prose">
+<blockquote class="epigraph">&#171;El amor, cual flor, no solo emerge para ser visto, sino que crece cuando es cuidado y valorado&#187;.</blockquote>
+<p>El tiempo transcurri&#243; r&#225;pido, pues cuando el amor tom&#243; su lugar, no importaba nada m&#225;s. As&#237; pasaron dos meses y el beb&#233; se prepar&#243; para nacer. Las parteras se dispusieron a ayudar a Hlied en el parto. Ella, acostada en la cama, sinti&#243; las contracciones y su respiraci&#243;n era fatigosa.</p>
+<p>—&#161;Vamos, el beb&#233; ya viene! —declar&#243; la partera al mando.</p>
+<p>Las otras mujeres le dieron de beber agua fresca mientras Hlied sudaba por el esfuerzo. Una mujer se acerc&#243; a Wal, quien aguardaba en la entrada de la habitaci&#243;n.</p>
+<p>—Ella est&#225; muy agotada —inform&#243; con voz preocupada.</p>
+<p>—&#191;Podr&#225; lograrlo? —pregunt&#243; Wal alarmado.</p>
+<p>—Traigan pa&#241;os h&#250;medos —orden&#243; la partera. Una asistente sali&#243; apresurada de la estancia.</p>
+<p>Hlied prorrumpi&#243; en un intenso quejido, apretando las s&#225;banas. Las mujeres la asistieron coloc&#225;ndole compresas frescas en la frente.</p>
+<p>—Veo la cabeza —anunci&#243; la partera—. Hlied, &#161;solo un esfuerzo m&#225;s!</p>
+<p>Hlied puj&#243; con determinaci&#243;n, sacando energ&#237;as de donde no le quedaban. Tras unos segundos de tensi&#243;n, el llanto fuerte de un reci&#233;n nacido reson&#243; en la habitaci&#243;n. Las mujeres lo sostuvieron y lo envolvieron en mantas limpias.</p>
+<p>—&#161;&#161;Es un ni&#241;o!! —exclam&#243; la partera alborozada.</p>
+<p>Le entreg&#243; el beb&#233; a Hlied, quien lo sostuvo contra su pecho entre l&#225;grimas de conmoci&#243;n y sudor. Wal se aproxim&#243; a la cama para tocarlo, con el rostro iluminado por la emoci&#243;n.</p>
+<p>—Hlied… &#161;somos padres! —expres&#243; emocionado.</p>
+<p>—S&#237;, nuestro hijo —sonri&#243; ella exhausta.</p>
+<p>Ambos contemplaron al reci&#233;n nacido mientras el peque&#241;o lloraba con fuerza.</p>
+<p>—Se parece a tu padre en el car&#225;cter —brome&#243; Wal con ternura.</p>
+<p>Mientras tanto, en el espeso bosque del este, Sauri y Hald encabezaban una patrulla exploratoria junto a su escuadra. Avanzaban por tierras olvidadas contemplando montes, valles y cascadas llenas de vida, as&#237; como especies aut&#243;ctonas del ecosistema monta&#241;oso. Cruzaron valles donde a&#250;n se erig&#237;an las ruinas de baluartes tribales de la antig&#252;edad.</p>
+<p>Tras recorrer varias millas, llegaron a un p&#225;ramo singular donde avistaron enormes pilares de roca tallada.</p>
+<p>—&#161;Vaya paisaje! Se me eriz&#243; la piel —expres&#243; Hald asombrado.</p>
+<p>Descendieron hacia los monolitos, los cuales estaban cubiertos de lianas ancestrales y petroglifos grabados. Algunos pilares permanec&#237;an partidos por la mitad, con marcas que suger&#237;an antiguas batallas.</p>
+<p>A medida que se adentraban, una bruma m&#237;stica de densidad ancestral rode&#243; el lugar, amortiguando los sonidos y haciendo que el aire se sintiera denso y pesado a cada paso.</p>
+<p>—El ambiente se siente sumamente extra&#241;o aqu&#237; —declar&#243; Sauri observando a su alrededor.</p>
+<p>—Es una atm&#243;sfera inquietante —coincidi&#243; Anse ajust&#225;ndose el abrigo.</p>
+<p>Avanzaron con sigilo entre las hileras de pilares alineados con precisi&#243;n. La niebla se espesaba a ras del suelo, impidi&#233;ndoles distinguir claramente el fondo del valle.</p>
+<p>—Mant&#233;nganse alertas; no conocemos este territorio —advirti&#243; Sauri desenvainando su espada.</p>
+<p>Repentinamente, una red con pesas oculta entre la hojarasca se activ&#243; al paso de los muchachos, derrib&#225;ndolos al suelo y sujet&#225;ndoles las extremidades.</p>
+<p>—&#161;Es una emboscada! —vocifer&#243; Sauri intentando zafarse.</p>
+<p>De entre la densa niebla surgieron figuras encapuchadas que portaban m&#225;scaras de piedra con rostros tallados.</p>
+<p>—&#191;Qui&#233;nes son ustedes? —inquiri&#243; Hald desde el suelo intentando liberarse.</p>
+<p>—*H&#235; lik miek* —habl&#243; una mujer en un dialecto antiguo.</p>
+<p>—*&#161;Jo d&#235; tot li H&#228;ksa!* —agreg&#243; un guerrero alto, mientras los dem&#225;s observaban con curiosidad.</p>
+<p>La mujer se agach&#243; frente a Hald, examin&#225;ndolo minuciosamente.</p>
+<p>—*&#161;B&#252;k j&#252;!* —dijo ella con firmeza antes de intentar pronunciar en la lengua com&#250;n—: &#191;Amigos?</p>
+<p>—&#191;Amigos? &#161;S&#237;, absolutamente! Somos amigos —respondi&#243; Hald apresuradamente.</p>
+<p>La mujer se puso de pie y se dirigi&#243; a su grupo en su dialecto nativo, se&#241;alando a los reci&#233;n llegados. Tras un breve intercambio entre ellos, la joven volvi&#243; hacia los muchachos.</p>
+<p>—&#191;L&#237;der? —pregunt&#243; buscando al comandante.</p>
+<p>—El l&#237;der de la escuadra es &#233;l —indic&#243; Hald se&#241;alando a Sauri.</p>
+<p>La muchacha cort&#243; los nudos de la red y les hizo una se&#241;a para que la siguieran.</p>
+<p>—Pueden venir —indic&#243;.</p>
+<p>Se abrieron paso a trav&#233;s de la vegetaci&#243;n h&#250;meda hasta llegar a un amplio poblado oculto en el valle. El claro albergaba decenas de tiendas de pieles y madera tosca, donde las familias realizaban sus labores cotidianas: tej&#237;an cestos, curt&#237;an cueros y cuecen alimentos en ollas de barro sobre fogatas.</p>
+<p>Llegaron a la tienda principal, de donde emergi&#243; un hombre imponente.</p>
+<p>—Bajen sus armas; este no es un campo de batalla —declar&#243; el hombre con una pronunciaci&#243;n clara de la lengua com&#250;n, sorprendiendo a los visitantes.</p>
+<p>—Habla nuestro idioma —le murmur&#243; Hald a Sauri.</p>
+<p>—Nos dirig&#237;amos hacia las fronteras de la tribu Yui —explic&#243; Sauri.</p>
+<p>—En este valle no reconocemos fronteras tribales; vivimos al margen de la guerra —respondi&#243; el l&#237;der—. Pueden acampar aqu&#237; para recuperar energ&#237;as.</p>
+<p>La joven pelirroja los gui&#243; hacia una carpa de hu&#233;spedes. Al estar a salvo en el interior, la chica se quit&#243; la m&#225;scara y revel&#243; su rostro y su cabello rojizo. Sauri qued&#243; impresionado por sus facciones.</p>
+<p>—&#191;Por qu&#233; viven aislados aqu&#237;? —inquiri&#243; Sauri con curiosidad.</p>
+<p>—Por las persecuciones de los reinos —explic&#243; ella en su rudimentario com&#250;n, el cual hab&#237;a aprendido de su padre gricano—. Mi padre me ense&#241;&#243; su habla... aunque a mi madre no le agrada recordarla.</p>
+<p>Mientras tanto, en el oeste del territorio, Ronan arrib&#243; a la tribu Helwa para entrevistarse con el rey Bergkai de Zaita. El monarca lo recibi&#243; en la residencia oficial ofreci&#233;ndole un banquete.</p>
+<p>—Hablemos sin rodeos, Sr. Ronan —expres&#243; el rey durante la cena—. Deseo que los ataques a mis guarniciones fronterizas cesen de inmediato.</p>
+<p>—Es una petici&#243;n comprensible. &#191;Y qu&#233; propone para garantizar la paz? —inquiri&#243; Ronan.</p>
+<p>—Exijo que el joven Wal y mi hija se unan en matrimonio diplom&#225;tico. Esa alianza asegurar&#225; la estabilidad entre nuestros dominios.</p>
+<p>—Wal ya est&#225; casado con mi hija Hlied y acaban de tener un hijo; no puedo aceptar semejante condici&#243;n —aclar&#243; Ronan secamente.</p>
+<p>El rey Bergkai se erigi&#243; en su asiento y adopt&#243; una postura amenazante.</p>
+<p>—Usted conoce la diplomacia de estado, Ronan. Si rechaza mi oferta, lo tomar&#233; como un acto de hostilidad abierta y me ver&#233; obligado a movilizar mi ej&#233;rcito hacia la regi&#243;n de Raumo. Mis tropas arrasar&#225;n la aldea natal de Wal y ejecutar&#225;n a sus padres por las incursiones sufridas.</p>
+<p>Ronan permaneci&#243; en silencio, comprendiendo que Bergkai estaba ejecutando un Caballo de Troya diplom&#225;tico: pretend&#237;a meter a su propia dinast&#237;a en el C&#243;nclave Tribal usando a Wal como pieza de ajedrez.</p>
+<p>—Est&#225; bien —accedi&#243; Ronan midiendo las palabras—. Pero exijo que la princesa resida en nuestro territorio bajo la custodia de nuestra guardia.</p>
+<p>El rey asent&#243; con la cabeza, sellando el preacuerdo.</p>
+<p>De regreso al asentamiento militar, Ronan convoc&#243; a Wal a su despacho.</p>
+<p>—Habl&#233; con el rey Bergkai, pero su exigencia supera lo previsto —inform&#243; Ronan apesadumbrado.</p>
+<p>—&#191;A qu&#233; se refiere, se&#241;or? —pregunt&#243; Wal.</p>
+<p>—Exige que te cases con su hija para sellar la paz. Si nos negamos, invadir&#225; Raumo y ejecutar&#225; a tus padres como represalia por los ataques a sus bases.</p>
+<p>—&#161;Pero yo amo a Hlied y acaba de nacer nuestro hijo Kaswer! —exclam&#243; Wal angustiado—. &#191;Acaso la poligamia no est&#225; prohibida?</p>
+<p>—Entre el pueblo com&#250;n lo est&#225; —explic&#243; Ronan—, pero bajo los antiguos tratados de alta comandancia pol&#237;tica, los l&#237;deres y estandartes de guerra pueden contraer matrimonios de estado para evitar la aniquilaci&#243;n de sus pueblos. No te lo pido por ambici&#243;n, Wal; es el martirio personal que debemos asumir para salvar la vida de Nauren y Walia.</p>
+<p>Wal apret&#243; los pu&#241;os dolido, comprendiendo el terrible dilema: aceptar la boda diplom&#225;tica o dejar que los ej&#233;rcitos reales arrasaran su hogar paterno.</p>
+<p>En el este, la patrulla de Sauri, Hald y Anse continu&#243; inspeccionando los pasos fronterizos. Durante un patrullaje a orillas del r&#237;o, se enfrentaron a un contingente de mercenarios enemigos que intentaba trasladar cajones de armas.</p>
+<p>Tras una dura escaramuza en la maleza donde abatieron a los asaltantes, Anse result&#243; con una herida de corte en el brazo derecho. Hald se sent&#243; a su lado sobre la tierra y sac&#243; aguja e hilo medicinal de su estuche para coser la herida.</p>
+<p>Anse aguantaba el dolor en silencio mientras Hald trabajaba con cuidado.</p>
+<p>—Siempre me curo sola —murmur&#243; ella.</p>
+<p>—Bueno, ahora est&#225;s en nuestra escuadra y nos cuidamos entre todos —le sonri&#243; Hald.</p>
+<p>Al dar el &#250;ltimo punto de sutura, Hald la mir&#243; con picard&#237;a para aligerar la tensi&#243;n.</p>
+<p>—Con la cantidad de l&#237;os de los que salimos juntos, un d&#237;a vas a terminar pidi&#233;ndome matrimonio, Anse...</p>
+<p>Anse rod&#243; los ojos con una sonrisa ir&#243;nica, le dio un leve empuj&#243;n y se puso de pie.</p>
+<p>—Sigue so&#241;ando, Hald. Enfoqu&#233;monos en la misi&#243;n.</p>
+<p>Poco despu&#233;s, la patrulla emprendi&#243; el retorno para reportar las posiciones enemigas detectadas.</p>
+<p>En H&#237;ltar, Wal regres&#243; a su residencia con el coraz&#243;n oprimido. Observ&#243; a Hlied en la habitaci&#243;n arrullando al peque&#241;o Kaswer entre sus brazos. Wal se acerc&#243;, la bes&#243; en la frente y se jur&#243; internamente que encontrar&#237;a la forma de proteger a su familia sin importar las tormentas pol&#237;ticas que se avecinaban.</p>
+
+            </article>
+            <nav class="chapter-nav">
+                <a href="capitulo_07.html">&larr; Cap. 7</a>
+                <a href="../capitulos.html" style="font-size:12px;opacity:.7;">&#8593; Cap&iacute;tulos</a>
+                <a href="capitulo_09.html">Cap. 9 &rarr;</a>
+            </nav>
+        </div>
+    </main>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-title">&#10022; Cap&iacute;tulos</div>
+<ul class="sidebar-list"><li><a href="../prologo.html">Prologo</a></li><li><a href="capitulo_01.html"><span class="ch-num">01</span> El peso de los tatuajes</a></li><li><a href="capitulo_02.html"><span class="ch-num">02</span> El consejo de H&iacute;ltar</a></li><li><a href="capitulo_03.html"><span class="ch-num">03</span> Tierra sagrada</a></li><li><a href="capitulo_04.html"><span class="ch-num">04</span> Entrenamiento y temores</a></li><li><a href="capitulo_05.html"><span class="ch-num">05</span> El C&oacute;nclave tribal</a></li><li><a href="capitulo_06.html"><span class="ch-num">06</span> Bajo la lluvia embarrada</a></li><li><a href="capitulo_07.html"><span class="ch-num">07</span> La responsabilidad del l&iacute;der</a></li><li class="active"><a href="capitulo_08.html"><span class="ch-num">08</span> El nacimiento en tiempos de guerra</a></li><li><a href="capitulo_09.html"><span class="ch-num">09</span> La necesidad de la guerra</a></li><li><a href="capitulo_10.html"><span class="ch-num">10</span> El perd&oacute;n y el vac&iacute;o</a></li><li><a href="capitulo_11.html"><span class="ch-num">11</span> Miedo al conflicto</a></li><li><a href="capitulo_12.html"><span class="ch-num">12</span> La ca&iacute;da de las murallas</a></li><li><a href="capitulo_13.html"><span class="ch-num">13</span> El retorno de la caballer&iacute;a</a></li><li style="opacity:0.6; cursor:default;"><a href="javascript:void(0)" style="cursor:default; pointer-events:none; color:#a89274;"><span class="ch-num">14</span> El renacer de la paz (En proceso)</a></li></ul>
+    </aside>
+
+    <footer class="page-footer">
+        Forgotten Sword &copy; 2026 &middot; Fernando Barra &nbsp;&middot;&nbsp;
+        <a href="../index.html">Galer&iacute;a de Personajes</a>
+    </footer>
+</div>
+<script>
+    var fontSize = 18;
+    var themes = ['', 'theme-sepia', 'theme-dark'];
+    var themeIdx = 0;
+    function changeFontSize(d) {
+        fontSize = Math.min(Math.max(14, fontSize + d), 26);
+        document.documentElement.style.setProperty('--font-size-base', fontSize + 'px');
+    }
+    function toggleTheme() {
+        document.body.classList.remove(themes[themeIdx]);
+        themeIdx = (themeIdx + 1) % themes.length;
+        if (themes[themeIdx]) document.body.classList.add(themes[themeIdx]);
+    }
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('open');
+    }
+</script>
+</body>
+</html>

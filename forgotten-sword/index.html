@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgotten Sword - Portal Oficial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100%;
+            background-color: #120c08;
+            color: #e8dcc4;
+            font-family: 'Lora', Georgia, serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            background-image: 
+                radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.12) 0%, transparent 65%),
+                radial-gradient(circle at 50% 80%, rgba(58, 134, 255, 0.05) 0%, transparent 70%);
+        }
+
+        /* Menú principal */
+        .main-container {
+            width: 100%;
+            max-width: 620px;
+            min-height: 80vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-container.hidden {
+            display: none !important;
+        }
+
+        .main-container.closing {
+            animation: fadeOut 0.3s ease-in forwards;
+        }
+
+        .main-container.fadeIn {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .saga-title {
+            font-family: 'Cinzel', serif;
+            font-size: 46px;
+            font-weight: 900;
+            color: #f5eedc;
+            letter-spacing: 3px;
+            text-shadow: 0 4px 18px rgba(0, 0, 0, 0.9), 0 0 25px rgba(212, 175, 55, 0.25);
+            margin-bottom: 8px;
+        }
+
+        .saga-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 25px;
+        }
+
+        .divider {
+            color: #9e8237;
+            font-size: 14px;
+            letter-spacing: 12px;
+            margin-bottom: 45px;
+        }
+
+        /* Contenedor de los dos botones principales */
+        .buttons-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            margin-bottom: 40px;
+        }
+
+        .btn-option {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            background: linear-gradient(135deg, #24180e 0%, #170e08 100%);
+            border: 2px solid #9e8237;
+            border-radius: 12px;
+            padding: 22px 28px;
+            color: #f5eedc;
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .btn-option:hover {
+            transform: translateY(-4px);
+            border-color: #d4af37;
+            background: linear-gradient(135deg, #322214 0%, #1f130b 100%);
+            color: #ffffff;
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.35);
+        }
+
+        .btn-icon {
+            font-size: 26px;
+        }
+
+        /* Botón de cierre */
+        .btn-cerrar {
+            margin-bottom: 30px;
+            padding: 10px 24px;
+            background: rgba(212, 175, 55, 0.08);
+            color: #d4af37;
+            border: 1px solid #9e8237;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.25s ease;
+            display: inline-block;
+        }
+
+        .btn-cerrar:hover {
+            background: #d4af37;
+            color: #120c08;
+            box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
+            transform: translateY(-2px);
+        }
+
+        /* Secciones ocultas por defecto */
+        .seccion-oculta {
+            display: none;
+            width: 100%;
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 10px 0 50px 0;
+            text-align: center;
+        }
+
+        .seccion-oculta.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .seccion-oculta.closing {
+            animation: fadeOut 0.3s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+
+        /* Estilos de fichas y capítulos */
+        .grid-personajes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+            width: 100%;
+        }
+
+        .tarjeta-item {
+            background-color: #21170e;
+            border: 1px solid #4a3622;
+            border-radius: 8px;
+            padding: 24px 20px;
+            text-align: center;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.6);
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .tarjeta-item:hover {
+            transform: translateY(-4px);
+            border-color: #d4af37;
+            box-shadow: 0 8px 25px rgba(212,175,55,0.25);
+        }
+
+        .grid-capitulos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 14px;
+            width: 100%;
+        }
+
+        .tarjeta-capitulo {
+            text-decoration: none;
+            display: block;
+            background: #1c130c;
+            border: 1px solid #3b2818;
+            border-radius: 8px;
+            padding: 16px 18px;
+            transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .tarjeta-capitulo:hover {
+            border-color: #d4af37;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212,175,55,0.2);
+        }
+
+        .footer {
+            font-family: 'Cinzel', serif;
+            font-size: 11.5px;
+            color: #a89274;
+            opacity: 0.85;
+            letter-spacing: 1px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .saga-title {
+                font-size: 34px;
+            }
+            .btn-option {
+                font-size: 17px;
+                padding: 18px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MENÚ PRINCIPAL INICIAL -->
+    <main class="main-container" id="menu-principal">
+        <h1 class="saga-title">Forgotten Sword</h1>
+        <p class="saga-subtitle">Selecciona una opción</p>
+
+        <div class="divider">❖ ❖ ❖</div>
+
+        <div class="buttons-container">
+
+            <button class="btn-option" onclick="mostrarSeccion('seccion-fichas', 'fichas')">
+                <span class="btn-icon">🛡️</span>
+                <span>Fichas de Personajes</span>
+            </button>
+
+            <button class="btn-option" onclick="mostrarSeccion('seccion-capitulos', 'capitulos')">
+                <span class="btn-icon">📖</span>
+                <span>Lista de Capítulos</span>
+            </button>
+
+        </div>
+    </main>
+
+    <!-- SECCIÓN 1: FICHAS DE PERSONAJES -->
+    <section class="seccion-oculta" id="seccion-fichas">
+        <button class="btn-cerrar" onclick="ocultarSeccion('seccion-fichas')">
+            ← Volver al Menú Principal
+        </button>
+
+        <header style="text-align:center; max-width:750px; margin:0 auto 35px auto;">
+            <h2 style="font-family:'Cinzel',serif; font-size:28px; color:#d4af37; margin-bottom:10px;">Fichas de Personajes</h2>
+            <p style="font-size:14.5px; color:#c4b296; line-height:1.6;">Colección oficial de fichas de los personajes principales de la saga. Haz clic en cualquier tarjeta para abrir su ficha detallada.</p>
+        </header>
+
+        <div class="grid-personajes">
+
+            <a href="personajes/ficha-waldain.html" style="text-decoration:none; color:inherit;">
+                <div class="tarjeta-item">
+                    <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">PROTAGONISTA</span>
+                    <h3 style="margin:0 0 4px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Waldáin Helvadur</h3>
+                    <p style="margin:0 0 10px 0; font-size:13px; font-style:italic; color:#a89274;">«Wal»</p>
+                    <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Aprendiz de espada de la tribu Raumo y líder de la resistencia.</p>
+                </div>
+            </a>
+
+            <a href="personajes/ficha-hlied.html" style="text-decoration:none; color:inherit;">
+                <div class="tarjeta-item">
+                    <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">ARQUERA TRIBAL</span>
+                    <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Hlied Steinwal</h3>
+                    <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Arquera de la protección tribal en la tribu Revenst.</p>
+                </div>
+            </a>
+
+            <a href="personajes/ficha-skaivan.html" style="text-decoration:none; color:inherit;">
+                <div class="tarjeta-item">
+                    <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">MENTOR / HERMANO</span>
+                    <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Skaivan Helvadur</h3>
+                    <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Guerrero noble y faro de integridad moral para su familia.</p>
+                </div>
+            </a>
+
+            <a href="personajes/ficha-sauri.html" style="text-decoration:none; color:inherit;">
+                <div class="tarjeta-item">
+                    <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">SANADORA</span>
+                    <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Sauri Steinwal</h3>
+                    <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Médica tribal y hermana gemela de Hald.</p>
+                </div>
+            </a>
+
+            <a href="personajes/ficha-ronan.html" style="text-decoration:none; color:inherit;">
+                <div class="tarjeta-item">
+                    <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">LÍDER TRIBAL</span>
+                    <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Ronan Steinwal</h3>
+                    <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Líder soberano de la tribu Revenst.</p>
+                </div>
+            </a>
+
+            <a href="personajes/ficha-hald.html" style="text-decoration:none; color:inherit;">
+                <div class="tarjeta-item">
+                    <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">GUERRERO DE ÉLITE</span>
+                    <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Hald Steinwal</h3>
+                    <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Feroz combatiente de vanguardia y gemelo de Sauri.</p>
+                </div>
+            </a>
+
+            <a href="personajes/ficha-deschast.html" style="text-decoration:none; color:inherit;">
+                <div class="tarjeta-item">
+                    <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">ESTRATEGA</span>
+                    <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Deschast</h3>
+                    <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Estratega de la Unificación imperial y líder de la tribu Royái.</p>
+                </div>
+            </a>
+
+            <a href="personajes/ficha-rey-de-gricai.html" style="text-decoration:none; color:inherit;">
+                <div class="tarjeta-item">
+                    <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">SOBERANO IMPERIAL</span>
+                    <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Rey de Gricái</h3>
+                    <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Monarca despótico cuya tiranía desencadena la contienda.</p>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: LISTA DE CAPÍTULOS -->
+    <section class="seccion-oculta" id="seccion-capitulos">
+        <button class="btn-cerrar" onclick="ocultarSeccion('seccion-capitulos')">
+            ← Volver al Menú Principal
+        </button>
+
+        <header style="text-align:center; max-width:750px; margin:0 auto 35px auto;">
+            <h2 style="font-family:'Cinzel',serif; font-size:28px; color:#d4af37; margin-bottom:10px;">Capítulos de la Novela</h2>
+            <p style="font-size:14.5px; color:#c4b296; line-height:1.6;">Lee la historia completa desde el prólogo hasta la gran contienda. Selecciona cualquier capítulo para comenzar a leer.</p>
+        </header>
+
+        <!-- Banner Prólogo -->
+        <div style="width:100%; max-width:750px; margin:0 auto 30px auto;">
+            <a href="prologo.html" style="text-decoration:none; display:block;">
+                <div style="background: linear-gradient(135deg, #2d1f11 0%, #1a1209 100%); border: 1px solid #c49a45; border-radius: 8px; padding: 18px 24px; text-align: center; box-shadow: 0 4px 20px rgba(212,175,55,0.15); transition: transform 0.2s ease, box-shadow 0.2s ease;">
+                    <span style="font-family:'Cinzel',serif; font-size:11px; color:#d4af37; letter-spacing:3px; text-transform:uppercase; display:block; margin-bottom:6px;">✦ LECTURA INICIAL ✦</span>
+                    <h3 style="margin:0 0 6px 0; font-size:22px; color:#f5eedc; font-family:'Cinzel',serif;">Prólogo: El Anciano del Claro</h3>
+                    <p style="margin:0; font-size:14px; color:#c4b296; font-style:italic;">«Incluso en lo más oscuro del espacio hay estrellas que fulguran».</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="grid-capitulos">
+            <a href="capitulos/capitulo_01.html" class="tarjeta-capitulo">
+                <span style="font-size:10px; color:#9e8237; font-family:'Cinzel',serif; letter-spacing:2px;">CAPÍTULO 01</span>
+                <p style="margin:4px 0 0 0; font-size:14px; color:#e8dcc4; font-weight:600; line-height:1.3;">El peso de los tatuajes</p>
+            </a>
+            <a href="capitulos/capitulo_02.html" class="tarjeta-capitulo">
+                <span style="font-size:10px; color:#9e8237; font-family:'Cinzel',serif; letter-spacing:2px;">CAPÍTULO 02</span>
+                <p style="margin:4px 0 0 0; font-size:14px; color:#e8dcc4; font-weight:600; line-height:1.3;">El consejo de Híltar</p>
+            </a>
+            <a href="capitulos/capitulo_03.html" class="tarjeta-capitulo">
+                <span style="font-size:10px; color:#9e8237; font-family:'Cinzel',serif; letter-spacing:2px;">CAPÍTULO 03</span>
+                <p style="margin:4px 0 0 0; font-size:14px; color:#e8dcc4; font-weight:600; line-height:1.3;">Tierra sagrada</p>
+            </a>
+            <a href="capitulos/capitulo_04.html" class="tarjeta-capitulo">
+                <span style="font-size:10px; color:#9e8237; font-family:'Cinzel',serif; letter-spacing:2px;">CAPÍTULO 04</span>
+                <p style="margin:4px 0 0 0; font-size:14px; color:#e8dcc4; font-weight:600; line-height:1.3;">Entrenamiento y temores</p>
+            </a>
+            <a href="capitulos/capitulo_05.html" class="tarjeta-capitulo">
+                <span style="font-size:10px; color:#9e8237; font-family:'Cinzel',serif; letter-spacing:2px;">CAPÍTULO 05</span>
+                <p style="margin:4px 0 0 0; font-size:14px; color:#e8dcc4; font-weight:600; line-height:1.3;">El Cónclave tribal</p>
+            </a>
+            <a href="capitulos/capitulo_06.html" class="tarjeta-capitulo">
+                <span style="font-size:10px; color:#9e8237; font-family:'Cinzel',serif; letter-spacing:2px;">CAPÍTULO 06</span>
+                <p style="margin:4px 0 0 0; font-size:14px; color:#e8dcc4; font-weight:600; line-height:1.3;">Bajo la lluvia embarrada</p>
+            </a>
+            <a href="capitulos/capitulo_07.html" class="tarjeta-capitulo">
+                <span style="font-size:10px; color:#9e8237; font-family:'Cinzel',serif; letter-spacing:2px;">CAPÍTULO 07</span>
+                <p style="margin:4px 0 0 0; font-size:14px; color:#e8dcc4; font-weight:600; line-height:1.3;">La responsabilidad del líder</p>
+            </a>
+            <a href="capitulos/capitulo_08.html" class="tarjeta-capitulo">
+                <span style="font-size:10px; color:#9e8237; font-family:'Cinzel',serif; letter-spacing:2px;">CAPÍTULO 08</span>
+                <p style="margin:4px 0 0 0; font-size:14px; color:#e8dcc4; font-weight:600; line-height:1.3;">El nacimiento en tiempos de guerra</p>
+            </a>
+            <a href="capitulos/capitulo_09.html" class="tarjeta-capitulo">
+                <span style="font-size:10px; color:#9e8237; font-family:'Cinzel',serif; letter-spacing:2px;">CAPÍTULO 09</span>
+                <p style="margin:4px 0 0 0; font-size:14px; color:#e8dcc4; font-weight:600; line-height:1.3;">La necesidad de la guerra</p>
+            </a>
+            <a href="capitulos/capitulo_10.html" class="tarjeta-capitulo">
+                <span style="font-size:10px; color:#9e8237; font-family:'Cinzel',serif; letter-spacing:2px;">CAPÍTULO 10</span>
+                <p style="margin:4px 0 0 0; font-size:14px; color:#e8dcc4; font-weight:600; line-height:1.3;">El perdón y el vacío</p>
+            </a>
+            <a href="capitulos/capitulo_11.html" class="tarjeta-capitulo">
+                <span style="font-size:10px; color:#9e8237; font-family:'Cinzel',serif; letter-spacing:2px;">CAPÍTULO 11</span>
+                <p style="margin:4px 0 0 0; font-size:14px; color:#e8dcc4; font-weight:600; line-height:1.3;">Miedo al conflicto</p>
+            </a>
+            <a href="capitulos/capitulo_12.html" class="tarjeta-capitulo">
+                <span style="font-size:10px; color:#9e8237; font-family:'Cinzel',serif; letter-spacing:2px;">CAPÍTULO 12</span>
+                <p style="margin:4px 0 0 0; font-size:14px; color:#e8dcc4; font-weight:600; line-height:1.3;">La caída de las murallas</p>
+            </a>
+            <a href="capitulos/capitulo_13.html" class="tarjeta-capitulo">
+                <span style="font-size:10px; color:#9e8237; font-family:'Cinzel',serif; letter-spacing:2px;">CAPÍTULO 13</span>
+                <p style="margin:4px 0 0 0; font-size:14px; color:#e8dcc4; font-weight:600; line-height:1.3;">El retorno de la caballería</p>
+            </a>
+            <div class="tarjeta-capitulo" style="opacity:0.75; cursor:default; border:1px dashed #8c6d31; background:rgba(28,19,12,0.65); pointer-events:none; user-select:none;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span style="font-size:10px; color:#9e8237; font-family:'Cinzel',serif; letter-spacing:2px;">CAPÍTULO 14</span>
+                    <span style="font-size:9px; color:#d4af37; font-family:'Cinzel',serif; letter-spacing:1px; background:rgba(212,175,55,0.12); border:1px solid rgba(212,175,55,0.3); padding:1px 6px; border-radius:4px; text-transform:uppercase;">En proceso</span>
+                </div>
+                <p style="margin:4px 0 0 0; font-size:14px; color:#c4b296; font-weight:600; line-height:1.3;">El renacer de la paz</p>
+                <span style="font-size:11px; color:#a89274; font-style:italic; display:block; margin-top:3px;">En proceso de finalización</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        Forgotten Sword © 2026 · Fernando Barra
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT: TRANSICIÓN EXCLUSIVA ENTRE VISTAS -->
+    <script>
+        function mostrarSeccion(id, hash) {
+            const menu = document.getElementById('menu-principal');
+            const target = document.getElementById(id);
+
+            // Ocultar cualquier otra sección que estuviera abierta
+            ['seccion-fichas', 'seccion-capitulos'].forEach(secId => {
+                if (secId !== id) {
+                    const el = document.getElementById(secId);
+                    if (el) {
+                        el.classList.remove('active', 'closing');
+                        el.style.display = 'none';
+                    }
+                }
+            });
+
+            // Animar salida del menú principal
+            menu.classList.add('closing');
+
+            setTimeout(() => {
+                menu.classList.add('hidden');
+                menu.classList.remove('closing');
+
+                // Mostrar la nueva sección de forma limpia con fadeIn
+                target.style.display = 'block';
+                target.classList.remove('closing');
+                target.classList.add('active');
+                window.location.hash = hash;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 250);
+        }
+
+        function ocultarSeccion(id) {
+            const target = document.getElementById(id);
+            const menu = document.getElementById('menu-principal');
+
+            // Animar salida de la sección activa
+            target.classList.add('closing');
+
+            setTimeout(() => {
+                target.classList.remove('active', 'closing');
+                target.style.display = 'none';
+
+                // Reaparecer el menú principal limpiamente
+                menu.classList.remove('hidden');
+                menu.classList.add('fadeIn');
+                window.location.hash = '';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                setTimeout(() => {
+                    menu.classList.remove('fadeIn');
+                }, 400);
+            }, 250);
+        }
+
+        // Auto-abrir según el Hash de la URL al cargar
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash === '#fichas') {
+                mostrarSeccion('seccion-fichas', 'fichas');
+            } else if (window.location.hash === '#capitulos') {
+                mostrarSeccion('seccion-capitulos', 'capitulos');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,363 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitulo 02: El consejo de Hiltar - Forgotten Sword</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #120c08;
+            --card-bg: #1c130c;
+            --text-color: #e8dcc4;
+            --accent-gold: #d4af37;
+            --accent-bright: #f0c952;
+            --muted-gold: #9e8237;
+            --text-dim: #b8a686;
+            --border-color: #3b2818;
+            --quote-bg: rgba(212,175,55,0.06);
+            --sidebar-bg: #160f09;
+            --font-size-base: 18px;
+        }
+        body.theme-sepia {
+            --bg-color:#241c14; --card-bg:#2d241a; --text-color:#edd9be;
+            --border-color:#4a3a2a; --sidebar-bg:#1e160f;
+        }
+        body.theme-dark {
+            --bg-color:#0a0705; --card-bg:#120e0a; --text-color:#d1c5b0;
+            --border-color:#291e14; --sidebar-bg:#080604;
+        }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lora', Georgia, serif;
+            font-size: var(--font-size-base);
+            line-height: 1.85;
+            min-height: 100vh;
+            padding: 20px;
+            transition: background-color .3s, color .3s;
+            background-image: radial-gradient(circle at 50% 0%, rgba(212,175,55,.07) 0%, transparent 65%);
+        }
+        .page-layout {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            grid-template-rows: auto 1fr auto;
+            gap: 0 24px;
+            align-items: start;
+        }
+        /* Nav bar */
+        .nav-bar {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 13px 22px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 24px;
+            box-shadow: 0 6px 24px rgba(0,0,0,.45);
+        }
+        .nav-back {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color .2s, transform .2s;
+        }
+        .nav-back:hover { color:var(--accent-bright); transform:translateX(-3px); }
+        .reader-controls { display:flex; align-items:center; gap:10px; }
+        .btn-ctrl {
+            background:rgba(212,175,55,.1); border:1px solid var(--border-color);
+            color:var(--accent-gold); padding:5px 11px; border-radius:4px;
+            cursor:pointer; font-family:'Cinzel',serif; font-size:13px; transition:all .2s;
+        }
+        .btn-ctrl:hover { background:var(--accent-gold); color:#120c08; }
+        /* Main reading column */
+        .main-col { min-width:0; }
+        .chapter-header {
+            text-align:center; margin-bottom:38px;
+            padding-bottom:24px; position:relative;
+        }
+        .chapter-header::after {
+            content:'&#10042; &#10042; &#10042;';
+            position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+            color:var(--muted-gold); font-size:13px; letter-spacing:10px;
+        }
+        .sub-label {
+            font-family:'Cinzel',serif; font-size:11px; letter-spacing:4px;
+            text-transform:uppercase; color:var(--accent-gold);
+            margin-bottom:10px; display:block;
+        }
+        .main-title {
+            font-family:'Cinzel',serif; font-size:32px; font-weight:700;
+            color:#f5eedc; letter-spacing:1px;
+            text-shadow:0 4px 14px rgba(0,0,0,.7); margin-bottom:6px;
+        }
+        /* Reader frame */
+        .reader-container {
+            background:var(--card-bg); border:1px solid var(--border-color);
+            border-radius:12px; padding:44px 50px;
+            box-shadow:0 10px 38px rgba(0,0,0,.5); position:relative;
+        }
+        .reader-container::before {
+            content:''; position:absolute; top:8px; left:8px; right:8px; bottom:8px;
+            border:1px solid rgba(212,175,55,.12); border-radius:8px; pointer-events:none;
+        }
+        /* Prose */
+        .prose p {
+            margin-bottom: 20px;
+            text-align: justify;
+            text-indent: 0.75em;
+        }
+        .prose p.dialogue {
+            text-indent: 0;
+            padding-left: 10px;
+            border-left: 2px solid rgba(212,175,55,.22);
+            margin-bottom: 14px;
+        }
+        .prose p.dialogue-cont {
+            text-indent: 0;
+            padding-left: 10px;
+            margin-top: -14px;
+            margin-bottom: 14px;
+            color: var(--text-dim);
+        }
+        .prose .scene-break {
+            text-align:center; color:var(--muted-gold);
+            font-size:15px; letter-spacing:10px; margin:32px 0; user-select:none;
+        }
+        .prose blockquote.epigraph {
+            background:var(--quote-bg); border-left:3px solid var(--accent-gold);
+            border-right:3px solid var(--accent-gold); padding:18px 24px;
+            margin:0 auto 34px auto; border-radius:4px; text-align:center;
+            font-style:italic; color:#f0e6d2; font-size:.97em;
+            max-width:600px; box-shadow:0 3px 14px rgba(0,0,0,.25); text-indent:0;
+        }
+        /* Prev/Next nav */
+        .chapter-nav {
+            display:flex; justify-content:space-between; align-items:center;
+            margin-top:34px; padding-top:20px; border-top:1px solid var(--border-color);
+        }
+        .chapter-nav a {
+            font-family:'Cinzel',serif; font-size:13px; font-weight:600;
+            color:var(--accent-gold); text-decoration:none; transition:color .2s;
+        }
+        .chapter-nav a:hover { color:var(--accent-bright); }
+        /* Sidebar */
+        .sidebar {
+            background:var(--sidebar-bg); border:1px solid var(--border-color);
+            border-radius:10px; padding:18px 14px;
+            box-shadow:0 6px 22px rgba(0,0,0,.4);
+            position:sticky; top:20px;
+            max-height:calc(100vh - 40px); overflow-y:auto;
+        }
+        .sidebar::-webkit-scrollbar { width:4px; }
+        .sidebar::-webkit-scrollbar-thumb { background:var(--border-color); border-radius:4px; }
+        .sidebar-title {
+            font-family:'Cinzel',serif; font-size:11px; letter-spacing:3px;
+            text-transform:uppercase; color:var(--accent-gold);
+            margin-bottom:14px; padding-bottom:10px;
+            border-bottom:1px solid var(--border-color); text-align:center;
+        }
+        .sidebar-list { list-style:none; }
+        .sidebar-list li { border-bottom:1px solid rgba(59,40,24,.5); }
+        .sidebar-list li a {
+            display:block; padding:8px 7px; font-size:12.5px;
+            color:var(--text-dim); text-decoration:none; line-height:1.4;
+            transition:color .2s, background .2s; border-radius:4px;
+        }
+        .sidebar-list li a:hover { color:var(--accent-gold); background:rgba(212,175,55,.06); }
+        .sidebar-list li.active a {
+            color:var(--accent-bright); font-weight:600;
+            background:rgba(212,175,55,.1);
+        }
+        .ch-num {
+            font-family:'Cinzel',serif; font-size:10px;
+            color:var(--muted-gold); margin-right:5px;
+        }
+        /* Footer */
+        .page-footer {
+            grid-column:1 / -1; text-align:center;
+            font-family:'Cinzel',serif; font-size:11.5px;
+            color:var(--text-dim); margin-top:34px; opacity:.8;
+        }
+        .page-footer a { color:var(--accent-gold); text-decoration:none; }
+        /* Responsive */
+        @media (max-width:900px) {
+            .page-layout { grid-template-columns:1fr; }
+            .sidebar { position:static; max-height:none; display:none; }
+            .sidebar.open { display:block; margin-top:18px; }
+            .btn-sidebar { display:inline-block !important; }
+        }
+        @media (max-width:600px) {
+            .reader-container { padding:26px 16px; }
+            .main-title { font-size:22px; }
+            .prose p { text-align:left; }
+        }
+        .btn-sidebar { display:none; }
+    </style>
+</head>
+<body>
+<div class="page-layout">
+
+    <nav class="nav-bar">
+        <a href="../capitulos.html" class="nav-back">&#8592; Cap&iacute;tulos</a>
+        <div class="reader-controls">
+            <button class="btn-ctrl btn-sidebar" onclick="toggleSidebar()">&#9776; Lista</button>
+            <button class="btn-ctrl" onclick="changeFontSize(-1)">A-</button>
+            <button class="btn-ctrl" onclick="changeFontSize(1)">A+</button>
+            <button class="btn-ctrl" onclick="toggleTheme()">&#127912; Tema</button>
+        </div>
+    </nav>
+
+    <main class="main-col">
+        <header class="chapter-header">
+            <span class="sub-label">Forgotten Sword &middot; Cap&iacute;tulo 02</span>
+            <h1 class="main-title">El consejo de H&iacute;ltar</h1>
+        </header>
+        <div class="reader-container">
+            <article class="prose">
+<blockquote class="epigraph">&#171;La l&#237;nea que divide el control absoluto de la total independencia es muy delgada&#187;.</blockquote>
+<p>Ronan, despu&#233;s de dos d&#237;as de viaje, lleg&#243; a H&#237;ltar. Subi&#243; hacia la sala del consejo y, al abrir la puerta, se encontr&#243; con Deschast sentado en su silla.</p>
+<p>Este se levant&#243; con rapidez y le estrech&#243; la mano a Ronan, quien se mostr&#243; sorprendido.</p>
+<p>—Ronan, &#191;c&#243;mo est&#225;s? —lo salud&#243; como a un viejo amigo.</p>
+<p>—&#191;Qu&#233; haces aqu&#237;, Deschast? —pregunt&#243;, molesto.</p>
+<p>—Vine para reunirme contigo y hablar.</p>
+<p>—Si es sobre la Unificaci&#243;n, te aclaro que no la aceptamos.</p>
+<p>—&#191;No la aceptan? —respondi&#243; Deschast, inclin&#225;ndose hacia adelante con una leve sonrisa—. Es curioso, porque hasta ahora nadie ha sido capaz de oponerse sin… consecuencias.</p>
+<p>—&#191;Es una amenaza?</p>
+<p>—Oh, no, no lo llamar&#237;a una amenaza —lade&#243; la cabeza con una sonrisa calculada—. Prefiero verlo como una advertencia… o mejor a&#250;n, una oportunidad.</p>
+<p>—Lamento que pierdas el tiempo.</p>
+<p>—Ver&#225;s, aquellos que se han opuesto antes han descubierto, de formas muy desafortunadas, que el mundo no tiene espacio para la resistencia est&#233;ril. Pero t&#250; no eres como ellos, &#191;verdad? —su tono cambi&#243; a una voz c&#225;lida, como si le otorgara un cumplido.</p>
+<p>—Bueno, Deschast. Quiero que te vayas… ahora.</p>
+<p>—Por supuesto, lo comprendo —respondi&#243; con calma—. Pero antes de marcharme, perm&#237;teme decirte lo siguiente: el tiempo es un privilegio que no todos podemos permitirnos. Piensas que tienes el mando en este momento, pero las situaciones cambian. Siempre cambian.</p>
+<p>Mientras se retiraba, se detuvo un instante y gir&#243; hacia las personas presentes en la mesa con una sonrisa ladina.</p>
+<p>—Disfruten el poder que creen tener... mientras dure.</p>
+<p>El Sr. Ronat reuni&#243; a las principales cabezas de la tribu Raumo; algunos viajaron desde las monta&#241;as al sur y al este, tomando asiento en la gran mesa.</p>
+<p>—Se&#241;ores, como saben, la Unificaci&#243;n est&#225; tomando fuerza en la mente de los l&#237;deres tribales. Est&#225;n olvidando el pasado, nuestra identidad y nuestra independencia —afirm&#243; el Sr. Ronat, de pie, mirando a los presentes.</p>
+<p>—Lo entendemos, Sr. Ronat, pero las tribus est&#225;n pasando por un mal momento; apenas nos alcanza para sostener los cultivos en Hioj —mencion&#243; el Sr. Thalvorn a su izquierda.</p>
+<p>—El &#250;ltimo c&#243;mputo indica que cincuenta y tres tribus se han unido a sus reinos respectivos.</p>
+<p>—Las tribus somos como hermanas: discutimos, pero siempre nos apoyamos. Este es el momento de tender la mano a los pueblos vecinos; solo as&#237; evitaremos que se unifiquen —reafirm&#243; el Sr. Ronat.</p>
+<p>—&#191;De d&#243;nde sacaremos los recursos, Ronat? —cuestion&#243; el Sr. Thalvorn.</p>
+<p>—Agranden los sembrad&#237;os, canalicen el agua de los lagos. Piensen con sabidur&#237;a, o de lo contrario terminaremos subyugados.</p>
+<p>Los consejeros hablaron entre s&#237; y discutieron las palabras de Ronat hasta que la sala guard&#243; silencio.</p>
+<p>—Apoyamos tu idea, Ronat, y lo haremos; pero no podemos enfrentar esto solos.</p>
+<p>—Entonces reun&#225;monos con los l&#237;deres vecinos. Tenemos que evitar que esta unificaci&#243;n progrese —declar&#243; con convicci&#243;n.</p>
+<p>En las semanas posteriores, los emisarios se reunieron con diversos l&#237;deres tribales. Algunos aceptaron ampliar las cosechas para preservar la autonom&#237;a. Sin embargo, otros, atra&#237;dos por la promesa de un futuro m&#225;s seguro de parte de los reinos, rechazaron la oferta al considerar que las medidas tribales no eran sostenibles a largo plazo.</p>
+<p>Al caer la noche, Nauren reuni&#243; a Wal y a otros j&#243;venes soldados en su oficina.</p>
+<p>—Chicos, quiero que env&#237;en las cosechas de esta semana a la tribu Fraika, al sur.</p>
+<p>—A sus &#243;rdenes, Sr. Nauren. Pero el camino atraviesa el Vado Bald&#237;o y eso nos traer&#225; problemas.</p>
+<p>—Lo s&#233;, por eso ir&#225; otro grupo de escolta con ustedes, proveniente de la tribu Ezrak.</p>
+<p>Finalizada la reuni&#243;n, Nauren se acerc&#243; a Wal, quien se mostraba algo inquieto.</p>
+<p>—Wal, no te preocupes demasiado. Los soldados de Ezrak son luchadores experimentados y sabr&#225;n proteger el convoy.</p>
+<p>—Aun as&#237;, temo que algo salga mal.</p>
+<p>—Conf&#237;a en tus habilidades y en todo lo que has entrenado.</p>
+<p>Al salir de la casa, Wal observ&#243; a Alva en el otro grupo de transporte. Ambos cruzaron miradas brevemente, pero terminaron ignor&#225;ndose. Los j&#243;venes de Ezrak y Raumo ajustaron sus pertrechos y armas para la marcha.</p>
+<p>Mientras tanto, en la capital Revenst, Ronan y Retha discut&#237;an a solas en la sala del consejo tras descubrirse que ella hab&#237;a estado actuando por su cuenta.</p>
+<p>—&#161;Se supone que yo soy el l&#237;der! T&#250; ya te retiraste; deja que yo me encargue —reclam&#243; Ronan.</p>
+<p>—Le est&#225;s dando la espalda a las tribus vecinas; no puedo permitir que sigas actuando con indiferencia.</p>
+<p>—Si no fueras la madre de mi esposa, te mandar&#237;a arrestar. &#161;Esto es insubordinaci&#243;n! —reproch&#243; &#233;l enfurecido.</p>
+<p>—No puedes huir del conflicto; tienes que enfrentarlo… &#161;como el Ronan a quien le confi&#233; mi puesto! —declar&#243; Retha con firmeza.</p>
+<p>Ronan qued&#243; cabizbajo ante sus palabras, intentando refrenar su ira.</p>
+<p>—Est&#225; bien. Buscar&#233; la forma de auxiliar a las tribus, pero jam&#225;s vuelvas a dudar de mi liderazgo.</p>
+<p>Horas m&#225;s tarde, Wal y los j&#243;venes avanzaron por el bosque bordeando la frontera.</p>
+<p>—&#161;Atentos! Entramos al Vado Bald&#237;o —notific&#243; el oficial al mando.</p>
+<p>Desenvainaron sus espadas y los arqueros sacaron sus flechas del carcaj, avanzando con sigilo entre la maleza densa. Durante la marcha, el terreno cedi&#243; y Wal con Alva resbalaron por una pendiente escarpada hasta caer a orillas de un riachuelo profundo. Los dem&#225;s los observaron desde arriba con preocupaci&#243;n; el risco era demasiado empinado para descender por all&#237;. Wal sali&#243; del agua y ayud&#243; a Alva a ponerse de pie.</p>
+<p>—Seguiremos la orilla en la misma direcci&#243;n. Buscaremos una brecha m&#225;s adelante para subir —vocifer&#243; Wal empapado.</p>
+<p>El oficial hizo una se&#241;a de aprobaci&#243;n y el convoy continu&#243; por la parte superior. Wal se sacudi&#243; el agua helada del uniforme, frustrado por el percance y tenso por la cercan&#237;a de Alva.</p>
+<p>—Gracias, Wal —murmur&#243; ella desde la orilla.</p>
+<p>—No importa. Busquemos la forma de salir de aqu&#237; —respondi&#243; &#233;l con tono seco.</p>
+<p>Caminaron en paralelo al arroyo con las ropas h&#250;medas pes&#225;ndoles en el cuerpo.</p>
+<p>—Wal, creo que deber&#237;amos hablar. Hace d&#237;as que ni me miras… —expres&#243; Alva apenada.</p>
+<p>—No hay nada de qu&#233; hablar.</p>
+<p>—Mira, lamento que hayas cre&#237;do que me gustabas. S&#233; que estuvo mal si malinterpretaste nuestra amistad —replic&#243; Alva.</p>
+<p>—&#191;&#161;Que yo malinterpret&#233;!? —reproch&#243; Wal deteni&#233;ndose en seco—. T&#250; eras quien me buscaba a diario, quien me daba demostraciones de afecto, y ahora resulta que es mi culpa por confiar en ti.</p>
+<p>—No digo que sea tu culpa, solo que…</p>
+<p>—&#161;Claro que lo est&#225;s diciendo! B&#225;sicamente me tratas de ingenuo por valorar nuestra cercan&#237;a. Si no quer&#237;as que me hiciera ilusiones, debiste ser honesta desde el principio.</p>
+<p>Wal reanud&#243; la marcha a paso r&#225;pido, sintiendo una profunda presi&#243;n en el pecho. De repente, entre los matorrales emergieron seis soldados con armaduras pesadas y los emblemas del reino Gric&#225;i, rode&#225;ndolos con sus hojas desenvainadas. Wal desenfund&#243; la suya con determinaci&#243;n mientras Alva tens&#243; su arco.</p>
+<p>—&#161;Atr&#225;s! —advirti&#243; el oficial enemigo abalanz&#225;ndose sobre ellos.</p>
+<p>El combate comenz&#243;. Wal intent&#243; bloquear los embates, pero la aplastante fuerza f&#237;sica y las armaduras militares de los soldados gricanos superaban con creces su experiencia. Un golpe de escudo derrib&#243; a Alva al suelo, noque&#225;ndola. Wal luch&#243; desesperadamente esquivando cortes gracias a su agilidad y utilizando el terreno pedregoso para zafarse, logrando herir a uno en el muslo; sin embargo, la diferencia num&#233;rica y la pesada protecci&#243;n de los enemigos lo acorralaron contra un conjunto de rocas cubiertas de musgo al pie de un antiguo &#225;rbol petrificado.</p>
+<p>Un corte profundo en el antebrazo hizo que Wal soltara su espada. Exhausto y ensangrentado, cay&#243; de rodillas mientras el comandante enemigo se le acercaba con desprecio.</p>
+<p>—Tuviste agallas, chico tribal, pero este es tu fin.</p>
+<p>En medio de la angustia, la sangre que brotaba del brazo herido de Wal gote&#243; sobre las inscripciones grabadas en las rocas del altar ancestral. Al contacto con la sangre, las runas m&#237;sticas resplandecieron con una luz azulina y la piedra agrietada cedi&#243;, dejando al descubierto una antigua espada fracturada que permanec&#237;a oculta entre las ra&#237;ces petrificadas del &#225;rbol.</p>
+<p>Sin pensarlo, Wal asi&#243; la empu&#241;adura del arma ancestral. Un chasquido r&#250;nico reson&#243; en el ambiente y la espada emiti&#243; un fulgor imponente.</p>
+<p>—&#161;Por los dioses! &#161;Son runas schwerianas! —exclam&#243; el comandante gricano retrocediendo aterrorizado.</p>
+<p>Justo en ese momento, una flecha certera surc&#243; el aire desde la copa de los &#225;rboles y penetr&#243; el yelmo del comandante, haci&#233;ndolo desplomarse sin vida. Acto seguido, dos combatientes saltaron desde la maleza con una rapidez felina: eran los gemelos Sauri y Hald, seguidos de cerca por Hlied, quien empu&#241;aba su arco de combate.</p>
+<p>Con una coordinaci&#243;n impecable, la escuadra de Revenst embosc&#243; al resto de los soldados gricanos, aprovechando la confusi&#243;n para reducirlos y liquidarlos en cuesti&#243;n de segundos.</p>
+<p>Wal cay&#243; exhausto sobre la hierba, apoy&#225;ndose en la espada r&#250;nica mientras Hlied acud&#237;a a examinar a Alva.</p>
+<p>—Tranquilo, tu amiga solo est&#225; desorientada por el golpe —asegur&#243; Hlied mientras los gemelos aseguraban el per&#237;metro—. &#191;Qui&#233;nes son ustedes?</p>
+<p>—Soy Wald&#225;in, de Raumo... e ibamos hacia la tribu Fraika —respondi&#243; Wal entre jadeos.</p>
+<p>—Mi nombre es Hlied, y ellos son mis hermanos, Sauri y Hald. Llegamos justo a tiempo.</p>
+<p>Hald carg&#243; a Alva sobre sus hombros mientras Hlied examinaba con asombro la espada r&#250;nica que Wal llevaba en la mano.</p>
+<p>—Esa arma es legendaria, Wal. Debemos regresar de inmediato al campamento antes de que vengan m&#225;s patrullas enemigas.</p>
+<p>Horas m&#225;s tarde, llegaron al asentamiento militar de la tribu Revenst, al norte del territorio. Ronan hab&#237;a movilizado all&#237; a sus tropas para frenar el avance de las patrullas fronterizas de Gric&#225;i.</p>
+<p>Wal acompa&#241;&#243; a Alva a la tienda de curaciones. Tras comprobar que se encontraba fuera de peligro, se reuni&#243; con Hlied, Sauri y Hald junto a una fogata nocturna.</p>
+<p>Entre la patrulla tra&#237;an custodiado a uno de los soldados gricanos que hab&#237;a sobrevivido rindi&#233;ndose durante la escaramuza.</p>
+<p>—&#191;C&#243;mo te llamas, soldado? —inquiri&#243; Hlied examinando al prisionero con severidad.</p>
+<p>—Me llamo R&#225;ikeno —respondi&#243; el hombre con la cabeza gacha, habi&#233;ndose despojado voluntariamente de su armadura—. Les agradezco por perdonarme la vida. No deseo seguir peleando por la corona de Gric&#225;i.</p>
+<p>Wal lo observ&#243; con detenimiento mientras limpiaba la hoja de la espada r&#250;nica.</p>
+<p>—R&#225;ikeno nos revel&#243; que esa espada perteneci&#243; a una antigua tribu extinta tras la Gran Guerra —explic&#243; Wal a los gemelos.</p>
+<p>A la ma&#241;ana siguiente, Wal not&#243; que su calzado estaba destrozado por la exigente marcha entre las rocas. Al verlo descalzo y fatigado, Hlied se acerc&#243; a la tienda de suministros y examin&#243; el calzado disponible.</p>
+<p>—Veamos... unos zapatos para alguien de tu contextura f&#237;sica —coment&#243; Hlied midiendo a ojo el pie de Wal antes de entregarle un par de botas de cuero resistente—. Pru&#233;bate estos.</p>
+<p>—Muchas gracias, Hlied. En mi tribu no sol&#237;amos tener repuestos de esta calidad —agradeci&#243; Wal coloc&#225;ndose las botas, que le asentaron a la perfecci&#243;n.</p>
+<p>—En Raumo sol&#237;a escuchar a un anciano erudito del norte a quien llamaban sabio —coment&#243; Wal sonriendo ligeramente—. &#201;l ense&#241;aba que exponerse al aire fresco de la ma&#241;ana fortalece la sangre, estimula el aliento de vida y refuerza las defensas del cuerpo.</p>
+<p>—Vaya, suena a una ense&#241;anza muy profunda —sonri&#243; Hlied—. Se ve que prestabas atenci&#243;n a tus maestros.</p>
+<p>Alva, que sal&#237;a de la tienda m&#233;dica, observ&#243; la escena a la distancia con un ligero gesto de incomodidad antes de unirse a ellos.</p>
+<p>Poco despu&#233;s, un heraldo armado se present&#243; ante la patrulla.</p>
+<p>—El comandante Ronan solicita la presencia de todo el grupo en la tienda principal.</p>
+<p>El grupo ingres&#243; a la espaciosa carpa donde Ronan aguardaba tras su escritorio. El imponente l&#237;der examin&#243; detenidamente a los j&#243;venes, deteni&#233;ndose ante R&#225;ikeno.</p>
+<p>—Eres un soldado gricano —observ&#243; Ronan con voz grave.</p>
+<p>—As&#237; es, se&#241;or. Pero he desertado de mi ej&#233;rcito —respondi&#243; R&#225;ikeno manteniendo la postura.</p>
+<p>—Y ustedes dos son emisarios de Raumo —continu&#243; Ronan mirando a Wal y a Alva—. Mi hija Hlied desobedeci&#243; mis &#243;rdenes directas al cruzar los l&#237;mites del Vado Bald&#237;o para socorrerlos, pero veo que la situaci&#243;n era cr&#237;tica.</p>
+<p>Ronan suspir&#243; y dio un paso al frente.</p>
+<p>—Wal, Alva y R&#225;ikeno pueden permanecer en el campamento hasta que completen su descanso. Sin embargo, las normas de disciplina deben respetarse.</p>
+<p>Ronan se volvi&#243; hacia su hija.</p>
+<p>—Hlied, como sanci&#243;n por haber sobrepasado los l&#237;mites sin autorizaci&#243;n, quedar&#225;s a cargo de la custodia del per&#237;metro sureste durante las pr&#243;ximas tres jornadas. Puedes retirarte.</p>
+<p>Hlied inclin&#243; la cabeza con respeto y acept&#243; la orden sin objetar, retir&#225;ndose junto a los dem&#225;s muchachos.</p>
+
+            </article>
+            <nav class="chapter-nav">
+                <a href="capitulo_01.html">&larr; Cap. 1</a>
+                <a href="../capitulos.html" style="font-size:12px;opacity:.7;">&#8593; Cap&iacute;tulos</a>
+                <a href="capitulo_03.html">Cap. 3 &rarr;</a>
+            </nav>
+        </div>
+    </main>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-title">&#10022; Cap&iacute;tulos</div>
+<ul class="sidebar-list"><li><a href="../prologo.html">Prologo</a></li><li><a href="capitulo_01.html"><span class="ch-num">01</span> El peso de los tatuajes</a></li><li class="active"><a href="capitulo_02.html"><span class="ch-num">02</span> El consejo de H&iacute;ltar</a></li><li><a href="capitulo_03.html"><span class="ch-num">03</span> Tierra sagrada</a></li><li><a href="capitulo_04.html"><span class="ch-num">04</span> Entrenamiento y temores</a></li><li><a href="capitulo_05.html"><span class="ch-num">05</span> El C&oacute;nclave tribal</a></li><li><a href="capitulo_06.html"><span class="ch-num">06</span> Bajo la lluvia embarrada</a></li><li><a href="capitulo_07.html"><span class="ch-num">07</span> La responsabilidad del l&iacute;der</a></li><li><a href="capitulo_08.html"><span class="ch-num">08</span> El nacimiento en tiempos de guerra</a></li><li><a href="capitulo_09.html"><span class="ch-num">09</span> La necesidad de la guerra</a></li><li><a href="capitulo_10.html"><span class="ch-num">10</span> El perd&oacute;n y el vac&iacute;o</a></li><li><a href="capitulo_11.html"><span class="ch-num">11</span> Miedo al conflicto</a></li><li><a href="capitulo_12.html"><span class="ch-num">12</span> La ca&iacute;da de las murallas</a></li><li><a href="capitulo_13.html"><span class="ch-num">13</span> El retorno de la caballer&iacute;a</a></li><li style="opacity:0.6; cursor:default;"><a href="javascript:void(0)" style="cursor:default; pointer-events:none; color:#a89274;"><span class="ch-num">14</span> El renacer de la paz (En proceso)</a></li></ul>
+    </aside>
+
+    <footer class="page-footer">
+        Forgotten Sword &copy; 2026 &middot; Fernando Barra &nbsp;&middot;&nbsp;
+        <a href="../index.html">Galer&iacute;a de Personajes</a>
+    </footer>
+</div>
+<script>
+    var fontSize = 18;
+    var themes = ['', 'theme-sepia', 'theme-dark'];
+    var themeIdx = 0;
+    function changeFontSize(d) {
+        fontSize = Math.min(Math.max(14, fontSize + d), 26);
+        document.documentElement.style.setProperty('--font-size-base', fontSize + 'px');
+    }
+    function toggleTheme() {
+        document.body.classList.remove(themes[themeIdx]);
+        themeIdx = (themeIdx + 1) % themes.length;
+        if (themes[themeIdx]) document.body.classList.add(themes[themeIdx]);
+    }
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('open');
+    }
+</script>
+</body>
+</html>

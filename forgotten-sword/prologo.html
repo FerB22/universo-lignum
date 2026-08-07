@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prólogo: El Anciano del Claro - Forgotten Sword</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #120c08;
+            --card-bg: #1c130c;
+            --text-color: #e8dcc4;
+            --accent-gold: #d4af37;
+            --accent-bright: #f0c952;
+            --accent-blue: #3a86ff;
+            --muted-gold: #9e8237;
+            --text-dim: #b8a686;
+            --border-color: #3b2818;
+            --quote-bg: rgba(212, 175, 55, 0.06);
+            --font-size-base: 18px;
+        }
+
+        body.theme-sepia {
+            --bg-color: #241c14;
+            --card-bg: #2d241a;
+            --text-color: #edd9be;
+            --border-color: #4a3a2a;
+        }
+
+        body.theme-dark {
+            --bg-color: #0a0705;
+            --card-bg: #120e0a;
+            --text-color: #d1c5b0;
+            --border-color: #291e14;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lora', Georgia, serif;
+            font-size: var(--font-size-base);
+            line-height: 1.85;
+            min-height: 100vh;
+            padding: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08) 0%, transparent 70%),
+                radial-gradient(circle at 10% 90%, rgba(58, 134, 255, 0.04) 0%, transparent 60%);
+        }
+
+        .wrapper {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 20px 0 60px 0;
+        }
+
+        /* Header Navigation */
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-back {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .nav-back:hover {
+            color: var(--accent-bright);
+            transform: translateX(-3px);
+        }
+
+        .reader-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-ctrl {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-color);
+            color: var(--accent-gold);
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-ctrl:hover {
+            background: var(--accent-gold);
+            color: #120c08;
+        }
+
+        /* Chapter Title Container */
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 30px;
+        }
+
+        .header-section::after {
+            content: '❖ ❖ ❖';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--muted-gold);
+            font-size: 14px;
+            letter-spacing: 12px;
+        }
+
+        .sub-label {
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: #f5eedc;
+            letter-spacing: 1.5px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+            margin-bottom: 10px;
+        }
+
+        .book-subtitle {
+            font-style: italic;
+            color: var(--text-dim);
+            font-size: 18px;
+        }
+
+        /* Epigraph Quote */
+        .epigraph {
+            background: var(--quote-bg);
+            border-left: 3px solid var(--accent-gold);
+            border-right: 3px solid var(--accent-gold);
+            padding: 24px 30px;
+            margin: 0 auto 45px auto;
+            border-radius: 4px;
+            text-align: center;
+            font-style: italic;
+            color: #f0e6d2;
+            font-size: 1.05em;
+            max-width: 680px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        /* Main Reading Frame */
+        .reader-container {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 50px 55px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .reader-container::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        .prose p {
+            margin-bottom: 24px;
+            text-align: justify;
+            text-justify: inter-word;
+            text-indent: 1.8em;
+        }
+
+        .prose p.no-indent {
+            text-indent: 0;
+        }
+
+        .prose p.dialogue {
+            text-indent: 0;
+            padding-left: 12px;
+            border-left: 2px solid rgba(212, 175, 55, 0.25);
+            margin-bottom: 16px;
+        }
+
+        .drop-cap::first-letter {
+            font-family: 'Cinzel', serif;
+            font-size: 3.4em;
+            float: left;
+            line-height: 0.8;
+            padding-top: 4px;
+            padding-right: 10px;
+            padding-left: 3px;
+            color: var(--accent-gold);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Decorative Divider */
+        .chapter-end {
+            text-align: center;
+            margin: 50px 0 30px 0;
+            color: var(--muted-gold);
+        }
+
+        .chapter-end-symbol {
+            font-size: 20px;
+            letter-spacing: 8px;
+            margin-bottom: 12px;
+        }
+
+        .footer {
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-top: 40px;
+            opacity: 0.8;
+        }
+
+        .footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 12px;
+            }
+            .reader-container {
+                padding: 30px 22px;
+            }
+            .main-title {
+                font-size: 28px;
+            }
+            .nav-bar {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+                text-align: center;
+            }
+            .reader-controls {
+                justify-content: center;
+            }
+            .prose p {
+                text-align: left;
+                text-indent: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- Navigation Header -->
+        <nav class="nav-bar">
+            <a href="index.html" class="nav-back">
+                ← Volver a la Galería de Personajes
+            </a>
+            <div class="reader-controls">
+                <button class="btn-ctrl" onclick="changeFontSize(-1)" title="Reducir fuente">A-</button>
+                <button class="btn-ctrl" onclick="changeFontSize(1)" title="Aumentar fuente">A+</button>
+                <button class="btn-ctrl" onclick="toggleTheme()" title="Cambiar tema">🎨 Tema</button>
+            </div>
+        </nav>
+
+        <!-- Chapter Header -->
+        <header class="header-section">
+            <span class="sub-label">Saga Forgotten Sword · Prólogo</span>
+            <h1 class="main-title">El Anciano del Claro</h1>
+            <p class="book-subtitle">El encuentro en el bosque ancestral</p>
+        </header>
+
+        <!-- Epigraph -->
+        <blockquote class="epigraph">
+            «Incluso en lo más oscuro del espacio hay estrellas que fulguran».
+        </blockquote>
+
+        <!-- Reading Area -->
+        <main class="reader-container">
+            <article class="prose" id="prose-content">
+
+                <p class="drop-cap no-indent">
+                    En el atardecer, en un claro del bosque, un anciano con tatuajes azules que cubrían casi todo su cuerpo con extrañas líneas descansaba en meditación, arrodillado y con los ojos cerrados. En medio de la armonía del canto de los árboles y los animales, prorrumpió el crujido de las ramas en el suelo. Entonces apareció un soldado que blandía una espada resplandeciente.
+                </p>
+
+                <p class="dialogue">
+                    —Un largo viaje tan solo por un anciano —ironizó el soldado sin inmutarse.
+                </p>
+
+                <p class="dialogue">
+                    —Ambos sabemos que no soy solo un anciano y que la recompensa por mi cabeza vale cualquier viaje, por muy cansador que sea —afirmó el recién llegado sin quitarle el ojo de encima.
+                </p>
+
+                <p class="dialogue">
+                    —¿Y sabes tú que no es por mí, sino por lo que sé? ¿En serio quieres acabar con el conocimiento de miles de años en vez de recibir la revelación que necesitas, novel?
+                </p>
+
+                <p class="dialogue">
+                    —¿Cómo…? —preguntó extrañado.
+                </p>
+
+                <p class="dialogue">
+                    —Un soldado versado empuñaría esa larga espada con más firmeza. Tus brazos se cansan y la posición de tus pies revela que has caminado mucho. ¿Estás seguro de que matarme lo vale, o te interesaría saber cómo cuidar a tu pequeña hermana?
+                </p>
+
+                <p class="dialogue">
+                    —¿Cómo…, en serio, cómo lo sabes?
+                </p>
+
+                <p class="dialogue">
+                    —El sabio es inteligente, pero el inteligente nunca será sabio —respondió el anciano pacíficamente—. La cinta roja atada a tu pantalón no es un simple adorno: en las provincias del sur es el voto sagrado que se realiza ante los dioses para rogar por la salud de una hermana o hija enferma. Que la lleves contigo demuestra por quién haces esto.
+                </p>
+
+                <p class="dialogue">
+                    »Así que pregunto: ¿qué quieres saber?, ¿algo mayor que el oro que te den por matarme?
+                </p>
+
+                <p class="no-indent">
+                    El soldado mostró un rostro cargado de duda, análisis y necesidad.
+                </p>
+
+                <p class="dialogue">
+                    —¿Dónde puedo hallar suficiente oro para nunca volver a hacer algo como esto?
+                </p>
+
+                <p class="dialogue">
+                    —Entiendo que necesites oro para vivir, pero ese oro terminará algún día y tendrás que volver a hacer algo semejante.
+                </p>
+
+                <p class="dialogue">
+                    —Por favor, mi hermana necesita un buen médico —suplicó, esta vez dejando caer la punta de su espada hasta tocar el suelo.
+                </p>
+
+                <p class="dialogue">
+                    —Responde a esto y te diré cómo vivir con comodidad hasta que mueras: ¿Quién salva su vida a costa de la muerte de otro es mayor que aquel que se sacrifica por los demás?
+                </p>
+
+                <p class="no-indent">
+                    Luego de pensar profundamente, el soldado envainó su espada.
+                </p>
+
+                <p class="dialogue">
+                    —No. Ambos son iguales: uno actúa por temor a la muerte; el otro, por valentía. No es cobardía salvarse: es instinto. Ambos preservan una vida; solo una la pierde.
+                </p>
+
+                <p class="dialogue">
+                    —Excelente respuesta. Bendita la madre que te tuvo, porque has hallado sabiduría y buen entendimiento. Ahora bien, mi respuesta es que si vas a las montañas altas, hallarás a sus pies una cueva; allí estará cuanto oro quieras. ¿O prefieres seguirme y aprender de mí sin que me limite a responderte?
+                </p>
+
+                <p class="dialogue">
+                    —Si voy contigo, ¿mi hermana sanará? —preguntó con duda.
+                </p>
+
+                <p class="dialogue">
+                    —No soy solo un anciano, soldado, sino lo que sé y lo que puedo hacer —sonrió con ironía.
+                </p>
+
+            </article>
+
+            <div class="chapter-end">
+                <div class="chapter-end-symbol">❖ ❖ ❖</div>
+                <p style="font-size: 14px; color: var(--muted-gold); font-style: italic;">Fin del Prólogo</p>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Forgotten Sword © 2026 · Creado por Fernando Barra</p>
+            <p style="margin-top: 6px;"><a href="index.html">← Regresar al Índice de Personajes</a></p>
+        </footer>
+    </div>
+
+    <script>
+        let currentFontSize = 18;
+        const themes = ['theme-default', 'theme-sepia', 'theme-dark'];
+        let currentThemeIndex = 0;
+
+        function changeFontSize(delta) {
+            currentFontSize = Math.min(Math.max(14, currentFontSize + delta), 26);
+            document.documentElement.style.setProperty('--font-size-base', currentFontSize + 'px');
+        }
+
+        function toggleTheme() {
+            document.body.classList.remove(themes[currentThemeIndex]);
+            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+            if (themes[currentThemeIndex] !== 'theme-default') {
+                document.body.classList.add(themes[currentThemeIndex]);
+            }
+        }
+    </script>
+</body>
+</html>

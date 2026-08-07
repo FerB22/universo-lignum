@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sangre y Cadáveres — El Renacimiento de la Venganza</title>
+
+    <!-- Meta Tags para SEO y Redes Sociales -->
+    <meta name="description" content="Relato épico e interactivo de Venganza y Renacimiento. Lee 'Sangre y Cadáveres' con opciones de personalización, momentos clave y simbolismos de la obra.">
+    <meta name="keywords" content="Sangre y Cadáveres, Fernando Barra, Venganza, Fantasía Oscura, Relato, Historia">
+    <meta name="author" content="Fernando Barra">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================
+           1. DESIGN SYSTEM & COLOR TOKENS
+           ========================================== */
+        :root {
+            /* Color Principal Requerido */
+            --color-primary: #CA0B0B;
+            --color-primary-glow: rgba(202, 11, 11, 0.4);
+            --color-primary-light: #FF3333;
+            --color-primary-dark: #7A0000;
+
+            /* Tonos Complementarios y Oscuros */
+            --bg-dark: #0A0303;
+            --bg-card: rgba(26, 7, 7, 0.75);
+            --bg-card-hover: rgba(45, 12, 12, 0.85);
+            --border-crimson: rgba(202, 11, 11, 0.35);
+            --border-crimson-hover: rgba(255, 51, 51, 0.7);
+
+            /* Acentos */
+            --gold-accent: #FFD700;
+            --gold-glow: rgba(255, 215, 0, 0.3);
+            --text-main: #F5E6E6;
+            --text-muted: #B89999;
+            --text-title: #FFFFFF;
+
+            /* Tipografías */
+            --font-title: 'Cinzel', serif;
+            --font-body: 'Lora', serif;
+            --font-ui: 'Inter', sans-serif;
+
+            /* Transiciones y Sombras */
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-glow: 0 0 25px rgba(202, 11, 11, 0.3);
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Temas de Lectura */
+        body.theme-obsidiana {
+            --bg-dark: #040101;
+            --bg-card: rgba(15, 4, 4, 0.85);
+            --text-main: #EAE0E0;
+        }
+
+        body.theme-pergamino {
+            --bg-dark: #1F1111;
+            --bg-card: rgba(38, 20, 20, 0.8);
+            --text-main: #F3E2CE;
+            --text-muted: #C4A593;
+        }
+
+        body.theme-acero {
+            --bg-dark: #0B0E14;
+            --bg-card: rgba(18, 24, 36, 0.85);
+            --border-crimson: rgba(202, 11, 11, 0.5);
+            --text-main: #E2E8F0;
+        }
+
+        /* ==========================================
+           2. ESTILOS BASE Y RESET
+           ========================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.8;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(202, 11, 11, 0.18) 0%, transparent 70%),
+                radial-gradient(circle at 10% 80%, rgba(122, 0, 0, 0.12) 0%, transparent 50%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        /* Barra de Progreso Superior */
+        .progress-bar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light), var(--gold-accent));
+            box-shadow: 0 0 12px var(--color-primary-light);
+            transition: width 0.1s linear;
+        }
+
+        /* Layout Principal */
+        header {
+            text-align: center;
+            padding: 3rem 1.5rem 2rem;
+            position: relative;
+        }
+
+        main {
+            flex: 1;
+            max-width: 1100px;
+            width: 90%;
+            margin: 0 auto 4rem;
+            position: relative;
+        }
+
+        /* ==========================================
+           3. SISTEMA DE TRANSICIÓN DE VISTAS
+           ========================================== */
+        .view-section {
+            display: none;
+            width: 100%;
+            animation-duration: 0.35s;
+            animation-fill-mode: forwards;
+        }
+
+        .view-section.active {
+            display: block;
+            animation-name: fadeInView;
+        }
+
+        .view-section.fade-out {
+            animation-name: fadeOutView;
+            animation-duration: 0.2s;
+        }
+
+        @keyframes fadeInView {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOutView {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Sticky Navigation Bar en Vistas Secundarias */
+        .sticky-nav {
+            position: sticky;
+            top: 15px;
+            z-index: 900;
+            background: rgba(15, 4, 4, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-crimson);
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            margin-bottom: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-card), var(--shadow-glow);
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-back {
+            background: linear-gradient(135deg, rgba(202, 11, 11, 0.2), rgba(122, 0, 0, 0.4));
+            border: 1px solid var(--border-crimson);
+            color: #FFF;
+            font-family: var(--font-ui);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.5rem 1.25rem;
+            border-radius: 30px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+        }
+
+        .btn-back:hover {
+            background: var(--color-primary);
+            border-color: var(--color-primary-light);
+            box-shadow: 0 0 15px var(--color-primary-glow);
+            transform: translateX(-3px);
+        }
+
+        .sticky-title {
+            font-family: var(--font-title);
+            font-size: 1.1rem;
+            color: var(--gold-accent);
+            letter-spacing: 1px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================
+           4. VISTA: MENÚ PRINCIPAL (HUB)
+           ========================================== */
+        .hero-banner {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2.5rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-crimson);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-card), var(--shadow-glow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-primary-light), var(--gold-accent), transparent);
+        }
+
+        .hero-tag {
+            font-family: var(--font-ui);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            color: var(--color-primary-light);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .main-title {
+            font-family: var(--font-title);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            color: var(--text-title);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(202, 11, 11, 0.6);
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+
+        .main-subtitle {
+            font-family: var(--font-body);
+            font-style: italic;
+            color: var(--gold-accent);
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .emblem-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            color: var(--color-primary);
+        }
+
+        .emblem-line {
+            height: 1px;
+            width: 80px;
+            background: linear-gradient(90deg, transparent, var(--border-crimson));
+        }
+
+        .emblem-line.right {
+            background: linear-gradient(90deg, var(--border-crimson), transparent);
+        }
+
+        /* Grilla de Opciones en el Hub */
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .hub-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-crimson);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hub-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-primary), var(--gold-accent));
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .hub-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-crimson-hover);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-card), 0 0 25px rgba(202, 11, 11, 0.4);
+        }
+
+        .hub-card:hover::after {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 8px var(--color-primary-glow));
+        }
+
+        .card-title {
+            font-family: var(--font-title);
+            font-size: 1.3rem;
+            color: var(--text-title);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-card-action {
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold-accent);
+            background: rgba(202, 11, 11, 0.15);
+            border: 1px solid var(--border-crimson);
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            transition: var(--transition-smooth);
+        }
+
+        .hub-card:hover .btn-card-action {
+            background: var(--color-primary);
+            color: #FFF;
+            border-color: var(--color-primary-light);
+            box-shadow: 0 0 12px var(--color-primary-glow);
+        }
+
+        /* ==========================================
+           5. VISTA: HISTORIA COMPLETA (READER)
+           ========================================== */
+        .reader-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-crimson);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            box-shadow: var(--shadow-card), var(--shadow-glow);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Barra de Herramientas del Lector */
+        .reader-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-crimson);
+            font-family: var(--font-ui);
+            font-size: 0.9rem;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .control-label {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .btn-tool {
+            background: rgba(202, 11, 11, 0.15);
+            border: 1px solid var(--border-crimson);
+            color: var(--text-main);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-tool:hover {
+            background: var(--color-primary);
+            color: #FFF;
+            border-color: var(--color-primary-light);
+        }
+
+        .theme-selector select {
+            background: rgba(15, 4, 4, 0.9);
+            border: 1px solid var(--border-crimson);
+            color: var(--text-main);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .reading-metrics {
+            display: flex;
+            gap: 1.5rem;
+            color: var(--gold-accent);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        /* Cuerpo de Lectura Narrativa */
+        .story-body {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-main);
+            transition: font-size 0.2s ease;
+        }
+
+        .story-body p {
+            text-indent: 0.75em;
+            margin-bottom: 1.4rem;
+            text-align: justify;
+        }
+
+        /* Capitular Ornamentada */
+        .story-body p:first-of-type::first-letter {
+            font-family: var(--font-title);
+            font-size: 3.6rem;
+            float: left;
+            line-height: 0.8;
+            padding: 0.3rem 0.6rem 0.2rem 0.2rem;
+            margin-right: 0.5rem;
+            color: var(--color-primary-light);
+            font-weight: 900;
+            text-shadow: 0 0 12px var(--color-primary-glow);
+            border: 1px solid var(--border-crimson);
+            background: rgba(202, 11, 11, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Tarjeta de Cita Destacada */
+        .quote-card {
+            background: linear-gradient(135deg, rgba(202, 11, 11, 0.15), rgba(10, 3, 3, 0.8));
+            border-left: 4px solid var(--color-primary-light);
+            border-top: 1px solid var(--border-crimson);
+            border-right: 1px solid var(--border-crimson);
+            border-bottom: 1px solid var(--border-crimson);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .quote-card:hover {
+            background: linear-gradient(135deg, rgba(202, 11, 11, 0.22), rgba(20, 5, 5, 0.85));
+            border-color: var(--border-crimson-hover);
+        }
+
+        .quote-text {
+            font-family: var(--font-body);
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--text-title);
+            line-height: 1.7;
+        }
+
+        /* ==========================================
+           6. VISTA: MOMENTOS CLAVE (ACTOS)
+           ========================================== */
+        .timeline-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 24px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--color-primary-light), var(--gold-accent), transparent);
+        }
+
+        .timeline-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-crimson);
+            border-radius: 16px;
+            padding: 1.75rem 1.75rem 1.75rem 4rem;
+            position: relative;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth);
+        }
+
+        .timeline-card:hover {
+            border-color: var(--border-crimson-hover);
+            transform: translateX(6px);
+            box-shadow: var(--shadow-card), var(--shadow-glow);
+        }
+
+        .timeline-badge {
+            position: absolute;
+            left: 10px;
+            top: 20px;
+            width: 30px;
+            height: 30px;
+            background: var(--color-primary);
+            border: 2px solid var(--gold-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-ui);
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #FFF;
+            box-shadow: 0 0 10px var(--color-primary-glow);
+        }
+
+        .timeline-title {
+            font-family: var(--font-title);
+            font-size: 1.3rem;
+            color: var(--gold-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-text {
+            font-size: 1rem;
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* ==========================================
+           7. VISTA: SIMBOLISMO Y PERSONAJES
+           ========================================== */
+        .symbol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .symbol-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-crimson);
+            border-radius: 16px;
+            padding: 1.75rem;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .symbol-card:hover {
+            border-color: var(--color-primary-light);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-card), var(--shadow-glow);
+        }
+
+        .symbol-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .symbol-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(202, 11, 11, 0.2);
+            border: 1px solid var(--color-primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+        }
+
+        .symbol-title {
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            color: var(--text-title);
+        }
+
+        .symbol-tag {
+            font-family: var(--font-ui);
+            font-size: 0.75rem;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .symbol-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ==========================================
+           8. VISTA: SENTENCIA Y MORALEJA
+           ========================================== */
+        .moral-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-crimson);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-card), var(--shadow-glow);
+            text-align: center;
+        }
+
+        .moral-highlight {
+            font-family: var(--font-title);
+            font-size: 1.4rem;
+            color: var(--gold-accent);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(202, 11, 11, 0.12);
+            border-radius: 12px;
+            border: 1px dashed var(--border-crimson);
+        }
+
+        .moral-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            text-align: left;
+            margin-top: 2rem;
+        }
+
+        .moral-item {
+            background: rgba(10, 3, 3, 0.6);
+            border: 1px solid var(--border-crimson);
+            padding: 1.25rem;
+            border-radius: 12px;
+        }
+
+        .moral-item h4 {
+            font-family: var(--font-title);
+            color: var(--color-primary-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .moral-item p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================
+           9. NOTIFICACIÓN TOAST
+           ========================================== */
+        .toast-notification {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: rgba(202, 11, 11, 0.95);
+            color: #FFF;
+            border: 1px solid var(--gold-accent);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-family: var(--font-ui);
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), 0 0 15px var(--color-primary-glow);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition-smooth);
+            z-index: 2000;
+            pointer-events: none;
+        }
+
+        .toast-notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==========================================
+           10. FOOTER
+           ========================================== */
+        footer {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            border-top: 1px solid var(--border-crimson);
+            font-family: var(--font-ui);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background: rgba(5, 1, 1, 0.9);
+            margin-top: auto;
+        }
+
+        .footer-credits {
+            font-family: var(--font-title);
+            color: var(--gold-accent);
+            letter-spacing: 1px;
+            margin-top: 0.4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header { padding: 2rem 1rem 1rem; }
+            .hero-banner { padding: 1.75rem 1rem; }
+            .reader-container { padding: 1.75rem 1.25rem; }
+            .sticky-nav { padding: 0.6rem 1rem; flex-direction: column; gap: 0.5rem; }
+            .sticky-title { display: none; }
+            .reader-controls { flex-direction: column; align-items: flex-start; }
+            .story-body p { text-align: left; }
+            .timeline-card { padding-left: 3.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de Progreso Superior -->
+    <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+
+    <!-- Header Principal -->
+    <header>
+        <div class="hero-tag">Relato de Fantasía Oscura</div>
+        <h1 class="main-title">Sangre y Cadáveres</h1>
+        <p class="main-subtitle">El Renacimiento de la Venganza</p>
+
+        <div class="emblem-divider">
+            <span class="emblem-line"></span>
+            <span>✦ ⚔️ ✦</span>
+            <span class="emblem-line right"></span>
+        </div>
+    </header>
+
+    <main>
+        <!-- ==========================================
+             VISTA 1: MENÚ PRINCIPAL (HUB)
+             ========================================== -->
+        <section id="menu-principal" class="view-section active">
+            <div class="hero-banner">
+                <p style="font-size: 1.1rem; color: var(--text-main); font-style: italic; max-width: 800px; margin: 0 auto 1.5rem;">
+                    «La traición derrumba los reinos, y la Venganza los erige con sangre: uno nuevo emerge, uno al que la sangre decora y en que el ente nacido lo entrona».
+                </p>
+                <p style="font-size: 0.95rem; color: var(--text-muted);">
+                    Explora la historia interactiva, sus momentos clave y el simbolismo de la guerrera renacida.
+                </p>
+            </div>
+
+            <div class="hub-grid">
+                <!-- Tarjeta 1: Lectura -->
+                <div class="hub-card" onclick="mostrarVista('historia')">
+                    <div class="card-icon">📖</div>
+                    <h2 class="card-title">Historia Completa</h2>
+                    <p class="card-desc">Lee el relato íntegro con controles de tamaño de letra, temas de lectura y sangría narrativa.</p>
+                    <span class="btn-card-action">Iniciar Lectura →</span>
+                </div>
+
+                <!-- Tarjeta 2: Momentos Clave -->
+                <div class="hub-card" onclick="mostrarVista('momentos')">
+                    <div class="card-icon">🗡️</div>
+                    <h2 class="card-title">Momentos Clave</h2>
+                    <p class="card-desc">Desglose secuencial en 3 actos: La Traición, el Despertar del Filo y el Bautismo en el Lago.</p>
+                    <span class="btn-card-action">Ver Pasajes →</span>
+                </div>
+
+                <!-- Tarjeta 3: Simbolismo -->
+                <div class="hub-card" onclick="mostrarVista('simbolismo')">
+                    <div class="card-icon">🩸</div>
+                    <h2 class="card-title">Simbolismo y Entes</h2>
+                    <p class="card-desc">Fichas sobre la Metamorfosis del cabello, el Líder Traidor, los Doce Caídos y el Agua del Desarraigo.</p>
+                    <span class="btn-card-action">Explorar Simbolismo →</span>
+                </div>
+
+                <!-- Tarjeta 4: Sentencia -->
+                <div class="hub-card" onclick="mostrarVista('moraleja')">
+                    <div class="card-icon">📜</div>
+                    <h2 class="card-title">Sentencia y Moraleja</h2>
+                    <p class="card-desc">Análisis de la lealtad quebrantada y las advertencias morales ante el despertar de la Venganza.</p>
+                    <span class="btn-card-action">Ver Sentencia →</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             VISTA 2: HISTORIA COMPLETA (READER)
+             ========================================== -->
+        <section id="historia" class="view-section">
+            <nav class="sticky-nav">
+                <button class="btn-back" onclick="mostrarVista('menu-principal')">← Menú Principal</button>
+                <span class="sticky-title">Lectura Completa</span>
+                <div class="reading-metrics">
+                    <span id="readPercentage">📊 0% leído</span>
+                    <span id="readTime">⏱️ ~1 min</span>
+                </div>
+            </nav>
+
+            <div class="reader-container">
+                <!-- Controles de Lectura -->
+                <div class="reader-controls">
+                    <div class="control-group">
+                        <span class="control-label">Tamaño de Fuente:</span>
+                        <button class="btn-tool" onclick="cambiarTamanoTexto(-1)">A-</button>
+                        <button class="btn-tool" onclick="restablecerTamanoTexto()">100%</button>
+                        <button class="btn-tool" onclick="cambiarTamanoTexto(1)">A+</button>
+                    </div>
+
+                    <div class="control-group theme-selector">
+                        <span class="control-label">Tema Visual:</span>
+                        <select id="themeSelect" onchange="cambiarTema(this.value)">
+                            <option value="carmesí">🔴 Carmesí Sangre (#CA0B0B)</option>
+                            <option value="obsidiana">🌑 Obsidiana Sangrienta</option>
+                            <option value="pergamino">📜 Pergamino Carmesí</option>
+                            <option value="acero">⚔️ Noche de Acero</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Texto Narrativo Integro -->
+                <div class="story-body" id="storyText">
+                    <p>
+                        Sangre y cadáveres alrededor de su cuerpo agotado de pelear. Tenía los brazos y la cabeza caídos. Arrodillada, solo agarraba su espada con su diestra.
+                    </p>
+                    
+                    <p>
+                        Doce hombres muertos y la sangre se impregnó a su rostro, y su cabello se tiñó de rojo, solo los ápices mostraban lo que su color anterior; ya no era rubio, ahora emergía el rojo.
+                    </p>
+
+                    <!-- Cita Destacada -->
+                    <div class="quote-card">
+                        <div class="quote-text">
+                            «Ya esa mujer leal a su líder había muerto y su líder a manos de ella. La traición derrumba los reinos, y la Venganza los erige con sangre: uno nuevo emerge, uno al que la sangre decora y en que el ente nacido lo entrona».
+                        </div>
+                    </div>
+
+                    <p>
+                        La sangre se derrama por el filo de la Venganza, y los traidores perecen ante ella. Procura matar por completo a quien traicionas, porque si despiertas a la Venganza, sucumbirás ante su espada.
+                    </p>
+
+                    <p>
+                        Renacida, ella se levantó con su espada en mano, no como los doce alrededor. Los pájaros cantaban sus actos y los animales le temían a la que cayó en las cadenas de la Venganza.
+                    </p>
+
+                    <!-- Cita Destacada -->
+                    <div class="quote-card">
+                        <div class="quote-text">
+                            «Cada paso: un aviso del que el hombre no oye sino cuando tiene la espada en su cuello. Y con esta metamorfosis, la mujer caminó hacia el lago en medio del bosque».
+                        </div>
+                    </div>
+
+                    <p>
+                        Allí tiró sus protecciones de cuero y camisola a la tierra para desarraigarse de lo que era, y caminó desnuda hacia las aguas, que la recibían para proclamar su renacimiento: esa que abrazó la venganza y la cobró.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             VISTA 3: MOMENTOS CLAVE (ACTOS)
+             ========================================== -->
+        <section id="momentos" class="view-section">
+            <nav class="sticky-nav">
+                <button class="btn-back" onclick="mostrarVista('menu-principal')">← Menú Principal</button>
+                <span class="sticky-title">Pasajes de la Obra</span>
+                <span style="color: var(--gold-accent); font-weight:600; font-size:0.85rem;">3 Actos Escénicos</span>
+            </nav>
+
+            <div class="timeline-container">
+                <!-- Acto I -->
+                <div class="timeline-card">
+                    <div class="timeline-badge">I</div>
+                    <h3 class="timeline-title">La Masacre y los Doce Caídos</h3>
+                    <p class="timeline-text">
+                        En el suelo manchado de muerte, la guerrera yace exhausta y arrodillada. A su alrededor reposan doce hombres ajusticiados y la figura de su antiguo líder, ejecutado por su propia mano tras romper la lealtad.
+                    </p>
+                </div>
+
+                <!-- Acto II -->
+                <div class="timeline-card">
+                    <div class="timeline-badge">II</div>
+                    <h3 class="timeline-title">La Metamorfosis y el Cabello Carmesí</h3>
+                    <p class="timeline-text">
+                        La sangre impregnada en su rostro tiñe su cabello rubio, dejando emerger un rojo encendido. La mujer leal muere definitivamente para dar paso al ente nacido del filo y alimentado por la Venganza.
+                    </p>
+                </div>
+
+                <!-- Acto III -->
+                <div class="timeline-card">
+                    <div class="timeline-badge">III</div>
+                    <h3 class="timeline-title">El Bautismo en el Lago del Bosque</h3>
+                    <p class="timeline-text">
+                        Despojándose de sus armaduras de cuero y su camisola, la mujer camina desnuda hacia las aguas sagradas del bosque. El agua la recibe para consagrar su renacimiento y purificar su nuevo destino.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             VISTA 4: SIMBOLISMO Y ENTES
+             ========================================== -->
+        <section id="simbolismo" class="view-section">
+            <nav class="sticky-nav">
+                <button class="btn-back" onclick="mostrarVista('menu-principal')">← Menú Principal</button>
+                <span class="sticky-title">Simbolismo Conceptual</span>
+                <span style="color: var(--gold-accent); font-weight:600; font-size:0.85rem;">4 Elementos Clave</span>
+            </nav>
+
+            <div class="symbol-grid">
+                <!-- Ficha 1 -->
+                <div class="symbol-card">
+                    <div class="symbol-header">
+                        <div class="symbol-avatar">👑</div>
+                        <div>
+                            <h3 class="symbol-title">El Líder Traidor</h3>
+                            <span class="symbol-tag">Causa del Colapso</span>
+                        </div>
+                    </div>
+                    <p class="symbol-desc">
+                        Representa el abuso de poder y la ruptura de la confianza sagrada. Su caída demuestra que la traición no solo destruye reinos, sino que engendra a su propio verdugo.
+                    </p>
+                </div>
+
+                <!-- Ficha 2 -->
+                <div class="symbol-card">
+                    <div class="symbol-header">
+                        <div class="symbol-avatar">🗡️</div>
+                        <div>
+                            <h3 class="symbol-title">La Espada en la Diestra</h3>
+                            <span class="symbol-tag">Sostén y Venganza</span>
+                        </div>
+                    </div>
+                    <p class="symbol-desc">
+                        El único pilar al que se aferra en su estado de agotamiento. No es solo un arma de acero, sino la extensión física del juicio implacable sobre sus enemigos.
+                    </p>
+                </div>
+
+                <!-- Ficha 3 -->
+                <div class="symbol-card">
+                    <div class="symbol-header">
+                        <div class="symbol-avatar">🩸</div>
+                        <div>
+                            <h3 class="symbol-title">El Cabello Rojo</h3>
+                            <span class="symbol-tag">Metamorfosis</span>
+                        </div>
+                    </div>
+                    <p class="symbol-desc">
+                        La transición del rubio original al rojo encendido simboliza la muerte total de la servidora sumisa y el nacimiento de una reina entronada en la venganza.
+                    </p>
+                </div>
+
+                <!-- Ficha 4 -->
+                <div class="symbol-card">
+                    <div class="symbol-header">
+                        <div class="symbol-avatar">🌊</div>
+                        <div>
+                            <h3 class="symbol-title">El Lago y el Desarraigo</h3>
+                            <span class="symbol-tag">Renacimiento</span>
+                        </div>
+                    </div>
+                    <p class="symbol-desc">
+                        Al tirar su cuero y camisola al suelo y entrar desnuda al lago, se desprende de su identidad pasada para ser acogida y proclamada por la naturaleza misma.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             VISTA 5: SENTENCIA Y MORALEJA
+             ========================================== -->
+        <section id="moraleja" class="view-section">
+            <nav class="sticky-nav">
+                <button class="btn-back" onclick="mostrarVista('menu-principal')">← Menú Principal</button>
+                <span class="sticky-title">Sentencia y Enseñanza</span>
+                <span style="color: var(--gold-accent); font-weight:600; font-size:0.85rem;">Filosofía de la Venganza</span>
+            </nav>
+
+            <div class="moral-box">
+                <div class="moral-highlight">
+                    «Procura matar por completo a quien traicionas, porque si despiertas a la Venganza, sucumbirás ante su espada».
+                </div>
+
+                <div class="moral-grid">
+                    <div class="moral-item">
+                        <h4>1. La Ilusión de la Impunidad</h4>
+                        <p>Los traidores asumen que el dolor paralizará a sus víctimas. El relato enseña que la traición puede transformar el dolor en una fuerza indestructible.</p>
+                    </div>
+
+                    <div class="moral-item">
+                        <h4>2. El Peso del Silencio</h4>
+                        <p>«Cada paso: un aviso que el hombre no oye sino cuando tiene la espada en su cuello». La retribución llega en silencio antes del golpe final.</p>
+                    </div>
+
+                    <div class="moral-item">
+                        <h4>3. El Desarraigo del Pasado</h4>
+                        <p>Para consumar la venganza y erigir un nuevo orden, es necesario despojarse de las viejas vestiduras y cadenas del sometimiento.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Notificación Toast -->
+    <div id="toastNotification" class="toast-notification">
+        <span>✨</span> <span id="toastMessage">Frase copiada al portapapeles</span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>✦ Sangre y Cadáveres — Experiencia de Lectura Interactiva ✦</p>
+        <div class="footer-credits">Por Fernando Barra</div>
+    </footer>
+
+    <!-- ==========================================
+         JAVASCRIPT DE INTERACTIVIDAD Y VISTAS
+         ========================================== -->
+    <script>
+        // Restablecimiento o Lectura del Estado Inicial
+        document.addEventListener('DOMContentLoaded', () => {
+            inicializarVistas();
+            actualizarProgresoLectura();
+        });
+
+        // 1. SISTEMA DE TRANSICIÓN DE VISTAS (guia_transicion_vistas.md)
+        function mostrarVista(idVistaDeseada) {
+            const vistaActual = document.querySelector('.view-section.active');
+            const vistaDestino = document.getElementById(idVistaDeseada);
+
+            if (!vistaDestino || vistaActual === vistaDestino) return;
+
+            if (vistaActual) {
+                vistaActual.classList.add('fade-out');
+                setTimeout(() => {
+                    vistaActual.classList.remove('active', 'fade-out');
+                    vistaDestino.classList.add('active');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    history.pushState(null, null, `#${idVistaDeseada}`);
+                    actualizarProgresoLectura();
+                }, 200);
+            } else {
+                vistaDestino.classList.add('active');
+                history.pushState(null, null, `#${idVistaDeseada}`);
+                actualizarProgresoLectura();
+            }
+        }
+
+        function inicializarVistas() {
+            const hash = window.location.hash.replace('#', '');
+            if (hash && document.getElementById(hash)) {
+                mostrarVista(hash);
+            } else {
+                mostrarVista('menu-principal');
+            }
+        }
+
+        window.addEventListener('popstate', () => {
+            const hash = window.location.hash.replace('#', '') || 'menu-principal';
+            mostrarVista(hash);
+        });
+
+        // 2. CONTROLES DE TAMAÑO DE TEXTO
+        let porcentajeFuenteActual = 100;
+        const storyBody = document.getElementById('storyText');
+
+        function cambiarTamanoTexto(delta) {
+            porcentajeFuenteActual = Math.max(80, Math.min(140, porcentajeFuenteActual + (delta * 10)));
+            storyBody.style.fontSize = `${porcentajeFuenteActual / 100 * 1.15}rem`;
+        }
+
+        function restablecerTamanoTexto() {
+            porcentajeFuenteActual = 100;
+            storyBody.style.fontSize = '1.15rem';
+        }
+
+        // 3. SELECCIÓN DE TEMAS DE LECTURA
+        function cambiarTema(nombreTema) {
+            document.body.className = '';
+            if (nombreTema !== 'carmesí') {
+                document.body.classList.add(`theme-${nombreTema}`);
+            }
+        }
+
+        // 4. BARRA DE PROGRESO DE LECTURA Y MÉTRICAS
+        window.addEventListener('scroll', actualizarProgresoLectura);
+
+        function actualizarProgresoLectura() {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+
+            const progressBar = document.getElementById('progressBar');
+            if (progressBar) {
+                progressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+            }
+
+            const readPercentage = document.getElementById('readPercentage');
+            if (readPercentage) {
+                readPercentage.innerText = `📊 ${Math.round(progress)}% leído`;
+            }
+
+            const readTime = document.getElementById('readTime');
+            if (readTime) {
+                const restante = Math.max(0, Math.ceil((100 - progress) / 100 * 1));
+                readTime.innerText = restante > 0 ? `⏱️ ~${restante} min restantes` : `🎉 Completado`;
+            }
+        }
+    </script>
+</body>
+</html>

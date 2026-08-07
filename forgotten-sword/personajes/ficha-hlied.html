@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de Personaje - Hlied Steinwal</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
+            width: 100%;
+            margin: 0;
+            padding: 8px 0;
+            background-color: #1a120a;
+            font-family: Georgia, serif;
+            overflow-x: hidden;
+        }
+        .tarjeta-contenedor {
+            width: 96%;
+            max-width: 440px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        @media (max-width: 480px) {
+            .tarjeta-contenedor {
+                width: 98% !important;
+                padding: 18px 16px 16px 16px !important;
+            }
+            .titulo-personaje {
+                font-size: 22px !important;
+            }
+            .subtitulo-datos {
+                font-size: 11.5px !important;
+            }
+        }
+    </style>
+</head>
+
+<body style="margin:0; padding:20px 10px; background-color:#1a120a; font-family:Georgia, serif; min-height:100vh; display:flex; justify-content:center; align-items:flex-start;">>>
+
+    <!-- TARJETA PRINCIPAL -->
+    <div class="tarjeta-contenedor" style="width:100%; max-width:460px; background-color:#f2e8d5; background-image:radial-gradient(ellipse at 20% 30%, rgba(180,140,80,0.15) 0%, transparent 60%), radial-gradient(ellipse at 80% 70%, rgba(120,80,30,0.12) 0%, transparent 55%), url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'><filter id=\'n\'><feTurbulence type=\'fractalNoise\' baseFrequency=\'0.75\' numOctaves=\'4\' stitchTiles=\'stitch\'/><feColorMatrix type=\'saturate\' values=\'0\'/></filter><rect width=\'200\' height=\'200\' filter=\'url(%23n)\' opacity=\'0.04\'/></svg>'); border-radius:4px; border:1px solid rgba(90,60,20,0.4); box-shadow:0 0 0 6px rgba(90,60,20,0.12), 0 8px 40px rgba(0,0,0,0.7), inset 0 0 40px rgba(120,80,20,0.18), inset 0 0 8px rgba(90,60,20,0.1); padding:28px 28px 22px 28px; box-sizing:border-box; position:relative; overflow:hidden;">
+
+        <!-- Manchas de envejecimiento -->
+        <div
+            style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; border-radius:4px; background:radial-gradient(circle at 5% 5%, rgba(100,60,10,0.10) 0%, transparent 40%), radial-gradient(circle at 95% 8%, rgba(80,45,5,0.09) 0%, transparent 35%), radial-gradient(circle at 10% 92%, rgba(90,55,10,0.08) 0%, transparent 30%), radial-gradient(circle at 90% 95%, rgba(70,40,5,0.10) 0%, transparent 35%);">
+        </div>
+
+        <!-- ENCABEZADO -->
+        <div style="text-align:center; margin-bottom:10px; position:relative; z-index:1;">
+            <p
+                style="margin:0 0 4px 0; font-size:9px; letter-spacing:3.5px; text-transform:uppercase; color:#7a1e1e; font-family:Georgia, serif; opacity:0.85;">
+                Ficha de Personaje</p>
+            <h1 class="titulo-personaje" style="margin:0; font-size:26px; font-family:Georgia, serif; color:#2c1f0e; font-weight:bold; letter-spacing:1px; text-shadow:1px 1px 2px rgba(90,60,20,0.25);">
+                Hlied Steinwal</h1>
+            
+        </div>
+
+        <!-- ORNAMENTO SUPERIOR -->
+        <div style="display:flex; align-items:center; gap:8px; margin:0 0 14px 0; position:relative; z-index:1;">
+            <div style="flex:1; height:1px; background:linear-gradient(to right, transparent, rgba(90,60,20,0.5));">
+            </div>
+            <div style="width:7px; height:7px; background:rgba(90,60,20,0.5); transform:rotate(45deg); flex-shrink:0;">
+            </div>
+            <div style="flex:0.4; height:1px; background:rgba(90,60,20,0.5);"></div>
+            <div style="width:5px; height:5px; background:rgba(90,60,20,0.35); transform:rotate(45deg); flex-shrink:0;">
+            </div>
+            <div style="flex:0.4; height:1px; background:rgba(90,60,20,0.5);"></div>
+            <div style="width:7px; height:7px; background:rgba(90,60,20,0.5); transform:rotate(45deg); flex-shrink:0;">
+            </div>
+            <div style="flex:1; height:1px; background:linear-gradient(to left, transparent, rgba(90,60,20,0.5));">
+            </div>
+        </div>
+
+        <!-- IMAGEN CON MARCO Y CINTA -->
+        <div style="position:relative; width:85%; margin:0 auto 18px auto; z-index:1;">
+            <div
+                style="position:absolute; top:-10px; left:50%; transform:translateX(-50%) rotate(-1.5deg); width:90px; height:22px; background:rgba(255,240,180,0.55); border:1px solid rgba(200,170,80,0.4); box-shadow:0 1px 3px rgba(0,0,0,0.18); z-index:3; border-radius:2px;">
+            </div>
+            <div
+                style="padding:8px; background:#f7f0e0; border:1px solid rgba(90,60,20,0.3); box-shadow:inset 0 0 6px rgba(90,60,20,0.22), inset 0 0 2px rgba(90,60,20,0.15), 0 4px 14px rgba(0,0,0,0.35), 2px 2px 0 rgba(90,60,20,0.15); position:relative;">
+                <img src="../imagenes/hlied.jpg" alt="Hlied Steinwal"
+                    style="width:100%; display:block; filter:sepia(18%) contrast(1.05) brightness(0.97); border:1px solid rgba(90,60,20,0.2);">
+            </div>
+        </div>
+
+        <!-- SECCIÓN 1: DATOS CLAVE -->
+        <div style="display:flex; align-items:center; gap:10px; margin:0 0 10px 0; position:relative; z-index:1;">
+            <div style="flex:1; height:1px; background:linear-gradient(to right, transparent, rgba(90,60,20,0.4));">
+            </div>
+            <span
+                style="font-size:11px; font-style:italic; color:#5a3c14; opacity:0.8; white-space:nowrap; font-family:Georgia, serif;">✦
+                Datos clave ✦</span>
+            <div style="flex:1; height:1px; background:linear-gradient(to left, transparent, rgba(90,60,20,0.4));">
+            </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0; position:relative; z-index:1;">
+            <div style="padding:6px 8px 6px 4px; border-bottom:1px solid rgba(90,60,20,0.25);">
+                <div
+                    style="font-size:8.5px; letter-spacing:1.5px; text-transform:uppercase; color:#7a1e1e; font-family:Georgia, serif; margin-bottom:2px;">
+                    Rol</div>
+                <div style="font-size:12.5px; color:#2c1f0e; font-family:Georgia, serif;">Arquera de protección tribal</div>
+            </div>
+
+            <div
+                style="padding:6px 4px 6px 8px; border-bottom:1px solid rgba(90,60,20,0.25); border-left:1px solid rgba(90,60,20,0.18);">
+                <div
+                    style="font-size:8.5px; letter-spacing:1.5px; text-transform:uppercase; color:#7a1e1e; font-family:Georgia, serif; margin-bottom:2px;">
+                    Edad / Especie</div>
+                <div style="font-size:12.5px; color:#2c1f0e; font-family:Georgia, serif;">20 - 23 años · Humana</div>
+            </div>
+
+            <div style="padding:6px 8px 6px 4px; border-bottom:1px solid rgba(90,60,20,0.25);">
+                <div
+                    style="font-size:8.5px; letter-spacing:1.5px; text-transform:uppercase; color:#7a1e1e; font-family:Georgia, serif; margin-bottom:2px;">
+                    Afiliación</div>
+                <div style="font-size:12.5px; color:#2c1f0e; font-family:Georgia, serif;">Tribu Revenst</div>
+            </div>
+
+            <div
+                style="padding:6px 4px 6px 8px; border-bottom:1px solid rgba(90,60,20,0.25); border-left:1px solid rgba(90,60,20,0.18);">
+                <div
+                    style="font-size:8.5px; letter-spacing:1.5px; text-transform:uppercase; color:#7a1e1e; font-family:Georgia, serif; margin-bottom:2px;">
+                    Época / Siglo</div>
+                <div style="font-size:12.5px; color:#2c1f0e; font-family:Georgia, serif;">Era de las Tribus</div>
+            </div>
+
+            <div style="grid-column:1 / -1; padding:6px 4px;">
+                <div
+                    style="font-size:8.5px; letter-spacing:1.5px; text-transform:uppercase; color:#7a1e1e; font-family:Georgia, serif; margin-bottom:2px;">
+                    Armamento y destreza</div>
+                <div style="font-size:12.5px; color:#2c1f0e; font-family:Georgia, serif; font-style:italic;">
+                    Dominio del arco, daga tribal y combate en la nieve</div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2: PERSONALIDAD Y MOTIVACIÓN -->
+        <div style="display:flex; align-items:center; gap:10px; margin:12px 0 10px 0; position:relative; z-index:1;">
+            <div style="flex:1; height:1px; background:linear-gradient(to right, transparent, rgba(90,60,20,0.4));">
+            </div>
+            <span
+                style="font-size:11px; font-style:italic; color:#5a3c14; opacity:0.8; white-space:nowrap; font-family:Georgia, serif;">✦
+                Personalidad y motivación ✦</span>
+            <div style="flex:1; height:1px; background:linear-gradient(to left, transparent, rgba(90,60,20,0.4));">
+            </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr; gap:0; position:relative; z-index:1;">
+            <div style="padding:6px 4px; border-bottom:1px solid rgba(90,60,20,0.25);">
+                <div
+                    style="font-size:8.5px; letter-spacing:1.5px; text-transform:uppercase; color:#7a1e1e; font-family:Georgia, serif; margin-bottom:2px;">
+                    Personalidad</div>
+                <div
+                    style="font-size:12px; color:#2c1f0e; font-family:Georgia, serif; font-style:italic; line-height:1.5;">
+                    Líder, determinada, atenta y protectora; busca siempre la justicia.</div>
+            </div>
+
+            <div style="padding:6px 4px; border-bottom:1px solid rgba(90,60,20,0.25);">
+                <div
+                    style="font-size:8.5px; letter-spacing:1.5px; text-transform:uppercase; color:#7a1e1e; font-family:Georgia, serif; margin-bottom:2px;">
+                    Motivación principal</div>
+                <div style="font-size:12px; color:#2c1f0e; font-family:Georgia, serif; font-style:italic;">
+                    Defender la soberanía de la tribu Revenst y proteger a su familia.</div>
+            </div>
+
+            <div style="padding:6px 4px;">
+                <div
+                    style="font-size:8.5px; letter-spacing:1.5px; text-transform:uppercase; color:#7a1e1e; font-family:Georgia, serif; margin-bottom:2px;">
+                    Conflicto clave</div>
+                <div style="font-size:12px; color:#2c1f0e; font-family:Georgia, serif; font-style:italic;">
+                    Luchar contra las fuerzas imperiales para mantener la paz de su pueblo.</div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 3: RELACIONES -->
+        <div style="display:flex; align-items:center; gap:10px; margin:12px 0 10px 0; position:relative; z-index:1;">
+            <div style="flex:1; height:1px; background:linear-gradient(to right, transparent, rgba(90,60,20,0.4));">
+            </div>
+            <span
+                style="font-size:11px; font-style:italic; color:#5a3c14; opacity:0.8; white-space:nowrap; font-family:Georgia, serif;">✦
+                Relaciones ✦</span>
+            <div style="flex:1; height:1px; background:linear-gradient(to left, transparent, rgba(90,60,20,0.4));">
+            </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0; position:relative; z-index:1;">
+            <div style="padding:6px 8px 6px 4px; border-bottom:1px solid rgba(90,60,20,0.25);">
+                <div
+                    style="font-size:8.5px; letter-spacing:1.5px; text-transform:uppercase; color:#7a1e1e; font-family:Georgia, serif; margin-bottom:2px;">
+                    Familia</div>
+                <div style="font-size:12px; color:#2c1f0e; font-family:Georgia, serif; font-style:italic;">
+                    Ronan (padre), Vialena (madre), Sauri y Hald (hermanos gemelos)</div>
+            </div>
+
+            <div
+                style="padding:6px 4px 6px 8px; border-bottom:1px solid rgba(90,60,20,0.25); border-left:1px solid rgba(90,60,20,0.18);">
+                <div
+                    style="font-size:8.5px; letter-spacing:1.5px; text-transform:uppercase; color:#7a1e1e; font-family:Georgia, serif; margin-bottom:2px;">
+                    Aliados</div>
+                <div style="font-size:12px; color:#2c1f0e; font-family:Georgia, serif; font-style:italic;">
+                    Waldáin, Ronan, Sauri y Hald</div>
+            </div>
+
+            <div style="padding:6px 8px 6px 4px;">
+                <div
+                    style="font-size:8.5px; letter-spacing:1.5px; text-transform:uppercase; color:#7a1e1e; font-family:Georgia, serif; margin-bottom:2px;">
+                    Pareja</div>
+                <div style="font-size:12px; color:#2c1f0e; font-family:Georgia, serif; font-style:italic;">
+                    Waldáin Helvadur</div>
+            </div>
+
+            <div style="padding:6px 4px 6px 8px; border-left:1px solid rgba(90,60,20,0.18);">
+                <div
+                    style="font-size:8.5px; letter-spacing:1.5px; text-transform:uppercase; color:#7a1e1e; font-family:Georgia, serif; margin-bottom:2px;">
+                    Enemigos / Rivales</div>
+                <div style="font-size:12px; color:#2c1f0e; font-family:Georgia, serif; font-style:italic;">
+                    Ejército expansionista imperial</div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 4: TRASFONDO Y ARCO -->
+        <div style="display:flex; align-items:center; gap:10px; margin:12px 0 10px 0; position:relative; z-index:1;">
+            <div style="flex:1; height:1px; background:linear-gradient(to right, transparent, rgba(90,60,20,0.4));">
+            </div>
+            <span
+                style="font-size:11px; font-style:italic; color:#5a3c14; opacity:0.8; white-space:nowrap; font-family:Georgia, serif;">✦
+                Trasfondo y arco ✦</span>
+            <div style="flex:1; height:1px; background:linear-gradient(to left, transparent, rgba(90,60,20,0.4));">
+            </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr; gap:0; position:relative; z-index:1;">
+            <div style="padding:6px 4px 6px 4px; border-bottom:1px solid rgba(90,60,20,0.25);">
+                <div
+                    style="font-size:8.5px; letter-spacing:1.5px; text-transform:uppercase; color:#7a1e1e; font-family:Georgia, serif; margin-bottom:2px;">
+                    Origen</div>
+                <div
+                    style="font-size:12px; color:#2c1f0e; font-family:Georgia, serif; font-style:italic; line-height:1.5;">
+                    Nacida en Híltar (Aldea Zuacen), capital de la tribu Revenst.</div>
+            </div>
+
+            <div style="padding:6px 4px 6px 4px;">
+                <div
+                    style="font-size:8.5px; letter-spacing:1.5px; text-transform:uppercase; color:#7a1e1e; font-family:Georgia, serif; margin-bottom:2px;">
+                    Arco de personaje</div>
+                <div
+                    style="font-size:12px; color:#2c1f0e; font-family:Georgia, serif; font-style:italic; line-height:1.5;">
+                    Pasa de ser una destacada defensora de Revenst a unirse a Waldáin para defender la libertad de las tribus.</div>
+            </div>
+        </div>
+
+        <!-- ORNAMENTO INFERIOR -->
+        <div style="display:flex; align-items:center; gap:8px; margin:16px 0 12px 0; position:relative; z-index:1;">
+            <div style="flex:1; height:1px; background:linear-gradient(to right, transparent, rgba(90,60,20,0.5));">
+            </div>
+            <div style="width:5px; height:5px; background:rgba(90,60,20,0.35); transform:rotate(45deg); flex-shrink:0;">
+            </div>
+            <div style="flex:0.4; height:1px; background:rgba(90,60,20,0.5);"></div>
+            <div style="width:7px; height:7px; background:rgba(90,60,20,0.5); transform:rotate(45deg); flex-shrink:0;">
+            </div>
+            <div style="flex:0.4; height:1px; background:rgba(90,60,20,0.5);"></div>
+            <div style="width:5px; height:5px; background:rgba(90,60,20,0.35); transform:rotate(45deg); flex-shrink:0;">
+            </div>
+            <div style="flex:1; height:1px; background:linear-gradient(to left, transparent, rgba(90,60,20,0.5));">
+            </div>
+        </div>
+
+        <!-- NAVEGACIÓN ENTRE FICHAS -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin:16px 0 4px 0; position:relative; z-index:1; font-family:Georgia, serif; font-size:11.5px;">
+            <a href="ficha-waldain.html" style="text-decoration:none; color:#5a3c14; font-weight:bold; background:rgba(90,60,20,0.12); padding:5px 11px; border-radius:4px; border:1px solid rgba(90,60,20,0.3); transition:all 0.2s;">« Waldáin</a>
+            <a href="../index.html" style="text-decoration:none; color:#7a1e1e; font-weight:bold; font-style:italic;">✦ Galería</a>
+            <a href="ficha-skaivan.html" style="text-decoration:none; color:#5a3c14; font-weight:bold; background:rgba(90,60,20,0.12); padding:5px 11px; border-radius:4px; border:1px solid rgba(90,60,20,0.3); transition:all 0.2s;">Skaivan »</a>
+        </div>
+        <!-- FIN NAVEGACIÓN -->
+
+        <!-- PIE -->
+        <div style="text-align:center; position:relative; z-index:1;">
+            <p
+                style="margin:0; font-size:9px; font-style:italic; color:#7a5c3a; opacity:0.7; letter-spacing:1px; font-family:Georgia, serif;">
+                Archivo personal · Fernando Barra</p>
+        </div>
+
+    </div>
+    <!-- fin de la tarjeta -->
+
+</body>
+
+</html>

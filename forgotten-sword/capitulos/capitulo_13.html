@@ -1,0 +1,527 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitulo 13: El retorno de la caballeria - Forgotten Sword</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #120c08;
+            --card-bg: #1c130c;
+            --text-color: #e8dcc4;
+            --accent-gold: #d4af37;
+            --accent-bright: #f0c952;
+            --muted-gold: #9e8237;
+            --text-dim: #b8a686;
+            --border-color: #3b2818;
+            --quote-bg: rgba(212,175,55,0.06);
+            --sidebar-bg: #160f09;
+            --font-size-base: 18px;
+        }
+        body.theme-sepia {
+            --bg-color:#241c14; --card-bg:#2d241a; --text-color:#edd9be;
+            --border-color:#4a3a2a; --sidebar-bg:#1e160f;
+        }
+        body.theme-dark {
+            --bg-color:#0a0705; --card-bg:#120e0a; --text-color:#d1c5b0;
+            --border-color:#291e14; --sidebar-bg:#080604;
+        }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lora', Georgia, serif;
+            font-size: var(--font-size-base);
+            line-height: 1.85;
+            min-height: 100vh;
+            padding: 20px;
+            transition: background-color .3s, color .3s;
+            background-image: radial-gradient(circle at 50% 0%, rgba(212,175,55,.07) 0%, transparent 65%);
+        }
+        .page-layout {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            grid-template-rows: auto 1fr auto;
+            gap: 0 24px;
+            align-items: start;
+        }
+        /* Nav bar */
+        .nav-bar {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 13px 22px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 24px;
+            box-shadow: 0 6px 24px rgba(0,0,0,.45);
+        }
+        .nav-back {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color .2s, transform .2s;
+        }
+        .nav-back:hover { color:var(--accent-bright); transform:translateX(-3px); }
+        .reader-controls { display:flex; align-items:center; gap:10px; }
+        .btn-ctrl {
+            background:rgba(212,175,55,.1); border:1px solid var(--border-color);
+            color:var(--accent-gold); padding:5px 11px; border-radius:4px;
+            cursor:pointer; font-family:'Cinzel',serif; font-size:13px; transition:all .2s;
+        }
+        .btn-ctrl:hover { background:var(--accent-gold); color:#120c08; }
+        /* Main reading column */
+        .main-col { min-width:0; }
+        .chapter-header {
+            text-align:center; margin-bottom:38px;
+            padding-bottom:24px; position:relative;
+        }
+        .chapter-header::after {
+            content:'&#10042; &#10042; &#10042;';
+            position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+            color:var(--muted-gold); font-size:13px; letter-spacing:10px;
+        }
+        .sub-label {
+            font-family:'Cinzel',serif; font-size:11px; letter-spacing:4px;
+            text-transform:uppercase; color:var(--accent-gold);
+            margin-bottom:10px; display:block;
+        }
+        .main-title {
+            font-family:'Cinzel',serif; font-size:32px; font-weight:700;
+            color:#f5eedc; letter-spacing:1px;
+            text-shadow:0 4px 14px rgba(0,0,0,.7); margin-bottom:6px;
+        }
+        /* Reader frame */
+        .reader-container {
+            background:var(--card-bg); border:1px solid var(--border-color);
+            border-radius:12px; padding:44px 50px;
+            box-shadow:0 10px 38px rgba(0,0,0,.5); position:relative;
+        }
+        .reader-container::before {
+            content:''; position:absolute; top:8px; left:8px; right:8px; bottom:8px;
+            border:1px solid rgba(212,175,55,.12); border-radius:8px; pointer-events:none;
+        }
+        /* Prose */
+        .prose p {
+            margin-bottom: 20px;
+            text-align: justify;
+            text-indent: 0.75em;
+        }
+        .prose p.dialogue {
+            text-indent: 0;
+            padding-left: 10px;
+            border-left: 2px solid rgba(212,175,55,.22);
+            margin-bottom: 14px;
+        }
+        .prose p.dialogue-cont {
+            text-indent: 0;
+            padding-left: 10px;
+            margin-top: -14px;
+            margin-bottom: 14px;
+            color: var(--text-dim);
+        }
+        .prose .scene-break {
+            text-align:center; color:var(--muted-gold);
+            font-size:15px; letter-spacing:10px; margin:32px 0; user-select:none;
+        }
+        .prose blockquote.epigraph {
+            background:var(--quote-bg); border-left:3px solid var(--accent-gold);
+            border-right:3px solid var(--accent-gold); padding:18px 24px;
+            margin:0 auto 34px auto; border-radius:4px; text-align:center;
+            font-style:italic; color:#f0e6d2; font-size:.97em;
+            max-width:600px; box-shadow:0 3px 14px rgba(0,0,0,.25); text-indent:0;
+        }
+        /* Prev/Next nav */
+        .chapter-nav {
+            display:flex; justify-content:space-between; align-items:center;
+            margin-top:34px; padding-top:20px; border-top:1px solid var(--border-color);
+        }
+        .chapter-nav a {
+            font-family:'Cinzel',serif; font-size:13px; font-weight:600;
+            color:var(--accent-gold); text-decoration:none; transition:color .2s;
+        }
+        .chapter-nav a:hover { color:var(--accent-bright); }
+        /* Sidebar */
+        .sidebar {
+            background:var(--sidebar-bg); border:1px solid var(--border-color);
+            border-radius:10px; padding:18px 14px;
+            box-shadow:0 6px 22px rgba(0,0,0,.4);
+            position:sticky; top:20px;
+            max-height:calc(100vh - 40px); overflow-y:auto;
+        }
+        .sidebar::-webkit-scrollbar { width:4px; }
+        .sidebar::-webkit-scrollbar-thumb { background:var(--border-color); border-radius:4px; }
+        .sidebar-title {
+            font-family:'Cinzel',serif; font-size:11px; letter-spacing:3px;
+            text-transform:uppercase; color:var(--accent-gold);
+            margin-bottom:14px; padding-bottom:10px;
+            border-bottom:1px solid var(--border-color); text-align:center;
+        }
+        .sidebar-list { list-style:none; }
+        .sidebar-list li { border-bottom:1px solid rgba(59,40,24,.5); }
+        .sidebar-list li a {
+            display:block; padding:8px 7px; font-size:12.5px;
+            color:var(--text-dim); text-decoration:none; line-height:1.4;
+            transition:color .2s, background .2s; border-radius:4px;
+        }
+        .sidebar-list li a:hover { color:var(--accent-gold); background:rgba(212,175,55,.06); }
+        .sidebar-list li.active a {
+            color:var(--accent-bright); font-weight:600;
+            background:rgba(212,175,55,.1);
+        }
+        .ch-num {
+            font-family:'Cinzel',serif; font-size:10px;
+            color:var(--muted-gold); margin-right:5px;
+        }
+        /* Footer */
+        .page-footer {
+            grid-column:1 / -1; text-align:center;
+            font-family:'Cinzel',serif; font-size:11.5px;
+            color:var(--text-dim); margin-top:34px; opacity:.8;
+        }
+        .page-footer a { color:var(--accent-gold); text-decoration:none; }
+        /* Responsive */
+        @media (max-width:900px) {
+            .page-layout { grid-template-columns:1fr; }
+            .sidebar { position:static; max-height:none; display:none; }
+            .sidebar.open { display:block; margin-top:18px; }
+            .btn-sidebar { display:inline-block !important; }
+        }
+        @media (max-width:600px) {
+            .reader-container { padding:26px 16px; }
+            .main-title { font-size:22px; }
+            .prose p { text-align:left; }
+        }
+        .btn-sidebar { display:none; }
+    </style>
+</head>
+<body>
+<div class="page-layout">
+
+    <nav class="nav-bar">
+        <a href="../capitulos.html" class="nav-back">&#8592; Cap&iacute;tulos</a>
+        <div class="reader-controls">
+            <button class="btn-ctrl btn-sidebar" onclick="toggleSidebar()">&#9776; Lista</button>
+            <button class="btn-ctrl" onclick="changeFontSize(-1)">A-</button>
+            <button class="btn-ctrl" onclick="changeFontSize(1)">A+</button>
+            <button class="btn-ctrl" onclick="toggleTheme()">&#127912; Tema</button>
+        </div>
+    </nav>
+
+    <main class="main-col">
+        <header class="chapter-header">
+            <span class="sub-label">Forgotten Sword &middot; Cap&iacute;tulo 13</span>
+            <h1 class="main-title">El retorno de la caballer&iacute;a</h1>
+        </header>
+        <div class="reader-container">
+            <article class="prose">
+<blockquote class="epigraph">&#171;La mayor ense&#241;anza del fracaso es el fortalecimiento de la pervivencia&#187;.</blockquote>
+<p>De lo profundo del bosque, una caballer&#237;a que Wal lidera, compuesta por sus soldados, galopa hacia la ciudad de H&#237;ltar. Al reconocerlos, los guardias abrieron las puertas principales, mientras la gente les abri&#243; paso, permiti&#233;ndoles cruzar r&#225;pidamente las dos murallas. La inusual velocidad asombra a los habitantes. Continuaron por las calles bacheadas hasta alcanzar la mansi&#243;n.</p>
+<p>Wal descendi&#243; apresurado y Hlied sali&#243; a su encuentro. Ella lo abraz&#243;, llorosa y afligida.</p>
+<p>—Sauri muri&#243;, Wal —susurr&#243; en sollozos.</p>
+<p>Un rato despu&#233;s, en su oficina, Wal convers&#243; con Orven, quien permaneci&#243; sentado y cabizbajo, con el rostro desconcertado. Wal, por su parte, se apoy&#243; en el escritorio, con la mirada perdida en el suelo, mostrando su tristeza.</p>
+<p>—&#191;D&#243;nde est&#225; Ronan? —pregunt&#243; Wal con una voz inquieta.</p>
+<p>—En el norte, a&#250;n no ha recibido la noticia.</p>
+<p>—Yo le dir&#233;, pero despu&#233;s de ganar en la frontera gricana.</p>
+<p>—&#191;Crees que ganemos? Gric&#225;i se ha hecho m&#225;s fuerte, hizo alianzas con algunas tribus. Tambi&#233;n o&#237; que pagan bien a sus soldados —cuestiona Orven, con el rostro ca&#237;do.</p>
+<p>Wal alz&#243; la mirada, decidido.</p>
+<p>—Cargo con la muerte de muchos soldados, y ni siquiera conozco el nombre de la mayor&#237;a.</p>
+<p>&#187; Pero s&#233; que vencer&#233;, porque no puedo permitir que mueran m&#225;s. Este era el momento. Mi momento. La victoria era mi destino, porque no dejar&#233; de buscarla.</p>
+<p>Y la venganza… La venganza era mi dicha, pues me dio fuerzas en la batalla.</p>
+<p>De repente, Hlied entr&#243; a la oficina con brusquedad y con un rostro serio.</p>
+<p>—&#191;Qu&#233; har&#225;s? —pregunt&#243; Hlied con violencia; y ojos llorosos.</p>
+<p>—Hlied, deber&#237;as sentarte —afirm&#243; Wal con voz cansada.</p>
+<p>Entonces, Orven se levant&#243; y le se&#241;al&#243; su asiento, pero ella se lo neg&#243; con la mano.</p>
+<p>—Estoy embarazada, pero a&#250;n tengo fuerzas. Y s&#233;… —Se acerca a Wal desafiante y lo mir&#243; a los ojos con firmeza—que todav&#237;a tienes huevos, &#191;o no? &#161;Ve y m&#225;talos! —escupe con enojo y, al instante, se retira de la oficina.</p>
+<p>Apoyado en el borde de su escritorio, Wal agach&#243; la cabeza con tristeza.</p>
+<p>—&#191;Cu&#225;ndo llegan las tropas aur&#237;es? —pregunt&#243; Wal, recomponi&#233;ndose.</p>
+<p>—Ma&#241;ana. Lucharon contra la tribu Herit durante el &#250;ltimo mes.</p>
+<p>—Bien. —retrocedi&#243; hacia su estante tras el escritorio, y tom&#243; unos papeles, que luego se los entrega a Orven—. Entr&#233;gale esto a Tanns, le servir&#225; saber d&#243;nde est&#225;n las bases enemigas.</p>
+<p>—Ah, por cierto, el Sr. Tanns ya no lidera, lo sucedi&#243; &#218;nval. —Guarda los papeles en su morral.</p>
+<p>—&#161;Demonios! &#191;Y c&#243;mo se ha comportado? &#191;Ha dirigido alguna batalla? —vocifer&#243; Wal, enojado.</p>
+<p>—De hecho, &#233;l fue quien determin&#243; el fin de la batalla contra Herit.</p>
+<p>Wal se movi&#243; hacia la puerta de la oficina, algo resignado.</p>
+<p>—Bien. Aseg&#250;rate de que siga lo que est&#225; aqu&#237;.</p>
+<p>Horas despu&#233;s, y luego de viajar durante un par de d&#237;as, Skaivan lleg&#243; a un asentamiento en el noroeste revenense.</p>
+<p>Su rostro cubierto por una capucha, los guardas del asentamiento le apuntan con sus arcos, y otros desenvainan sus espadas en torno a &#233;l.</p>
+<p>—&#161;&#191;Dime qui&#233;n eres y a qu&#233; vienes?! —grit&#243; el soldado con su espada en su mano.</p>
+<p>—Me llamo Skaivan, tengo informaci&#243;n importante que entregarle a su comandante —inform&#243; en la penumbra de las tenues antorchas.</p>
+<p>Los guardas lo rodean sin quitarle el ojo.</p>
+<p>—&#191;Est&#225;s armado?</p>
+<p>Skaivan desabrocha el cintur&#243;n donde cuelga su espada, a&#250;n envainada, y se la entreg&#243; con recato al guardia. Despu&#233;s, lo escoltan a la tienda principal; donde al entrar, encontr&#243; a Ronan sentado en su escritorio.</p>
+<p>—&#191;Puedes quitarte la capucha? —orden&#243; con autoridad.</p>
+<p>Skaivan revel&#243; su rostro, la barba y el cabello abundan en su cabeza.</p>
+<p>—&#191;Tienes algo para m&#237;?</p>
+<p>—Tengo las t&#225;cticas militares del reino Gric&#225;i, pero quiero algo a cambio —declar&#243; sin titubeos.</p>
+<p>—&#191;Por qu&#233; deber&#237;a confiar en un traidor?</p>
+<p>—Porque nunca lo fui. Mi lealtad siempre ha estado con Raumo —aclar&#243; Skaivan.</p>
+<p>Ronan lo mir&#243; de manera relajada, recostado en la silla.</p>
+<p>—Eres el salvoconducto de Retha —afirm&#243;, sorprendido. Y se sienta bien en la silla—. Escuch&#233; sobre un plan de ella, pero no pens&#233; que habr&#237;a alguien que aceptara —se recuesta en la silla, con un rostro compasivo.</p>
+<p>&#187;Pasaste por mucho, supongo. Si no, no tendr&#237;as eso contigo. Ahora bien, dime qu&#233; quieres.</p>
+<p>—Hay alguien que aprecio —agacha un poco la cabeza—. Ella se aloja en una fortaleza en la provincia de Kes, quiero que la proteja y la traiga aqu&#237; —mencion&#243; Skaivan, pensativo.</p>
+<p>—Y ese alguien es la hermana de Deschast, supongo.</p>
+<p>—&#191;Qu&#233;…?</p>
+<p>—Lo supe por el movimiento de tu cabeza. Incre&#237;ble, adem&#225;s de esp&#237;a, enamorador —bromea Ronan—. Pero est&#225; bien, lo lograste. Har&#233; lo que pides.</p>
+<p>Ronan se levant&#243; con un rostro contento y se acerc&#243; a Skaivan. Estrechan la mano mostrando alivio.</p>
+<p>—Tu sacrificio salvar&#225; muchas vidas —afirm&#243; Ronan, mir&#225;ndolo con orgullo.</p>
+<p>De noche, Wal entr&#243; a su dormitorio y encontr&#243; a Hlied acostada en la cama, jugando con su hijo. Con un rostro pensativo, cuelga su abrigo en la percha junto a la puerta.</p>
+<p>Se recuesta en la cama a su lado, &#233;l vio sus ojos llorosos, su rostro ca&#237;do y las gotas en las s&#225;banas. Kaswer, con inocencia, jugaba con bloques de madera.</p>
+<p>—Debiste verla, H&#228;ksa estaba devastada. Pens&#233; que esto podr&#237;a pasar, e intentaba que no sucediera —murmur&#243; Hlied con sollozos.</p>
+<p>—Tengo soldados que estar&#225;n listos en un par de d&#237;as. Acabar&#233; con ellos, Hlied, lo prometo —&#233;l le levanta su rostro y la mir&#243; fijamente. Luego la llev&#243; a su pecho y la abraza.</p>
+<p>De ma&#241;ana, Wal sali&#243; de la mansi&#243;n por la puerta principal. Afuera, lo esper&#243; Orven y un grupo de guardas.</p>
+<p>—&#191;Hay algo importante, Orven? —pregunt&#243; Wal con imponencia.</p>
+<p>—La encontr&#233; —inform&#243; de manera animada.</p>
+<p>Wal se sorprendi&#243;, lo mir&#243; con pasmo.</p>
+<p>—&#191;D&#243;nde? —pregunt&#243;, mientras caminaba hacia la carroza.</p>
+<p>—En una aldea en el este.</p>
+<p>Ambos subieron a la carroza y, cuando Wal estaba por cerrar la puerta, se percat&#243; de Arhai, quien se acerc&#243; a ellos.</p>
+<p>—Quiero ir contigo —aclar&#243;.</p>
+<p>Wal, con un rostro de dud&#243;, acepta y ella subi&#243; con ellos a la carroza.</p>
+<p>Al mediod&#237;a, un mensajero entr&#243; a la tienda de Ronan, quien escrib&#237;a unos informes en su escritorio.</p>
+<p>—&#161;Hed!, &#191;c&#243;mo has estado? —saluda con &#225;nimo.</p>
+<p>—Muy bien, gracias. —Se adentra hasta el escritorio—. Hubo mucho ajetreo, por eso no pude venir antes —le entrega una carta.</p>
+<p>—No importa, supongo que no era tan importante —abri&#243; la carta y la lee. Su brazo se debilita y cay&#243;, su rostro palidece.</p>
+<p>—&#191;Qu&#233;-qu&#233; pas&#243;? &#191;Ocurri&#243; algo malo? —pregunt&#243; con inquietud.</p>
+<p>—Sauri… muri&#243; —se recuesta en su silla, con un rostro incr&#233;dulo.</p>
+<p>Horas despu&#233;s, R&#225;ikeno lleg&#243; al asentamiento de Ronan junto con grupo de soldados. Mientras curaban a los heridos, &#233;l avista a Hald en el &#225;rea de entrenamiento, cabizbajo y con sus cosas en la tierra. Los dem&#225;s en sus entrenamientos, atendiendo a heridos y resguardando el lugar.</p>
+<p>Pero Hald, apartado en su mente del resto, no mostr&#243; signos de contentaci&#243;n y &#225;nimo.</p>
+<p>R&#225;ikeno se sent&#243; a su lado en la banca, guard&#243; silencio, su postura revel&#243; la espera de que Hald hable. Pero sus labios h&#250;medos con las l&#225;grimas no parec&#237;an desear abrirse.</p>
+<p>—Recib&#237; la noticia. A&#250;n no la acepto. Entiendo lo que es perder a un ser querido, Hald. Y te puedo decir que en este dolor no hay futuro.</p>
+<p>&#187;Rod&#233;ate de tu familia, de quien amas, eso hice cuando los conoc&#237; a ustedes.</p>
+<p>Al d&#237;a siguiente, Wal lleg&#243; a la aldea que dijo Orven. La carroza se detuvo, Wal respir&#243; hondo y descendi&#243; mientras Arhai le habl&#243; con entusiasmo sobre c&#243;mo ha sido vivir en H&#237;ltar. &#201;l la desoye, mir&#243; a la aldea con un rostro serio y acepto de lo que vino.</p>
+<p>Wal se volte&#243; hacia Orven e interrumpi&#243; a Arhai, quien se sorprendi&#243;.</p>
+<p>—Qu&#233;dense aqu&#237;.</p>
+<p>&#201;l camin&#243; hacia la aldea. La gente de la aldea anda con prisa, &#233;l atraves&#243; las calles entre la muchedumbre; hasta que la vio. Ella sac&#243; agua del pozo, independiente del bullicio de la gente alrededor.</p>
+<p>L&#225;grimas contendidas durante mucho tiempo brotan de sus ojos, se las limpi&#243; en medio del sollozo.</p>
+<p>De repente, un hombre que sostuvo a una beb&#233; en sus hombros se acerc&#243; a ella. La mujer los recibi&#243; con alegr&#237;a, d&#225;ndoles un beso a ambos.</p>
+<p>Entre el bullicio y el correr de las personas, ellos mostraron felicidad.</p>
+<p>El rostro de Wal mostr&#243; extra&#241;eza y frustraci&#243;n. Y en ese momento, la mujer se percat&#243; de su presencia, ella qued&#243; boquiabierta, alzando las cejas con una mezcla de asombro y culpa.</p>
+<p>Entonces, Wal se retir&#243; tras la casa y regres&#243; a la carroza en que Orven y Arhai lo esperaron. El cochero arrea los caballos y la carroza se sacude.</p>
+<p>Arhai lo mir&#243; de reojo con nerviosismo, algo de lo que Wal se percat&#243;.</p>
+<p>—&#191;Te pasa algo? —cuestiona Wal con molestia.</p>
+<p>Sus ojos y mejillas brillan de un color rojizo.</p>
+<p>—&#191;Qui&#233;n era ella? —pregunt&#243; con inocencia y extroversi&#243;n.</p>
+<p>Wal rueda los ojos con disgusto, y Orven mostr&#243; un rostro de miedo.</p>
+<p>—Era mi madre —aclar&#243;, sin apartar la mirada del camino, con la voz tan firme como fr&#237;a.</p>
+<p>En el anochecer, Skaivan lleg&#243; a la caba&#241;a de Deschast, resguardada con guardias. Un lugar en medio del bosque vasto y de la bella vegetaci&#243;n.</p>
+<p>Vestido de abrigo, camin&#243; hacia la caba&#241;a con nerviosismo. Dentro, encontr&#243; a Deschast, quien beb&#237;a cerveza en la cocina.</p>
+<p>—&#161;Skai!, llegaste antes —saluda con &#225;nimo.</p>
+<p>—S&#237;, camin&#233; r&#225;pido —afirm&#243; con nervios, en la entrada.</p>
+<p>—Lo cual es raro, ya que tardar&#237;as dos d&#237;as en carreta; y t&#250; tardaste menos, y a pie —cuestiona, con algo de embriaguez, desde la cocina.</p>
+<p>—Bueno, yo… —balbucea Skaivan.</p>
+<p>Deschast se le acera con torpeza.</p>
+<p>—&#191;Me traicionaste? —le murmur&#243; a su o&#237;do.</p>
+<p>—Deschast, yo nunca te traicionar&#237;a —aclar&#243; con nerviosismo.</p>
+<p>Deschast camin&#243; por la caba&#241;a sin rumbo y con torpeza.</p>
+<p>—S&#233; que lo haces, y lo entiendo. Pero que estuvieras con mi hermana aun as&#237; —enfatiza con molestia—. Lo omit&#237;, porque confiaba en ti, y hab&#237;as demostrado tu lealtad.</p>
+<p>&#187;Mi orden era tu ley. Ensuciaste de sangre tus manos por m&#237;. &#191;&#161;Y ahora me traicionas!</p>
+<p>—Deschast, has bebido demasiado. Deber&#237;as ir a dormir —elude.</p>
+<p>De pronto, la puerta se abri&#243; y tres hombres agarraron a Skaivan, llev&#225;ndolo afuera mientras Deschast lo mir&#243; sin alteraci&#243;n.</p>
+<p>En medio del bosque, mientras las luci&#233;rnagas emitieron sus sonidos, Wald&#225;in se prepar&#243; para dormir junto a Arhai en una tienda, y a sus lados dos tiendas donde dorm&#237;an un guardia y Orven como se&#241;uelo.</p>
+<p>—Hlied me dijo que no hab&#237;as visto a tu madre en mucho tiempo. &#191;Por qu&#233;? —pregunt&#243; con candor, sentada en la cama, mir&#225;ndolo.</p>
+<p>Wal baj&#243; la mirada, yema el cobertor de manera pensativa.</p>
+<p>—Gric&#225;i atac&#243; a mi tribu, mat&#243; a muchos. Entonces muri&#243; mi padre. Mi madre fue de las pocas personas que pudo huir, ya que los soldados los persiguieron.</p>
+<p>&#187;No les import&#243; si eran ni&#241;os o mujeres indefensos —declar&#243; con aflicci&#243;n.</p>
+<p>—Wal —murmur&#243; Arhai con voz firme, mir&#225;ndolo a los ojos—,  s&#233; bien que Hlied y Azame te han dado hijos, y que no te falta nada. Pero yo tambi&#233;n deseo ofrecerte ese honor.</p>
+<p>&#187;Quisiera concebir un hijo contigo… que nazca fuerte, valiente, digno de llevar tu sangre.</p>
+<p>—Entonces lo haremos. Y si nace var&#243;n, lo entrenar&#233; yo mismo. Si es mujer, que tenga tu temple y tu lealtad —declar&#243;, tocando su ment&#243;n.</p>
+<p>Al d&#237;a siguiente, Wal lleg&#243; a H&#237;ltar, en la ciudad observ&#243; a las mujeres que llevaron flores rumbo al cementerio. En las calles, las mujeres y ni&#241;os dejaron p&#233;talos de diferentes colores en memoria de los que fallecieron en batalla.</p>
+<p>Al final, entraron a la mansi&#243;n. Wal busc&#243; por las habitaciones, sin encontrar a nadie. Regresaron al cementerio, encontrando a Hlied en sollozos en el pecho de Ronan y a la familia. Tambi&#233;n en el lugar se hall&#243; la gente, quienes prepararon los cuerpos para el entierro.</p>
+<p>El ambiente fl&#233;bil, con las mujeres llorando a sus esposos y a los ni&#241;os abrazando a sus madres sin comprender.</p>
+<p>—Orven, &#191;c&#243;mo supo Ronan que Sauri muri&#243;? —reprende Wal desde la distancia.</p>
+<p>—No s&#233;, en serio no s&#233; —afirm&#243; con nerviosismo, a su derecha.</p>
+<p>—Al menos Ronan est&#225; bien. Que no vuelva a pasar.</p>
+<p>Las gentes se congregaron ante la fosa que acog&#237;a los cuerpos de decenas de valientes soldados. En aquel lugar, el llanto abunda como lluvia incontenible, mientras el cielo, implacablemente claro, se mostr&#243; ajeno a tantas muertes.</p>
+<p>Al medio d&#237;a, tropas aur&#237;es arriban a H&#237;ltar. Forman tiendas fuera de los muros, cientos de soldados andantes por todo la capital. En la ciudad repletan los soldados, quienes beb&#237;an por mont&#243;n, y hicieron desmanes.</p>
+<p>En los Tres Pilares, Wald&#225;in se reuni&#243; con &#218;nval y Kazlia en la sala del l&#237;der, la cual goza de mayores lujos que antes.</p>
+<p>—La opulencia abunda aqu&#237; —declar&#243; Kazlia con sorpresa mientras entr&#243; a la habitaci&#243;n.</p>
+<p>—El &#225;nimo no va bien, pero los recursos han aumentado —afirm&#243; Wal con altivez.</p>
+<p>Los tres se sentaron en la sala de estar al costado izquierdo, en que hay licores y comida.</p>
+<p>—Supe que Sauri muri&#243;; es una pena —mencion&#243; &#218;nval con lamento, frente a Wal.</p>
+<p>—Es una gran p&#233;rdida, fue un l&#237;der en batalla y lo recordaremos con orgullo.</p>
+<p>—&#191;C&#243;mo lo ha pasado Hlied? —pregunt&#243; Kazlia a la siniestra de Wal.</p>
+<p>—Le promet&#237; venganza, y eso es lo que har&#233; con la ayuda de su tribu. Lo mejor es centrarse en las batallas que tendremos —evade.</p>
+<p>&#218;nval y Kazlia se miraron con preocupaci&#243;n.</p>
+<p>—Wal, solo pudimos traer tropas de tres familias, el resto se acobard&#243; —inform&#243; &#218;nval con inquietud.</p>
+<p>—Bueno, &#191;y cu&#225;ntas tropas trajeron?</p>
+<p>—Mil quinientas. No es mucho, pero…</p>
+<p>—&#161;&#191;En serio?! —se levanta con agitaci&#243;n—. Gric&#225;i cuenta con m&#225;s de treinta mil, si agregamos a los reinos y tribus que lo apoyan.</p>
+<p>—Revenst cuenta con diez mil tropas en activo. Diez mil m&#225;s si cuentas a los que no son soldados —afirm&#243; &#218;nval en serio.</p>
+<p>Cerca de su sof&#225;, Wal camin&#243; sin rumbo de manera pensativa e intranquila.</p>
+<p>—Conque nos investigaste, &#191;eh? —mir&#243; al suelo con los brazos en jarra—. Si no fuera por esas tribus individualistas —reclama Wal con molestia—. Prestamos a nuestras tropas, quedamos indefensos, les ped&#237; apoyo para atacar a Gric&#225;i de una vez por todas… me dieron la espalda.</p>
+<p>Wal se volte&#243; hacia ellos, &#218;nval lo mir&#243; con resignaci&#243;n.</p>
+<p>—A&#250;n podemos, Wal. Un d&#237;a, un general propuso una idea descabellada, la omit&#237;, pero ahora no podemos atacar de frente.</p>
+<p>Wal camin&#243; hacia el ventanal de manera ensimismada, mir&#243; a las mujeres que caminaron junt&#243; a sus hijos y los soldados aur&#237;es.</p>
+<p>—Wal, lo mejor es que est&#233;s con Hlied, podemos posponer la incursi&#243;n —declar&#243; Kazlia con inquietud, en medio de la habitaci&#243;n.</p>
+<p>Una l&#225;grima descendi&#243; por sus mejillas, Wal agach&#243; la cabeza con tristeza. En ese momento, Ronan entr&#243; a la sala con un rostro serio.</p>
+<p>—&#218;nval, Kazlia, &#191;pueden dejarnos solos?</p>
+<p>Ronan se acerc&#243; con inter&#233;s, conteniendo su molestia. &#201;l observ&#243; el rostro de Wal y sus sollozos aumentaron.</p>
+<p>—Quiero acabar con esto —murmur&#243; Wald&#225;in entre sollozos.</p>
+<p>Ronan se qued&#243; a su lado, lo abraz&#243; como un padre y le dio palmaditas reconfortantes.</p>
+<p>—Entiendo que quieras cuidarme, Wal, pero no debiste ocultar la muerte de Sauri.</p>
+<p>—Lo siento —mencion&#243; Wal.</p>
+<p>&#201;l le alz&#243; la cabeza, lo mir&#243; con &#225;nimo.</p>
+<p>—Deja que yo me encargue, yo estar&#233; bien. Hlied te necesita y t&#250; a ella —afirm&#243; Ronan con decisi&#243;n.</p>
+<p>Rato despu&#233;s, Wald&#225;in observ&#243; a Hlied y a su hijo en el patio, Kaswer jugaba con figuritas de madera en la tierra. Sali&#243; de la sala de estar de la mansi&#243;n hacia ellos. Se sienta al lado de Hlied con una mirada perdida.</p>
+<p>—La nodriza llev&#243; a Kovai de visita con Azame a Zaita; extra&#241;aba a su madre, y ella permanece all&#237; asentando el gobierno aliado —notific&#243; Hlied sin mucho &#225;nimo.</p>
+<p>—Perd&#243;name. No he hecho lo que debo hacer, que es estar contigo en este dif&#237;cil momento.</p>
+<p>Hlied guard&#243; silencio, viendo a Kaswer.</p>
+<p>—Tu padre se encargar&#225; de todo, no pude evitarlo —mencion&#243; Wal, intentando llamar su atenci&#243;n.</p>
+<p>—Lo s&#233; —murmur&#243; Hlied.</p>
+<p>—&#191;C&#243;mo? —pregunt&#243; extra&#241;ado.</p>
+<p>—Te conozco mejor que nadie, Wal. La resistencia nunca fue tu virtud. Pero para eso me tienes a tu lado —lo golpea en el hombro con su codo y lo mir&#243; fijamente—. Aun as&#237;, debes regresar, esa espada ha estado envainada mucho tiempo.</p>
+<p>En la sala principal de los Tres Pilares, Orven se mantuvo firme y atento en la parte baja de la habitaci&#243;n, mientras Ronan lo llam&#243;, observando a trav&#233;s del ventanal detr&#225;s de su escritorio.</p>
+<p>—Env&#237;a mensajeros al norte, que digan que no ataquen a Gric&#225;i, sino a los aliados en sus fronteras.</p>
+<p>—&#191;Qu&#233; suceder&#225; con Wald&#225;in?</p>
+<p>—No debiste decirle que hab&#237;as encontrado a su madre; de lo contrario, estar&#237;a en sus cabales —declar&#243; Ronan con tono cr&#237;tico.</p>
+<p>Orven agach&#243; la cabeza, apenado.</p>
+<p>—Ve donde Taika, debe estar listo para atacar.</p>
+<p>De noche, Wal, sentado a los pies de la cama, se abotona la camisa de dormir con una mirada pensativa. Al instante, Hlied sali&#243; de la habitaci&#243;n vestida de un aschlai, ella se mostr&#243; nerviosa.</p>
+<p>—&#191;Recuerdas cuando nos casamos? Dijimos que en las buenas y en las malas —mencion&#243; Hlied.</p>
+<p>—As&#237; ser&#225;: el uno para el otro —aclar&#243; mir&#225;ndola.</p>
+<p>Hlied se planta frente a &#233;l y lo mir&#243;, juguetona. &#201;l roza su pecho y los dos cayeron juntos sobre la cama.</p>
+<p>—Esta noche no quiero que pienses en la guerra —Hlied le susurr&#243; al o&#237;do.</p>
+<p>Esa misma noche, en la sala de estar, donde los estantes repletos de libros cubren todas las paredes, Ronan se encontr&#243; inmerso en la lectura de documentos. Su atenci&#243;n se centra en la geograf&#237;a del terreno y la constituci&#243;n de las murallas gricanas. En ese instante, Vialena apareci&#243;, trayendo consigo una copa de vino que deposita en la mesa de centro, justo frente a &#233;l.</p>
+<p>—&#191;C&#243;mo est&#225; Wal? No debe ser f&#225;cil descubrir que tu madre tiene otro esposo —mencion&#243; sin reparo.</p>
+<p>—&#191;Qui&#233;n te lo dijo? —se extra&#241;a Ronan.</p>
+<p>—No soy solo una ama de casa, Ronan —afirm&#243; con coqueteo, y una mirada p&#237;cara, frente a &#233;l.</p>
+<p>—&#191;Fue Orven? Ese chico… —se molest&#243; y dej&#243; los papeles a un lado.</p>
+<p>—No lo rega&#241;es. Se preocupa por tu salud, y yo tambi&#233;n —se sienta enfrente en la mesa de centro y se apoya en sus rodillas con sus brazos—. &#191;Por qu&#233; no puedes dejar que otro se encargue? —afirm&#243; Vialena de manera apenada.</p>
+<p>—No hay muchos en quienes puedo confiar, este plan que tengo aqu&#237; —tom&#243; sus documentos—no los puede descubrir el enemigo.</p>
+<p>Vialena se acerc&#243;, con su diestra le levant&#243; su cabello ca&#237;do y le acarici&#243; su mejilla, sali&#233;ndole una l&#225;grima.</p>
+<p>—Cada vez que sales temo que no regreses —solloza, y Ronan la llev&#243; hacia su pecho, abraz&#225;ndola.</p>
+<p>Ambos se recuestan en el sof&#225;, con ella sobre &#233;l, abraz&#225;ndose.</p>
+<p>—Ey, tranquila. No combatir&#233;, solo comandar&#233; el ataque —inform&#243; de manera reconfortante.</p>
+<p>Ella levant&#243; la mirada, ojos rojizos y lagrimosos.</p>
+<p>—Debes cuidar a Hald, no solo en lo f&#237;sico, sino en su &#225;nimo —murmur&#243; con seriedad, mir&#225;ndolo directo a los ojos. Ronan se ensimisma, recordando la aflicci&#243;n de la muerte de su hijo.</p>
+<p>Al amanecer, Ronan emprende su viaje hacia el norte, al frente de una caravana que super&#243; los miles de soldados, una mezcla de infanter&#237;a y caballer&#237;a, provenientes de Revenst y Aur&#237;.</p>
+<p>Mientras las tropas se despliegan por las calles, Wal emerge a caballo de la mansi&#243;n. Ronan lo divisa en la calle, y una expresi&#243;n de asombro se dibuj&#243; en su rostro.</p>
+<p>Ambos se encontraron. Wal se adelanta, salud&#225;ndolo con un movimiento de cabeza.</p>
+<p>Hlied regres&#243; al liderazgo de la ciudad. En los Tres Pilares, ella abri&#243; las puertas de la sala principal. Grande y lujosa. La sala de estar a la izquierda y la biblioteca a la derecha. Avanz&#243; hacia el escritorio junto a su madre.</p>
+<p>—Wal redise&#241;&#243; este lugar por completo —mencion&#243; Vialena con sorpresa.</p>
+<p>Hlied camin&#243; hacia la biblioteca. Un papiro sobre la mesita con la geograf&#237;a de la frontera norte. Ella tom&#243; un libro con el t&#237;tulo &#171;Proverbios de S&#228; el Sabio&#187;.</p>
+<p>Junto al escritorio, Vialena yema su madera con curiosidad.</p>
+<p>—Madera de Comiza —murmur&#243; con asombro—. &#191;Cu&#225;ndo Wal remodel&#243; este lugar?</p>
+<p>—Hace un a&#241;o, pero cambi&#243; unas cosas, porque esto no era tan lujoso.</p>
+<p>—&#191;Sab&#237;as que encontr&#243; a su madre? —pregunt&#243; Vialena.</p>
+<p>—No, &#191;en serio la encontr&#243;? —exclam&#243;.</p>
+<p>Hlied se acerc&#243; a su madre con desconcierto.</p>
+<p>—Qu&#233; raro que no me haya dicho. Debi&#243; descubrir algo que le disgust&#243; —afirm&#243; Hlied, con un rostro deca&#237;do.</p>
+<p>—Ir&#233; a buscar al consejo —declar&#243; Vialena mientras se retira.</p>
+<p>Cabizbaja, Hlied se apoy&#243; en el escritorio con una mirada pensativa.</p>
+<p>Tras tres d&#237;as, las tropas llegaron al asentamiento militar en la frontera norte. Llenan el valle de tiendas de campa&#241;a y caballos. Luego de hablar con uno de sus subordinados, Ronan avista a su hijo en el &#225;rea de entrenamiento, se acerc&#243; con una mir&#243; turbada. Hald lo mir&#243; con ojos hinchados.</p>
+<p>—No s&#233; c&#243;mo hacer esto, hijo —mencion&#243; con pena—. Yo tampoco lo esperaba. Solo quiero que no entres en el abismo de la tristeza.</p>
+<p>&#187;Necesito que dejes las l&#225;grimas para despu&#233;s de que los ataquemos —aclar&#243; con pesar en su voz.</p>
+<p>De noche, se reunieron en una tienda apartada del campamento. Con una mesa con un mapa en el centro, Ronan mostr&#243; el plan.</p>
+<p>—Nos ocultaremos entre la maleza y subiremos la muralla. Debemos ser r&#225;pidos y precisos. Esa fogata es su sistema de alerta —declar&#243; Ronan ante Wald&#225;in, Hald y dem&#225;s.</p>
+<p>Con la luna en lo alto, ellos se escondieron en la maleza.Un soldado subi&#243; por la escalera con cuidado, se asom&#243; y mir&#243; al guardia que miraba hacia dentro de la muralla.</p>
+<p>Entonces, dio la se&#241;al. Lanzaron los ganchos y se agarraron arriba. Con sigilo subieron la muralla. En la cima de la muralla se observ&#243; la vastedad de la ciudad.</p>
+<p>Cerca de treinta soldados, uno tras otro. Los guardas se alarmaron y avisaron al resto. Nada pod&#237;an hacer, solo luchar. Los soldados atacaron en coordinaci&#243;n, matando a los guardas sin obstrucci&#243;n.</p>
+<p>Wal lanz&#243; el gancho y acierta. &#201;l subi&#243; por la cuerda, revisando alrededor. Los guardias distra&#237;dos ignoran que falta uno de los suyos.</p>
+<p>—&#218;zer, sube —orden&#243; Ronan.</p>
+<p>La chica arquera subi&#243; y cruz&#243; el borde. Apunta y mat&#243; a un guardia a lo lejos. El resto, excepto Ronan, treparon la cuerda.</p>
+<p>Utilizaron la sombra del parapeto para ocultarse de los guardias. As&#237;, se movieron agachados hacia su izquierda.</p>
+<p>Llegaron al lugar donde se abri&#243; el port&#243;n de la muralla.</p>
+<p>Con sigilo y por la espalda, mataron a un guardia. Entonces User le dispar&#243; al guardia del otro lado del port&#243;n.</p>
+<p>Cerca de la otra fogata, el guardia los divis&#243; y corri&#243; de manera desesperada a fin de encenderla. &#218;zer apunt&#243; hacia arriba, calcul&#243; la par&#225;bola y dispar&#243;. La flecha surc&#243; el cielo nocturno durante varios segundos, hasta que impact&#243; en el guardia, quien cay&#243; con brusquedad. Todos se sorprendieron y la miraron extra&#241;ados.</p>
+<p>—Bien hecho —mencion&#243; Wal—. Abran el port&#243;n.</p>
+<p>Hald cruz&#243; hacia el otro lado del mecanismo y, con la ayuda de R&#225;ikeno, abrieron el port&#243;n. Entonces de la maleza del bosque apareci&#243; un centenar de tropas.</p>
+<p>Ellos bajaron de la muralla, y les trajeron caballos. Mientras se adentraban en el reino gricano, algunos soldados subieron a la muralla y cambiaron sus ropas, visti&#233;ndose con la de los guardias; y corrieron hacia dentro del reino por la muralla. Adem&#225;s, las tropas aguardaron en la frontera del reino a la espera de la se&#241;al.</p>
+<p>Cabalgan durante un par de horas en el valle, hasta que llegaron a una colina donde avistan la capital gricana.</p>
+<p>—Acampemos aqu&#237; hasta que amanezca. Yo montar&#233; guardia —mencion&#243; Wal mientras descendi&#243; de su caballo.</p>
+<p>Entonces R&#225;ikeno se le acerc&#243; con un rostro preocupado.</p>
+<p>—Yo te relevo despu&#233;s, deber&#237;as descansar, Wal —murmur&#243;.</p>
+<p>Wal lo mir&#243; de manera reacia, pero cede ante su petici&#243;n. Con la Luna en su culminaci&#243;n, ellos descansaban en abrigos mientras Wal continu&#243; despierto y con su espada envainada a su lado.</p>
+<p>Al amanecer, la comitiva avanz&#243; cautelosamente hacia las afueras de la capital gricana, resguardada por imponentes murallas de adoqu&#237;n.</p>
+<p>Para evitar levantar sospechas frente a la estricta guardia del port&#243;n principal, Wal dividi&#243; a la fuerza de vanguardia en reducidas c&#233;lulas de infiltraci&#243;n. Visti&#233;ndose con capotas gruesas y t&#250;nicas holgadas de mercaderes del norte, ocultaron sus armas envueltas en pa&#241;os de arpillera dentro de carromatos de v&#237;veres.</p>
+<p>Aprovechando el denso flujo comercial de la ma&#241;ana, cruzaron la aduana mezcl&#225;ndose entre los proveedores. Una vez en el concurrido distrito del mercado bajo, se adentraron discretamente por callejuelas secundarias.</p>
+<p>Sin embargo, una patrulla de guardias locales not&#243; la complexi&#243;n militar y los movimientos de cobertura de R&#225;ikeno, comenzando a seguir sus pasos entre la multitud.</p>
+<p>—Nos est&#225;n siguiendo —advirti&#243; Wal en voz baja.</p>
+<p>—Mantengan la calma y desv&#237;ense hacia los pasajes del norte —orden&#243; R&#225;ikeno ajustando el embozo de su manto.</p>
+<p>Giraron hacia un pasadizo a la izquierda, confundiendo a los guardias a sus espaldas, quienes detuvieron a cualquiera que se parezca.</p>
+<p>Caminaron por pasadizos entre las casas, lugares vac&#237;os y pobres. Minutos despu&#233;s, llegaron al palacio, que ten&#237;a &#225;reas verdes, &#225;rboles esculturales y ostentosas estatuas de los reyes del pasado.</p>
+<p>Se ocultaron tras los cipreses, observando a los guardias en sus rondas. El &#250;ltimo guardia se retir&#243; hacia la entrada del lugar, en ese momento corrieron al palacio.</p>
+<p>Rompen una ventana de la cocina, en la parte posterior izquierda del palacio. Con sigilo, analizan los pasos de los guardias que pasaron por los pasillos.</p>
+<p>—Cuando el guardia se vaya, subimos al segundo piso —murmur&#243; Wal.</p>
+<p>Segundos inquietantes en que el guardia observ&#243; las habitaciones, sus pasos lentos pero firmes y su espada posada en su hombro; entonces el guardia desapareci&#243; en la habitaci&#243;n izquierda.</p>
+<p>Caminaron hacia la escalera al final del pasillo, mirando que no haya nadie. Luego en la escalera hallaron una gran habitaci&#243;n llen&#243; de lujos y ostentaciones. Los guardias se relajan en los sof&#225;s, charlaron y r&#237;en por sus bromas.</p>
+<p>—No falles, debe ser un tiro limpio —le susurr&#243; R&#225;ikeno a &#218;zer, quien enflecha su arco.</p>
+<p>&#218;zer apunta al de mayor rango, de ropa verde y partes doradas en el pecho. Sentado y bebiendo, observ&#243; en silencio c&#243;mo la alegr&#237;a se desborda en risas entre sus colegas.</p>
+<p>&#218;zer dispar&#243; y la flecha impacta en el pecho. Las carcajadas pararon y ellos sacaron sus espadas. Los atacaron enseguida y Wal hiri&#243; a dos sujetos, los dej&#243; en el suelo mientras se desangraban. R&#225;ikeno lanz&#243; a un guardia contra la pared como si este pesara un kilo.</p>
+<p>Hald esquiv&#243; las espadas, mat&#243; a otro en el cuello con su aschmi y ayud&#243; a Wal, quien luchaba con dos guardias a la vez.</p>
+<p>El palacio se llen&#243; de alboroto y las fuerzas empezaron a caer, las rodillas no reaccionaron a tiempo en las peleas y sintieron los callos en las manos tras cada ataque.</p>
+<p>Decididos avanzaron habitaci&#243;n tras habitaci&#243;n, venciendo guardias y soldados regios. Los gritos de miedo de los soldados atravesaron las paredes.</p>
+<p>Ninguna armadura pod&#237;a con la espada de Wald&#225;in, con ella atraves&#243; los cuerpos de los enemigos y sus espadas no resisten los choques.</p>
+<p>Con &#218;zer detr&#225;s con su arco, los chicos avanzaron sin recibir heridas mayores. Hieren a los guardias, los dejaron servidos para las flechas de ella. Pero con tanto guardia, las flechas se empezaron a acabar.</p>
+<p>Wald&#225;in abri&#243; lento una puerta marr&#243;n grande con su siniestra, y con su diestra empu&#241;e su espada. Del otro lado, los guardias lo esperaron armados por completo: armaduras y espadas de hierro gricano.</p>
+<p>Sus palpitaciones aumentaron y sus cejas se tensan. Mientras el resto luchaba en la habitaci&#243;n anterior, Wald&#225;in cerr&#243; la puerta. Agarr&#243; el mango confiando en que podr&#225; con ellos. Nadie detendr&#225; su venganza.</p>
+<p>Una sala abierta con ventanales hacia el patio interior, licor de varias regiones a su derecha. Los guardias resguardan una puerta de dintel dorado, t&#237;pico del rey ostentoso.</p>
+<p>Wal pens&#243; en c&#243;mo matarlos y los guardias reconocen esa espada fragmentada. Sus cuerpos tiritan de miedo.</p>
+<p>De repente, un soldado de armadura y tela p&#250;rpura sali&#243; de la habitaci&#243;n del dintel dorado. Su altura impone y su semblante firme, como de desprecio, amenaza a los guardias, quienes le abrieron camino.</p>
+<p>—El chico de la espada fragmentada… Henos aqu&#237;. &#191;Cu&#225;l es tu nombre?</p>
+<p>Wald&#225;in aguard&#243; sin despegar la mirada. Sus hombros se movieron al eran de su respiraci&#243;n.</p>
+<p>—Bien, me llamo Felren —le declar&#243; de manera amable—. El rey quer&#237;a tu cabeza y &#233;l me orden&#243; conseguirla, pero no te encontr&#233; y eso me decepcion&#243;.</p>
+<p>&#187;Toda mi vida fue sencilla… y aburrida, pero cuando apareciste t&#250; —le apunta con el &#237;ndice—, pens&#233;: &#171;por fin alguien digno de mi espada&#187;.</p>
+<p>Felren camin&#243; hacia cada pared, una y otra vez, pensativo. Wald&#225;in, con su rostro sudado, no apartaba la mirada; mov&#237;a sus pies y sus manos en los costados, agarraba la espada presto a cualquier movimiento.</p>
+<p>—Ay, ah, todo por este momento. Si piensas que hablo mucho… Bueno, este momento lo ansi&#233; desde hace dos a&#241;os. Espero que te esfuerces, si no, no enorgullecer&#225;s a tu padre.</p>
+<p>Wald&#225;in agach&#243; la cabeza con resentimiento pronto a explotar. Su nariz se arruga y sus labios se apretaron.</p>
+<p>—Ni t&#250; ni nadie evitar&#225; que obtenga mi venganza, Felren. Ese es mi destino, para eso vine. —Wald&#225;in alza la mirada con convicci&#243;n—. Matar&#233; al rey por Sauri… &#161;y por mi padre!</p>
+<p>Wald&#225;in corri&#243; y se abalanza sobre Felren con una fuerza brutal, un torrente de ira y acero. Felren, a pesar de la sorpresa, reaccion&#243; con la rapidez de un depredador, lanz&#225;ndose dram&#225;ticamente hacia la izquierda y logrando que la embestida de su enemigo pase de largo, levantando una nube de polvo. El aire silba donde segundos antes estaba su cabeza.</p>
+<p>Wal, sin perder el ritmo, se gir&#243; con su espada como una extensi&#243;n de su cuerpo. El metal reluce bajo el resplandor del sol tras el ventanal mientras descarga un corte horizontal. La espada de Wald&#225;in, afilada y pesada, cort&#243; en el flanco de Felren. Un grito ahogado escap&#243; de los labios de Felren mientras la hoja rasga la cota de malla y la carne debajo.</p>
+<p>Ese breve respiro, ese espacio libre generado por el dolor y la herida, era suficiente para que Felren contraatacara. Con una determinaci&#243;n nacida de la desesperaci&#243;n, blandi&#243; su propia espada f&#233;rrica en una estocada certera y r&#225;pida que impact&#243; a Wald&#225;in en el costado izquierdo, justo debajo de la armadura pectoral. El golpe no era mortal, pero era profundo y punzante.</p>
+<p>Sin embargo, antes de que Felren pudiera retractar su arma para un segundo ataque, Wald&#225;in, con una fuerza salvaje, utiliz&#243; el filo de su propia espada para golpear y cortar limpiamente la hoja de Felren, parti&#233;ndola en dos. El estruendo met&#225;lico reson&#243; en la habitaci&#243;n, y el tercio d&#233;bil de la hoja cay&#243; in&#250;tilmente al suelo. Felren se qued&#243; con el in&#250;til mango y la guarnici&#243;n en su mano, su rostro se palideci&#243; por la incredulidad y el terror. Ha quedado desarmado.</p>
+<p>Respir&#243; con incredulidad, la sangre de ambos goteando sobre la alfombra. Levant&#243; su espada fragmentada, ahora el &#250;nico filo en la contienda, apuntando a la garganta indefensa de su oponente. Sus ojos, llenos de un fervor, se clavaron en Felren.</p>
+<p>—&#161;Morir&#225;s! —prorrumpi&#243; Wald&#225;in con voz ronca y triunfante, la espada alzada, presta para matar.</p>
+<p>—Hazlo, chico. Me has ganado, ya nadie te plantar&#225; cara —suplic&#243; Felren con gozo.</p>
+<p>Wald&#225;in lo mir&#243; con el deseo de asesinarlo, y Felren levant&#243; los brazos para rogarle su propia muerte, que consideraba honrosa.</p>
+<p>&#201;l agarr&#243; la espada con m&#225;s fuerza debido a la duda. La baj&#243; unos cent&#237;metros y enseguida la elev&#243;; con vehemencia lo degoll&#243; como guillotina y liber&#243; un pesar de sus hombros. La cabeza rod&#243; por la alfombra y el cuerpo cay&#243; de golpe a su derecha, mientras sus vestiduras p&#250;rpuras se te&#241;&#237;an de sangre.</p>
+<p>No desv&#237;a la mirada, solo observ&#243; c&#243;mo otro enemigo muri&#243; ante su espada. Ahora solo qued&#243; el rey y sus fieles. Wald&#225;in gir&#243; su cabeza hacia los guardias que custodian la puerta de dintel dorado.</p>
+
+            </article>
+            <nav class="chapter-nav">
+                <a href="capitulo_12.html">&larr; Cap. 12</a>
+                <a href="../capitulos.html" style="font-size:12px;opacity:.7;">&#8593; Cap&iacute;tulos</a>
+                <a href="../index.html">Indice &rarr;</a>
+            </nav>
+        </div>
+    </main>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-title">&#10022; Cap&iacute;tulos</div>
+<ul class="sidebar-list"><li><a href="../prologo.html">Prologo</a></li><li><a href="capitulo_01.html"><span class="ch-num">01</span> El peso de los tatuajes</a></li><li><a href="capitulo_02.html"><span class="ch-num">02</span> El consejo de H&iacute;ltar</a></li><li><a href="capitulo_03.html"><span class="ch-num">03</span> Tierra sagrada</a></li><li><a href="capitulo_04.html"><span class="ch-num">04</span> Entrenamiento y temores</a></li><li><a href="capitulo_05.html"><span class="ch-num">05</span> El C&oacute;nclave tribal</a></li><li><a href="capitulo_06.html"><span class="ch-num">06</span> Bajo la lluvia embarrada</a></li><li><a href="capitulo_07.html"><span class="ch-num">07</span> La responsabilidad del l&iacute;der</a></li><li><a href="capitulo_08.html"><span class="ch-num">08</span> El nacimiento en tiempos de guerra</a></li><li><a href="capitulo_09.html"><span class="ch-num">09</span> La necesidad de la guerra</a></li><li><a href="capitulo_10.html"><span class="ch-num">10</span> El perd&oacute;n y el vac&iacute;o</a></li><li><a href="capitulo_11.html"><span class="ch-num">11</span> Miedo al conflicto</a></li><li><a href="capitulo_12.html"><span class="ch-num">12</span> La ca&iacute;da de las murallas</a></li><li class="active"><a href="capitulo_13.html"><span class="ch-num">13</span> El retorno de la caballer&iacute;a</a></li><li style="opacity:0.6; cursor:default;"><a href="javascript:void(0)" style="cursor:default; pointer-events:none; color:#a89274;"><span class="ch-num">14</span> El renacer de la paz (En proceso)</a></li></ul>
+    </aside>
+
+    <footer class="page-footer">
+        Forgotten Sword &copy; 2026 &middot; Fernando Barra &nbsp;&middot;&nbsp;
+        <a href="../index.html">Galer&iacute;a de Personajes</a>
+    </footer>
+</div>
+<script>
+    var fontSize = 18;
+    var themes = ['', 'theme-sepia', 'theme-dark'];
+    var themeIdx = 0;
+    function changeFontSize(d) {
+        fontSize = Math.min(Math.max(14, fontSize + d), 26);
+        document.documentElement.style.setProperty('--font-size-base', fontSize + 'px');
+    }
+    function toggleTheme() {
+        document.body.classList.remove(themes[themeIdx]);
+        themeIdx = (themeIdx + 1) % themes.length;
+        if (themes[themeIdx]) document.body.classList.add(themes[themeIdx]);
+    }
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('open');
+    }
+</script>
+</body>
+</html>
