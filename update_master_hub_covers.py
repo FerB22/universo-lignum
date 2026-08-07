@@ -251,7 +251,7 @@ hub_html = '''<!DOCTYPE html>
       <div class="hero-badge">✦ Repositorio de Historias Independientes ✦</div>
       <h1>UNIVERSO LIGNUM</h1>
       <p>
-        Bienvenido a Universo Lignum, el espacio donde convergen mis sagas, fábulas y relatos de fantasía, terror e historia. Explora cada mundo a través de su propia experiencia interactiva, acompañando a sus personajes en sus batallas, reflexiones y destinos.
+        Bienvenido a Universo Lignum, el espacio donde convergen mis sagas y relatos de fantasía e historia. Explora cada mundo a través de su propia experiencia interactiva, acompañando a sus personajes en sus batallas, reflexiones y destinos.
       </p>
     </section>
 
