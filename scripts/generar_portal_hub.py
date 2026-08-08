@@ -321,7 +321,7 @@
           <div class="card-cover">
             <img src="https://i.ibb.co/MQxMcc6/Portada-de-Sangre-y-Cad-veres.png" alt="Portada de Sangre y Cadáveres" class="cover-img">
           </div>
-          <span class="card-badge">Terror & Resistencia</span>
+          <span class="card-badge">Venganza</span>
           <h2 class="card-title">Sangre y Cadáveres</h2>
           <p class="card-desc">Un relato crudo e intenso sobre el renacimiento tras la devastación. Explora la resistencia armada, la venganza implacable y el análisis conceptual del universo escarlata.</p>
           <div class="card-features">
