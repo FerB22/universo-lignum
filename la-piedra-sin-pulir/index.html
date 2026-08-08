@@ -1443,12 +1443,15 @@
  }
  }
 
- window.addEventListener('scroll', updateReadingProgress);
+   window.addEventListener('scroll', updateReadingProgress);
 
- 
- });
- });
- });
+  // Auto-cargar sección según URL hash al abrir la página
+  window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash === 'historia') mostrarSeccion('sec-historia', 'historia');
+    else if (hash === 'actos') mostrarSeccion('sec-actos', 'actos');
+    else if (hash === 'moraleja') mostrarSeccion('sec-moraleja', 'moraleja');
+  });
 
  // Mostrar notificación flotante (toast)
  function showToast(message) {
