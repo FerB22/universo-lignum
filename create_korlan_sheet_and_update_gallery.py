@@ -1,0 +1,422 @@
+import os
+import re
+
+base = r'C:\Users\Barra\Documents\UNIVERSO LIGNUM'
+
+# 1. Create ficha_korlan.html
+korlan_html = '''<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6NPEX2N2DC"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWTZLRCX09"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6NPEX2N2DC');
+  gtag('config', 'G-FWTZLRCX09');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TP7J9NKK');</script>
+<!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ficha de Personaje - Korlan</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --bg-base: #FAF8F5;
+    --bg-card: #FFFFFF;
+    --bg-secondary: #F4EFE6;
+    --text-main: #2C261F;
+    --text-muted: #665D52;
+    --gold-primary: #D4AF37;
+    --gold-light: #F8F3E3;
+    --gold-dark: #9E8237;
+    --gold-border: #E0C775;
+    --gold-shadow: rgba(212, 175, 55, 0.2);
+    --card-shadow: 0 15px 40px rgba(158, 130, 55, 0.12);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+  }
+
+  .sheet-container {
+    width: 100%;
+    max-width: 900px;
+    background: var(--bg-card);
+    border: 2px solid var(--gold-border);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: var(--card-shadow);
+  }
+
+  .sheet-header {
+    text-align: center;
+    margin-bottom: 35px;
+    border-bottom: 1.5px solid var(--gold-light);
+    padding-bottom: 25px;
+  }
+
+  .sheet-badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    background: var(--gold-light);
+    color: var(--gold-dark);
+    border: 1px solid var(--gold-border);
+    margin-bottom: 10px;
+  }
+
+  .sheet-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--text-main);
+    letter-spacing: 1px;
+  }
+
+  .sheet-subtitle {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: var(--gold-dark);
+    font-size: 1.1rem;
+    margin-top: 5px;
+  }
+
+  .sheet-body-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 35px;
+  }
+
+  @media (max-width: 768px) {
+    .sheet-body-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .portrait-frame {
+    width: 100%;
+    height: 380px;
+    border-radius: 16px;
+    border: 2px solid var(--gold-border);
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .char-portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .data-card {
+    background: var(--bg-base);
+    border: 1px solid var(--gold-border);
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .data-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(212, 175, 55, 0.3);
+    font-size: 0.9rem;
+  }
+
+  .data-row:last-child {
+    border-bottom: none;
+  }
+
+  .data-label {
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+
+  .data-val {
+    font-weight: 600;
+    color: var(--text-main);
+    text-align: right;
+  }
+
+  .info-block {
+    margin-bottom: 25px;
+  }
+
+  .block-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--gold-dark);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .block-title span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--gold-primary);
+    border-radius: 50%;
+  }
+
+  .info-text {
+    font-family: 'Lora', serif;
+    line-height: 1.7;
+    color: var(--text-main);
+    font-size: 1rem;
+  }
+
+  .relations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+
+  .relation-item {
+    background: var(--bg-base);
+    border: 1px solid var(--gold-border);
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .nav-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1.5px solid var(--gold-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .btn-sheet-nav {
+    padding: 10px 22px;
+    background: var(--bg-secondary);
+    border: 1.5px solid var(--gold-primary);
+    color: var(--gold-dark);
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+
+  .btn-sheet-nav:hover {
+    background: var(--gold-primary);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+  }
+  </style>
+
+<style>
+  .btn-back-to-hub-floating {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 999999;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 15px;
+    background: rgba(15, 20, 30, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    color: #F8FAFC !important;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.25s ease;
+  }
+  .btn-back-to-hub-floating:hover {
+    background: #38BDF8;
+    color: #000000 !important;
+    border-color: #38BDF8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+  }
+  @media (max-width: 600px) {
+    .btn-back-to-hub-floating {
+      top: 10px;
+      left: 10px;
+      padding: 5px 12px;
+      font-size: 11px;
+    }
+  }
+</style>
+
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TP7J9NKK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<a href="../../index.html" class="btn-back-to-hub-floating"> Volver a Historias</a>
+
+  <div class="sheet-container">
+    <!-- Header -->
+    <header class="sheet-header">
+      <span class="sheet-badge"> FICHA DE PERSONAJE · RUK EL HÉROE </span>
+      <h1 class="sheet-title">Korlan</h1>
+      <p class="sheet-subtitle">"Comandante Guerrero de Veridia"</p>
+    </header>
+
+    <!-- Main Body Grid -->
+    <div class="sheet-body-grid">
+      <!-- Left Column -->
+      <div class="left-col">
+        <div class="portrait-frame">
+          <img src="../fichas_img/korlan.png" alt="Korlan" class="char-portrait-img" onerror="this.src='../fichas_img/ruk.png';">
+        </div>
+
+        <div class="data-card">
+          <div class="data-row">
+            <div class="data-label">Rol Principal</div>
+            <div class="data-val">Comandante / Guerrero Veterano</div>
+          </div>
+          <div class="data-row">
+            <div class="data-label">Origen</div>
+            <div class="data-val">Veridia (Tierras del Norte)</div>
+          </div>
+          <div class="data-row">
+            <div class="data-label">Afiliación</div>
+            <div class="data-val">Fuerzas de Veridia / Alianza de Davir</div>
+          </div>
+          <div class="data-row">
+            <div class="data-label">Armamento</div>
+            <div class="data-val">Hacha de combate & escudo pesado</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="right-col">
+        <!-- Personalidad y Motivación -->
+        <div class="info-block">
+          <h3 class="block-title"><span></span> Personalidad y Motivación</h3>
+          <p class="info-text"><strong>Personalidad:</strong> Disciplinado, imponente y experimentado. Posee una serenidad táctica que inspira respeto entre los jóvenes combatientes.</p>
+          <p class="info-text" style="margin-top: 8px;"><strong>Motivación:</strong> Defender la soberanía de las tribus del norte y consolidar una resistencia militar firme ante la invasión enemiga.</p>
+          <p class="info-text" style="margin-top: 8px;"><strong>Conflicto Clave:</strong> Organizar a las fuerzas de Veridia y coordinar las defensas del frente con Ruk y sus aliados.</p>
+        </div>
+
+        <!-- Relaciones -->
+        <div class="info-block">
+          <h3 class="block-title"><span></span> Relaciones Principales</h3>
+          <div class="relations-grid">
+            <div class="relation-item">
+              <div class="data-label">Aliados de Batalla</div>
+              <div class="data-val">Kova, Ruk, Riav, Kairo</div>
+            </div>
+            <div class="relation-item">
+              <div class="data-label">Tropas</div>
+              <div class="data-val">Guerreros y Cazadores del Norte</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trasfondo y Arco -->
+        <div class="info-block">
+          <h3 class="block-title"><span></span> Trasfondo y Arco Narrativo</h3>
+          <p class="info-text"><strong>Origen:</strong> Formado en las severas batallas del frente norte, ascendiendo a líder respetado de las milicias de Veridia.</p>
+          <p class="info-text" style="margin-top: 8px;"><strong>Evolución Narrativa:</strong> Figura clave en las batallas estratégicas (153 menciones en el relato), brindando cobertura táctica y respaldo militar a la causa de Ruk.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Footer -->
+    <footer class="nav-footer">
+      <a href="../index.html#personajes" class="btn-sheet-nav">← Volver al Portal de Ruk</a>
+      <a href="../index.html#lectura" class="btn-sheet-nav"> Ir a la Lectura</a>
+    </footer>
+  </div>
+
+</body>
+</html>'''
+
+korlan_path = os.path.join(base, 'ruk-el-heroe', 'personajes', 'ficha_korlan.html')
+with open(korlan_path, 'w', encoding='utf-8') as f:
+    f.write(korlan_html)
+print("Created ficha_korlan.html!")
+
+# 2. Update Galería de Héroes in ruk-el-heroe/index.html
+ruk_index = os.path.join(base, 'ruk-el-heroe', 'index.html')
+with open(ruk_index, 'r', encoding='utf-8', errors='ignore') as f:
+    c = f.read()
+
+# Replace Tehm with Kova and Korlan in Galería de Héroes
+old_gallery_tehm = '''  <a href="personajes/ficha_tehm.html" target="_blank" style="text-decoration:none; color:inherit;">
+  <div class="card-personaje">
+  <div class="avatar-emblem"></div>
+  <h3 class="personaje-nombre">Señor Tehm</h3>
+  <div class="personaje-rol">Líder del Pueblo Hospedante</div>
+  <p class="personaje-desc">Líder sensato y compasivo que acoge a los refugiados. Haz clic para abrir su ficha completa en pergamino.</p>
+  </div>
+  </a>'''
+
+new_gallery_kova_korlan = '''  <a href="personajes/ficha_kova.html" target="_blank" style="text-decoration:none; color:inherit;">
+  <div class="card-personaje">
+  <div class="avatar-emblem"></div>
+  <h3 class="personaje-nombre">Kova</h3>
+  <div class="personaje-rol">Cazadora y Guardiana de Veridia</div>
+  <p class="personaje-desc">Hábil e ingeniosa cazadora de Veridia que rescata y acompaña a Ruk en su travesía. Haz clic para abrir su ficha.</p>
+  </div>
+  </a>
+
+  <a href="personajes/ficha_korlan.html" target="_blank" style="text-decoration:none; color:inherit;">
+  <div class="card-personaje">
+  <div class="avatar-emblem"></div>
+  <h3 class="personaje-nombre">Korlan</h3>
+  <div class="personaje-rol">Comandante Guerrero de Veridia</div>
+  <p class="personaje-desc">Estratega y combatiente experimentado que lidera a las fuerzas del norte. Haz clic para abrir su ficha.</p>
+  </div>
+  </a>'''
+
+if old_gallery_tehm in c:
+    c = c.replace(old_gallery_tehm, new_gallery_kova_korlan)
+    with open(ruk_index, 'w', encoding='utf-8') as f:
+        f.write(c)
+    print("Replaced Tehm with Kova and Korlan in Ruk el Héroe index.html gallery!")
+
+print("\nDone updating Ruk el Héroe character gallery and sheets!")

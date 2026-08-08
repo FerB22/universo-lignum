@@ -32,7 +32,7 @@ Las siguientes **3 historias** ya cuentan con sus archivos HTML de fichas de per
 | Historia | Fichas Creadas | Nombres de Personajes Registrados | Estado Visual en Portal |
 | :--- | :---: | :--- | :--- |
 | **Forgotten Sword** 🗡️ | **8 Fichas** | Ronan, Waldain, Hald, Skaivan, Hlied, Sauri, Deschast, El Rey de Gricái | 🟢 **Publicadas y Accesibles** |
-| **Ruk el Héroe** 👑 | **7 Fichas** | Ruk, Kairo, Riav, Orwin, Muvar, Ruval, Tehm | 🔴 Tag *En proceso de creación* (Edición final) |
+| **Ruk el Héroe** 👑 | **8 Fichas** | Ruk, Kairo, Riav, Ruval, Muvar, Orwin, Kova, Korlan | 🟢 **Publicadas y Accesibles** (Incorporada Kova y Korlan) |
 | **Getting to Know** 🌿 | **5 Fichas** | Derk, Ameřa, Hesis, Heya, Lomen | 🔴 Tag *En proceso de creación* (Edición final) |
 
 ---
@@ -42,13 +42,13 @@ Las siguientes **3 historias** ya cuentan con sus archivos HTML de fichas de per
 ```mermaid
 pie title Estado de Fichas de Personajes por Historia
     "Forgotten Sword (8 Fichas)" : 8
-    "Ruk el Héroe (7 Fichas)" : 7
+    "Ruk el Héroe (8 Fichas)" : 8
     "Getting to Know (5 Fichas)" : 5
     "La Piedra sin Pulir (Pendiente)" : 1
     "Sangre y Cadáveres (Pendiente)" : 1
     "Marriage of the Republic (Pendiente)" : 1
 ```
 
-- **Total de Fichas Existentes**: **20 Fichas de Personajes**
+- **Total de Fichas Existentes**: **21 Fichas de Personajes**
 - **Historias con Fichas Listas**: 3 de 6 (50%)
 - **Historias Pendientes de Creación**: 3 de 6 (50%)
