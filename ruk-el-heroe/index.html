@@ -1,981 +1,981 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruk el Héroe - Saga Fantástica Completa</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-base: #FAF8F5;
-            --bg-card: #FFFFFF;
-            --bg-secondary: #F3EFE6;
-            --text-main: #2C261F;
-            --text-muted: #665D52;
-            --gold-primary: #D4AF37;
-            --gold-light: #F4E8C1;
-            --gold-dark: #9E8237;
-            --gold-border: #E0C775;
-            --gold-shadow: rgba(212, 175, 55, 0.25);
-            --card-shadow: 0 10px 30px rgba(158, 130, 55, 0.08);
-            --font-reader-size: 1.15rem;
-            --radius-md: 14px;
-            --radius-lg: 20px;
-        }
-
-        /* Themes */
-        body.theme-sepia {
-            --bg-base: #F4EFE0;
-            --bg-card: #FDFBF5;
-            --bg-secondary: #E8E0CE;
-            --text-main: #382D22;
-            --text-muted: #6E5F50;
-            --gold-primary: #B8860B;
-            --gold-light: #EBD9B0;
-            --gold-dark: #8B6508;
-            --gold-border: #D4B263;
-        }
-
-        body.theme-dark {
-            --bg-base: #12100E;
-            --bg-card: #1A1714;
-            --bg-secondary: #24201C;
-            --text-main: #EFE4CE;
-            --text-muted: #A89B88;
-            --gold-primary: #FFD700;
-            --gold-light: #3D351B;
-            --gold-dark: #C5A059;
-            --gold-border: #7A6321;
-            --gold-shadow: rgba(255, 215, 0, 0.2);
-            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-base);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: background-color 0.4s ease, color 0.4s ease;
-            position: relative;
-        }
-
-        /* Top Progress Bar */
-        .progress-bar-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: rgba(212, 175, 55, 0.15);
-            z-index: 1000;
-        }
-
-        .progress-bar-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #B8860B, #D4AF37, #FFD700);
-            box-shadow: 0 0 10px var(--gold-primary);
-            transition: width 0.1s ease-out;
-        }
-
-        /* Header / Navbar */
-        .app-header {
-            width: 100%;
-            max-width: 1200px;
-            padding: 12px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--gold-border);
-            background: var(--bg-card);
-            box-shadow: var(--card-shadow);
-            position: sticky;
-            top: 0;
-            z-index: 900;
-            backdrop-filter: blur(10px);
-        }
-
-        .brand-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.6rem;
-            font-weight: 900;
-            color: var(--text-main);
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-        }
-
-        .brand-title span {
-            color: var(--gold-primary);
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .btn-header-home {
-            background: transparent;
-            border: 1.5px solid var(--gold-primary);
-            color: var(--gold-dark);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .btn-header-home:hover {
-            background: var(--gold-primary);
-            color: #FFFFFF;
-            transform: translateY(-2px);
-        }
-
-        /* Layout Container */
-        .page-wrapper {
-            width: 100%;
-            max-width: 1100px;
-            padding: 40px 20px;
-            flex: 1;
-        }
-
-        /* VISTA 1: MENÚ PRINCIPAL / HUB */
-        .main-container {
-            width: 100%;
-            min-height: 75vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .main-container.hidden {
-            display: none !important;
-        }
-
-        .main-container.closing {
-            animation: fadeOut 0.25s ease-in forwards;
-        }
-
-        .main-container.fadeIn {
-            animation: fadeIn 0.4s ease-out forwards;
-        }
-
-        /* Hero Banner */
-        .hero-banner {
-            background: var(--bg-card);
-            border: 2px solid var(--gold-border);
-            border-radius: var(--radius-lg);
-            padding: 50px 35px;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 40px;
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            max-width: 900px;
-        }
-
-        .hero-banner::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, var(--gold-shadow) 0%, transparent 60%);
-            pointer-events: none;
-            opacity: 0.6;
-        }
-
-        .hero-emblem {
-            font-size: 3rem;
-            color: var(--gold-primary);
-            margin-bottom: 15px;
-        }
-
-        .hero-title {
-            font-family: 'Cinzel', serif;
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: var(--text-main);
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
-
-        .hero-subtitle {
-            font-family: 'Lora', serif;
-            font-style: italic;
-            font-size: 1.25rem;
-            color: var(--gold-dark);
-            margin-bottom: 25px;
-        }
-
-        .hero-desc {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: var(--text-muted);
-            max-width: 750px;
-            margin: 0 auto 30px auto;
-        }
-
-        .hero-badges {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .badge-item {
-            background: var(--bg-secondary);
-            border: 1px solid var(--gold-border);
-            color: var(--text-main);
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        /* Portal Navigation Grid */
-        .hub-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            width: 100%;
-            max-width: 900px;
-        }
-
-        .btn-hub-card {
-            background: var(--bg-card);
-            border: 2px solid var(--gold-border);
-            border-radius: var(--radius-md);
-            padding: 30px 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-            box-shadow: var(--card-shadow);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .btn-hub-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--gold-primary);
-            box-shadow: 0 15px 35px var(--gold-shadow);
-            background: var(--bg-card);
-        }
-
-        .hub-icon {
-            font-size: 2.5rem;
-            color: var(--gold-primary);
-        }
-
-        .hub-card-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--text-main);
-        }
-
-        .hub-card-desc {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
-
-        /* VISTAS SECUNDARIAS */
-        .seccion-oculta {
-            display: none;
-            width: 100%;
-            margin: 0 auto;
-        }
-
-        .seccion-oculta.active {
-            display: block;
-            animation: fadeIn 0.4s ease-out forwards;
-        }
-
-        .seccion-oculta.closing {
-            animation: fadeOut 0.25s ease-in forwards;
-        }
-
-        /* Header for secondary sections */
-        .section-nav-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .btn-back-main {
-            padding: 10px 24px;
-            background: var(--bg-card);
-            color: var(--gold-dark);
-            border: 1.5px solid var(--gold-primary);
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: all 0.25s ease;
-            box-shadow: var(--card-shadow);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-back-main:hover {
-            background: var(--gold-primary);
-            color: #FFFFFF;
-            transform: translateX(-4px);
-        }
-
-        .section-header-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text-main);
-        }
-
-        /* Reader Controls Bar */
-        .reader-controls-bar {
-            background: var(--bg-card);
-            border: 1px solid var(--gold-border);
-            border-radius: var(--radius-md);
-            padding: 15px 25px;
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            box-shadow: var(--card-shadow);
-        }
-
-        .control-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .control-label {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .btn-control-tool {
-            background: var(--bg-secondary);
-            border: 1px solid var(--gold-border);
-            color: var(--text-main);
-            padding: 6px 14px;
-            border-radius: 8px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .btn-control-tool:hover {
-            background: var(--gold-primary);
-            color: #FFFFFF;
-        }
-
-        .theme-select {
-            background: var(--bg-secondary);
-            border: 1px solid var(--gold-border);
-            color: var(--text-main);
-            padding: 6px 14px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            outline: none;
-        }
-
-        /* Reader Layout */
-        .reader-layout {
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 30px;
-            align-items: start;
-        }
-
-        @media (max-width: 900px) {
-            .reader-layout {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Chapter Sidebar */
-        .chapter-sidebar {
-            background: var(--bg-card);
-            border: 1.5px solid var(--gold-border);
-            border-radius: var(--radius-md);
-            padding: 20px;
-            box-shadow: var(--card-shadow);
-            position: sticky;
-            top: 90px;
-        }
-
-        .sidebar-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--gold-dark);
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--gold-border);
-        }
-
-        .chapter-list-menu {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .btn-ch-item {
-            width: 100%;
-            text-align: left;
-            padding: 10px 14px;
-            background: transparent;
-            border: 1px solid transparent;
-            border-radius: 8px;
-            color: var(--text-muted);
-            font-size: 0.92rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .btn-ch-item:hover {
-            background: var(--bg-secondary);
-            color: var(--text-main);
-            border-color: var(--gold-border);
-        }
-
-        .btn-ch-item.active {
-            background: var(--gold-light);
-            color: var(--gold-dark);
-            border-color: var(--gold-primary);
-            font-weight: 700;
-        }
-
-        /* Chapter Content */
-        .chapter-container-main {
-            background: var(--bg-card);
-            border: 1.5px solid var(--gold-border);
-            border-radius: var(--radius-lg);
-            padding: 45px 40px;
-            box-shadow: var(--card-shadow);
-            min-height: 600px;
-        }
-
-        @media (max-width: 600px) {
-            .chapter-container-main {
-                padding: 25px 20px;
-            }
-        }
-
-        .chapter-content {
-            display: none;
-        }
-
-        .chapter-content.active-chapter {
-            display: block;
-            animation: fadeIn 0.35s ease-out forwards;
-        }
-
-        .chapter-header {
-            text-align: center;
-            margin-bottom: 35px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--gold-border);
-        }
-
-        .chapter-badge {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--gold-primary);
-            letter-spacing: 1.5px;
-        }
-
-        .chapter-title {
-            font-family: 'Cinzel', serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-top: 8px;
-        }
-
-        .chapter-text-body {
-            font-family: 'Lora', serif;
-            font-size: var(--font-reader-size);
-            line-height: 1.85;
-            color: var(--text-main);
-        }
-
-        /* Sangría de primera línea 0.75em */
-        .chapter-text-body p {
-            text-indent: 0.75em;
-            margin-bottom: 1.3em;
-        }
-
-        .chapter-nav-bottom {
-            margin-top: 50px;
-            padding-top: 25px;
-            border-top: 1px solid var(--gold-border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .btn-nav-ch {
-            padding: 10px 20px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--gold-border);
-            color: var(--text-main);
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.25s ease;
-        }
-
-        .btn-nav-ch:hover {
-            border-color: var(--gold-primary);
-            color: var(--gold-dark);
-            transform: translateY(-2px);
-        }
-
-        .btn-gold-fill {
-            background: var(--gold-primary);
-            color: #FFFFFF;
-            border-color: var(--gold-primary);
-        }
-
-        .btn-gold-fill:hover {
-            background: var(--gold-dark);
-            color: #FFFFFF;
-        }
-
-        /* Personajes Grid */
-        .personajes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .card-personaje {
-            background: var(--bg-card);
-            border: 1.5px solid var(--gold-border);
-            border-radius: var(--radius-md);
-            padding: 30px 25px;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-personaje:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold-primary);
-            box-shadow: 0 15px 30px var(--gold-shadow);
-        }
-
-        .avatar-emblem {
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            background: var(--bg-secondary);
-            border: 2px solid var(--gold-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: var(--gold-primary);
-            margin-bottom: 20px;
-        }
-
-        .personaje-nombre {
-            font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 6px;
-        }
-
-        .personaje-rol {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--gold-dark);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-
-        .personaje-desc {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-muted);
-        }
-
-        /* Actos Timeline */
-        .actos-container {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .card-acto {
-            background: var(--bg-card);
-            border: 1.5px solid var(--gold-border);
-            border-radius: var(--radius-md);
-            padding: 35px;
-            box-shadow: var(--card-shadow);
-            position: relative;
-        }
-
-        .acto-badge {
-            display: inline-block;
-            background: var(--gold-primary);
-            color: #FFFFFF;
-            padding: 5px 15px;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .acto-titulo {
-            font-family: 'Cinzel', serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 12px;
-        }
-
-        .acto-desc {
-            font-size: 1.02rem;
-            line-height: 1.7;
-            color: var(--text-muted);
-        }
-
-        /* Moraleja & Citas */
-        .citas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .quote-card {
-            background: var(--bg-card);
-            border: 1.5px dashed var(--gold-primary);
-            border-radius: var(--radius-md);
-            padding: 30px 25px;
-            box-shadow: var(--card-shadow);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .quote-card:hover {
-            background: var(--bg-secondary);
-            border-style: solid;
-            transform: translateY(-4px);
-        }
-
-        .quote-icon {
-            font-size: 2rem;
-            color: var(--gold-primary);
-            margin-bottom: 10px;
-        }
-
-        .quote-text {
-            font-family: 'Lora', serif;
-            font-style: italic;
-            font-size: 1.1rem;
-            color: var(--text-main);
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .quote-author {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--gold-dark);
-            text-align: right;
-        }
-
-        .copy-hint {
-            position: absolute;
-            bottom: 10px;
-            left: 20px;
-            font-size: 0.75rem;
-            color: var(--gold-dark);
-            opacity: 0.7;
-        }
-
-        /* Toast Alert */
-        .toast-notification {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--gold-primary);
-            color: #FFFFFF;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-weight: 700;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            display: none;
-            z-index: 2000;
-            animation: fadeIn 0.3s ease-out forwards;
-        }
-
-        /* Footer */
-        .app-footer {
-            width: 100%;
-            padding: 30px 20px;
-            text-align: center;
-            border-top: 1px solid var(--gold-border);
-            background: var(--bg-card);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 60px;
-        }
-
-        .footer-gold-text {
-            color: var(--gold-primary);
-            font-weight: 700;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(18px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            to {
-                opacity: 0;
-                transform: translateY(18px);
-            }
-        }
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Ruk el Héroe - Saga Fantástica Completa</title>
+ <!-- Google Fonts -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+ <style>
+ :root {
+ --bg-base: #FAF8F5;
+ --bg-card: #FFFFFF;
+ --bg-secondary: #F3EFE6;
+ --text-main: #2C261F;
+ --text-muted: #665D52;
+ --gold-primary: #D4AF37;
+ --gold-light: #F4E8C1;
+ --gold-dark: #9E8237;
+ --gold-border: #E0C775;
+ --gold-shadow: rgba(212, 175, 55, 0.25);
+ --card-shadow: 0 10px 30px rgba(158, 130, 55, 0.08);
+ --font-reader-size: 1.15rem;
+ --radius-md: 14px;
+ --radius-lg: 20px;
+ }
+
+ /* Themes */
+ body.theme-sepia {
+ --bg-base: #F4EFE0;
+ --bg-card: #FDFBF5;
+ --bg-secondary: #E8E0CE;
+ --text-main: #382D22;
+ --text-muted: #6E5F50;
+ --gold-primary: #B8860B;
+ --gold-light: #EBD9B0;
+ --gold-dark: #8B6508;
+ --gold-border: #D4B263;
+ }
+
+ body.theme-dark {
+ --bg-base: #12100E;
+ --bg-card: #1A1714;
+ --bg-secondary: #24201C;
+ --text-main: #EFE4CE;
+ --text-muted: #A89B88;
+ --gold-primary: #FFD700;
+ --gold-light: #3D351B;
+ --gold-dark: #C5A059;
+ --gold-border: #7A6321;
+ --gold-shadow: rgba(255, 215, 0, 0.2);
+ --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+ }
+
+ html {
+ scroll-behavior: smooth;
+ }
+
+ * {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ }
+
+ body {
+ font-family: 'Plus Jakarta Sans', sans-serif;
+ background-color: var(--bg-base);
+ color: var(--text-main);
+ min-height: 100vh;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ transition: background-color 0.4s ease, color 0.4s ease;
+ position: relative;
+ }
+
+ /* Top Progress Bar */
+ .progress-bar-container {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 5px;
+ background: rgba(212, 175, 55, 0.15);
+ z-index: 1000;
+ }
+
+ .progress-bar-fill {
+ height: 100%;
+ width: 0%;
+ background: linear-gradient(90deg, #B8860B, #D4AF37, #FFD700);
+ box-shadow: 0 0 10px var(--gold-primary);
+ transition: width 0.1s ease-out;
+ }
+
+ /* Header / Navbar */
+ .app-header {
+ width: 100%;
+ max-width: 1200px;
+ padding: 12px 24px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ border-bottom: 1px solid var(--gold-border);
+ background: var(--bg-card);
+ box-shadow: var(--card-shadow);
+ position: sticky;
+ top: 0;
+ z-index: 900;
+ backdrop-filter: blur(10px);
+ }
+
+ .brand-title {
+ font-family: 'Cinzel', serif;
+ font-size: 1.6rem;
+ font-weight: 900;
+ color: var(--text-main);
+ letter-spacing: 1px;
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ cursor: pointer;
+ }
+
+ .brand-title span {
+ color: var(--gold-primary);
+ }
+
+ .header-actions {
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ }
+
+ .btn-header-home {
+ background: transparent;
+ border: 1.5px solid var(--gold-primary);
+ color: var(--gold-dark);
+ padding: 8px 16px;
+ border-radius: 20px;
+ font-weight: 700;
+ font-size: 0.9rem;
+ cursor: pointer;
+ transition: all 0.3s ease;
+ display: flex;
+ align-items: center;
+ gap: 6px;
+ }
+
+ .btn-header-home:hover {
+ background: var(--gold-primary);
+ color: #FFFFFF;
+ transform: translateY(-2px);
+ }
+
+ /* Layout Container */
+ .page-wrapper {
+ width: 100%;
+ max-width: 1100px;
+ padding: 40px 20px;
+ flex: 1;
+ }
+
+ /* VISTA 1: MENÚ PRINCIPAL / HUB */
+ .main-container {
+ width: 100%;
+ min-height: 75vh;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ text-align: center;
+ }
+
+ .main-container.hidden {
+ display: none !important;
+ }
+
+ .main-container.closing {
+ animation: fadeOut 0.25s ease-in forwards;
+ }
+
+ .main-container.fadeIn {
+ animation: fadeIn 0.4s ease-out forwards;
+ }
+
+ /* Hero Banner */
+ .hero-banner {
+ background: var(--bg-card);
+ border: 2px solid var(--gold-border);
+ border-radius: var(--radius-lg);
+ padding: 50px 35px;
+ box-shadow: var(--card-shadow);
+ margin-bottom: 40px;
+ position: relative;
+ overflow: hidden;
+ width: 100%;
+ max-width: 900px;
+ }
+
+ .hero-banner::before {
+ content: '';
+ position: absolute;
+ top: -50%;
+ left: -50%;
+ width: 200%;
+ height: 200%;
+ background: radial-gradient(circle, var(--gold-shadow) 0%, transparent 60%);
+ pointer-events: none;
+ opacity: 0.6;
+ }
+
+ .hero-emblem {
+ font-size: 3rem;
+ color: var(--gold-primary);
+ margin-bottom: 15px;
+ }
+
+ .hero-title {
+ font-family: 'Cinzel', serif;
+ font-size: 2.8rem;
+ font-weight: 900;
+ color: var(--text-main);
+ margin-bottom: 15px;
+ letter-spacing: 2px;
+ }
+
+ .hero-subtitle {
+ font-family: 'Lora', serif;
+ font-style: italic;
+ font-size: 1.25rem;
+ color: var(--gold-dark);
+ margin-bottom: 25px;
+ }
+
+ .hero-desc {
+ font-size: 1.05rem;
+ line-height: 1.7;
+ color: var(--text-muted);
+ max-width: 750px;
+ margin: 0 auto 30px auto;
+ }
+
+ .hero-badges {
+ display: flex;
+ justify-content: center;
+ flex-wrap: wrap;
+ gap: 15px;
+ }
+
+ .badge-item {
+ background: var(--bg-secondary);
+ border: 1px solid var(--gold-border);
+ color: var(--text-main);
+ padding: 8px 18px;
+ border-radius: 20px;
+ font-size: 0.9rem;
+ font-weight: 600;
+ }
+
+ /* Portal Navigation Grid */
+ .hub-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+ gap: 20px;
+ width: 100%;
+ max-width: 900px;
+ }
+
+ .btn-hub-card {
+ background: var(--bg-card);
+ border: 2px solid var(--gold-border);
+ border-radius: var(--radius-md);
+ padding: 30px 20px;
+ text-align: center;
+ cursor: pointer;
+ transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+ box-shadow: var(--card-shadow);
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 12px;
+ }
+
+ .btn-hub-card:hover {
+ transform: translateY(-6px);
+ border-color: var(--gold-primary);
+ box-shadow: 0 15px 35px var(--gold-shadow);
+ background: var(--bg-card);
+ }
+
+ .hub-icon {
+ font-size: 2.5rem;
+ color: var(--gold-primary);
+ }
+
+ .hub-card-title {
+ font-family: 'Cinzel', serif;
+ font-size: 1.3rem;
+ font-weight: 700;
+ color: var(--text-main);
+ }
+
+ .hub-card-desc {
+ font-size: 0.9rem;
+ color: var(--text-muted);
+ line-height: 1.4;
+ }
+
+ /* VISTAS SECUNDARIAS */
+ .seccion-oculta {
+ display: none;
+ width: 100%;
+ margin: 0 auto;
+ }
+
+ .seccion-oculta.active {
+ display: block;
+ animation: fadeIn 0.4s ease-out forwards;
+ }
+
+ .seccion-oculta.closing {
+ animation: fadeOut 0.25s ease-in forwards;
+ }
+
+ /* Header for secondary sections */
+ .section-nav-bar {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 30px;
+ flex-wrap: wrap;
+ gap: 15px;
+ }
+
+ .btn-back-main {
+ padding: 10px 24px;
+ background: var(--bg-card);
+ color: var(--gold-dark);
+ border: 1.5px solid var(--gold-primary);
+ border-radius: 25px;
+ cursor: pointer;
+ font-weight: 700;
+ font-size: 0.95rem;
+ transition: all 0.25s ease;
+ box-shadow: var(--card-shadow);
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ }
+
+ .btn-back-main:hover {
+ background: var(--gold-primary);
+ color: #FFFFFF;
+ transform: translateX(-4px);
+ }
+
+ .section-header-title {
+ font-family: 'Cinzel', serif;
+ font-size: 1.8rem;
+ font-weight: 700;
+ color: var(--text-main);
+ }
+
+ /* Reader Controls Bar */
+ .reader-controls-bar {
+ background: var(--bg-card);
+ border: 1px solid var(--gold-border);
+ border-radius: var(--radius-md);
+ padding: 15px 25px;
+ margin-bottom: 30px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex-wrap: wrap;
+ gap: 15px;
+ box-shadow: var(--card-shadow);
+ }
+
+ .control-group {
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ }
+
+ .control-label {
+ font-size: 0.85rem;
+ font-weight: 700;
+ color: var(--text-muted);
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ }
+
+ .btn-control-tool {
+ background: var(--bg-secondary);
+ border: 1px solid var(--gold-border);
+ color: var(--text-main);
+ padding: 6px 14px;
+ border-radius: 8px;
+ font-weight: 700;
+ cursor: pointer;
+ transition: all 0.2s ease;
+ }
+
+ .btn-control-tool:hover {
+ background: var(--gold-primary);
+ color: #FFFFFF;
+ }
+
+ .theme-select {
+ background: var(--bg-secondary);
+ border: 1px solid var(--gold-border);
+ color: var(--text-main);
+ padding: 6px 14px;
+ border-radius: 8px;
+ font-weight: 600;
+ cursor: pointer;
+ outline: none;
+ }
+
+ /* Reader Layout */
+ .reader-layout {
+ display: grid;
+ grid-template-columns: 280px 1fr;
+ gap: 30px;
+ align-items: start;
+ }
+
+ @media (max-width: 900px) {
+ .reader-layout {
+ grid-template-columns: 1fr;
+ }
+ }
+
+ /* Chapter Sidebar */
+ .chapter-sidebar {
+ background: var(--bg-card);
+ border: 1.5px solid var(--gold-border);
+ border-radius: var(--radius-md);
+ padding: 20px;
+ box-shadow: var(--card-shadow);
+ position: sticky;
+ top: 90px;
+ }
+
+ .sidebar-title {
+ font-family: 'Cinzel', serif;
+ font-size: 1.1rem;
+ font-weight: 700;
+ color: var(--gold-dark);
+ margin-bottom: 15px;
+ padding-bottom: 10px;
+ border-bottom: 1px solid var(--gold-border);
+ }
+
+ .chapter-list-menu {
+ list-style: none;
+ display: flex;
+ flex-direction: column;
+ gap: 8px;
+ }
+
+ .btn-ch-item {
+ width: 100%;
+ text-align: left;
+ padding: 10px 14px;
+ background: transparent;
+ border: 1px solid transparent;
+ border-radius: 8px;
+ color: var(--text-muted);
+ font-size: 0.92rem;
+ font-weight: 600;
+ cursor: pointer;
+ transition: all 0.2s ease;
+ }
+
+ .btn-ch-item:hover {
+ background: var(--bg-secondary);
+ color: var(--text-main);
+ border-color: var(--gold-border);
+ }
+
+ .btn-ch-item.active {
+ background: var(--gold-light);
+ color: var(--gold-dark);
+ border-color: var(--gold-primary);
+ font-weight: 700;
+ }
+
+ /* Chapter Content */
+ .chapter-container-main {
+ background: var(--bg-card);
+ border: 1.5px solid var(--gold-border);
+ border-radius: var(--radius-lg);
+ padding: 45px 40px;
+ box-shadow: var(--card-shadow);
+ min-height: 600px;
+ }
+
+ @media (max-width: 600px) {
+ .chapter-container-main {
+ padding: 25px 20px;
+ }
+ }
+
+ .chapter-content {
+ display: none;
+ }
+
+ .chapter-content.active-chapter {
+ display: block;
+ animation: fadeIn 0.35s ease-out forwards;
+ }
+
+ .chapter-header {
+ text-align: center;
+ margin-bottom: 35px;
+ padding-bottom: 20px;
+ border-bottom: 1px solid var(--gold-border);
+ }
+
+ .chapter-badge {
+ font-size: 0.85rem;
+ font-weight: 700;
+ color: var(--gold-primary);
+ letter-spacing: 1.5px;
+ }
+
+ .chapter-title {
+ font-family: 'Cinzel', serif;
+ font-size: 2.2rem;
+ font-weight: 700;
+ color: var(--text-main);
+ margin-top: 8px;
+ }
+
+ .chapter-text-body {
+ font-family: 'Lora', serif;
+ font-size: var(--font-reader-size);
+ line-height: 1.85;
+ color: var(--text-main);
+ }
+
+ /* Sangría de primera línea 0.75em */
+ .chapter-text-body p {
+ text-indent: 0.75em;
+ margin-bottom: 1.3em;
+ }
+
+ .chapter-nav-bottom {
+ margin-top: 50px;
+ padding-top: 25px;
+ border-top: 1px solid var(--gold-border);
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex-wrap: wrap;
+ gap: 15px;
+ }
+
+ .btn-nav-ch {
+ padding: 10px 20px;
+ background: var(--bg-secondary);
+ border: 1px solid var(--gold-border);
+ color: var(--text-main);
+ border-radius: 20px;
+ font-weight: 700;
+ font-size: 0.9rem;
+ cursor: pointer;
+ transition: all 0.25s ease;
+ }
+
+ .btn-nav-ch:hover {
+ border-color: var(--gold-primary);
+ color: var(--gold-dark);
+ transform: translateY(-2px);
+ }
+
+ .btn-gold-fill {
+ background: var(--gold-primary);
+ color: #FFFFFF;
+ border-color: var(--gold-primary);
+ }
+
+ .btn-gold-fill:hover {
+ background: var(--gold-dark);
+ color: #FFFFFF;
+ }
+
+ /* Personajes Grid */
+ .personajes-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+ gap: 25px;
+ }
+
+ .card-personaje {
+ background: var(--bg-card);
+ border: 1.5px solid var(--gold-border);
+ border-radius: var(--radius-md);
+ padding: 30px 25px;
+ box-shadow: var(--card-shadow);
+ transition: all 0.3s ease;
+ position: relative;
+ overflow: hidden;
+ }
+
+ .card-personaje:hover {
+ transform: translateY(-5px);
+ border-color: var(--gold-primary);
+ box-shadow: 0 15px 30px var(--gold-shadow);
+ }
+
+ .avatar-emblem {
+ width: 65px;
+ height: 65px;
+ border-radius: 50%;
+ background: var(--bg-secondary);
+ border: 2px solid var(--gold-primary);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 1.8rem;
+ color: var(--gold-primary);
+ margin-bottom: 20px;
+ }
+
+ .personaje-nombre {
+ font-family: 'Cinzel', serif;
+ font-size: 1.4rem;
+ font-weight: 700;
+ color: var(--text-main);
+ margin-bottom: 6px;
+ }
+
+ .personaje-rol {
+ font-size: 0.85rem;
+ font-weight: 700;
+ color: var(--gold-dark);
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ margin-bottom: 15px;
+ }
+
+ .personaje-desc {
+ font-size: 0.95rem;
+ line-height: 1.6;
+ color: var(--text-muted);
+ }
+
+ /* Actos Timeline */
+ .actos-container {
+ display: flex;
+ flex-direction: column;
+ gap: 30px;
+ }
+
+ .card-acto {
+ background: var(--bg-card);
+ border: 1.5px solid var(--gold-border);
+ border-radius: var(--radius-md);
+ padding: 35px;
+ box-shadow: var(--card-shadow);
+ position: relative;
+ }
+
+ .acto-badge {
+ display: inline-block;
+ background: var(--gold-primary);
+ color: #FFFFFF;
+ padding: 5px 15px;
+ border-radius: 15px;
+ font-size: 0.85rem;
+ font-weight: 700;
+ margin-bottom: 15px;
+ }
+
+ .acto-titulo {
+ font-family: 'Cinzel', serif;
+ font-size: 1.6rem;
+ font-weight: 700;
+ color: var(--text-main);
+ margin-bottom: 12px;
+ }
+
+ .acto-desc {
+ font-size: 1.02rem;
+ line-height: 1.7;
+ color: var(--text-muted);
+ }
+
+ /* Moraleja & Citas */
+ .citas-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 25px;
+ margin-top: 30px;
+ }
+
+ .quote-card {
+ background: var(--bg-card);
+ border: 1.5px dashed var(--gold-primary);
+ border-radius: var(--radius-md);
+ padding: 30px 25px;
+ box-shadow: var(--card-shadow);
+ cursor: pointer;
+ transition: all 0.3s ease;
+ position: relative;
+ }
+
+ .quote-card:hover {
+ background: var(--bg-secondary);
+ border-style: solid;
+ transform: translateY(-4px);
+ }
+
+ .quote-icon {
+ font-size: 2rem;
+ color: var(--gold-primary);
+ margin-bottom: 10px;
+ }
+
+ .quote-text {
+ font-family: 'Lora', serif;
+ font-style: italic;
+ font-size: 1.1rem;
+ color: var(--text-main);
+ line-height: 1.6;
+ margin-bottom: 15px;
+ }
+
+ .quote-author {
+ font-size: 0.85rem;
+ font-weight: 700;
+ color: var(--gold-dark);
+ text-align: right;
+ }
+
+ .copy-hint {
+ position: absolute;
+ bottom: 10px;
+ left: 20px;
+ font-size: 0.75rem;
+ color: var(--gold-dark);
+ opacity: 0.7;
+ }
+
+ /* Toast Alert */
+ .toast-notification {
+ position: fixed;
+ bottom: 30px;
+ right: 30px;
+ background: var(--gold-primary);
+ color: #FFFFFF;
+ padding: 12px 25px;
+ border-radius: 25px;
+ font-weight: 700;
+ box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+ display: none;
+ z-index: 2000;
+ animation: fadeIn 0.3s ease-out forwards;
+ }
+
+ /* Footer */
+ .app-footer {
+ width: 100%;
+ padding: 30px 20px;
+ text-align: center;
+ border-top: 1px solid var(--gold-border);
+ background: var(--bg-card);
+ color: var(--text-muted);
+ font-size: 0.9rem;
+ margin-top: 60px;
+ }
+
+ .footer-gold-text {
+ color: var(--gold-primary);
+ font-weight: 700;
+ }
+
+ /* Animations */
+ @keyframes fadeIn {
+ from {
+ opacity: 0;
+ transform: translateY(18px);
+ }
+ to {
+ opacity: 1;
+ transform: translateY(0);
+ }
+ }
+
+ @keyframes fadeOut {
+ from {
+ opacity: 1;
+ transform: translateY(0);
+ }
+ to {
+ opacity: 0;
+ transform: translateY(18px);
+ }
+ }
+ </style>
 
 <style>
-  .btn-back-to-hub-floating {
-    position: fixed;
-    top: 14px;
-    left: 14px;
-    z-index: 999999;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 7px 15px;
-    background: rgba(15, 20, 30, 0.92);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 20px;
-    color: #F8FAFC !important;
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    text-decoration: none !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transition: all 0.25s ease;
-  }
-  .btn-back-to-hub-floating:hover {
-    background: #38BDF8;
-    color: #000000 !important;
-    border-color: #38BDF8;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
-  }
-  @media (max-width: 600px) {
-    .btn-back-to-hub-floating {
-      top: 10px;
-      left: 10px;
-      padding: 5px 12px;
-      font-size: 11px;
-    }
-  }
+ .btn-back-to-hub-floating {
+ position: fixed;
+ top: 14px;
+ left: 14px;
+ z-index: 999999;
+ display: inline-flex;
+ align-items: center;
+ gap: 6px;
+ padding: 7px 15px;
+ background: rgba(15, 20, 30, 0.92);
+ border: 1px solid rgba(255, 255, 255, 0.25);
+ border-radius: 20px;
+ color: #F8FAFC !important;
+ font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+ font-size: 12px;
+ font-weight: 700;
+ text-decoration: none !important;
+ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+ backdrop-filter: blur(12px);
+ -webkit-backdrop-filter: blur(12px);
+ transition: all 0.25s ease;
+ }
+ .btn-back-to-hub-floating:hover {
+ background: #38BDF8;
+ color: #000000 !important;
+ border-color: #38BDF8;
+ transform: translateY(-2px);
+ box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+ }
+ @media (max-width: 600px) {
+ .btn-back-to-hub-floating {
+ top: 10px;
+ left: 10px;
+ padding: 5px 12px;
+ font-size: 11px;
+ }
+ }
 </style>
 
 </head>
 <body>
-<a href="../index.html" class="btn-back-to-hub-floating">🌌 Volver a Historias</a>
+<a href="../index.html" class="btn-back-to-hub-floating"> Volver a Historias</a>
 
-    <!-- Reading Progress Bar -->
-    <div class="progress-bar-container">
-        <div class="progress-bar-fill" id="progressBar"></div>
-    </div>
+ <!-- Reading Progress Bar -->
+ <div class="progress-bar-container">
+ <div class="progress-bar-fill" id="progressBar"></div>
+ </div>
 
-    <!-- Header Navigation -->
-    <header class="app-header">
-        <div class="brand-title" onclick="regresarAlMenu()">
-            🛡️ <span>Ruk</span> el Héroe
-        </div>
-        <div class="header-actions">
-            <button class="btn-header-home" onclick="regresarAlMenu()">
-                🏠 Volver al inicio
-            </button>
-        </div>
-    
+ <!-- Header Navigation -->
+ <header class="app-header">
+ <div class="brand-title" onclick="regresarAlMenu()">
+ <span>Ruk</span> el Héroe
+ </div>
+ <div class="header-actions">
+ <button class="btn-header-home" onclick="regresarAlMenu()">
+ Volver al inicio
+ </button>
+ </div>
+ 
 </header>
 
-    <!-- Main Wrapper -->
-    <div class="page-wrapper">
+ <!-- Main Wrapper -->
+ <div class="page-wrapper">
 
-        <!-- MENÚ PRINCIPAL / HUB (VISTA 1) -->
-        <main class="main-container" id="menu-principal">
-            <div class="hero-banner">
-                <div class="hero-emblem">⚔️</div>
+ <!-- MENÚ PRINCIPAL / HUB (VISTA 1) -->
+ <main class="main-container" id="menu-principal">
+ <div class="hero-banner">
+ <div class="hero-emblem"></div>
 
-    <div class="story-cover-hero" style="text-align: center; margin: 1.25rem 0;">
-      <img src="https://i.ibb.co/jvP88cKJ/Portada-en-Creaci-n.png" alt="Portada de Ruk el Héroe" style="max-width: 240px; width: 65%; height: auto; border-radius: 12px; border: 2px solid rgba(212,175,55,0.4); box-shadow: 0 8px 25px rgba(0,0,0,0.5); display: inline-block;">
-    </div>
+ <div class="story-cover-hero" style="text-align: center; margin: 1.25rem 0;">
+ <img src="https://i.ibb.co/jvP88cKJ/Portada-en-Creaci-n.png" alt="Portada de Ruk el Héroe" style="max-width: 240px; width: 65%; height: auto; border-radius: 12px; border: 2px solid rgba(212,175,55,0.4); box-shadow: 0 8px 25px rgba(0,0,0,0.5); display: inline-block;">
+ </div>
 
-    
-                <h1 class="hero-title">Ruk el Héroe</h1>
-                <p class="hero-subtitle">«Una historia de valentía, amistad y la forja de un destino en tiempos de guerra»</p>
-                <p class="hero-desc">
-                    A los doce años, mientras jugaban a combates imaginarios bajo la sombra de los árboles, Ruk y sus amigos descubrieron que la guerra se aproximaba. Esta es la crónica de su viaje, la resistencia de las tribus y la unión de los valientes frente a la adversidad.
-                </p>
-                <div class="hero-badges">
-                    <span class="badge-item">✨ Edición Completa</span>
-                    <span class="badge-item">📖 9 Capítulos Editados</span>
-                    <span class="badge-item">👑 Estética Blanco & Dorado</span>
-                </div>
-            </div>
+ 
+ <h1 class="hero-title">Ruk el Héroe</h1>
+ <p class="hero-subtitle">«Una historia de valentía, amistad y la forja de un destino en tiempos de guerra»</p>
+ <p class="hero-desc">
+ A los doce años, mientras jugaban a combates imaginarios bajo la sombra de los árboles, Ruk y sus amigos descubrieron que la guerra se aproximaba. Esta es la crónica de su viaje, la resistencia de las tribus y la unión de los valientes frente a la adversidad.
+ </p>
+ <div class="hero-badges">
+ <span class="badge-item"> Edición Completa</span>
+ <span class="badge-item"> 9 Capítulos Editados</span>
+ <span class="badge-item"> Estética Blanco & Dorado</span>
+ </div>
+ </div>
 
-            <!-- Portal Options Grid -->
-            <div class="hub-grid">
-                <div class="btn-hub-card" onclick="mostrarSeccion('seccion-lectura', 'lectura')">
-                    <div class="hub-icon">📖</div>
-                    <h3 class="hub-card-title">Lectura de Capítulos</h3>
-                    <p class="hub-card-desc">Explora la saga completa desde el Capítulo 1 hasta el 9 con controles de lectura personalizados.</p>
-                </div>
+ <!-- Portal Options Grid -->
+ <div class="hub-grid">
+ <div class="btn-hub-card" onclick="mostrarSeccion('seccion-lectura', 'lectura')">
+ <div class="hub-icon"></div>
+ <h3 class="hub-card-title">Lectura de Capítulos</h3>
+ <p class="hub-card-desc">Explora la saga completa desde el Capítulo 1 hasta el 9 con controles de lectura personalizados.</p>
+ </div>
 
-                <div class="btn-hub-card" onclick="mostrarSeccion('seccion-personajes', 'personajes')">
-                    <div class="hub-icon">🛡️</div>
-                    <h3 class="hub-card-title">Fichas de Personajes</h3>
-                    <p class="hub-card-desc">Conoce a Ruk, Kairo, Riav, Ruval, Muvar, Orwin y los valientes defensores.</p>
-                </div>
+ <div class="btn-hub-card" onclick="mostrarSeccion('seccion-personajes', 'personajes')">
+ <div class="hub-icon"></div>
+ <h3 class="hub-card-title">Fichas de Personajes</h3>
+ <p class="hub-card-desc">Conoce a Ruk, Kairo, Riav, Ruval, Muvar, Orwin y los valientes defensores.</p>
+ </div>
 
-                <div class="btn-hub-card" onclick="mostrarSeccion('seccion-actos', 'actos')">
-                    <div class="hub-icon">🏛️</div>
-                    <h3 class="hub-card-title">Estructura en Actos</h3>
-                    <p class="hub-card-desc">Recorre la cronología escénica del ascenso de los héroes y las batallas decisivas.</p>
-                </div>
+ <div class="btn-hub-card" onclick="mostrarSeccion('seccion-actos', 'actos')">
+ <div class="hub-icon"></div>
+ <h3 class="hub-card-title">Estructura en Actos</h3>
+ <p class="hub-card-desc">Recorre la cronología escénica del ascenso de los héroes y las batallas decisivas.</p>
+ </div>
 
-                <div class="btn-hub-card" onclick="mostrarSeccion('seccion-moraleja', 'citas')">
-                    <div class="hub-icon">📜</div>
-                    <h3 class="hub-card-title">Citas y Reflexiones</h3>
-                    <p class="hub-card-desc">Descubre las frases célebres de la historia y copia tus favoritas con un solo clic.</p>
-                </div>
-            </div>
-        </main>
+ <div class="btn-hub-card" onclick="mostrarSeccion('seccion-moraleja', 'citas')">
+ <div class="hub-icon"></div>
+ <h3 class="hub-card-title">Citas y Reflexiones</h3>
+ <p class="hub-card-desc">Descubre las frases célebres de la historia y copia tus favoritas con un solo clic.</p>
+ </div>
+ </div>
+ </main>
 
-        <!-- VISTA SECUNDARIA 1: LECTURA DE CAPÍTULOS -->
-        <section class="seccion-oculta" id="seccion-lectura">
-            <div class="section-nav-bar">
-                <button class="btn-back-main" onclick="ocultarSeccion('seccion-lectura')">
-                    ← Volver al inicio
-                </button>
-                <h2 class="section-header-title">📖 Saga Completa</h2>
-            </div>
+ <!-- VISTA SECUNDARIA 1: LECTURA DE CAPÍTULOS -->
+ <section class="seccion-oculta" id="seccion-lectura">
+ <div class="section-nav-bar">
+ <button class="btn-back-main" onclick="ocultarSeccion('seccion-lectura')">
+ ← Volver al inicio
+ </button>
+ <h2 class="section-header-title"> Saga Completa</h2>
+ </div>
 
-            <!-- Controls Bar -->
-            <div class="reader-controls-bar">
-                <div class="control-group">
-                    <span class="control-label">Tamaño de letra:</span>
-                    <button class="btn-control-tool" onclick="adjustFontSize(-0.1)">A-</button>
-                    <button class="btn-control-tool" onclick="resetFontSize()">A</button>
-                    <button class="btn-control-tool" onclick="adjustFontSize(0.1)">A+</button>
-                </div>
-                <div class="control-group">
-                    <span class="control-label">Tema Visual:</span>
-                    <select class="theme-select" id="themeSelect" onchange="changeTheme(this.value)">
-                        <option value="default">👑 Blanco Imperial & Dorado</option>
-                        <option value="sepia">📜 Pergamino Sepia</option>
-                        <option value="dark">🌙 Obsidiana Dorada</option>
-                    </select>
-                </div>
-                <div class="control-group">
-                    <span class="control-label" id="readingStats">📊 0% leído (~0 min)</span>
-                </div>
-            </div>
+ <!-- Controls Bar -->
+ <div class="reader-controls-bar">
+ <div class="control-group">
+ <span class="control-label">Tamaño de letra:</span>
+ <button class="btn-control-tool" onclick="adjustFontSize(-0.1)">A-</button>
+ <button class="btn-control-tool" onclick="resetFontSize()">A</button>
+ <button class="btn-control-tool" onclick="adjustFontSize(0.1)">A+</button>
+ </div>
+ <div class="control-group">
+ <span class="control-label">Tema Visual:</span>
+ <select class="theme-select" id="themeSelect" onchange="changeTheme(this.value)">
+ <option value="default"> Blanco Imperial & Dorado</option>
+ <option value="sepia"> Pergamino Sepia</option>
+ <option value="dark"> Obsidiana Dorada</option>
+ </select>
+ </div>
+ <div class="control-group">
+ <span class="control-label" id="readingStats"> 0% leído (~0 min)</span>
+ </div>
+ </div>
 
-            <!-- Reader Layout -->
-            <div class="reader-layout">
-                <!-- Sidebar -->
-                <aside class="chapter-sidebar">
-                    <h3 class="sidebar-title">Índice de Capítulos</h3>
-                    <ul class="chapter-list-menu">
-                        <li><button class="btn-ch-item active" id="menu-ch-1" onclick="switchChapter(1)">01. El peso de la partida</button></li>
-                        <li><button class="btn-ch-item" id="menu-ch-2" onclick="switchChapter(2)">02. Refugio y promesa</button></li>
-                        <li><button class="btn-ch-item" id="menu-ch-3" onclick="switchChapter(3)">03. El frente de Ende</button></li>
-                        <li><button class="btn-ch-item" id="menu-ch-4" onclick="switchChapter(4)">04. Manantial de sanación</button></li>
-                        <li><button class="btn-ch-item" id="menu-ch-5" onclick="switchChapter(5)">05. La marea enemiga</button></li>
-                        <li><button class="btn-ch-item" id="menu-ch-6" onclick="switchChapter(6)">06. Rutas de suministros</button></li>
-                        <li><button class="btn-ch-item" id="menu-ch-7" onclick="switchChapter(7)">07. Forjando guerreros</button></li>
-                        <li><button class="btn-ch-item" id="menu-ch-8" onclick="switchChapter(8)">08. La unión de las tribus</button></li>
-                        <li><button class="btn-ch-item" id="menu-ch-9" onclick="switchChapter(9)">09. Héroes de Davir</button></li>
-                    </ul>
-                </aside>
+ <!-- Reader Layout -->
+ <div class="reader-layout">
+ <!-- Sidebar -->
+ <aside class="chapter-sidebar">
+ <h3 class="sidebar-title">Índice de Capítulos</h3>
+ <ul class="chapter-list-menu">
+ <li><button class="btn-ch-item active" id="menu-ch-1" onclick="switchChapter(1)">01. El peso de la partida</button></li>
+ <li><button class="btn-ch-item" id="menu-ch-2" onclick="switchChapter(2)">02. Refugio y promesa</button></li>
+ <li><button class="btn-ch-item" id="menu-ch-3" onclick="switchChapter(3)">03. El frente de Ende</button></li>
+ <li><button class="btn-ch-item" id="menu-ch-4" onclick="switchChapter(4)">04. Manantial de sanación</button></li>
+ <li><button class="btn-ch-item" id="menu-ch-5" onclick="switchChapter(5)">05. La marea enemiga</button></li>
+ <li><button class="btn-ch-item" id="menu-ch-6" onclick="switchChapter(6)">06. Rutas de suministros</button></li>
+ <li><button class="btn-ch-item" id="menu-ch-7" onclick="switchChapter(7)">07. Forjando guerreros</button></li>
+ <li><button class="btn-ch-item" id="menu-ch-8" onclick="switchChapter(8)">08. La unión de las tribus</button></li>
+ <li><button class="btn-ch-item" id="menu-ch-9" onclick="switchChapter(9)">09. Héroes de Davir</button></li>
+ </ul>
+ </aside>
 
-                <!-- Main Chapters Container -->
-                <div class="chapter-container-main">
-                    
-        <article class="chapter-content active-chapter" id="capitulo-1" data-chapter="1">
-            <div class="chapter-header">
-                <span class="chapter-badge">✦ CAPÍTULO 01 ✦</span>
-                <h2 class="chapter-title">Capítulo 1: El peso de la partida</h2>
-            </div>
-            <div class="chapter-text-body">
-                <p>Ruk se divertía con sus amigos, enfrascados en combates imaginarios con espadas de madera y risas desbordantes, ignorando por completo que, a unos días de camino, una guerra comenzaba a gestarse en las sombras.</p>
+ <!-- Main Chapters Container -->
+ <div class="chapter-container-main">
+ 
+ <article class="chapter-content active-chapter" id="capitulo-1" data-chapter="1">
+ <div class="chapter-header">
+ <span class="chapter-badge"> CAPÍTULO 01 </span>
+ <h2 class="chapter-title">Capítulo 1: El peso de la partida</h2>
+ </div>
+ <div class="chapter-text-body">
+ <p>Ruk se divertía con sus amigos, enfrascados en combates imaginarios con espadas de madera y risas desbordantes, ignorando por completo que, a unos días de camino, una guerra comenzaba a gestarse en las sombras.</p>
 <p>Sentados bajo la sombra protectora de un gran árbol, admiraban el cielo, trazando formas en las nubes errantes.</p>
 <p>—¿Y qué haremos ahora? —preguntó Ruval y dejó escapar un suspiro de aburrimiento.</p>
 <p>—No sé —respondió Ruk a su derecha, con la mirada perdida en el horizonte.</p>
@@ -1225,23 +1225,23 @@
 <p>—¿Tú extrañas a tu papá? —murmuró él, con la voz rota por un sollozo.</p>
 <p>—Sí... con toda mi alma —confesó ella, y una lágrima solitaria rodó por su mejilla—. ¿Quieres un abrazo?</p>
 <p>Él asintió levemente. Riav extendió los brazos y lo envolvió en un abrazo cálido y apretado. Allí, aferrado a su amiga, con el peso de la soledad y la guerra acechándolos desde la distancia, Ruk sintió que algo cambiaba dentro de él. El miedo de perder a su padre dejó paso a una resolución inquebrantable. Mientras las aguas del río corrían tranquilas frente a ellos, él tomó una decisión silenciosa pero definitiva: continuaría entrenando hasta que sus brazos no dieran más, perfeccionaría su espada y, cuando llegara el momento adecuado, marcharía a la guerra. No solo para encontrar a su padre, sino para proteger a todos aquellos que acababa de abrazar. El peso de la partida de Kairo ya no era un ancla que lo hundía, sino el motor que forjaría al guerrero en el que debía convertirse.</p>
-            </div>
-            <div class="chapter-nav-bottom">
-                <span></span>
-                <button class="btn-nav-ch btn-gold-fill" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Volver Arriba</button>
-                <button class='btn-nav-ch' onclick='switchChapter(2)'>Capítulo Siguiente →</button>
-            </div>
-        </article>
+ </div>
+ <div class="chapter-nav-bottom">
+ <span></span>
+ <button class="btn-nav-ch btn-gold-fill" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Volver Arriba</button>
+ <button class='btn-nav-ch' onclick='switchChapter(2)'>Capítulo Siguiente →</button>
+ </div>
+ </article>
 
 
 
-        <article class="chapter-content " id="capitulo-2" data-chapter="2">
-            <div class="chapter-header">
-                <span class="chapter-badge">✦ CAPÍTULO 02 ✦</span>
-                <h2 class="chapter-title">Capítulo 2: Refugio y promesa</h2>
-            </div>
-            <div class="chapter-text-body">
-                <p>Meses después, una multitud maltrecha arribó a las afueras del pueblo. Eran decenas de personas con las ropas rasgadas, los rostros manchados de hollín y las miradas perdidas en la desesperanza. Algunos cargaban a sus heridos, otros arrastraban los pies, agotados por el escape.</p>
+ <article class="chapter-content " id="capitulo-2" data-chapter="2">
+ <div class="chapter-header">
+ <span class="chapter-badge"> CAPÍTULO 02 </span>
+ <h2 class="chapter-title">Capítulo 2: Refugio y promesa</h2>
+ </div>
+ <div class="chapter-text-body">
+ <p>Meses después, una multitud maltrecha arribó a las afueras del pueblo. Eran decenas de personas con las ropas rasgadas, los rostros manchados de hollín y las miradas perdidas en la desesperanza. Algunos cargaban a sus heridos, otros arrastraban los pies, agotados por el escape.</p>
 <p>El señor Tehm, líder del pueblo, salió a recibirlos con prisa al notar la gravedad de la situación.</p>
 <p>—Señor, mi nombre es Dael, soy de un pueblo cercano —dijo un hombre de rostro cansado y se acercó con pasos temblorosos—. Atacaron nuestro hogar. Solo nosotros logramos sobrevivir, y ahora no tenemos adónde ir. Necesitamos su ayuda.</p>
 <p>Su voz se quebró al final, evidenciando el peso de la tragedia.</p>
@@ -1582,23 +1582,23 @@
 <p>—Tenemos que ir a buscar a Ruk —declaró Riav. Su mirada se endureció; la tristeza dio paso a una determinación de acero.</p>
 <p>—Bien —asintió Ivia, comprendiendo que no había otro camino—. Ayúdame a guardar estas cosas y pongámonos en marcha.</p>
 <p>Rápido y en silencio, Ivia y Riav recogieron el escaso campamento, cargaron los pesados bolsos a sus espaldas y, dejando atrás las cenizas de su pasado, comenzaron su arduo y frío viaje hacia la ciudad de Ende.</p>
-            </div>
-            <div class="chapter-nav-bottom">
-                <button class='btn-nav-ch' onclick='switchChapter(1)'>← Capítulo Anterior</button>
-                <button class="btn-nav-ch btn-gold-fill" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Volver Arriba</button>
-                <button class='btn-nav-ch' onclick='switchChapter(3)'>Capítulo Siguiente →</button>
-            </div>
-        </article>
+ </div>
+ <div class="chapter-nav-bottom">
+ <button class='btn-nav-ch' onclick='switchChapter(1)'>← Capítulo Anterior</button>
+ <button class="btn-nav-ch btn-gold-fill" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Volver Arriba</button>
+ <button class='btn-nav-ch' onclick='switchChapter(3)'>Capítulo Siguiente →</button>
+ </div>
+ </article>
 
 
 
-        <article class="chapter-content " id="capitulo-3" data-chapter="3">
-            <div class="chapter-header">
-                <span class="chapter-badge">✦ CAPÍTULO 03 ✦</span>
-                <h2 class="chapter-title">Capítulo 3: El frente de Ende</h2>
-            </div>
-            <div class="chapter-text-body">
-                <p>Tres meses después.</p>
+ <article class="chapter-content " id="capitulo-3" data-chapter="3">
+ <div class="chapter-header">
+ <span class="chapter-badge"> CAPÍTULO 03 </span>
+ <h2 class="chapter-title">Capítulo 3: El frente de Ende</h2>
+ </div>
+ <div class="chapter-text-body">
+ <p>Tres meses después.</p>
 <p>El alba despuntaba en el horizonte cuando los jóvenes se prepararon para marchar a la guerra. En las puertas del pueblo de Davir, la brisa helada arrastraba consigo el eco de las despedidas. Las madres abrazaban a sus hijos con los ojos enrojecidos. Ivia rodeó a Ruk con un abrazo que parecía querer protegerlo del mundo entero, mientras el abuelo, más reservado, le ofreció un tosco y firme apretón de manos.</p>
 <p>—Niño, espero haberte entrenado bien. Que te vaya bien —declaró el abuelo, con la voz áspera pero cargada de orgullo.</p>
 <p>—Gracias... Sus lecciones fueron de gran ayuda —afirmó Ruk mientras clavaba su mirada reflexiva en el viejo guerrero.</p>
@@ -2088,23 +2088,23 @@
 <p>Empujó a Muvar hacia los callejones que conectaban con el espeso bosque trasero. El Teniente desenvainó su sable y, con un grito de guerra espeluznante, saltó la barricada, enfrentándose él solo a una docena de incursores para comprarle los valiosos segundos de su escape.</p>
 <p>Muvar corrió por su vida, internándose en la fría neblina del bosque. Antes de que los árboles ocultaran su visión, miró atrás una última vez y vio caer a su comandante, abatido por una tormenta de espadas.</p>
 <p>Temblando de frío, horror y desesperanza, el escriba abrazó contra su pecho el pergamino ensangrentado. Ahora, su única y desesperada misión era llegar vivo a la capital para advertir al Rey.</p>
-            </div>
-            <div class="chapter-nav-bottom">
-                <button class='btn-nav-ch' onclick='switchChapter(2)'>← Capítulo Anterior</button>
-                <button class="btn-nav-ch btn-gold-fill" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Volver Arriba</button>
-                <button class='btn-nav-ch' onclick='switchChapter(4)'>Capítulo Siguiente →</button>
-            </div>
-        </article>
+ </div>
+ <div class="chapter-nav-bottom">
+ <button class='btn-nav-ch' onclick='switchChapter(2)'>← Capítulo Anterior</button>
+ <button class="btn-nav-ch btn-gold-fill" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Volver Arriba</button>
+ <button class='btn-nav-ch' onclick='switchChapter(4)'>Capítulo Siguiente →</button>
+ </div>
+ </article>
 
 
 
-        <article class="chapter-content " id="capitulo-4" data-chapter="4">
-            <div class="chapter-header">
-                <span class="chapter-badge">✦ CAPÍTULO 04 ✦</span>
-                <h2 class="chapter-title">Capítulo 4: Manantial de sanación</h2>
-            </div>
-            <div class="chapter-text-body">
-                <p>Semanas después, Ruk abrió los ojos con pesadez. La luz se filtraba en la habitación del hospital, desorientándolo. Sintió un tirón doloroso al intentar moverse; una gruesa venda cubría su abdomen. A su lado, la médica del pueblo lo observaba con una expresión de alivio.</p>
+ <article class="chapter-content " id="capitulo-4" data-chapter="4">
+ <div class="chapter-header">
+ <span class="chapter-badge"> CAPÍTULO 04 </span>
+ <h2 class="chapter-title">Capítulo 4: Manantial de sanación</h2>
+ </div>
+ <div class="chapter-text-body">
+ <p>Semanas después, Ruk abrió los ojos con pesadez. La luz se filtraba en la habitación del hospital, desorientándolo. Sintió un tirón doloroso al intentar moverse; una gruesa venda cubría su abdomen. A su lado, la médica del pueblo lo observaba con una expresión de alivio.</p>
 <p>—Hola, Ruk... ya despertaste —dijo Weim y se acercó al borde de la cama.</p>
 <p>—¿Qué pasó? —preguntó él, con la voz ronca y el ceño fruncido por la confusión.</p>
 <p>—Estás muy débil, no te muevas —ordenó la médica, acomodando con suavidad las almohadas bajo la cabeza del joven.</p>
@@ -2468,23 +2468,23 @@
 <p>—Sí... lo es —mencionó Ruk, pensativo, viendo cómo Riav reía con un niño del pueblo.</p>
 <p>—Ustedes dos congenian muy bien, hacen un buen equipo —afirmó Kova, con un tono suave.</p>
 <p>—¿Eso crees? —preguntó Ruk, mirándola con cierta duda, mientras el eco de los preparativos de guerra resonaba a su alrededor.</p>
-            </div>
-            <div class="chapter-nav-bottom">
-                <button class='btn-nav-ch' onclick='switchChapter(3)'>← Capítulo Anterior</button>
-                <button class="btn-nav-ch btn-gold-fill" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Volver Arriba</button>
-                <button class='btn-nav-ch' onclick='switchChapter(5)'>Capítulo Siguiente →</button>
-            </div>
-        </article>
+ </div>
+ <div class="chapter-nav-bottom">
+ <button class='btn-nav-ch' onclick='switchChapter(3)'>← Capítulo Anterior</button>
+ <button class="btn-nav-ch btn-gold-fill" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Volver Arriba</button>
+ <button class='btn-nav-ch' onclick='switchChapter(5)'>Capítulo Siguiente →</button>
+ </div>
+ </article>
 
 
 
-        <article class="chapter-content " id="capitulo-5" data-chapter="5">
-            <div class="chapter-header">
-                <span class="chapter-badge">✦ CAPÍTULO 05 ✦</span>
-                <h2 class="chapter-title">Capítulo 5: La marea enemiga</h2>
-            </div>
-            <div class="chapter-text-body">
-                <p>Se produjo un silencio incómodo entre ellos.</p>
+ <article class="chapter-content " id="capitulo-5" data-chapter="5">
+ <div class="chapter-header">
+ <span class="chapter-badge"> CAPÍTULO 05 </span>
+ <h2 class="chapter-title">Capítulo 5: La marea enemiga</h2>
+ </div>
+ <div class="chapter-text-body">
+ <p>Se produjo un silencio incómodo entre ellos.</p>
 <p>—Discúlpame por no haberme despedido de ti, sé que hiciste muchas cosas por mí, y eso te lo agradezco —dijo Ruk con sinceridad mientras sentía el peso de sus palabras.</p>
 <p>—Nah, eso ya no importa —aseguró Kova, restándole importancia mientras se levantaba y se arreglaba la ropa con movimientos mecánicos—. Ahora acabaremos con esta guerra.</p>
 <p>Kova se retiró sin decir más. Ruk volvió a dirigir su mirada hacia Riav, quien percibió su atención y le devolvió un saludo alegre, con una sonrisa que iluminó levemente el tenso ambiente. Después de aquel encuentro, cerca de ciento veinte veridianos, guiados por Riav y Ruk, emprendieron su marcha hacia la ciudad de Valoria, en los dominios del Reino Demeti.</p>
@@ -2748,23 +2748,23 @@
 <p>—Coordinaremos los ataques en tres días —anunció el Rey, y se despidió antes de montar su caballo y retirarse.</p>
 <p>La alianza estaba sellada. La marea de la guerra estaba a punto de cambiar.</p>
 <p>(Fin del capítulo)</p>
-            </div>
-            <div class="chapter-nav-bottom">
-                <button class='btn-nav-ch' onclick='switchChapter(4)'>← Capítulo Anterior</button>
-                <button class="btn-nav-ch btn-gold-fill" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Volver Arriba</button>
-                <button class='btn-nav-ch' onclick='switchChapter(6)'>Capítulo Siguiente →</button>
-            </div>
-        </article>
+ </div>
+ <div class="chapter-nav-bottom">
+ <button class='btn-nav-ch' onclick='switchChapter(4)'>← Capítulo Anterior</button>
+ <button class="btn-nav-ch btn-gold-fill" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Volver Arriba</button>
+ <button class='btn-nav-ch' onclick='switchChapter(6)'>Capítulo Siguiente →</button>
+ </div>
+ </article>
 
 
 
-        <article class="chapter-content " id="capitulo-6" data-chapter="6">
-            <div class="chapter-header">
-                <span class="chapter-badge">✦ CAPÍTULO 06 ✦</span>
-                <h2 class="chapter-title">Capítulo 6: Rutas de suministros</h2>
-            </div>
-            <div class="chapter-text-body">
-                <p>—Qué extraño, ¿no? —mencionó Ruk mientras la abrazaba con amor.</p>
+ <article class="chapter-content " id="capitulo-6" data-chapter="6">
+ <div class="chapter-header">
+ <span class="chapter-badge"> CAPÍTULO 06 </span>
+ <h2 class="chapter-title">Capítulo 6: Rutas de suministros</h2>
+ </div>
+ <div class="chapter-text-body">
+ <p>—Qué extraño, ¿no? —mencionó Ruk mientras la abrazaba con amor.</p>
 <p>—Sí... Vamos —respondió ella, aferrándose a él.</p>
 <p>Ambos llegaron al centro del asentamiento. Un gran tumulto de soldados rodeaba el escenario principal. Ruk y Riav observaron desde la distancia mientras mantenían un perfil bajo entre la multitud expectante.</p>
 <p>—Atacaremos por la derecha hasta adentrarnos en la ciudad. Un grupo nos dará vía libre para continuar, y ese mismo grupo será el encargado de contener al enemigo. ¿Alguna pregunta? —indicó Kova, su voz cargada de autoridad resonando en el silencio atento de los presentes.</p>
@@ -3267,23 +3267,23 @@
 <p>—Ja... —Kova soltó una pequeña risa, esta vez cargada de desafío—. Supongo que la única forma civilizada de dirimir quién tiene a los mejores hombres es mediante un duelo.</p>
 <p>Kaelen'Naz la miró fijamente durante unos segundos, y luego asintió lentamente.</p>
 <p>—¿Desea un duelo? Lo tendrá. Elija a su campeón, y yo elegiré al mío.</p>
-            </div>
-            <div class="chapter-nav-bottom">
-                <button class='btn-nav-ch' onclick='switchChapter(5)'>← Capítulo Anterior</button>
-                <button class="btn-nav-ch btn-gold-fill" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Volver Arriba</button>
-                <button class='btn-nav-ch' onclick='switchChapter(7)'>Capítulo Siguiente →</button>
-            </div>
-        </article>
+ </div>
+ <div class="chapter-nav-bottom">
+ <button class='btn-nav-ch' onclick='switchChapter(5)'>← Capítulo Anterior</button>
+ <button class="btn-nav-ch btn-gold-fill" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Volver Arriba</button>
+ <button class='btn-nav-ch' onclick='switchChapter(7)'>Capítulo Siguiente →</button>
+ </div>
+ </article>
 
 
 
-        <article class="chapter-content " id="capitulo-7" data-chapter="7">
-            <div class="chapter-header">
-                <span class="chapter-badge">✦ CAPÍTULO 07 ✦</span>
-                <h2 class="chapter-title">Capítulo 7: Forjando guerreros</h2>
-            </div>
-            <div class="chapter-text-body">
-                <p>Años atrás, en el área de entrenamiento de la tribu Kada, el sonido del metal chocando resonaba con fuerza. Los jóvenes cadetes cruzaban sus espadas con movimientos rápidos y eficaces; esquivaban, atacaban y contraatacaban en un arduo esfuerzo bajo el sol abrasador. Al terminar, exhaustos, descansaban bajo la sombra de los árboles mientras compartían agua y comida.</p>
+ <article class="chapter-content " id="capitulo-7" data-chapter="7">
+ <div class="chapter-header">
+ <span class="chapter-badge"> CAPÍTULO 07 </span>
+ <h2 class="chapter-title">Capítulo 7: Forjando guerreros</h2>
+ </div>
+ <div class="chapter-text-body">
+ <p>Años atrás, en el área de entrenamiento de la tribu Kada, el sonido del metal chocando resonaba con fuerza. Los jóvenes cadetes cruzaban sus espadas con movimientos rápidos y eficaces; esquivaban, atacaban y contraatacaban en un arduo esfuerzo bajo el sol abrasador. Al terminar, exhaustos, descansaban bajo la sombra de los árboles mientras compartían agua y comida.</p>
 <p>—Pronto se escogerá al líder de los cadetes, y después podremos aspirar a ser el Gran Jefe de los soldados —anunció uno de los chicos, con los ojos brillando de anhelo.</p>
 <p>—Es sencillo saber quién será. Zadek'zim y Sadar'ak son los más fuertes entre todos nosotros —explicó otro cadete de cabello rubio mientras se encogía de hombros.</p>
 <p>—Lástima que no podré ser yo... —murmuró un cadete más joven, cabizbajo.</p>
@@ -3662,23 +3662,23 @@
 <p>El capitán tragó saliva y la incredulidad desapareció por completo de su rostro. Asintió con respeto.</p>
 <p>—Prepárense. Mañana al amanecer se unen a la vanguardia de tiro hacia el norte.</p>
 <p>Zenna, Liora y Ariad compartieron una mirada de complicidad y firmeza. El escuadrón que más tarde resultaría decisivo en la gran batalla acababa de ganar su lugar en el frente.</p>
-            </div>
-            <div class="chapter-nav-bottom">
-                <button class='btn-nav-ch' onclick='switchChapter(6)'>← Capítulo Anterior</button>
-                <button class="btn-nav-ch btn-gold-fill" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Volver Arriba</button>
-                <button class='btn-nav-ch' onclick='switchChapter(8)'>Capítulo Siguiente →</button>
-            </div>
-        </article>
+ </div>
+ <div class="chapter-nav-bottom">
+ <button class='btn-nav-ch' onclick='switchChapter(6)'>← Capítulo Anterior</button>
+ <button class="btn-nav-ch btn-gold-fill" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Volver Arriba</button>
+ <button class='btn-nav-ch' onclick='switchChapter(8)'>Capítulo Siguiente →</button>
+ </div>
+ </article>
 
 
 
-        <article class="chapter-content " id="capitulo-8" data-chapter="8">
-            <div class="chapter-header">
-                <span class="chapter-badge">✦ CAPÍTULO 08 ✦</span>
-                <h2 class="chapter-title">Capítulo 8: La unión de las tribus</h2>
-            </div>
-            <div class="chapter-text-body">
-                <p># CapÃ­tulo 08: La uniÃ³n de las tribus</p>
+ <article class="chapter-content " id="capitulo-8" data-chapter="8">
+ <div class="chapter-header">
+ <span class="chapter-badge"> CAPÍTULO 08 </span>
+ <h2 class="chapter-title">Capítulo 8: La unión de las tribus</h2>
+ </div>
+ <div class="chapter-text-body">
+ <p># CapÃ­tulo 08: La uniÃ³n de las tribus</p>
 <p>âÂ¡Vaya!, su historia es genial. Â¿QuÃ© hacÃ­as en el bosque cuando lo salvaste? âmencionÃ³ Salvadus entre risas.</p>
 <p>âEstaba cazando âaclarÃ³ Kova mientras esbozaba una sonrisa.</p>
 <p>âÂ¿No eres alguien muy joven para salir sola a cazar? Especialmente en el Bosque GÃ©lido, un lugar donde hay bestias muy peligrosas...</p>
@@ -4078,23 +4078,23 @@
 <p>Korlan dudÃ³ un instante, pero apretÃ³ la mano de Ruk para levantarse.</p>
 <p>âTe enseÃ±arÃ© a combatir las tÃ¡cticas de Jezik... pero la estocada final me pertenece âsentenciÃ³ el antiguo enemigo.</p>
 <p>AsÃ­ se pactÃ³ una tensa pero necesaria alianza entre ambos en el Manantial Congelado, uniendo a viejos rivales en una causa comÃºn antes de la batalla definitiva.</p>
-            </div>
-            <div class="chapter-nav-bottom">
-                <button class='btn-nav-ch' onclick='switchChapter(7)'>← Capítulo Anterior</button>
-                <button class="btn-nav-ch btn-gold-fill" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Volver Arriba</button>
-                <button class='btn-nav-ch' onclick='switchChapter(9)'>Capítulo Siguiente →</button>
-            </div>
-        </article>
+ </div>
+ <div class="chapter-nav-bottom">
+ <button class='btn-nav-ch' onclick='switchChapter(7)'>← Capítulo Anterior</button>
+ <button class="btn-nav-ch btn-gold-fill" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Volver Arriba</button>
+ <button class='btn-nav-ch' onclick='switchChapter(9)'>Capítulo Siguiente →</button>
+ </div>
+ </article>
 
 
 
-        <article class="chapter-content " id="capitulo-9" data-chapter="9">
-            <div class="chapter-header">
-                <span class="chapter-badge">✦ CAPÍTULO 09 ✦</span>
-                <h2 class="chapter-title">Capítulo 9: Héroes de Davir</h2>
-            </div>
-            <div class="chapter-text-body">
-                <p>En los días que siguieron al turbulento reencuentro con Korlan, el campamento se asentó en una calma tensa y vigilante. El antiguo enemigo y Ruk entrenaron juntos en el Manantial Congelado, forjando una alianza que los demás (Riav, Kova, Muvar, Orwin) aceptaban con dificultad y recelo apenas disimulado. Kova, que había expresado su decepción con una daga en la mano, cumplió su palabra: convocó a los ancianos y anunció formalmente la retirada de las tropas veridianas del frente activo. La Espada del Salvador, recuperada esa misma noche de unos ladrones que habían intentado sustraerla, descansaba de nuevo bajo guardia reforzada en su santuario, pendiente de ser devuelta al rey tal como lo exigía el trato roto.</p>
+ <article class="chapter-content " id="capitulo-9" data-chapter="9">
+ <div class="chapter-header">
+ <span class="chapter-badge"> CAPÍTULO 09 </span>
+ <h2 class="chapter-title">Capítulo 9: Héroes de Davir</h2>
+ </div>
+ <div class="chapter-text-body">
+ <p>En los días que siguieron al turbulento reencuentro con Korlan, el campamento se asentó en una calma tensa y vigilante. El antiguo enemigo y Ruk entrenaron juntos en el Manantial Congelado, forjando una alianza que los demás (Riav, Kova, Muvar, Orwin) aceptaban con dificultad y recelo apenas disimulado. Kova, que había expresado su decepción con una daga en la mano, cumplió su palabra: convocó a los ancianos y anunció formalmente la retirada de las tropas veridianas del frente activo. La Espada del Salvador, recuperada esa misma noche de unos ladrones que habían intentado sustraerla, descansaba de nuevo bajo guardia reforzada en su santuario, pendiente de ser devuelta al rey tal como lo exigía el trato roto.</p>
 <p>Los días de aparente calma llegaron a su fin de manera abrupta. En el campamento Demeti, el General Jezik golpeó la mesa con exasperación.</p>
 <p>—¡Hemos perdido el tiempo, señores! —gritó Jezik a sus subordinados—. Ellos nos están quitando el protagonismo. Moveremos nuestras tropas al valle de Guizar.</p>
 <p>Poco después, los centinelas veridianos avistaron a las hordas demetianas acercándose. Setenta mil soldados marchaban hacia el valle. Las alarmas sonaron en el asentamiento. Salvadus, líder de los Jakiles, se preparó de inmediato. Las tropas aliadas, formadas por Veridianos, Jakiles y Kadanos, que sumaban a duras penas unos diez mil guerreros, se dispusieron en el monte, listos para la emboscada.</p>
@@ -4172,318 +4172,318 @@ Horas después, los amigos se reunieron en el asentamiento.</p>
 <p>—Sí, madre. Acabé con la guerra —respondió Ruk con una sonrisa de genuina paz.</p>
 <p>—¿En serio?</p>
 <p>—Sí... Ya no hay por qué temer.</p>
-            </div>
-            <div class="chapter-nav-bottom">
-                <button class='btn-nav-ch' onclick='switchChapter(8)'>← Capítulo Anterior</button>
-                <button class="btn-nav-ch btn-gold-fill" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Volver Arriba</button>
-                <span></span>
-            </div>
-        </article>
+ </div>
+ <div class="chapter-nav-bottom">
+ <button class='btn-nav-ch' onclick='switchChapter(8)'>← Capítulo Anterior</button>
+ <button class="btn-nav-ch btn-gold-fill" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Volver Arriba</button>
+ <span></span>
+ </div>
+ </article>
 
-                </div>
-            </div>
-        </section>
+ </div>
+ </div>
+ </section>
 
-        <!-- VISTA SECUNDARIA 2: FICHAS DE PERSONAJES -->
-        <section class="seccion-oculta" id="seccion-personajes">
-            <div class="section-nav-bar">
-                <button class="btn-back-main" onclick="ocultarSeccion('seccion-personajes')">
-                    ← Volver al inicio
-                </button>
-                <h2 class="section-header-title">🛡️ Galería de Héroes</h2>
-            </div>
+ <!-- VISTA SECUNDARIA 2: FICHAS DE PERSONAJES -->
+ <section class="seccion-oculta" id="seccion-personajes">
+ <div class="section-nav-bar">
+ <button class="btn-back-main" onclick="ocultarSeccion('seccion-personajes')">
+ ← Volver al inicio
+ </button>
+ <h2 class="section-header-title"> Galería de Héroes</h2>
+ </div>
 
-            <div class="personajes-grid">
-                <a href="personajes/ficha_ruk.html" target="_blank" style="text-decoration:none; color:inherit;">
-                    <div class="card-personaje">
-                        <div class="avatar-emblem">🗡️</div>
-                        <h3 class="personaje-nombre">Ruk</h3>
-                        <div class="personaje-rol">Protagonista / Joven Guerrero</div>
-                        <p class="personaje-desc">Muchacho de doce años de corazón noble y espíritu observador. Haz clic para abrir su ficha completa en pergamino.</p>
-                    </div>
-                </a>
+ <div class="personajes-grid">
+ <a href="personajes/ficha_ruk.html" target="_blank" style="text-decoration:none; color:inherit;">
+ <div class="card-personaje">
+ <div class="avatar-emblem"></div>
+ <h3 class="personaje-nombre">Ruk</h3>
+ <div class="personaje-rol">Protagonista / Joven Guerrero</div>
+ <p class="personaje-desc">Muchacho de doce años de corazón noble y espíritu observador. Haz clic para abrir su ficha completa en pergamino.</p>
+ </div>
+ </a>
 
-                <a href="personajes/ficha_kairo.html" target="_blank" style="text-decoration:none; color:inherit;">
-                    <div class="card-personaje">
-                        <div class="avatar-emblem">👑</div>
-                        <h3 class="personaje-nombre">Kairo</h3>
-                        <div class="personaje-rol">Padre de Ruk / Lider Defensor</div>
-                        <p class="personaje-desc">Hombre imponente cuya sola presencia inspira seguridad y serenidad. Haz clic para abrir su ficha completa en pergamino.</p>
-                    </div>
-                </a>
+ <a href="personajes/ficha_kairo.html" target="_blank" style="text-decoration:none; color:inherit;">
+ <div class="card-personaje">
+ <div class="avatar-emblem"></div>
+ <h3 class="personaje-nombre">Kairo</h3>
+ <div class="personaje-rol">Padre de Ruk / Lider Defensor</div>
+ <p class="personaje-desc">Hombre imponente cuya sola presencia inspira seguridad y serenidad. Haz clic para abrir su ficha completa en pergamino.</p>
+ </div>
+ </a>
 
-                <a href="personajes/ficha_riav.html" target="_blank" style="text-decoration:none; color:inherit;">
-                    <div class="card-personaje">
-                        <div class="avatar-emblem">🏹</div>
-                        <h3 class="personaje-nombre">Riav</h3>
-                        <div class="personaje-rol">Compañera Pelirroja / Arquera</div>
-                        <p class="personaje-desc">Joven decidida de temple inquebrantable. Haz clic para abrir su ficha completa en pergamino.</p>
-                    </div>
-                </a>
+ <a href="personajes/ficha_riav.html" target="_blank" style="text-decoration:none; color:inherit;">
+ <div class="card-personaje">
+ <div class="avatar-emblem"></div>
+ <h3 class="personaje-nombre">Riav</h3>
+ <div class="personaje-rol">Compañera Pelirroja / Arquera</div>
+ <p class="personaje-desc">Joven decidida de temple inquebrantable. Haz clic para abrir su ficha completa en pergamino.</p>
+ </div>
+ </a>
 
-                <a href="personajes/ficha_ruval.html" target="_blank" style="text-decoration:none; color:inherit;">
-                    <div class="card-personaje">
-                        <div class="avatar-emblem">⚡</div>
-                        <h3 class="personaje-nombre">Ruval</h3>
-                        <div class="personaje-rol">Amigo Impulsivo / Combatiente</div>
-                        <p class="personaje-desc">Lleno de energía y curiosidad sin límites. Haz clic para abrir su ficha completa en pergamino.</p>
-                    </div>
-                </a>
+ <a href="personajes/ficha_ruval.html" target="_blank" style="text-decoration:none; color:inherit;">
+ <div class="card-personaje">
+ <div class="avatar-emblem"></div>
+ <h3 class="personaje-nombre">Ruval</h3>
+ <div class="personaje-rol">Amigo Impulsivo / Combatiente</div>
+ <p class="personaje-desc">Lleno de energía y curiosidad sin límites. Haz clic para abrir su ficha completa en pergamino.</p>
+ </div>
+ </a>
 
-                <a href="personajes/ficha_muvar.html" target="_blank" style="text-decoration:none; color:inherit;">
-                    <div class="card-personaje">
-                        <div class="avatar-emblem">🌿</div>
-                        <h3 class="personaje-nombre">Muvar</h3>
-                        <div class="personaje-rol">Compañero Entusiasta</div>
-                        <p class="personaje-desc">Amigo leal que admira el paisaje del valle. Haz clic para abrir su ficha completa en pergamino.</p>
-                    </div>
-                </a>
+ <a href="personajes/ficha_muvar.html" target="_blank" style="text-decoration:none; color:inherit;">
+ <div class="card-personaje">
+ <div class="avatar-emblem"></div>
+ <h3 class="personaje-nombre">Muvar</h3>
+ <div class="personaje-rol">Compañero Entusiasta</div>
+ <p class="personaje-desc">Amigo leal que admira el paisaje del valle. Haz clic para abrir su ficha completa en pergamino.</p>
+ </div>
+ </a>
 
-                <a href="personajes/ficha_orwin.html" target="_blank" style="text-decoration:none; color:inherit;">
-                    <div class="card-personaje">
-                        <div class="avatar-emblem">🎯</div>
-                        <h3 class="personaje-nombre">Orwin</h3>
-                        <div class="personaje-rol">Niño Refugiado / Aliado</div>
-                        <p class="personaje-desc">Superviviente del pueblo destruido que crea 'Lanzaditas'. Haz clic para abrir su ficha completa en pergamino.</p>
-                    </div>
-                </a>
+ <a href="personajes/ficha_orwin.html" target="_blank" style="text-decoration:none; color:inherit;">
+ <div class="card-personaje">
+ <div class="avatar-emblem"></div>
+ <h3 class="personaje-nombre">Orwin</h3>
+ <div class="personaje-rol">Niño Refugiado / Aliado</div>
+ <p class="personaje-desc">Superviviente del pueblo destruido que crea 'Lanzaditas'. Haz clic para abrir su ficha completa en pergamino.</p>
+ </div>
+ </a>
 
-                <a href="personajes/ficha_tehm.html" target="_blank" style="text-decoration:none; color:inherit;">
-                    <div class="card-personaje">
-                        <div class="avatar-emblem">🏛️</div>
-                        <h3 class="personaje-nombre">Señor Tehm</h3>
-                        <div class="personaje-rol">Líder del Pueblo Hospedante</div>
-                        <p class="personaje-desc">Líder sensato y compasivo que acoge a los refugiados. Haz clic para abrir su ficha completa en pergamino.</p>
-                    </div>
-                </a>
-            </div>
-        </section>
+ <a href="personajes/ficha_tehm.html" target="_blank" style="text-decoration:none; color:inherit;">
+ <div class="card-personaje">
+ <div class="avatar-emblem"></div>
+ <h3 class="personaje-nombre">Señor Tehm</h3>
+ <div class="personaje-rol">Líder del Pueblo Hospedante</div>
+ <p class="personaje-desc">Líder sensato y compasivo que acoge a los refugiados. Haz clic para abrir su ficha completa en pergamino.</p>
+ </div>
+ </a>
+ </div>
+ </section>
 
-        <!-- VISTA SECUNDARIA 3: ESTRUCTURA EN ACTOS -->
-        <section class="seccion-oculta" id="seccion-actos">
-            <div class="section-nav-bar">
-                <button class="btn-back-main" onclick="ocultarSeccion('seccion-actos')">
-                    ← Volver al inicio
-                </button>
-                <h2 class="section-header-title">🏛️ Estructura de la Saga</h2>
-            </div>
+ <!-- VISTA SECUNDARIA 3: ESTRUCTURA EN ACTOS -->
+ <section class="seccion-oculta" id="seccion-actos">
+ <div class="section-nav-bar">
+ <button class="btn-back-main" onclick="ocultarSeccion('seccion-actos')">
+ ← Volver al inicio
+ </button>
+ <h2 class="section-header-title"> Estructura de la Saga</h2>
+ </div>
 
-            <div class="actos-container">
-                <div class="card-acto">
-                    <span class="acto-badge">ACTO I</span>
-                    <h3 class="acto-titulo">El Peso de la Partida y la Llegada de los Refugiados</h3>
-                    <p class="acto-desc">
-                        En los días de tranquilidad previa, Ruk y sus amigos disfrutan de juegos inocentes hasta que la sombra de la guerra contra el Reino Dementi irrumpe en la aldea. Los adultos se preparan para partir al frente, mientras sesenta y ocho refugiados al mando de Dael llegan buscando cobijo.
-                    </p>
-                </div>
+ <div class="actos-container">
+ <div class="card-acto">
+ <span class="acto-badge">ACTO I</span>
+ <h3 class="acto-titulo">El Peso de la Partida y la Llegada de los Refugiados</h3>
+ <p class="acto-desc">
+ En los días de tranquilidad previa, Ruk y sus amigos disfrutan de juegos inocentes hasta que la sombra de la guerra contra el Reino Dementi irrumpe en la aldea. Los adultos se preparan para partir al frente, mientras sesenta y ocho refugiados al mando de Dael llegan buscando cobijo.
+ </p>
+ </div>
 
-                <div class="card-acto">
-                    <span class="acto-badge">ACTO II</span>
-                    <h3 class="acto-titulo">Manantiales de Sanación y las Rutas de Suministros</h3>
-                    <p class="acto-desc">
-                        A medida que el conflicto se intensifica en el frente de Ende, la logística de suministros y el auxilio médico se vuelven vitales. Los jóvenes apoyan en la retaguardia, asegurando que los guerreros tengan víveres y refugio en momentos de angustia.
-                    </p>
-                </div>
+ <div class="card-acto">
+ <span class="acto-badge">ACTO II</span>
+ <h3 class="acto-titulo">Manantiales de Sanación y las Rutas de Suministros</h3>
+ <p class="acto-desc">
+ A medida que el conflicto se intensifica en el frente de Ende, la logística de suministros y el auxilio médico se vuelven vitales. Los jóvenes apoyan en la retaguardia, asegurando que los guerreros tengan víveres y refugio en momentos de angustia.
+ </p>
+ </div>
 
-                <div class="card-acto">
-                    <span class="acto-badge">ACTO III</span>
-                    <h3 class="acto-titulo">La Unión de las Tribus y los Héroes de Davir</h3>
-                    <p class="acto-desc">
-                        Frente a la marea enemiga, las tribus dispersas deben forjar guerreros y unir sus fuerzas en una sola causa. Ruk asume el peso de su legado, convirtiéndose en el símbolo de esperanza y valentía que unifica a los héroes de Davir.
-                    </p>
-                </div>
-            </div>
-        </section>
+ <div class="card-acto">
+ <span class="acto-badge">ACTO III</span>
+ <h3 class="acto-titulo">La Unión de las Tribus y los Héroes de Davir</h3>
+ <p class="acto-desc">
+ Frente a la marea enemiga, las tribus dispersas deben forjar guerreros y unir sus fuerzas en una sola causa. Ruk asume el peso de su legado, convirtiéndose en el símbolo de esperanza y valentía que unifica a los héroes de Davir.
+ </p>
+ </div>
+ </div>
+ </section>
 
-        <!-- VISTA SECUNDARIA 4: MORALEJA Y CITAS -->
-        <section class="seccion-oculta" id="seccion-moraleja">
-            <div class="section-nav-bar">
-                <button class="btn-back-main" onclick="ocultarSeccion('seccion-moraleja')">
-                    ← Volver al inicio
-                </button>
-                <h2 class="section-header-title">📜 Frases e Inspiración</h2>
-            </div>
+ <!-- VISTA SECUNDARIA 4: MORALEJA Y CITAS -->
+ <section class="seccion-oculta" id="seccion-moraleja">
+ <div class="section-nav-bar">
+ <button class="btn-back-main" onclick="ocultarSeccion('seccion-moraleja')">
+ ← Volver al inicio
+ </button>
+ <h2 class="section-header-title"> Frases e Inspiración</h2>
+ </div>
 
-            <p style="text-align: center; color: var(--text-muted); margin-bottom: 25px;">
-                💡 <em>Haz clic en cualquier recuadro de frase para copiarla instantáneamente al portapapeles.</em>
-            </p>
+ <p style="text-align: center; color: var(--text-muted); margin-bottom: 25px;">
+ <em>Haz clic en cualquier recuadro de frase para copiarla instantáneamente al portapapeles.</em>
+ </p>
 
-            <div class="citas-grid">
-                <div class="quote-card" onclick="copyQuote('Mira, Ruk. Son cosas que se deben hacer, es una responsabilidad defender al reino.')">
-                    <div class="quote-icon">“</div>
-                    <p class="quote-text">«Mira, Ruk. Son cosas que se deben hacer, es una responsabilidad defender al reino.»</p>
-                    <div class="quote-author">— Kairo</div>
-                    <div class="copy-hint">📋 Clic para copiar</div>
-                </div>
+ <div class="citas-grid">
+ <div class="quote-card" onclick="copyQuote('Mira, Ruk. Son cosas que se deben hacer, es una responsabilidad defender al reino.')">
+ <div class="quote-icon">“</div>
+ <p class="quote-text">«Mira, Ruk. Son cosas que se deben hacer, es una responsabilidad defender al reino.»</p>
+ <div class="quote-author">— Kairo</div>
+ <div class="copy-hint"> Clic para copiar</div>
+ </div>
 
-                <div class="quote-card" onclick="copyQuote('Aunque a veces no nos gusten las cosas que llegan, uno debe ser firme y continuar.')">
-                    <div class="quote-icon">“</div>
-                    <p class="quote-text">«Aunque a veces no nos gusten las cosas que llegan, uno debe ser firme y continuar. Tienes un gran potencial.»</p>
-                    <div class="quote-author">— Padre de Riav</div>
-                    <div class="copy-hint">📋 Clic para copiar</div>
-                </div>
+ <div class="quote-card" onclick="copyQuote('Aunque a veces no nos gusten las cosas que llegan, uno debe ser firme y continuar.')">
+ <div class="quote-icon">“</div>
+ <p class="quote-text">«Aunque a veces no nos gusten las cosas que llegan, uno debe ser firme y continuar. Tienes un gran potencial.»</p>
+ <div class="quote-author">— Padre de Riav</div>
+ <div class="copy-hint"> Clic para copiar</div>
+ </div>
 
-                <div class="quote-card" onclick="copyQuote('La guerra es mala, mueren personas. Por eso debemos cuidar a quienes amamos.')">
-                    <div class="quote-icon">“</div>
-                    <p class="quote-text">«La guerra es mala, mueren personas... por eso debemos ser firmes y proteger nuestro hogar.»</p>
-                    <div class="quote-author">— Riav</div>
-                    <div class="copy-hint">📋 Clic para copiar</div>
-                </div>
-            </div>
-        </section>
+ <div class="quote-card" onclick="copyQuote('La guerra es mala, mueren personas. Por eso debemos cuidar a quienes amamos.')">
+ <div class="quote-icon">“</div>
+ <p class="quote-text">«La guerra es mala, mueren personas... por eso debemos ser firmes y proteger nuestro hogar.»</p>
+ <div class="quote-author">— Riav</div>
+ <div class="copy-hint"> Clic para copiar</div>
+ </div>
+ </div>
+ </section>
 
-    </div>
+ </div>
 
-    <!-- Notification Toast -->
-    <div class="toast-notification" id="toast">✨ ¡Frase copiada al portapapeles!</div>
+ <!-- Notification Toast -->
+ <div class="toast-notification" id="toast"> ¡Frase copiada al portapapeles!</div>
 
-    <!-- App Footer -->
-    <footer class="app-footer">
-        ✦ <span class="footer-gold-text">Ruk el Héroe</span> — Edición Completa en Blanco y Dorado ✦
-    </footer>
+ <!-- App Footer -->
+ <footer class="app-footer">
+ <span class="footer-gold-text">Ruk el Héroe</span> — Edición Completa en Blanco y Dorado 
+ </footer>
 
-    <!-- View Transition & Interactive Logic -->
-    <script>
-        function mostrarSeccion(idTarget, hash) {
-            const menu = document.getElementById('menu-principal');
-            const target = document.getElementById(idTarget);
+ <!-- View Transition & Interactive Logic -->
+ <script>
+ function mostrarSeccion(idTarget, hash) {
+ const menu = document.getElementById('menu-principal');
+ const target = document.getElementById(idTarget);
 
-            ['seccion-lectura', 'seccion-personajes', 'seccion-actos', 'seccion-moraleja'].forEach(secId => {
-                if (secId !== idTarget) {
-                    const el = document.getElementById(secId);
-                    if (el) {
-                        el.classList.remove('active', 'closing');
-                        el.style.display = 'none';
-                    }
-                }
-            });
+ ['seccion-lectura', 'seccion-personajes', 'seccion-actos', 'seccion-moraleja'].forEach(secId => {
+ if (secId !== idTarget) {
+ const el = document.getElementById(secId);
+ if (el) {
+ el.classList.remove('active', 'closing');
+ el.style.display = 'none';
+ }
+ }
+ });
 
-            menu.classList.add('closing');
+ menu.classList.add('closing');
 
-            setTimeout(() => {
-                menu.classList.add('hidden');
-                menu.classList.remove('closing');
+ setTimeout(() => {
+ menu.classList.add('hidden');
+ menu.classList.remove('closing');
 
-                target.style.display = 'block';
-                target.classList.remove('closing');
-                target.classList.add('active');
+ target.style.display = 'block';
+ target.classList.remove('closing');
+ target.classList.add('active');
 
-                window.location.hash = hash;
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                updateReadingStats();
-            }, 250);
-        }
+ window.location.hash = hash;
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ updateReadingStats();
+ }, 250);
+ }
 
-        function ocultarSeccion(idTarget) {
-            const target = document.getElementById(idTarget);
-            const menu = document.getElementById('menu-principal');
+ function ocultarSeccion(idTarget) {
+ const target = document.getElementById(idTarget);
+ const menu = document.getElementById('menu-principal');
 
-            target.classList.add('closing');
+ target.classList.add('closing');
 
-            setTimeout(() => {
-                target.classList.remove('active', 'closing');
-                target.style.display = 'none';
+ setTimeout(() => {
+ target.classList.remove('active', 'closing');
+ target.style.display = 'none';
 
-                menu.classList.remove('hidden');
-                menu.classList.add('fadeIn');
+ menu.classList.remove('hidden');
+ menu.classList.add('fadeIn');
 
-                window.location.hash = '';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+ window.location.hash = '';
+ window.scrollTo({ top: 0, behavior: 'smooth' });
 
-                setTimeout(() => {
-                    menu.classList.remove('fadeIn');
-                }, 400);
-            }, 250);
-        }
+ setTimeout(() => {
+ menu.classList.remove('fadeIn');
+ }, 400);
+ }, 250);
+ }
 
-        function regresarAlMenu() {
-            ['seccion-lectura', 'seccion-personajes', 'seccion-actos', 'seccion-moraleja'].forEach(secId => {
-                const el = document.getElementById(secId);
-                if (el && el.style.display !== 'none') {
-                    ocultarSeccion(secId);
-                }
-            });
-        }
+ function regresarAlMenu() {
+ ['seccion-lectura', 'seccion-personajes', 'seccion-actos', 'seccion-moraleja'].forEach(secId => {
+ const el = document.getElementById(secId);
+ if (el && el.style.display !== 'none') {
+ ocultarSeccion(secId);
+ }
+ });
+ }
 
-        function switchChapter(chNum) {
-            document.querySelectorAll('.chapter-content').forEach(el => {
-                el.classList.remove('active-chapter');
-            });
-            document.querySelectorAll('.btn-ch-item').forEach(el => {
-                el.classList.remove('active');
-            });
+ function switchChapter(chNum) {
+ document.querySelectorAll('.chapter-content').forEach(el => {
+ el.classList.remove('active-chapter');
+ });
+ document.querySelectorAll('.btn-ch-item').forEach(el => {
+ el.classList.remove('active');
+ });
 
-            const targetCh = document.getElementById('capitulo-' + chNum);
-            const targetBtn = document.getElementById('menu-ch-' + chNum);
+ const targetCh = document.getElementById('capitulo-' + chNum);
+ const targetBtn = document.getElementById('menu-ch-' + chNum);
 
-            if (targetCh) {
-                targetCh.classList.add('active-chapter');
-            }
-            if (targetBtn) {
-                targetBtn.classList.add('active');
-            }
+ if (targetCh) {
+ targetCh.classList.add('active-chapter');
+ }
+ if (targetBtn) {
+ targetBtn.classList.add('active');
+ }
 
-            window.scrollTo({ top: 120, behavior: 'smooth' });
-            updateReadingStats();
-        }
+ window.scrollTo({ top: 120, behavior: 'smooth' });
+ updateReadingStats();
+ }
 
-        let currentFontSize = 1.15;
-        function adjustFontSize(delta) {
-            currentFontSize = Math.max(0.9, Math.min(1.6, currentFontSize + delta));
-            document.documentElement.style.setProperty('--font-reader-size', currentFontSize + 'rem');
-        }
+ let currentFontSize = 1.15;
+ function adjustFontSize(delta) {
+ currentFontSize = Math.max(0.9, Math.min(1.6, currentFontSize + delta));
+ document.documentElement.style.setProperty('--font-reader-size', currentFontSize + 'rem');
+ }
 
-        function resetFontSize() {
-            currentFontSize = 1.15;
-            document.documentElement.style.setProperty('--font-reader-size', '1.15rem');
-        }
+ function resetFontSize() {
+ currentFontSize = 1.15;
+ document.documentElement.style.setProperty('--font-reader-size', '1.15rem');
+ }
 
-        function changeTheme(theme) {
-            document.body.classList.remove('theme-sepia', 'theme-dark');
-            if (theme === 'sepia') {
-                document.body.classList.add('theme-sepia');
-            } else if (theme === 'dark') {
-                document.body.classList.add('theme-dark');
-            }
-        }
+ function changeTheme(theme) {
+ document.body.classList.remove('theme-sepia', 'theme-dark');
+ if (theme === 'sepia') {
+ document.body.classList.add('theme-sepia');
+ } else if (theme === 'dark') {
+ document.body.classList.add('theme-dark');
+ }
+ }
 
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-            document.getElementById('progressBar').style.width = progress + '%';
-            updateReadingStats();
-        });
+ window.addEventListener('scroll', () => {
+ const scrollTop = window.scrollY;
+ const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+ const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+ document.getElementById('progressBar').style.width = progress + '%';
+ updateReadingStats();
+ });
 
-        function updateReadingStats() {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const pct = docHeight > 0 ? Math.min(100, Math.round((scrollTop / docHeight) * 100)) : 0;
-            const remMin = Math.max(0, Math.ceil((100 - pct) * 0.25));
-            
-            const statsEl = document.getElementById('readingStats');
-            if (statsEl) {
-                statsEl.innerText = '📊 ' + pct + '% leído (~' + remMin + ' min restantes)';
-            }
-        }
+ function updateReadingStats() {
+ const scrollTop = window.scrollY;
+ const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+ const pct = docHeight > 0 ? Math.min(100, Math.round((scrollTop / docHeight) * 100)) : 0;
+ const remMin = Math.max(0, Math.ceil((100 - pct) * 0.25));
+ 
+ const statsEl = document.getElementById('readingStats');
+ if (statsEl) {
+ statsEl.innerText = ' ' + pct + '% leído (~' + remMin + ' min restantes)';
+ }
+ }
 
-        function copyQuote(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                const toast = document.getElementById('toast');
-                toast.style.display = 'block';
-                setTimeout(() => {
-                    toast.style.display = 'none';
-                }, 2500);
-            });
-        }
+ function copyQuote(text) {
+ navigator.clipboard.writeText(text).then(() => {
+ const toast = document.getElementById('toast');
+ toast.style.display = 'block';
+ setTimeout(() => {
+ toast.style.display = 'none';
+ }, 2500);
+ });
+ }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            const hash = window.location.hash.replace('#', '');
-            if (hash === 'lectura') mostrarSeccion('seccion-lectura', 'lectura');
-            else if (hash === 'personajes') mostrarSeccion('seccion-personajes', 'personajes');
-            else if (hash === 'actos') mostrarSeccion('seccion-actos', 'actos');
-            else if (hash === 'citas') mostrarSeccion('seccion-moraleja', 'citas');
-        });
-    </script>
+ window.addEventListener('DOMContentLoaded', () => {
+ const hash = window.location.hash.replace('#', '');
+ if (hash === 'lectura') mostrarSeccion('seccion-lectura', 'lectura');
+ else if (hash === 'personajes') mostrarSeccion('seccion-personajes', 'personajes');
+ else if (hash === 'actos') mostrarSeccion('seccion-actos', 'actos');
+ else if (hash === 'citas') mostrarSeccion('seccion-moraleja', 'citas');
+ });
+ </script>
 </body>
 </html>

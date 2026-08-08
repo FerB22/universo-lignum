@@ -2,233 +2,233 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fichas de Personajes - Forgotten Sword</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        html, body {
-            width: 100%;
-            margin: 0;
-            padding: 30px 20px;
-            background-color: #140d07;
-            font-family: 'Lora', Georgia, serif;
-            color: #f2e8d5;
-            min-height: 100vh;
-            overflow-x: hidden;
-            background-image: radial-gradient(circle at 50% 0%, rgba(212,175,55,0.07) 0%, transparent 65%);
-        }
-        .contenedor-galeria {
-            width: 100%;
-            max-width: 1080px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .nav-bar {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 14px 24px;
-            background: #1c130c;
-            border: 1px solid #3b2818;
-            border-radius: 8px;
-            margin-bottom: 35px;
-            box-shadow: 0 6px 24px rgba(0,0,0,0.45);
-        }
-        .nav-back {
-            color: #d4af37;
-            text-decoration: none;
-            font-family: 'Cinzel', serif;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: color 0.2s ease, transform 0.2s ease;
-        }
-        .nav-back:hover {
-            color: #f0c952;
-            transform: translateX(-3px);
-        }
-        .grid-personajes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            width: 100%;
-        }
-        .tarjeta-item {
-            background-color: #21170e;
-            border: 1px solid #4a3622;
-            border-radius: 8px;
-            padding: 26px 22px;
-            text-align: center;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.6);
-            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-        }
-        .tarjeta-item:hover {
-            transform: translateY(-4px);
-            border-color: #d4af37;
-            box-shadow: 0 8px 25px rgba(212,175,55,0.25);
-        }
-        @media (max-width: 768px) {
-            html, body {
-                padding: 20px 12px;
-            }
-            .titulo-principal {
-                font-size: 26px !important;
-            }
-            .subtitulo {
-                font-size: 17px !important;
-            }
-            .grid-personajes {
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
-                gap: 16px !important;
-            }
-        }
-        @media (max-width: 480px) {
-            .grid-personajes {
-                grid-template-columns: 1fr !important;
-            }
-        }
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Fichas de Personajes - Forgotten Sword</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+ <style>
+ * {
+ box-sizing: border-box;
+ }
+ html, body {
+ width: 100%;
+ margin: 0;
+ padding: 30px 20px;
+ background-color: #140d07;
+ font-family: 'Lora', Georgia, serif;
+ color: #f2e8d5;
+ min-height: 100vh;
+ overflow-x: hidden;
+ background-image: radial-gradient(circle at 50% 0%, rgba(212,175,55,0.07) 0%, transparent 65%);
+ }
+ .contenedor-galeria {
+ width: 100%;
+ max-width: 1080px;
+ margin: 0 auto;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ }
+ .nav-bar {
+ width: 100%;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 14px 24px;
+ background: #1c130c;
+ border: 1px solid #3b2818;
+ border-radius: 8px;
+ margin-bottom: 35px;
+ box-shadow: 0 6px 24px rgba(0,0,0,0.45);
+ }
+ .nav-back {
+ color: #d4af37;
+ text-decoration: none;
+ font-family: 'Cinzel', serif;
+ font-size: 13px;
+ font-weight: 600;
+ letter-spacing: 1px;
+ transition: color 0.2s ease, transform 0.2s ease;
+ }
+ .nav-back:hover {
+ color: #f0c952;
+ transform: translateX(-3px);
+ }
+ .grid-personajes {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 24px;
+ width: 100%;
+ }
+ .tarjeta-item {
+ background-color: #21170e;
+ border: 1px solid #4a3622;
+ border-radius: 8px;
+ padding: 26px 22px;
+ text-align: center;
+ box-shadow: 0 4px 18px rgba(0,0,0,0.6);
+ transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+ }
+ .tarjeta-item:hover {
+ transform: translateY(-4px);
+ border-color: #d4af37;
+ box-shadow: 0 8px 25px rgba(212,175,55,0.25);
+ }
+ @media (max-width: 768px) {
+ html, body {
+ padding: 20px 12px;
+ }
+ .titulo-principal {
+ font-size: 26px !important;
+ }
+ .subtitulo {
+ font-size: 17px !important;
+ }
+ .grid-personajes {
+ grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+ gap: 16px !important;
+ }
+ }
+ @media (max-width: 480px) {
+ .grid-personajes {
+ grid-template-columns: 1fr !important;
+ }
+ }
+ </style>
 
 <style>
-  .btn-back-to-hub-floating {
-    position: fixed;
-    top: 14px;
-    left: 14px;
-    z-index: 999999;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 7px 15px;
-    background: rgba(15, 20, 30, 0.92);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 20px;
-    color: #F8FAFC !important;
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    text-decoration: none !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transition: all 0.25s ease;
-  }
-  .btn-back-to-hub-floating:hover {
-    background: #38BDF8;
-    color: #000000 !important;
-    border-color: #38BDF8;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
-  }
-  @media (max-width: 600px) {
-    .btn-back-to-hub-floating {
-      top: 10px;
-      left: 10px;
-      padding: 5px 12px;
-      font-size: 11px;
-    }
-  }
+ .btn-back-to-hub-floating {
+ position: fixed;
+ top: 14px;
+ left: 14px;
+ z-index: 999999;
+ display: inline-flex;
+ align-items: center;
+ gap: 6px;
+ padding: 7px 15px;
+ background: rgba(15, 20, 30, 0.92);
+ border: 1px solid rgba(255, 255, 255, 0.25);
+ border-radius: 20px;
+ color: #F8FAFC !important;
+ font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+ font-size: 12px;
+ font-weight: 700;
+ text-decoration: none !important;
+ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+ backdrop-filter: blur(12px);
+ -webkit-backdrop-filter: blur(12px);
+ transition: all 0.25s ease;
+ }
+ .btn-back-to-hub-floating:hover {
+ background: #38BDF8;
+ color: #000000 !important;
+ border-color: #38BDF8;
+ transform: translateY(-2px);
+ box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+ }
+ @media (max-width: 600px) {
+ .btn-back-to-hub-floating {
+ top: 10px;
+ left: 10px;
+ padding: 5px 12px;
+ font-size: 11px;
+ }
+ }
 </style>
 
 </head>
 
 <body>
-<a href="../index.html" class="btn-back-to-hub-floating">🌌 Volver a Historias</a>
+<a href="../index.html" class="btn-back-to-hub-floating"> Volver a Historias</a>
 
-    <div class="contenedor-galeria">
+ <div class="contenedor-galeria">
 
-        <nav class="nav-bar">
-            <a href="index.html" class="nav-back">← Volver al Portal Principal</a>
-            <a href="capitulos.html" class="nav-back" style="color:#b8a686;">Ir a los Capítulos →</a>
-        </nav>
+ <nav class="nav-bar">
+ <a href="index.html" class="nav-back">← Volver al Portal Principal</a>
+ <a href="capitulos.html" class="nav-back" style="color:#b8a686;">Ir a los Capítulos →</a>
+ </nav>
 
-        <header style="text-align:center; max-width:750px; margin-bottom:35px; width:100%;">
-            <h1 class="titulo-principal" style="font-family:'Cinzel',serif; font-size:32px; color:#d4af37; margin:0 0 10px 0; letter-spacing:1.5px; text-shadow:2px 2px 4px rgba(0,0,0,0.8);">✦ Forgotten Sword ✦</h1>
-            <h2 class="subtitulo" style="font-size:20px; color:#c49a45; font-weight:normal; margin:0 0 15px 0; font-style:italic;">Galería de Fichas de Personajes</h2>
-            <p style="font-size:14.5px; color:#c4b296; line-height:1.6; margin:0;">Colección oficial de fichas de los personajes principales de la saga. Haz clic en cualquier tarjeta para abrir su ficha detallada.</p>
-        </header>
+ <header style="text-align:center; max-width:750px; margin-bottom:35px; width:100%;">
+ <h1 class="titulo-principal" style="font-family:'Cinzel',serif; font-size:32px; color:#d4af37; margin:0 0 10px 0; letter-spacing:1.5px; text-shadow:2px 2px 4px rgba(0,0,0,0.8);"> Forgotten Sword </h1>
+ <h2 class="subtitulo" style="font-size:20px; color:#c49a45; font-weight:normal; margin:0 0 15px 0; font-style:italic;">Galería de Fichas de Personajes</h2>
+ <p style="font-size:14.5px; color:#c4b296; line-height:1.6; margin:0;">Colección oficial de fichas de los personajes principales de la saga. Haz clic en cualquier tarjeta para abrir su ficha detallada.</p>
+ </header>
 
-        <main class="grid-personajes">
+ <main class="grid-personajes">
 
-            <a href="personajes/ficha-waldain.html" style="text-decoration:none; color:inherit;">
-                <div class="tarjeta-item">
-                    <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">PROTAGONISTA</span>
-                    <h3 style="margin:0 0 4px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Waldáin Helvadur</h3>
-                    <p style="margin:0 0 10px 0; font-size:13px; font-style:italic; color:#a89274;">«Wal»</p>
-                    <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Aprendiz de espada de la tribu Raumo y líder de la resistencia.</p>
-                </div>
-            </a>
+ <a href="personajes/ficha-waldain.html" style="text-decoration:none; color:inherit;">
+ <div class="tarjeta-item">
+ <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">PROTAGONISTA</span>
+ <h3 style="margin:0 0 4px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Waldáin Helvadur</h3>
+ <p style="margin:0 0 10px 0; font-size:13px; font-style:italic; color:#a89274;">«Wal»</p>
+ <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Aprendiz de espada de la tribu Raumo y líder de la resistencia.</p>
+ </div>
+ </a>
 
-            <a href="personajes/ficha-hlied.html" style="text-decoration:none; color:inherit;">
-                <div class="tarjeta-item">
-                    <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">ARQUERA TRIBAL</span>
-                    <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Hlied Steinwal</h3>
-                    <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Arquera de la protección tribal en la tribu Revenst.</p>
-                </div>
-            </a>
+ <a href="personajes/ficha-hlied.html" style="text-decoration:none; color:inherit;">
+ <div class="tarjeta-item">
+ <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">ARQUERA TRIBAL</span>
+ <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Hlied Steinwal</h3>
+ <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Arquera de la protección tribal en la tribu Revenst.</p>
+ </div>
+ </a>
 
-            <a href="personajes/ficha-skaivan.html" style="text-decoration:none; color:inherit;">
-                <div class="tarjeta-item">
-                    <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">MENTOR / HERMANO</span>
-                    <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Skaivan Helvadur</h3>
-                    <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Guerrero noble y faro de integridad moral para su familia.</p>
-                </div>
-            </a>
+ <a href="personajes/ficha-skaivan.html" style="text-decoration:none; color:inherit;">
+ <div class="tarjeta-item">
+ <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">MENTOR / HERMANO</span>
+ <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Skaivan Helvadur</h3>
+ <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Guerrero noble y faro de integridad moral para su familia.</p>
+ </div>
+ </a>
 
-            <a href="personajes/ficha-sauri.html" style="text-decoration:none; color:inherit;">
-                <div class="tarjeta-item">
-                    <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">SANADORA</span>
-                    <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Sauri Steinwal</h3>
-                    <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Médica tribal y hermana gemela de Hald.</p>
-                </div>
-            </a>
+ <a href="personajes/ficha-sauri.html" style="text-decoration:none; color:inherit;">
+ <div class="tarjeta-item">
+ <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">SANADORA</span>
+ <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Sauri Steinwal</h3>
+ <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Médica tribal y hermana gemela de Hald.</p>
+ </div>
+ </a>
 
-            <a href="personajes/ficha-ronan.html" style="text-decoration:none; color:inherit;">
-                <div class="tarjeta-item">
-                    <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">LÍDER TRIBAL</span>
-                    <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Ronan Steinwal</h3>
-                    <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Líder soberano de la tribu Revenst.</p>
-                </div>
-            </a>
+ <a href="personajes/ficha-ronan.html" style="text-decoration:none; color:inherit;">
+ <div class="tarjeta-item">
+ <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">LÍDER TRIBAL</span>
+ <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Ronan Steinwal</h3>
+ <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Líder soberano de la tribu Revenst.</p>
+ </div>
+ </a>
 
-            <a href="personajes/ficha-hald.html" style="text-decoration:none; color:inherit;">
-                <div class="tarjeta-item">
-                    <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">GUERRERO DE ÉLITE</span>
-                    <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Hald Steinwal</h3>
-                    <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Feroz combatiente de vanguardia y gemelo de Sauri.</p>
-                </div>
-            </a>
+ <a href="personajes/ficha-hald.html" style="text-decoration:none; color:inherit;">
+ <div class="tarjeta-item">
+ <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">GUERRERO DE ÉLITE</span>
+ <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Hald Steinwal</h3>
+ <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Feroz combatiente de vanguardia y gemelo de Sauri.</p>
+ </div>
+ </a>
 
-            <a href="personajes/ficha-deschast.html" style="text-decoration:none; color:inherit;">
-                <div class="tarjeta-item">
-                    <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">ESTRATEGA</span>
-                    <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Deschast</h3>
-                    <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Estratega de la Unificación imperial y líder de la tribu Royái.</p>
-                </div>
-            </a>
+ <a href="personajes/ficha-deschast.html" style="text-decoration:none; color:inherit;">
+ <div class="tarjeta-item">
+ <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">ESTRATEGA</span>
+ <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Deschast</h3>
+ <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Estratega de la Unificación imperial y líder de la tribu Royái.</p>
+ </div>
+ </a>
 
-            <a href="personajes/ficha-rey-de-gricai.html" style="text-decoration:none; color:inherit;">
-                <div class="tarjeta-item">
-                    <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">SOBERANO IMPERIAL</span>
-                    <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Rey de Gricái</h3>
-                    <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Monarca despótico cuya tiranía desencadena la contienda.</p>
-                </div>
-            </a>
+ <a href="personajes/ficha-rey-de-gricai.html" style="text-decoration:none; color:inherit;">
+ <div class="tarjeta-item">
+ <span style="font-family:'Cinzel',serif; font-size:10px; color:#c49a45; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px;">SOBERANO IMPERIAL</span>
+ <h3 style="margin:0 0 10px 0; font-size:22px; color:#f5eedc; font-weight:bold;">Rey de Gricái</h3>
+ <p style="margin:0; font-size:13.5px; color:#c4b296; line-height:1.5;">Monarca despótico cuya tiranía desencadena la contienda.</p>
+ </div>
+ </a>
 
-        </main>
+ </main>
 
-        <footer style="margin-top:45px; text-align:center; font-size:11.5px; color:#a89274; opacity:0.85; width:100%; font-family:'Cinzel',serif;">
-            Archivo personal · Fernando Barra · Forgotten Sword © 2026
-        </footer>
-    </div>
+ <footer style="margin-top:45px; text-align:center; font-size:11.5px; color:#a89274; opacity:0.85; width:100%; font-family:'Cinzel',serif;">
+ Archivo personal · Fernando Barra · Forgotten Sword © 2026
+ </footer>
+ </div>
 
 </body>
 

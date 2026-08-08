@@ -2,471 +2,471 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Getting to Know | Universo Lignum</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Getting to Know | Universo Lignum</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+ <style>
+ * {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ }
 
-        html, body {
-            width: 100%;
-            min-height: 100vh;
-            background-color: #f7faf7;
-            background-image: 
-                radial-gradient(circle at 50% 30%, rgba(82, 183, 136, 0.14) 0%, transparent 65%),
-                radial-gradient(circle at 50% 90%, rgba(45, 106, 79, 0.08) 0%, transparent 70%);
-            font-family: 'Cinzel', Georgia, serif;
-            color: #1b4332;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+ html, body {
+ width: 100%;
+ min-height: 100vh;
+ background-color: #f7faf7;
+ background-image: 
+ radial-gradient(circle at 50% 30%, rgba(82, 183, 136, 0.14) 0%, transparent 65%),
+ radial-gradient(circle at 50% 90%, rgba(45, 106, 79, 0.08) 0%, transparent 70%);
+ font-family: 'Cinzel', Georgia, serif;
+ color: #1b4332;
+ overflow-x: hidden;
+ scroll-behavior: smooth;
+ }
 
-        /* VISTA PRINCIPAL (HERO MENU) */
-        .main-hub {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
-            text-align: center;
-            position: relative;
-        }
+ /* VISTA PRINCIPAL (HERO MENU) */
+ .main-hub {
+ min-height: 100vh;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ padding: 40px 20px;
+ text-align: center;
+ position: relative;
+ }
 
-        .main-hub.hidden {
-            display: none !important;
-        }
+ .main-hub.hidden {
+ display: none !important;
+ }
 
-        .main-hub.closing {
-            animation: fadeOut 0.25s ease-in forwards;
-        }
+ .main-hub.closing {
+ animation: fadeOut 0.25s ease-in forwards;
+ }
 
-        .main-hub.fadeIn {
-            animation: fadeIn 0.4s ease-out forwards;
-        }
+ .main-hub.fadeIn {
+ animation: fadeIn 0.4s ease-out forwards;
+ }
 
-        .hub-title {
-            font-size: clamp(34px, 6.5vw, 58px);
-            font-weight: 900;
-            color: #1b4332;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 14px;
-            text-shadow: 0 2px 12px rgba(45, 106, 79, 0.15);
-        }
+ .hub-title {
+ font-size: clamp(34px, 6.5vw, 58px);
+ font-weight: 900;
+ color: #1b4332;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ margin-bottom: 14px;
+ text-shadow: 0 2px 12px rgba(45, 106, 79, 0.15);
+ }
 
-        .hub-subtitle {
-            font-size: 13px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #2d6a4f;
-            font-weight: 700;
-            margin-bottom: 22px;
-        }
+ .hub-subtitle {
+ font-size: 13px;
+ letter-spacing: 4px;
+ text-transform: uppercase;
+ color: #2d6a4f;
+ font-weight: 700;
+ margin-bottom: 22px;
+ }
 
-        .hub-diamonds {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            align-items: center;
-            color: #52b788;
-            font-size: 11px;
-            margin-bottom: 45px;
-            opacity: 0.9;
-        }
+ .hub-diamonds {
+ display: flex;
+ gap: 16px;
+ justify-content: center;
+ align-items: center;
+ color: #52b788;
+ font-size: 11px;
+ margin-bottom: 45px;
+ opacity: 0.9;
+ }
 
-        /* CONTENEDOR DE BOTONES */
-        .hub-options {
-            width: 100%;
-            max-width: 480px;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            margin-bottom: 60px;
-        }
+ /* CONTENEDOR DE BOTONES */
+ .hub-options {
+ width: 100%;
+ max-width: 480px;
+ display: flex;
+ flex-direction: column;
+ gap: 18px;
+ margin-bottom: 60px;
+ }
 
-        .btn-hub-option {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            width: 100%;
-            padding: 20px 24px;
-            background-color: #ffffff;
-            border: 2px solid #2d6a4f;
-            border-radius: 12px;
-            color: #1b4332;
-            font-family: 'Cinzel', serif;
-            font-size: 16px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            text-decoration: none;
-            cursor: pointer;
-            box-shadow: 0 4px 18px rgba(45, 106, 79, 0.12);
-            transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
-            position: relative;
-        }
+ .btn-hub-option {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 14px;
+ width: 100%;
+ padding: 20px 24px;
+ background-color: #ffffff;
+ border: 2px solid #2d6a4f;
+ border-radius: 12px;
+ color: #1b4332;
+ font-family: 'Cinzel', serif;
+ font-size: 16px;
+ font-weight: 700;
+ letter-spacing: 1.5px;
+ text-transform: uppercase;
+ text-decoration: none;
+ cursor: pointer;
+ box-shadow: 0 4px 18px rgba(45, 106, 79, 0.12);
+ transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+ position: relative;
+ }
 
-        .btn-hub-option:hover {
-            transform: translateY(-2px) scale(1.015);
-            border-color: #52b788;
-            background-color: #e8f5e9;
-            box-shadow: 
-                0 8px 25px rgba(45, 106, 79, 0.2),
-                0 0 20px rgba(82, 183, 136, 0.3);
-        }
+ .btn-hub-option:hover {
+ transform: translateY(-2px) scale(1.015);
+ border-color: #52b788;
+ background-color: #e8f5e9;
+ box-shadow: 
+ 0 8px 25px rgba(45, 106, 79, 0.2),
+ 0 0 20px rgba(82, 183, 136, 0.3);
+ }
 
-        .btn-icon {
-            font-size: 22px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            filter: drop-shadow(0 2px 4px rgba(45, 106, 79, 0.2));
-        }
+ .btn-icon {
+ font-size: 22px;
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ filter: drop-shadow(0 2px 4px rgba(45, 106, 79, 0.2));
+ }
 
-        /* FOOTER DEL HUB */
-        .hub-footer {
-            position: absolute;
-            bottom: 24px;
-            font-size: 11px;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: #2d6a4f;
-            font-weight: 600;
-        }
+ /* FOOTER DEL HUB */
+ .hub-footer {
+ position: absolute;
+ bottom: 24px;
+ font-size: 11px;
+ letter-spacing: 2.5px;
+ text-transform: uppercase;
+ color: #2d6a4f;
+ font-weight: 600;
+ }
 
-        /* VISTA EXCLUSIVA: SECCIÓN DE FICHAS */
-        #seccion-fichas {
-            display: none;
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px 80px 20px;
-        }
+ /* VISTA EXCLUSIVA: SECCIÓN DE FICHAS */
+ #seccion-fichas {
+ display: none;
+ width: 100%;
+ max-width: 1000px;
+ margin: 0 auto;
+ padding: 40px 20px 80px 20px;
+ }
 
-        #seccion-fichas.active {
-            display: block;
-            animation: fadeIn 0.4s ease-out forwards;
-        }
+ #seccion-fichas.active {
+ display: block;
+ animation: fadeIn 0.4s ease-out forwards;
+ }
 
-        #seccion-fichas.closing {
-            animation: fadeOut 0.25s ease-in forwards;
-        }
+ #seccion-fichas.closing {
+ animation: fadeOut 0.25s ease-in forwards;
+ }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+ @keyframes fadeIn {
+ from { opacity: 0; transform: translateY(20px); }
+ to { opacity: 1; transform: translateY(0); }
+ }
 
-        @keyframes fadeOut {
-            from { opacity: 1; transform: translateY(0); }
-            to { opacity: 0; transform: translateY(20px); }
-        }
+ @keyframes fadeOut {
+ from { opacity: 1; transform: translateY(0); }
+ to { opacity: 0; transform: translateY(20px); }
+ }
 
-        .fichas-contenedor {
-            background-color: #ffffff;
-            border: 2px solid #2d6a4f;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(45, 106, 79, 0.12);
-            padding: 40px 30px;
-        }
+ .fichas-contenedor {
+ background-color: #ffffff;
+ border: 2px solid #2d6a4f;
+ border-radius: 12px;
+ box-shadow: 0 8px 30px rgba(45, 106, 79, 0.12);
+ padding: 40px 30px;
+ }
 
-        .fichas-header {
-            text-align: center;
-            margin-bottom: 35px;
-        }
+ .fichas-header {
+ text-align: center;
+ margin-bottom: 35px;
+ }
 
-        .fichas-titulo {
-            font-size: 30px;
-            color: #1b4332;
-            margin-bottom: 10px;
-            letter-spacing: 1.5px;
-        }
+ .fichas-titulo {
+ font-size: 30px;
+ color: #1b4332;
+ margin-bottom: 10px;
+ letter-spacing: 1.5px;
+ }
 
-        .fichas-subtitulo {
-            font-family: 'Lora', serif;
-            font-size: 15px;
-            color: #2d6a4f;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
+ .fichas-subtitulo {
+ font-family: 'Lora', serif;
+ font-size: 15px;
+ color: #2d6a4f;
+ font-style: italic;
+ margin-bottom: 20px;
+ }
 
-        .btn-volver-hub {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: #e8f5e9;
-            border: 1px solid #2d6a4f;
-            color: #1b4332;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 700;
-            font-family: 'Cinzel', serif;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
+ .btn-volver-hub {
+ display: inline-flex;
+ align-items: center;
+ gap: 8px;
+ background-color: #e8f5e9;
+ border: 1px solid #2d6a4f;
+ color: #1b4332;
+ padding: 8px 20px;
+ border-radius: 20px;
+ font-size: 13px;
+ font-weight: 700;
+ font-family: 'Cinzel', serif;
+ text-decoration: none;
+ cursor: pointer;
+ transition: all 0.2s ease;
+ }
 
-        .btn-volver-hub:hover {
-            background-color: #2d6a4f;
-            color: #ffffff;
-        }
+ .btn-volver-hub:hover {
+ background-color: #2d6a4f;
+ color: #ffffff;
+ }
 
-        .grid-personajes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 22px;
-            width: 100%;
-        }
+ .grid-personajes {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+ gap: 22px;
+ width: 100%;
+ }
 
-        .tarjeta-item {
-            background-color: #f4f9f4;
-            border: 2px solid #2d6a4f;
-            border-radius: 8px;
-            padding: 24px 20px;
-            text-align: center;
-            box-shadow: 0 4px 14px rgba(45, 106, 79, 0.1);
-            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-        }
+ .tarjeta-item {
+ background-color: #f4f9f4;
+ border: 2px solid #2d6a4f;
+ border-radius: 8px;
+ padding: 24px 20px;
+ text-align: center;
+ box-shadow: 0 4px 14px rgba(45, 106, 79, 0.1);
+ transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+ }
 
-        .tarjeta-item:hover {
-            transform: translateY(-4px);
-            border-color: #52b788;
-            box-shadow: 0 8px 24px rgba(45, 106, 79, 0.2);
-            background-color: #ffffff;
-        }
+ .tarjeta-item:hover {
+ transform: translateY(-4px);
+ border-color: #52b788;
+ box-shadow: 0 8px 24px rgba(45, 106, 79, 0.2);
+ background-color: #ffffff;
+ }
 
-        @media (max-width: 600px) {
-            .hub-options {
-                width: 100%;
-                padding: 0 10px;
-            }
+ @media (max-width: 600px) {
+ .hub-options {
+ width: 100%;
+ padding: 0 10px;
+ }
 
-            .btn-hub-option {
-                padding: 16px 18px;
-                font-size: 14px;
-            }
+ .btn-hub-option {
+ padding: 16px 18px;
+ font-size: 14px;
+ }
 
-            .fichas-contenedor {
-                padding: 24px 16px;
-            }
+ .fichas-contenedor {
+ padding: 24px 16px;
+ }
 
-            .hub-footer {
-                position: relative;
-                bottom: 0;
-                margin-top: 20px;
-            }
-        }
-    </style>
+ .hub-footer {
+ position: relative;
+ bottom: 0;
+ margin-top: 20px;
+ }
+ }
+ </style>
 
 <style>
-  .btn-back-to-hub-floating {
-    position: fixed;
-    top: 14px;
-    left: 14px;
-    z-index: 999999;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 7px 15px;
-    background: rgba(15, 20, 30, 0.92);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 20px;
-    color: #F8FAFC !important;
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    text-decoration: none !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transition: all 0.25s ease;
-  }
-  .btn-back-to-hub-floating:hover {
-    background: #38BDF8;
-    color: #000000 !important;
-    border-color: #38BDF8;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
-  }
-  @media (max-width: 600px) {
-    .btn-back-to-hub-floating {
-      top: 10px;
-      left: 10px;
-      padding: 5px 12px;
-      font-size: 11px;
-    }
-  }
+ .btn-back-to-hub-floating {
+ position: fixed;
+ top: 14px;
+ left: 14px;
+ z-index: 999999;
+ display: inline-flex;
+ align-items: center;
+ gap: 6px;
+ padding: 7px 15px;
+ background: rgba(15, 20, 30, 0.92);
+ border: 1px solid rgba(255, 255, 255, 0.25);
+ border-radius: 20px;
+ color: #F8FAFC !important;
+ font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+ font-size: 12px;
+ font-weight: 700;
+ text-decoration: none !important;
+ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+ backdrop-filter: blur(12px);
+ -webkit-backdrop-filter: blur(12px);
+ transition: all 0.25s ease;
+ }
+ .btn-back-to-hub-floating:hover {
+ background: #38BDF8;
+ color: #000000 !important;
+ border-color: #38BDF8;
+ transform: translateY(-2px);
+ box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+ }
+ @media (max-width: 600px) {
+ .btn-back-to-hub-floating {
+ top: 10px;
+ left: 10px;
+ padding: 5px 12px;
+ font-size: 11px;
+ }
+ }
 </style>
 
 </head>
 
 <body>
-<a href="../index.html" class="btn-back-to-hub-floating">🌌 Volver a Historias</a>
+<a href="../index.html" class="btn-back-to-hub-floating"> Volver a Historias</a>
 
-    <!-- VISTA PRINCIPAL (HUB) -->
-    <main class="main-hub" id="main-hub">
-        <h1 class="hub-title">Getting to Know</h1>
-        <p class="hub-subtitle">Una historia de refugio, confianza y pertenencia</p>
-        
-        
-    <div style="text-align: center; margin: 1.5rem 0;">
-      <img src="https://i.ibb.co/TM63LgTZ/Portada-de-Getting-to-Know.png" alt="Portada Oficial" class="story-official-cover-img" style="max-width: 320px; width: 85%; border-radius: 14px; border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.6); transition: transform 0.3s ease;">
-    </div>
-    
+ <!-- VISTA PRINCIPAL (HUB) -->
+ <main class="main-hub" id="main-hub">
+ <h1 class="hub-title">Getting to Know</h1>
+ <p class="hub-subtitle">Una historia de refugio, confianza y pertenencia</p>
+ 
+ 
+ <div style="text-align: center; margin: 1.5rem 0;">
+ <img src="https://i.ibb.co/TM63LgTZ/Portada-de-Getting-to-Know.png" alt="Portada Oficial" class="story-official-cover-img" style="max-width: 320px; width: 85%; border-radius: 14px; border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.6); transition: transform 0.3s ease;">
+ </div>
+ 
 <div class="hub-diamonds">
-            <span>❖</span>
-            <span>❖</span>
-            <span>❖</span>
-        </div>
+ <span></span>
+ <span></span>
+ <span></span>
+ </div>
 
-        <div class="hub-options">
-            <button class="btn-hub-option" onclick="mostrarFichas()">
-                <span class="btn-icon">🛡️</span>
-                <span>Fichas de Personajes</span>
-            </button>
+ <div class="hub-options">
+ <button class="btn-hub-option" onclick="mostrarFichas()">
+ <span class="btn-icon"></span>
+ <span>Fichas de Personajes</span>
+ </button>
 
-            <a href="getting-to-know.html" class="btn-hub-option">
-                <span class="btn-icon">📖</span>
-                <span>Lista de Capítulos</span>
-            </a>
-        </div>
+ <a href="getting-to-know.html" class="btn-hub-option">
+ <span class="btn-icon"></span>
+ <span>Lista de Capítulos</span>
+ </a>
+ </div>
 
-        <footer class="hub-footer">
-            Getting to Know © 2026 · Fernando Barra
-        </footer>
-    </main>
+ <footer class="hub-footer">
+ Getting to Know © 2026 · Fernando Barra
+ </footer>
+ </main>
 
-    <!-- VISTA EXCLUSIVA: SECCIÓN DE FICHAS DE PERSONAJES -->
-    <section id="seccion-fichas">
-        <div class="fichas-contenedor">
-            <div class="fichas-header">
-                <h2 class="fichas-titulo">🍃 Fichas de Personajes 🍃</h2>
-                <p class="fichas-subtitulo">Explora los perfiles detallados de los personajes de la obra.</p>
-                <button class="btn-volver-hub" onclick="ocultarFichas()">
-                    ← Volver al inicio
-                </button>
-            </div>
+ <!-- VISTA EXCLUSIVA: SECCIÓN DE FICHAS DE PERSONAJES -->
+ <section id="seccion-fichas">
+ <div class="fichas-contenedor">
+ <div class="fichas-header">
+ <h2 class="fichas-titulo"> Fichas de Personajes </h2>
+ <p class="fichas-subtitulo">Explora los perfiles detallados de los personajes de la obra.</p>
+ <button class="btn-volver-hub" onclick="ocultarFichas()">
+ ← Volver al inicio
+ </button>
+ </div>
 
-            <div class="grid-personajes">
+ <div class="grid-personajes">
 
-                <a href="personajes/ficha-heya.html" style="text-decoration:none; color:inherit;">
-                    <div class="tarjeta-item">
-                        <span style="font-size:10px; color:#2d6a4f; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px; font-weight:bold;">PROTAGONISTA</span>
-                        <h3 style="margin:0 0 4px 0; font-size:22px; color:#1b4332; font-weight:bold;">Heya</h3>
-                        <p style="margin:0 0 10px 0; font-size:13px; font-style:italic; color:#2d6a4f;">«El Guarda»</p>
-                        <p style="margin:0; font-family:'Lora', serif; font-size:13.5px; color:#2d6a4f; line-height:1.5;">Ex-guardia de frontera gricano y agricultor de corazón.</p>
-                    </div>
-                </a>
+ <a href="personajes/ficha-heya.html" style="text-decoration:none; color:inherit;">
+ <div class="tarjeta-item">
+ <span style="font-size:10px; color:#2d6a4f; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px; font-weight:bold;">PROTAGONISTA</span>
+ <h3 style="margin:0 0 4px 0; font-size:22px; color:#1b4332; font-weight:bold;">Heya</h3>
+ <p style="margin:0 0 10px 0; font-size:13px; font-style:italic; color:#2d6a4f;">«El Guarda»</p>
+ <p style="margin:0; font-family:'Lora', serif; font-size:13.5px; color:#2d6a4f; line-height:1.5;">Ex-guardia de frontera gricano y agricultor de corazón.</p>
+ </div>
+ </a>
 
-                <a href="personajes/ficha-amera.html" style="text-decoration:none; color:inherit;">
-                    <div class="tarjeta-item">
-                        <span style="font-size:10px; color:#2d6a4f; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px; font-weight:bold;">HEROÍNA TRIBAL</span>
-                        <h3 style="margin:0 0 4px 0; font-size:22px; color:#1b4332; font-weight:bold;">Ameřa</h3>
-                        <p style="margin:0 0 10px 0; font-size:13px; font-style:italic; color:#2d6a4f;">«Ameřa, hija de Derk»</p>
-                        <p style="margin:0; font-family:'Lora', serif; font-size:13.5px; color:#2d6a4f; line-height:1.5;">Cazadora audaz de la tribu Häscht de ojos celestes.</p>
-                    </div>
-                </a>
+ <a href="personajes/ficha-amera.html" style="text-decoration:none; color:inherit;">
+ <div class="tarjeta-item">
+ <span style="font-size:10px; color:#2d6a4f; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px; font-weight:bold;">HEROÍNA TRIBAL</span>
+ <h3 style="margin:0 0 4px 0; font-size:22px; color:#1b4332; font-weight:bold;">Ameřa</h3>
+ <p style="margin:0 0 10px 0; font-size:13px; font-style:italic; color:#2d6a4f;">«Ameřa, hija de Derk»</p>
+ <p style="margin:0; font-family:'Lora', serif; font-size:13.5px; color:#2d6a4f; line-height:1.5;">Cazadora audaz de la tribu Häscht de ojos celestes.</p>
+ </div>
+ </a>
 
-                <a href="personajes/ficha-hesis.html" style="text-decoration:none; color:inherit;">
-                    <div class="tarjeta-item">
-                        <span style="font-size:10px; color:#2d6a4f; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px; font-weight:bold;">GUÍA ESPIRITUAL</span>
-                        <h3 style="margin:0 0 4px 0; font-size:22px; color:#1b4332; font-weight:bold;">Hesis</h3>
-                        <p style="margin:0 0 10px 0; font-size:13px; font-style:italic; color:#2d6a4f;">«La hermanita»</p>
-                        <p style="margin:0; font-family:'Lora', serif; font-size:13.5px; color:#2d6a4f; line-height:1.5;">Voz de la conciencia y motivación en las visiones de Heya.</p>
-                    </div>
-                </a>
+ <a href="personajes/ficha-hesis.html" style="text-decoration:none; color:inherit;">
+ <div class="tarjeta-item">
+ <span style="font-size:10px; color:#2d6a4f; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px; font-weight:bold;">GUÍA ESPIRITUAL</span>
+ <h3 style="margin:0 0 4px 0; font-size:22px; color:#1b4332; font-weight:bold;">Hesis</h3>
+ <p style="margin:0 0 10px 0; font-size:13px; font-style:italic; color:#2d6a4f;">«La hermanita»</p>
+ <p style="margin:0; font-family:'Lora', serif; font-size:13.5px; color:#2d6a4f; line-height:1.5;">Voz de la conciencia y motivación en las visiones de Heya.</p>
+ </div>
+ </a>
 
-                <a href="personajes/ficha-lomen.html" style="text-decoration:none; color:inherit;">
-                    <div class="tarjeta-item">
-                        <span style="font-size:10px; color:#2d6a4f; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px; font-weight:bold;">CAPITÁN DE LA GUARDIA</span>
-                        <h3 style="margin:0 0 10px 0; font-size:22px; color:#1b4332; font-weight:bold;">Lomen</h3>
-                        <p style="margin:0; font-family:'Lora', serif; font-size:13.5px; color:#2d6a4f; line-height:1.5;">Guardián sensato y hermano mayor de Ameřa.</p>
-                    </div>
-                </a>
+ <a href="personajes/ficha-lomen.html" style="text-decoration:none; color:inherit;">
+ <div class="tarjeta-item">
+ <span style="font-size:10px; color:#2d6a4f; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px; font-weight:bold;">CAPITÁN DE LA GUARDIA</span>
+ <h3 style="margin:0 0 10px 0; font-size:22px; color:#1b4332; font-weight:bold;">Lomen</h3>
+ <p style="margin:0; font-family:'Lora', serif; font-size:13.5px; color:#2d6a4f; line-height:1.5;">Guardián sensato y hermano mayor de Ameřa.</p>
+ </div>
+ </a>
 
-                <a href="personajes/ficha-derk.html" style="text-decoration:none; color:inherit;">
-                    <div class="tarjeta-item">
-                        <span style="font-size:10px; color:#2d6a4f; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px; font-weight:bold;">PATRIARCA TRIBAL</span>
-                        <h3 style="margin:0 0 4px 0; font-size:22px; color:#1b4332; font-weight:bold;">Derk</h3>
-                        <p style="margin:0 0 10px 0; font-size:13px; font-style:italic; color:#2d6a4f;">«Líder de los Häscht»</p>
-                        <p style="margin:0; font-family:'Lora', serif; font-size:13.5px; color:#2d6a4f; line-height:1.5;">Líder respetado de la tribu Häscht bajo el principio del mérito.</p>
-                    </div>
-                </a>
+ <a href="personajes/ficha-derk.html" style="text-decoration:none; color:inherit;">
+ <div class="tarjeta-item">
+ <span style="font-size:10px; color:#2d6a4f; letter-spacing:2.5px; text-transform:uppercase; display:block; margin-bottom:8px; font-weight:bold;">PATRIARCA TRIBAL</span>
+ <h3 style="margin:0 0 4px 0; font-size:22px; color:#1b4332; font-weight:bold;">Derk</h3>
+ <p style="margin:0 0 10px 0; font-size:13px; font-style:italic; color:#2d6a4f;">«Líder de los Häscht»</p>
+ <p style="margin:0; font-family:'Lora', serif; font-size:13.5px; color:#2d6a4f; line-height:1.5;">Líder respetado de la tribu Häscht bajo el principio del mérito.</p>
+ </div>
+ </a>
 
-            </div>
-        </div>
-    </section>
+ </div>
+ </div>
+ </section>
 
-    <!-- LÓGICA DE TRANSICIÓN DE VISTAS EXCLUSIVAS -->
-    <script>
-        function mostrarFichas() {
-            const menu = document.getElementById('main-hub');
-            const fichas = document.getElementById('seccion-fichas');
+ <!-- LÓGICA DE TRANSICIÓN DE VISTAS EXCLUSIVAS -->
+ <script>
+ function mostrarFichas() {
+ const menu = document.getElementById('main-hub');
+ const fichas = document.getElementById('seccion-fichas');
 
-            // 1. Animar salida del menú principal (fadeOut)
-            menu.classList.add('closing');
+ // 1. Animar salida del menú principal (fadeOut)
+ menu.classList.add('closing');
 
-            // 2. Esperar 250ms a que termine el fadeOut del menú
-            setTimeout(() => {
-                menu.classList.add('hidden');
-                menu.classList.remove('closing');
+ // 2. Esperar 250ms a que termine el fadeOut del menú
+ setTimeout(() => {
+ menu.classList.add('hidden');
+ menu.classList.remove('closing');
 
-                // 3. Mostrar la vista exclusiva de fichas con fadeIn
-                fichas.style.display = 'block';
-                fichas.classList.remove('closing');
-                fichas.classList.add('active');
+ // 3. Mostrar la vista exclusiva de fichas con fadeIn
+ fichas.style.display = 'block';
+ fichas.classList.remove('closing');
+ fichas.classList.add('active');
 
-                window.location.hash = 'fichas';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }, 250);
-        }
+ window.location.hash = 'fichas';
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ }, 250);
+ }
 
-        function ocultarFichas() {
-            const menu = document.getElementById('main-hub');
-            const fichas = document.getElementById('seccion-fichas');
+ function ocultarFichas() {
+ const menu = document.getElementById('main-hub');
+ const fichas = document.getElementById('seccion-fichas');
 
-            // 1. Animar salida de la vista de fichas (fadeOut)
-            fichas.classList.add('closing');
+ // 1. Animar salida de la vista de fichas (fadeOut)
+ fichas.classList.add('closing');
 
-            // 2. Esperar 250ms a que termine fadeOut
-            setTimeout(() => {
-                fichas.classList.remove('active', 'closing');
-                fichas.style.display = 'none';
+ // 2. Esperar 250ms a que termine fadeOut
+ setTimeout(() => {
+ fichas.classList.remove('active', 'closing');
+ fichas.style.display = 'none';
 
-                // 3. Mostrar el menú principal limpiamente con fadeIn
-                menu.classList.remove('hidden');
-                menu.classList.add('fadeIn');
+ // 3. Mostrar el menú principal limpiamente con fadeIn
+ menu.classList.remove('hidden');
+ menu.classList.add('fadeIn');
 
-                window.location.hash = '';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+ window.location.hash = '';
+ window.scrollTo({ top: 0, behavior: 'smooth' });
 
-                setTimeout(() => {
-                    menu.classList.remove('fadeIn');
-                }, 400);
-            }, 250);
-        }
+ setTimeout(() => {
+ menu.classList.remove('fadeIn');
+ }, 400);
+ }, 250);
+ }
 
-        // Auto-abrir vista de fichas si la URL incluye #fichas
-        window.addEventListener('DOMContentLoaded', () => {
-            if (window.location.hash === '#fichas') {
-                const menu = document.getElementById('main-hub');
-                const fichas = document.getElementById('seccion-fichas');
-                menu.classList.add('hidden');
-                fichas.style.display = 'block';
-                fichas.classList.add('active');
-            }
-        });
-    </script>
+ // Auto-abrir vista de fichas si la URL incluye #fichas
+ window.addEventListener('DOMContentLoaded', () => {
+ if (window.location.hash === '#fichas') {
+ const menu = document.getElementById('main-hub');
+ const fichas = document.getElementById('seccion-fichas');
+ menu.classList.add('hidden');
+ fichas.style.display = 'block';
+ fichas.classList.add('active');
+ }
+ });
+ </script>
 </body>
 
 </html>

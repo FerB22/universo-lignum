@@ -1,272 +1,272 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capitulo 06: Bajo la lluvia embarrada - Forgotten Sword</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #120c08;
-            --card-bg: #1c130c;
-            --text-color: #e8dcc4;
-            --accent-gold: #d4af37;
-            --accent-bright: #f0c952;
-            --muted-gold: #9e8237;
-            --text-dim: #b8a686;
-            --border-color: #3b2818;
-            --quote-bg: rgba(212,175,55,0.06);
-            --sidebar-bg: #160f09;
-            --font-size-base: 18px;
-        }
-        body.theme-sepia {
-            --bg-color:#241c14; --card-bg:#2d241a; --text-color:#edd9be;
-            --border-color:#4a3a2a; --sidebar-bg:#1e160f;
-        }
-        body.theme-dark {
-            --bg-color:#0a0705; --card-bg:#120e0a; --text-color:#d1c5b0;
-            --border-color:#291e14; --sidebar-bg:#080604;
-        }
-        * { box-sizing:border-box; margin:0; padding:0; }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Lora', Georgia, serif;
-            font-size: var(--font-size-base);
-            line-height: 1.85;
-            min-height: 100vh;
-            padding: 20px;
-            transition: background-color .3s, color .3s;
-            background-image: radial-gradient(circle at 50% 0%, rgba(212,175,55,.07) 0%, transparent 65%);
-        }
-        .page-layout {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 260px;
-            grid-template-rows: auto 1fr auto;
-            gap: 0 24px;
-            align-items: start;
-        }
-        /* Nav bar */
-        .nav-bar {
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 13px 22px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            margin-bottom: 24px;
-            box-shadow: 0 6px 24px rgba(0,0,0,.45);
-        }
-        .nav-back {
-            color: var(--accent-gold);
-            text-decoration: none;
-            font-family: 'Cinzel', serif;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: color .2s, transform .2s;
-        }
-        .nav-back:hover { color:var(--accent-bright); transform:translateX(-3px); }
-        .reader-controls { display:flex; align-items:center; gap:10px; }
-        .btn-ctrl {
-            background:rgba(212,175,55,.1); border:1px solid var(--border-color);
-            color:var(--accent-gold); padding:5px 11px; border-radius:4px;
-            cursor:pointer; font-family:'Cinzel',serif; font-size:13px; transition:all .2s;
-        }
-        .btn-ctrl:hover { background:var(--accent-gold); color:#120c08; }
-        /* Main reading column */
-        .main-col { min-width:0; }
-        .chapter-header {
-            text-align:center; margin-bottom:38px;
-            padding-bottom:24px; position:relative;
-        }
-        .chapter-header::after {
-            content:'&#10042; &#10042; &#10042;';
-            position:absolute; bottom:0; left:50%; transform:translateX(-50%);
-            color:var(--muted-gold); font-size:13px; letter-spacing:10px;
-        }
-        .sub-label {
-            font-family:'Cinzel',serif; font-size:11px; letter-spacing:4px;
-            text-transform:uppercase; color:var(--accent-gold);
-            margin-bottom:10px; display:block;
-        }
-        .main-title {
-            font-family:'Cinzel',serif; font-size:32px; font-weight:700;
-            color:#f5eedc; letter-spacing:1px;
-            text-shadow:0 4px 14px rgba(0,0,0,.7); margin-bottom:6px;
-        }
-        /* Reader frame */
-        .reader-container {
-            background:var(--card-bg); border:1px solid var(--border-color);
-            border-radius:12px; padding:44px 50px;
-            box-shadow:0 10px 38px rgba(0,0,0,.5); position:relative;
-        }
-        .reader-container::before {
-            content:''; position:absolute; top:8px; left:8px; right:8px; bottom:8px;
-            border:1px solid rgba(212,175,55,.12); border-radius:8px; pointer-events:none;
-        }
-        /* Prose */
-        .prose p {
-            margin-bottom: 20px;
-            text-align: justify;
-            text-indent: 0.75em;
-        }
-        .prose p.dialogue {
-            text-indent: 0;
-            padding-left: 10px;
-            border-left: 2px solid rgba(212,175,55,.22);
-            margin-bottom: 14px;
-        }
-        .prose p.dialogue-cont {
-            text-indent: 0;
-            padding-left: 10px;
-            margin-top: -14px;
-            margin-bottom: 14px;
-            color: var(--text-dim);
-        }
-        .prose .scene-break {
-            text-align:center; color:var(--muted-gold);
-            font-size:15px; letter-spacing:10px; margin:32px 0; user-select:none;
-        }
-        .prose blockquote.epigraph {
-            background:var(--quote-bg); border-left:3px solid var(--accent-gold);
-            border-right:3px solid var(--accent-gold); padding:18px 24px;
-            margin:0 auto 34px auto; border-radius:4px; text-align:center;
-            font-style:italic; color:#f0e6d2; font-size:.97em;
-            max-width:600px; box-shadow:0 3px 14px rgba(0,0,0,.25); text-indent:0;
-        }
-        /* Prev/Next nav */
-        .chapter-nav {
-            display:flex; justify-content:space-between; align-items:center;
-            margin-top:34px; padding-top:20px; border-top:1px solid var(--border-color);
-        }
-        .chapter-nav a {
-            font-family:'Cinzel',serif; font-size:13px; font-weight:600;
-            color:var(--accent-gold); text-decoration:none; transition:color .2s;
-        }
-        .chapter-nav a:hover { color:var(--accent-bright); }
-        /* Sidebar */
-        .sidebar {
-            background:var(--sidebar-bg); border:1px solid var(--border-color);
-            border-radius:10px; padding:18px 14px;
-            box-shadow:0 6px 22px rgba(0,0,0,.4);
-            position:sticky; top:20px;
-            max-height:calc(100vh - 40px); overflow-y:auto;
-        }
-        .sidebar::-webkit-scrollbar { width:4px; }
-        .sidebar::-webkit-scrollbar-thumb { background:var(--border-color); border-radius:4px; }
-        .sidebar-title {
-            font-family:'Cinzel',serif; font-size:11px; letter-spacing:3px;
-            text-transform:uppercase; color:var(--accent-gold);
-            margin-bottom:14px; padding-bottom:10px;
-            border-bottom:1px solid var(--border-color); text-align:center;
-        }
-        .sidebar-list { list-style:none; }
-        .sidebar-list li { border-bottom:1px solid rgba(59,40,24,.5); }
-        .sidebar-list li a {
-            display:block; padding:8px 7px; font-size:12.5px;
-            color:var(--text-dim); text-decoration:none; line-height:1.4;
-            transition:color .2s, background .2s; border-radius:4px;
-        }
-        .sidebar-list li a:hover { color:var(--accent-gold); background:rgba(212,175,55,.06); }
-        .sidebar-list li.active a {
-            color:var(--accent-bright); font-weight:600;
-            background:rgba(212,175,55,.1);
-        }
-        .ch-num {
-            font-family:'Cinzel',serif; font-size:10px;
-            color:var(--muted-gold); margin-right:5px;
-        }
-        /* Footer */
-        .page-footer {
-            grid-column:1 / -1; text-align:center;
-            font-family:'Cinzel',serif; font-size:11.5px;
-            color:var(--text-dim); margin-top:34px; opacity:.8;
-        }
-        .page-footer a { color:var(--accent-gold); text-decoration:none; }
-        /* Responsive */
-        @media (max-width:900px) {
-            .page-layout { grid-template-columns:1fr; }
-            .sidebar { position:static; max-height:none; display:none; }
-            .sidebar.open { display:block; margin-top:18px; }
-            .btn-sidebar { display:inline-block !important; }
-        }
-        @media (max-width:600px) {
-            .reader-container { padding:26px 16px; }
-            .main-title { font-size:22px; }
-            .prose p { text-align:left; }
-        }
-        .btn-sidebar { display:none; }
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Capitulo 06: Bajo la lluvia embarrada - Forgotten Sword</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+ <style>
+ :root {
+ --bg-color: #120c08;
+ --card-bg: #1c130c;
+ --text-color: #e8dcc4;
+ --accent-gold: #d4af37;
+ --accent-bright: #f0c952;
+ --muted-gold: #9e8237;
+ --text-dim: #b8a686;
+ --border-color: #3b2818;
+ --quote-bg: rgba(212,175,55,0.06);
+ --sidebar-bg: #160f09;
+ --font-size-base: 18px;
+ }
+ body.theme-sepia {
+ --bg-color:#241c14; --card-bg:#2d241a; --text-color:#edd9be;
+ --border-color:#4a3a2a; --sidebar-bg:#1e160f;
+ }
+ body.theme-dark {
+ --bg-color:#0a0705; --card-bg:#120e0a; --text-color:#d1c5b0;
+ --border-color:#291e14; --sidebar-bg:#080604;
+ }
+ * { box-sizing:border-box; margin:0; padding:0; }
+ body {
+ background-color: var(--bg-color);
+ color: var(--text-color);
+ font-family: 'Lora', Georgia, serif;
+ font-size: var(--font-size-base);
+ line-height: 1.85;
+ min-height: 100vh;
+ padding: 20px;
+ transition: background-color .3s, color .3s;
+ background-image: radial-gradient(circle at 50% 0%, rgba(212,175,55,.07) 0%, transparent 65%);
+ }
+ .page-layout {
+ max-width: 1300px;
+ margin: 0 auto;
+ display: grid;
+ grid-template-columns: 1fr 260px;
+ grid-template-rows: auto 1fr auto;
+ gap: 0 24px;
+ align-items: start;
+ }
+ /* Nav bar */
+ .nav-bar {
+ grid-column: 1 / -1;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 13px 22px;
+ background: var(--card-bg);
+ border: 1px solid var(--border-color);
+ border-radius: 8px;
+ margin-bottom: 24px;
+ box-shadow: 0 6px 24px rgba(0,0,0,.45);
+ }
+ .nav-back {
+ color: var(--accent-gold);
+ text-decoration: none;
+ font-family: 'Cinzel', serif;
+ font-size: 13px;
+ font-weight: 600;
+ letter-spacing: 1px;
+ transition: color .2s, transform .2s;
+ }
+ .nav-back:hover { color:var(--accent-bright); transform:translateX(-3px); }
+ .reader-controls { display:flex; align-items:center; gap:10px; }
+ .btn-ctrl {
+ background:rgba(212,175,55,.1); border:1px solid var(--border-color);
+ color:var(--accent-gold); padding:5px 11px; border-radius:4px;
+ cursor:pointer; font-family:'Cinzel',serif; font-size:13px; transition:all .2s;
+ }
+ .btn-ctrl:hover { background:var(--accent-gold); color:#120c08; }
+ /* Main reading column */
+ .main-col { min-width:0; }
+ .chapter-header {
+ text-align:center; margin-bottom:38px;
+ padding-bottom:24px; position:relative;
+ }
+ .chapter-header::after {
+ content:'&#10042; &#10042; &#10042;';
+ position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+ color:var(--muted-gold); font-size:13px; letter-spacing:10px;
+ }
+ .sub-label {
+ font-family:'Cinzel',serif; font-size:11px; letter-spacing:4px;
+ text-transform:uppercase; color:var(--accent-gold);
+ margin-bottom:10px; display:block;
+ }
+ .main-title {
+ font-family:'Cinzel',serif; font-size:32px; font-weight:700;
+ color:#f5eedc; letter-spacing:1px;
+ text-shadow:0 4px 14px rgba(0,0,0,.7); margin-bottom:6px;
+ }
+ /* Reader frame */
+ .reader-container {
+ background:var(--card-bg); border:1px solid var(--border-color);
+ border-radius:12px; padding:44px 50px;
+ box-shadow:0 10px 38px rgba(0,0,0,.5); position:relative;
+ }
+ .reader-container::before {
+ content:''; position:absolute; top:8px; left:8px; right:8px; bottom:8px;
+ border:1px solid rgba(212,175,55,.12); border-radius:8px; pointer-events:none;
+ }
+ /* Prose */
+ .prose p {
+ margin-bottom: 20px;
+ text-align: justify;
+ text-indent: 0.75em;
+ }
+ .prose p.dialogue {
+ text-indent: 0;
+ padding-left: 10px;
+ border-left: 2px solid rgba(212,175,55,.22);
+ margin-bottom: 14px;
+ }
+ .prose p.dialogue-cont {
+ text-indent: 0;
+ padding-left: 10px;
+ margin-top: -14px;
+ margin-bottom: 14px;
+ color: var(--text-dim);
+ }
+ .prose .scene-break {
+ text-align:center; color:var(--muted-gold);
+ font-size:15px; letter-spacing:10px; margin:32px 0; user-select:none;
+ }
+ .prose blockquote.epigraph {
+ background:var(--quote-bg); border-left:3px solid var(--accent-gold);
+ border-right:3px solid var(--accent-gold); padding:18px 24px;
+ margin:0 auto 34px auto; border-radius:4px; text-align:center;
+ font-style:italic; color:#f0e6d2; font-size:.97em;
+ max-width:600px; box-shadow:0 3px 14px rgba(0,0,0,.25); text-indent:0;
+ }
+ /* Prev/Next nav */
+ .chapter-nav {
+ display:flex; justify-content:space-between; align-items:center;
+ margin-top:34px; padding-top:20px; border-top:1px solid var(--border-color);
+ }
+ .chapter-nav a {
+ font-family:'Cinzel',serif; font-size:13px; font-weight:600;
+ color:var(--accent-gold); text-decoration:none; transition:color .2s;
+ }
+ .chapter-nav a:hover { color:var(--accent-bright); }
+ /* Sidebar */
+ .sidebar {
+ background:var(--sidebar-bg); border:1px solid var(--border-color);
+ border-radius:10px; padding:18px 14px;
+ box-shadow:0 6px 22px rgba(0,0,0,.4);
+ position:sticky; top:20px;
+ max-height:calc(100vh - 40px); overflow-y:auto;
+ }
+ .sidebar::-webkit-scrollbar { width:4px; }
+ .sidebar::-webkit-scrollbar-thumb { background:var(--border-color); border-radius:4px; }
+ .sidebar-title {
+ font-family:'Cinzel',serif; font-size:11px; letter-spacing:3px;
+ text-transform:uppercase; color:var(--accent-gold);
+ margin-bottom:14px; padding-bottom:10px;
+ border-bottom:1px solid var(--border-color); text-align:center;
+ }
+ .sidebar-list { list-style:none; }
+ .sidebar-list li { border-bottom:1px solid rgba(59,40,24,.5); }
+ .sidebar-list li a {
+ display:block; padding:8px 7px; font-size:12.5px;
+ color:var(--text-dim); text-decoration:none; line-height:1.4;
+ transition:color .2s, background .2s; border-radius:4px;
+ }
+ .sidebar-list li a:hover { color:var(--accent-gold); background:rgba(212,175,55,.06); }
+ .sidebar-list li.active a {
+ color:var(--accent-bright); font-weight:600;
+ background:rgba(212,175,55,.1);
+ }
+ .ch-num {
+ font-family:'Cinzel',serif; font-size:10px;
+ color:var(--muted-gold); margin-right:5px;
+ }
+ /* Footer */
+ .page-footer {
+ grid-column:1 / -1; text-align:center;
+ font-family:'Cinzel',serif; font-size:11.5px;
+ color:var(--text-dim); margin-top:34px; opacity:.8;
+ }
+ .page-footer a { color:var(--accent-gold); text-decoration:none; }
+ /* Responsive */
+ @media (max-width:900px) {
+ .page-layout { grid-template-columns:1fr; }
+ .sidebar { position:static; max-height:none; display:none; }
+ .sidebar.open { display:block; margin-top:18px; }
+ .btn-sidebar { display:inline-block !important; }
+ }
+ @media (max-width:600px) {
+ .reader-container { padding:26px 16px; }
+ .main-title { font-size:22px; }
+ .prose p { text-align:left; }
+ }
+ .btn-sidebar { display:none; }
+ </style>
 
 <style>
-  .btn-back-to-hub-floating {
-    position: fixed;
-    top: 14px;
-    left: 14px;
-    z-index: 999999;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 7px 15px;
-    background: rgba(15, 20, 30, 0.92);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 20px;
-    color: #F8FAFC !important;
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    text-decoration: none !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transition: all 0.25s ease;
-  }
-  .btn-back-to-hub-floating:hover {
-    background: #38BDF8;
-    color: #000000 !important;
-    border-color: #38BDF8;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
-  }
-  @media (max-width: 600px) {
-    .btn-back-to-hub-floating {
-      top: 10px;
-      left: 10px;
-      padding: 5px 12px;
-      font-size: 11px;
-    }
-  }
+ .btn-back-to-hub-floating {
+ position: fixed;
+ top: 14px;
+ left: 14px;
+ z-index: 999999;
+ display: inline-flex;
+ align-items: center;
+ gap: 6px;
+ padding: 7px 15px;
+ background: rgba(15, 20, 30, 0.92);
+ border: 1px solid rgba(255, 255, 255, 0.25);
+ border-radius: 20px;
+ color: #F8FAFC !important;
+ font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+ font-size: 12px;
+ font-weight: 700;
+ text-decoration: none !important;
+ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+ backdrop-filter: blur(12px);
+ -webkit-backdrop-filter: blur(12px);
+ transition: all 0.25s ease;
+ }
+ .btn-back-to-hub-floating:hover {
+ background: #38BDF8;
+ color: #000000 !important;
+ border-color: #38BDF8;
+ transform: translateY(-2px);
+ box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+ }
+ @media (max-width: 600px) {
+ .btn-back-to-hub-floating {
+ top: 10px;
+ left: 10px;
+ padding: 5px 12px;
+ font-size: 11px;
+ }
+ }
 </style>
 
 </head>
 <body>
-<a href="../../index.html" class="btn-back-to-hub-floating">🌌 Volver a Historias</a>
+<a href="../../index.html" class="btn-back-to-hub-floating"> Volver a Historias</a>
 <div class="page-layout">
 
-    <nav class="nav-bar">
-        <a href="../capitulos.html" class="nav-back">&#8592; Cap&iacute;tulos</a>
-        <div class="reader-controls">
-            <button class="btn-ctrl btn-sidebar" onclick="toggleSidebar()">&#9776; Lista</button>
-            <button class="btn-ctrl" onclick="changeFontSize(-1)">A-</button>
-            <button class="btn-ctrl" onclick="changeFontSize(1)">A+</button>
-            <button class="btn-ctrl" onclick="toggleTheme()">&#127912; Tema</button>
-        </div>
-    </nav>
+ <nav class="nav-bar">
+ <a href="../capitulos.html" class="nav-back">&#8592; Cap&iacute;tulos</a>
+ <div class="reader-controls">
+ <button class="btn-ctrl btn-sidebar" onclick="toggleSidebar()">&#9776; Lista</button>
+ <button class="btn-ctrl" onclick="changeFontSize(-1)">A-</button>
+ <button class="btn-ctrl" onclick="changeFontSize(1)">A+</button>
+ <button class="btn-ctrl" onclick="toggleTheme()">&#127912; Tema</button>
+ </div>
+ </nav>
 
-    <main class="main-col">
-        <header class="chapter-header">
-            <span class="sub-label">Forgotten Sword &middot; Cap&iacute;tulo 06</span>
-            <h1 class="main-title">Bajo la lluvia embarrada</h1>
-        </header>
-        <div class="reader-container">
-            <article class="prose">
+ <main class="main-col">
+ <header class="chapter-header">
+ <span class="sub-label">Forgotten Sword &middot; Cap&iacute;tulo 06</span>
+ <h1 class="main-title">Bajo la lluvia embarrada</h1>
+ </header>
+ <div class="reader-container">
+ <article class="prose">
 <blockquote class="epigraph">&#171;Querer sin hacer, por qu&#233; molestarse en pensar&#187;.</blockquote>
 <p>Pasaron los d&#237;as con Ronan a&#250;n convaleciente tras el atentado y con el descubrimiento de que el ataque hab&#237;a sido planeado por los estrategas del reino Gric&#225;i.</p>
 <p>La lluvia constante embarraba el camino en medio del bosque y el viento helado se hac&#237;a sentir con fuerza.</p>
@@ -334,41 +334,41 @@
 <p>—Esta prenda representa la pureza de nuestros votos —expres&#243; Hlied acerc&#225;ndose a &#233;l con una sonrisa afectuosa—. Si tiras de sus hilos con brusquedad se deshace, pues exige delicadeza y cuidado.</p>
 <p>Wal tom&#243; sus manos con ternura, sellando la promesa de protegerse y caminar juntos frente a los desaf&#237;os que se aproximaban.</p>
 
-            </article>
-            <nav class="chapter-nav">
-                <a href="capitulo_05.html">&larr; Cap. 5</a>
-                <a href="../capitulos.html" style="font-size:12px;opacity:.7;">&#8593; Cap&iacute;tulos</a>
-                <a href="capitulo_07.html">Cap. 7 &rarr;</a>
-            </nav>
-        </div>
-    </main>
+ </article>
+ <nav class="chapter-nav">
+ <a href="capitulo_05.html">&larr; Cap. 5</a>
+ <a href="../capitulos.html" style="font-size:12px;opacity:.7;">&#8593; Cap&iacute;tulos</a>
+ <a href="capitulo_07.html">Cap. 7 &rarr;</a>
+ </nav>
+ </div>
+ </main>
 
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-title">&#10022; Cap&iacute;tulos</div>
+ <aside class="sidebar" id="sidebar">
+ <div class="sidebar-title">&#10022; Cap&iacute;tulos</div>
 <ul class="sidebar-list"><li><a href="../prologo.html">Prologo</a></li><li><a href="capitulo_01.html"><span class="ch-num">01</span> El peso de los tatuajes</a></li><li><a href="capitulo_02.html"><span class="ch-num">02</span> El consejo de H&iacute;ltar</a></li><li><a href="capitulo_03.html"><span class="ch-num">03</span> Tierra sagrada</a></li><li><a href="capitulo_04.html"><span class="ch-num">04</span> Entrenamiento y temores</a></li><li><a href="capitulo_05.html"><span class="ch-num">05</span> El C&oacute;nclave tribal</a></li><li class="active"><a href="capitulo_06.html"><span class="ch-num">06</span> Bajo la lluvia embarrada</a></li><li><a href="capitulo_07.html"><span class="ch-num">07</span> La responsabilidad del l&iacute;der</a></li><li><a href="capitulo_08.html"><span class="ch-num">08</span> El nacimiento en tiempos de guerra</a></li><li><a href="capitulo_09.html"><span class="ch-num">09</span> La necesidad de la guerra</a></li><li><a href="capitulo_10.html"><span class="ch-num">10</span> El perd&oacute;n y el vac&iacute;o</a></li><li><a href="capitulo_11.html"><span class="ch-num">11</span> Miedo al conflicto</a></li><li><a href="capitulo_12.html"><span class="ch-num">12</span> La ca&iacute;da de las murallas</a></li><li><a href="capitulo_13.html"><span class="ch-num">13</span> El retorno de la caballer&iacute;a</a></li><li style="opacity:0.6; cursor:default;"><a href="javascript:void(0)" style="cursor:default; pointer-events:none; color:#a89274;"><span class="ch-num">14</span> El renacer de la paz (En proceso)</a></li></ul>
-    </aside>
+ </aside>
 
-    <footer class="page-footer">
-        Forgotten Sword &copy; 2026 &middot; Fernando Barra &nbsp;&middot;&nbsp;
-        <a href="../index.html">Galer&iacute;a de Personajes</a>
-    </footer>
+ <footer class="page-footer">
+ Forgotten Sword &copy; 2026 &middot; Fernando Barra &nbsp;&middot;&nbsp;
+ <a href="../index.html">Galer&iacute;a de Personajes</a>
+ </footer>
 </div>
 <script>
-    var fontSize = 18;
-    var themes = ['', 'theme-sepia', 'theme-dark'];
-    var themeIdx = 0;
-    function changeFontSize(d) {
-        fontSize = Math.min(Math.max(14, fontSize + d), 26);
-        document.documentElement.style.setProperty('--font-size-base', fontSize + 'px');
-    }
-    function toggleTheme() {
-        document.body.classList.remove(themes[themeIdx]);
-        themeIdx = (themeIdx + 1) % themes.length;
-        if (themes[themeIdx]) document.body.classList.add(themes[themeIdx]);
-    }
-    function toggleSidebar() {
-        document.getElementById('sidebar').classList.toggle('open');
-    }
+ var fontSize = 18;
+ var themes = ['', 'theme-sepia', 'theme-dark'];
+ var themeIdx = 0;
+ function changeFontSize(d) {
+ fontSize = Math.min(Math.max(14, fontSize + d), 26);
+ document.documentElement.style.setProperty('--font-size-base', fontSize + 'px');
+ }
+ function toggleTheme() {
+ document.body.classList.remove(themes[themeIdx]);
+ themeIdx = (themeIdx + 1) % themes.length;
+ if (themes[themeIdx]) document.body.classList.add(themes[themeIdx]);
+ }
+ function toggleSidebar() {
+ document.getElementById('sidebar').classList.toggle('open');
+ }
 </script>
 </body>
 </html>
