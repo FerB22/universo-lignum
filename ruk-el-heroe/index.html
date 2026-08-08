@@ -448,11 +448,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  align-items: start;
  }
 
- @media (max-width: 900px) {
- .reader-layout {
- grid-template-columns: 1fr;
- }
- }
+ 
+  @media (max-width: 900px) {
+    .reader-layout {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .chapter-sidebar {
+      position: static !important;
+      top: auto !important;
+      margin-bottom: 20px;
+      width: 100%;
+      z-index: 1;
+    }
+    .chapter-list-menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 8px;
+    }
+    .btn-ch-item {
+      text-align: center;
+      padding: 8px 10px;
+      font-size: 0.85rem;
+    }
+    .chapter-container-main {
+      padding: 25px 18px;
+    }
+  }
+
 
  /* Chapter Sidebar */
  .chapter-sidebar {

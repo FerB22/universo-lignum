@@ -221,7 +221,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  .prose p { text-align:left; }
  }
  .btn-sidebar { display:none; }
- </style>
+ 
+  @media (max-width: 900px) {
+    .chapter-sidebar, .sidebar {
+      position: static !important;
+      top: auto !important;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+  }
+</style>
 
 <style>
  .btn-back-to-hub-floating {
