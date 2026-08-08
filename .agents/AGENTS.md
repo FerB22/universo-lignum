@@ -24,3 +24,8 @@ Todas las páginas web y componentes visuales del proyecto deben basarse en el p
 ### 🧭 Navegación y Responsividad
 - **Botón Flotante Navegable**: Botón `Volver a Historias` estilizado con desenfoque glassmorphic y margen suficiente en el encabezado para evitar superposiciones con los títulos.
 - **Experiencia de Lectura Despejada**: Transiciones single-page limpias, lectores con control de tamaño de fuente y alternador de temas.
+
+### 📚 Clasificación y Tags del Universo Lignum
+- **Formatos:** Novela, Cuento Completo, Fragmento, Microrelato, Trasfondo.
+- **Estados:** En proceso de creación, Borrador, Publicado.
+- **Etiquetas Visuales:** Usar los Badges Superiores para mostrar el Formato y Estado en cada tarjeta.
