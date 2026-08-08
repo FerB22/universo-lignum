@@ -95,6 +95,7 @@
 
  /* Ambient Glow Header Header */
  .site-header {
+            padding-left: 175px;
  width: 100%;
  max-width: 960px;
  text-align: center;
@@ -176,7 +177,7 @@
  border-radius: 16px;
  padding: 30px 24px;
  text-align: left;
- cursor: pointer;
+ cursor: default;
  backdrop-filter: blur(12px);
  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
  position: relative;
@@ -304,7 +305,7 @@
  border: 1px solid var(--color-gold);
  padding: 8px 18px;
  border-radius: 30px;
- cursor: pointer;
+ cursor: default;
  font-family: var(--font-ui);
  font-size: 14px;
  font-weight: 700;
@@ -334,7 +335,7 @@
  width: 34px;
  height: 34px;
  border-radius: 50%;
- cursor: pointer;
+ cursor: default;
  font-family: var(--font-ui);
  font-size: 13px;
  font-weight: 700;
@@ -358,7 +359,7 @@
  border-radius: 20px;
  font-family: var(--font-ui);
  font-size: 13px;
- cursor: pointer;
+ cursor: default;
  outline: none;
  }
 
@@ -1176,7 +1177,7 @@
  <div class="reflection-hero">
  <h2> MORALEJA & ENSEÑANZA UNIVERSAL </h2>
  <p>
- «No hay linaje tan noble que pueda vivir sin justicia, ni poder tan grande que no se pudra cuando se alimenta solo de orgullo.»
+ «No hay linaje tan noble que pueda vivir sin justicia, ni poder tan grande que no se pudra cuando se alimenta solo de orgullo».
  </p>
  </div>
 
@@ -1347,28 +1348,7 @@
 
  window.addEventListener('scroll', updateReadingProgress);
 
- // Copiar citas al hacer clic en un quote-block
- document.addEventListener('DOMContentLoaded', () => {
- const hash = window.location.hash.replace('#', '');
- if (hash === 'historia') {
- mostrarSeccion('sec-historia', 'historia');
- } else if (hash === 'actos') {
- mostrarSeccion('sec-actos', 'actos');
- } else if (hash === 'personajes') {
- mostrarSeccion('sec-personajes', 'personajes');
- } else if (hash === 'moraleja') {
- mostrarSeccion('sec-moraleja', 'moraleja');
- }
-
- // Asignar comportamiento de copia a cada cita destacada
- document.querySelectorAll('.quote-block').forEach(quote => {
- quote.style.cursor = 'pointer';
- quote.title = 'Haz clic para copiar esta frase';
- quote.addEventListener('click', () => {
- const textToCopy = quote.innerText.trim();
- navigator.clipboard.writeText(textToCopy).then(() => {
- showToast(' ¡Frase copiada al portapapeles!');
- });
+ 
  });
  });
  });
