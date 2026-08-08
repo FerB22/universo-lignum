@@ -157,6 +157,7 @@ body {
 }
 
 .nav-brand {
+  margin-left: 165px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -634,5 +635,13 @@ body {
     right: 20px;
     text-align: center;
     justify-content: center;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .nav-brand {
+    margin-left: 135px;
+    font-size: 0.95rem;
   }
 }
