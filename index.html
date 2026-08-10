@@ -505,7 +505,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <header>
     <div class="header-container">
       <a href="./index.html" class="brand">
-        <img src="./public/logo.png" alt="Universo Lignum Logo" class="brand-logo-img" onerror="this.style.display='none';">
+        <img src="https://i.ibb.co/fYygPZQ8/Logo-Lignum-compressed.png" alt="Universo Lignum Logo" class="brand-logo-img" onerror="this.src='./public/logo.png';">
         <div>
           <span class="brand-title">UNIVERSO LIGNUM</span>
           <span class="brand-sub">Biblioteca de Historias por Fernando Barra</span>
