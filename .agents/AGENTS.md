@@ -29,3 +29,25 @@ Todas las páginas web y componentes visuales del proyecto deben basarse en el p
 - **Formatos:** Novela, Cuento Completo, Fragmento, Microrelato, Trasfondo.
 - **Estados:** En proceso de creación, Borrador, Publicado.
 - **Etiquetas Visuales:** Usar los Badges Superiores para mostrar el Formato y Estado en cada tarjeta.
+
+## 3. Regla de Estilos: Uso de Stitches y Tokens UI
+
+### Framework y Tokens UI
+- Todos los componentes visuales, tarjetas e interfaces del proyecto deben estructurarse utilizando **Stitches** y sus tokens visuales (`./stitches.config`).
+- Importar siempre la configuración local `./stitches.config`.
+
+### Ejemplo de Implementación Esperada:
+```tsx
+import { styled } from './stitches.config';
+
+export const Card = styled('div', {
+  backgroundColor: '$surface',
+  borderRadius: '$card',
+  backdropFilter: 'blur(12px)',
+  border: '1.5px solid rgba(255, 255, 255, 0.1)',
+  transition: 'transform 0.2s ease',
+  '&:hover': {
+    transform: 'translateY(-4px)',
+  },
+});
+```
