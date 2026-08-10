@@ -900,7 +900,7 @@ full_html = f"""<!DOCTYPE html>
                 </p>
                 <div class="hero-badges">
                     <span class="badge-item">✨ Edición Completa</span>
-                    <span class="badge-item">📖 9 Capítulos Editados</span>
+                    <span class="badge-item">📖 9 Capítulos</span>
                     <span class="badge-item">👑 Estética Blanco & Dorado</span>
                 </div>
             </div>
