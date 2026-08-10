@@ -1,4 +1,3 @@
-# Master Hub Generator Script
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,15 +11,6 @@
 
   gtag('config', 'G-6NPEX2N2DC');
   gtag('config', 'G-FWTZLRCX09');
-</script>
-
-
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-6NPEX2N2DC');
 </script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -36,28 +26,69 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* STITCHES DESIGN SYSTEM TOKENS INTEGRATION */
+    :root {
+      --colors-bgDark: #0F172A;
+      --colors-bgBase: #090B10;
+      --colors-surface: #1E293B;
+      --colors-surfaceCard: rgba(22, 27, 38, 0.78);
+      --colors-emerald: #52B788;
+      --colors-gold: #D4AF37;
+      --colors-goldLight: #F8F3E3;
+      --colors-goldDark: #9E8237;
+      --colors-crimson: #FF4444;
+      --colors-cyan: #00F2FE;
+      --colors-textPrimary: #F8FAFC;
+      --colors-textMuted: #94A3B8;
+      --colors-borderGold: #E0C775;
+
+      --fonts-heading: 'Cinzel', serif;
+      --fonts-body: 'Lora', Georgia, serif;
+      --fonts-ui: 'Plus Jakarta Sans', sans-serif;
+
+      --radii-card: 20px;
+      --radii-badge: 9999px;
+      --radii-button: 25px;
+
+      --shadows-card: 0 15px 40px rgba(0, 0, 0, 0.35);
+      --shadows-goldGlow: 0 6px 25px rgba(212, 175, 55, 0.25);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      background-color: #090B10;
-      color: #F8FAFC;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--colors-bgBase);
+      color: var(--colors-textPrimary);
+      font-family: var(--fonts-ui);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 85% 60%, rgba(212, 175, 55, 0.08) 0%, transparent 45%);
+      background-attachment: fixed;
     }
 
+    /* HEADER SYSTEM */
     header {
-      background: rgba(15, 17, 23, 0.95);
+      background: rgba(15, 17, 23, 0.92);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 1rem 2rem;
-      backdrop-filter: blur(12px);
+      padding: 1.1rem 2rem;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
+
     .header-container {
       max-width: 1300px;
       margin: 0 auto;
@@ -65,207 +96,349 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       align-items: center;
       justify-content: space-between;
     }
+
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.85rem;
       text-decoration: none;
-      color: #FFF;
+      color: #FFFFFF;
     }
-    .brand-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: radial-gradient(circle, #38BDF8 0%, rgba(0,0,0,0.6) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #38BDF8;
-      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+
+    .brand-logo-img {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      border-radius: 12px;
+      transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.45));
     }
+
+    .brand-logo-img:hover {
+      transform: scale(1.08) rotate(2deg);
+    }
+
     .brand-title {
-      font-family: 'Cinzel', serif;
-      font-weight: 800;
-      font-size: 1.2rem;
-      letter-spacing: 1.5px;
-      background: linear-gradient(135deg, #FFF 0%, #38BDF8 100%);
+      font-family: var(--fonts-heading);
+      font-weight: 900;
+      font-size: 1.25rem;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #38BDF8 60%, var(--colors-gold) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+
     .brand-sub {
-      font-size: 0.75rem;
-      color: #64748B;
+      font-size: 0.76rem;
+      color: var(--colors-textMuted);
       display: block;
+      font-weight: 500;
+      letter-spacing: 0.5px;
     }
 
+    .header-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      background: rgba(82, 183, 136, 0.12);
+      border: 1px solid rgba(82, 183, 136, 0.35);
+      border-radius: var(--radii-badge);
+      color: var(--colors-emerald);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background-color: var(--colors-emerald);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--colors-emerald);
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.25); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    /* MAIN CONTAINER */
     main {
       flex: 1;
       max-width: 1300px;
       width: 100%;
       margin: 0 auto;
-      padding: 3rem 1.5rem;
+      padding: 3.5rem 1.5rem 4rem 1.5rem;
     }
 
+    /* HERO SECTION */
     .hero {
       text-align: center;
       margin-bottom: 3.5rem;
     }
+
     .hero-badge {
       display: inline-block;
-      padding: 0.35rem 1rem;
-      border-radius: 9999px;
+      padding: 0.4rem 1.2rem;
+      border-radius: var(--radii-badge);
       background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.3);
+      border: 1px solid rgba(56, 189, 248, 0.35);
       color: #38BDF8;
       font-size: 0.82rem;
-      margin-bottom: 1rem;
-    }
-    .hero h1 {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      font-weight: 900;
-      letter-spacing: 2px;
-      background: linear-gradient(135deg, #FFFFFF 0%, #38BDF8 50%, #D4AF37 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      max-width: 750px;
-      margin: 0 auto;
-      color: #94A3B8;
-      font-size: 1.05rem;
-      line-height: 1.6;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.15);
     }
 
+    .hero h1 {
+      font-family: var(--fonts-heading);
+      font-size: clamp(2.3rem, 5.5vw, 3.8rem);
+      font-weight: 900;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #38BDF8 50%, var(--colors-gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.1rem;
+      line-height: 1.15;
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: 0 auto 2.2rem auto;
+      color: var(--colors-textMuted);
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+
+    .hero-metrics {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+
+    .metric-pill {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--colors-textPrimary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      backdrop-filter: blur(8px);
+    }
+
+    .metric-pill span {
+      color: var(--colors-gold);
+      font-weight: 800;
+    }
+
+    /* INTERACTIVE CATEGORY FILTER BAR */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 3rem;
+      padding: 8px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 30px;
+      max-width: 920px;
+      margin-left: auto;
+      margin-right: auto;
+      backdrop-filter: blur(12px);
+    }
+
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: 20px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--colors-textMuted);
+      font-family: var(--fonts-ui);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .filter-btn:hover {
+      color: var(--colors-textPrimary);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .filter-btn.active {
+      background: var(--colors-surface);
+      border-color: var(--colors-gold);
+      color: var(--colors-goldLight);
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.18);
+    }
+
+    /* GRID & CARDS SYSTEM (STITCHES STYLED) */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
       gap: 2.2rem;
-      align-items: start;
+      align-items: stretch;
     }
 
     .card {
-      background: rgba(22, 27, 38, 0.75);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 22px;
+      background: var(--colors-surfaceCard);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radii-card);
       padding: 1.75rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.35s ease;
+      transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
       position: relative;
       overflow: hidden;
+      box-shadow: var(--shadows-card);
+      backdrop-filter: blur(12px);
     }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--card-color, var(--colors-gold));
+      opacity: 0.85;
+      transition: opacity 0.3s ease;
+    }
+
     .card:hover {
       transform: translateY(-8px);
-      border-color: var(--card-color);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 255, 255, 0.05);
+      border-color: var(--card-color, var(--colors-gold));
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), 0 0 25px rgba(56, 189, 248, 0.15);
     }
 
     .card-cover {
       width: 100%;
+      height: 220px;
       border-radius: 14px;
       overflow: hidden;
       margin-bottom: 1.25rem;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-      background: #0B0E17;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(15, 23, 42, 0.9);
       display: flex;
       align-items: center;
       justify-content: center;
     }
+
     .cover-img {
       width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
+      height: 100%;
+      object-fit: cover;
       transition: transform 0.4s ease;
     }
+
     .card:hover .cover-img {
-      transform: scale(1.03);
+      transform: scale(1.04);
     }
 
     .card-badge {
       display: inline-block;
-      font-size: 0.72rem;
+      padding: 0.28rem 0.75rem;
+      border-radius: var(--radii-badge);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--colors-textPrimary);
+      font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 0.25rem 0.65rem;
-      border-radius: 9999px;
-      color: var(--card-color);
-      border: 1px solid var(--card-color);
+      letter-spacing: 0.8px;
       margin-bottom: 0.85rem;
+      align-self: flex-start;
     }
+
     .card-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1.5rem;
-      color: #FFF;
-      margin-bottom: 0.65rem;
+      font-family: var(--fonts-heading);
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--colors-textPrimary);
+      margin-bottom: 0.7rem;
+      letter-spacing: 0.5px;
     }
+
     .card-desc {
-      font-size: 0.92rem;
-      color: #94A3B8;
-      line-height: 1.6;
-      margin-bottom: 1.25rem;
-      flex-grow: 1;
+      color: var(--colors-textMuted);
+      font-size: 0.93rem;
+      line-height: 1.65;
+      margin-bottom: 1.3rem;
     }
+
     .card-features {
-      font-size: 0.8rem;
-      color: #94A3B8;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding-top: 1rem;
-      margin-bottom: 1.25rem;
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
+      margin-bottom: 1.5rem;
     }
+
     .feat-tag {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 0.25rem 0.6rem;
-      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       color: #CBD5E1;
+      padding: 0.28rem 0.7rem;
+      border-radius: 8px;
       font-size: 0.78rem;
       font-weight: 500;
     }
+
     .card-btn {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.6rem;
-      padding: 0.85rem;
+      width: 100%;
+      padding: 0.9rem;
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #FFF;
-      font-weight: 700;
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid var(--card-color, var(--colors-gold));
+      color: #FFFFFF;
       text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
       transition: all 0.25s ease;
-    }
-    .card-btn:hover {
-      background: var(--card-color);
-      border-color: var(--card-color);
-      color: #000;
+      cursor: pointer;
     }
 
-    footer {
-      background: #06080C;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 2rem;
-      text-align: center;
-      color: #475569;
-      font-size: 0.85rem;
+    .card-btn:hover {
+      background: var(--card-color, var(--colors-gold));
+      color: #000000;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     }
-  
-    /* Social Media Icons Styling */
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2.2rem 1.5rem;
+      text-align: center;
+      color: var(--colors-textMuted);
+      font-size: 0.88rem;
+      background: rgba(15, 17, 23, 0.95);
+      margin-top: 4rem;
+    }
+
     .social-links {
       display: flex;
-      align-items: center;
       justify-content: center;
-      gap: 16px;
-      margin-top: 15px;
+      align-items: center;
+      gap: 1.2rem;
+      margin-top: 1.2rem;
     }
 
     .social-icon-btn {
@@ -275,59 +448,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.25s ease;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-      text-decoration: none;
+      padding: 6px;
     }
 
     .social-icon-btn img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       border-radius: 50%;
-      transition: transform 0.3s ease;
     }
 
     .social-icon-btn:hover {
-      transform: translateY(-4px) scale(1.12);
-      border-color: #00F2FE;
-      box-shadow: 0 6px 20px rgba(0, 242, 254, 0.45);
+      transform: translateY(-3px) scale(1.1);
+      border-color: #38BDF8;
+      box-shadow: 0 6px 18px rgba(56, 189, 248, 0.4);
+      background: rgba(56, 189, 248, 0.15);
     }
 
-    .social-floating-bar {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 999999;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 7px 14px;
-      background: rgba(15, 20, 30, 0.90);
-      border: 1.5px solid rgba(255, 255, 255, 0.22);
-      border-radius: 30px;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-    }
-
-    @media (max-width: 600px) {
-      .social-floating-bar {
-        bottom: 12px;
-        right: 12px;
-        padding: 5px 10px;
-        gap: 8px;
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
       }
-      .social-icon-btn {
-        width: 34px;
-        height: 34px;
+      .filter-bar {
+        border-radius: 20px;
+      }
+      .filter-btn {
+        padding: 6px 14px;
+        font-size: 0.82rem;
       }
     }
-
-</style>
+  </style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -335,31 +489,53 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+  <!-- HEADER NAVIGATION -->
   <header>
     <div class="header-container">
-      <a href="#" class="brand">
-        <img src="https://i.ibb.co/Vc9BJn4r/Logo-Lignum.png" alt="Logo Universo Lignum" class="brand-logo-img">
+      <a href="./index.html" class="brand">
+        <img src="./public/logo.png" alt="Universo Lignum Logo" class="brand-logo-img" onerror="this.style.display='none';">
         <div>
           <span class="brand-title">UNIVERSO LIGNUM</span>
-          <span class="brand-sub">Portal Literario Oficial</span>
+          <span class="brand-sub">Biblioteca de Historias por Fernando Barra</span>
         </div>
       </a>
+      <div class="header-status-badge">
+        <span class="status-dot"></span>
+        Universo Activo
+      </div>
     </div>
   </header>
 
+  <!-- MAIN CONTAINER -->
   <main>
+    <!-- HERO SECTION -->
     <section class="hero">
-      <div class="hero-badge">✦ Obras Literarias & Sagas Interactivas ✦</div>
+      <span class="hero-badge">Sistemas Literarios Integrados</span>
       <h1>UNIVERSO LIGNUM</h1>
-      <p>
-        Bienvenido a Universo Lignum, el espacio donde convergen mis sagas y relatos de fantasía e historia. Explora cada mundo a través de su propia experiencia interactiva, acompañando a sus personajes en sus batallas, reflexiones y destinos.
-      </p>
+      <p>Explora un universo literario unificado donde convergen sagas de fantasía tribal, crónicas de guerra, fábulas morales de linaje y dramas de Estado. Cada historia expande los confines de un mismo universo.</p>
+      
+      <div class="hero-metrics">
+        <div class="metric-pill"><span>6</span> Obras Literarias</div>
+        <div class="metric-pill"><span>2</span> Flujos Principales</div>
+        <div class="metric-pill"><span>100%</span> Accesible en Vivo</div>
+      </div>
     </section>
 
-    <div class="grid">
+    <!-- INTERACTIVE CATEGORY FILTER BAR -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterStories('all', this)">Todas las Obras</button>
+      <button class="filter-btn" onclick="filterStories('fantasia-epica', this)">Fantasía Épica</button>
+      <button class="filter-btn" onclick="filterStories('fantasia-tribal', this)">Fantasía Tribal</button>
+      <button class="filter-btn" onclick="filterStories('fabula', this)">Fábula Moral</button>
+      <button class="filter-btn" onclick="filterStories('venganza', this)">Venganza</button>
+      <button class="filter-btn" onclick="filterStories('historica', this)">Ficción Histórica</button>
+    </div>
 
+    <!-- STORIES GRID -->
+    <div class="grid" id="storiesGrid">
+      
       <!-- La Piedra sin Pulir -->
-      <div class="card" style="--card-color: #FFCC33;">
+      <div class="card" data-category="fabula" style="--card-color: #52B788;">
         <div>
           <div class="card-cover">
             <img src="https://i.ibb.co/NdxnWgmS/Portada-de-La-Piedra-sin-Pulir.png" alt="Portada de La Piedra sin Pulir" class="cover-img">
@@ -378,7 +554,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- Forgotten Sword -->
-      <div class="card" style="--card-color: #FF4444;">
+      <div class="card" data-category="fantasia-epica" style="--card-color: #FF4444;">
         <div>
           <div class="card-cover">
             <img src="https://i.ibb.co/5hfYDKFT/Portada-de-Forgotten-Sword.png" alt="Portada de Forgotten Sword" class="cover-img">
@@ -387,7 +563,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h2 class="card-title">Forgotten Sword</h2>
           <p class="card-desc">Saga épica de catorce capítulos. Entre guerras tribales, pactos diplomáticos y el peso del liderazgo, guerreros y caudillos luchan por proteger a su pueblo y sobrevivir a la marea enemiga de Gricái.</p>
           <div class="card-features">
-            <span class="feat-tag">Saga de catorce capítulos</span>
+            <span class="feat-tag">Saga de Catorce Capítulos</span>
+            <span class="feat-tag" style="color: #FF4444; border-color: rgba(255, 68, 68, 0.4); background: rgba(255, 68, 68, 0.12); font-weight: 700;">Capítulo 14 en proceso de escritura</span>
             <span class="feat-tag">Guerras Tribales</span>
             <span class="feat-tag">Responsabilidad del Mando</span>
             <span class="feat-tag">Prólogo & Fichas</span>
@@ -397,16 +574,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- Ruk el Héroe -->
-      <div class="card" style="--card-color: #D4AF37;">
+      <div class="card" data-category="fantasia-epica" style="--card-color: #D4AF37;">
         <div>
           <div class="card-cover">
             <img src="https://i.ibb.co/jvP88cKJ/Portada-en-Creaci-n.png" alt="Portada de Ruk el Héroe" class="cover-img">
           </div>
-          <span class="card-badge" style="color: #D4AF37; border-color: #D4AF37;">En Creación · Fantasía Épica</span>
+          <span class="card-badge" style="color: #EF4444; border-color: #EF4444; background: rgba(239,68,68,0.12);">En Creación · Fantasía Épica</span>
           <h2 class="card-title">Ruk el Héroe</h2>
-          <p class="card-desc">Novela épica de nueve capítulos. Acompaña a Ruk y sus compañeros en la travesía hacia el frente de Ende, forjando guerreros y uniendo tribus para resistir la embestida enemiga.</p>
+          <p class="card-desc">Cuento épico de nueve capítulos. Acompaña a Ruk y sus compañeros en la travesía hacia el frente de Ende, forjando guerreros y uniendo tribus para resistir la embestida enemiga.</p>
           <div class="card-features">
-            <span class="feat-tag">nueve capítulos</span>
+            <span class="feat-tag">Nueve Capítulos</span>
             <span class="feat-tag">Espada del Salvador</span>
             <span class="feat-tag">Unión de Tribus</span>
             <span class="feat-tag">Éter & Sanación</span>
@@ -416,7 +593,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- Sangre y Cadáveres -->
-      <div class="card" style="--card-color: #CA0B0B;">
+      <div class="card" data-category="venganza" style="--card-color: #CA0B0B;">
         <div>
           <div class="card-cover">
             <img src="https://i.ibb.co/MQxMcc6/Portada-de-Sangre-y-Cad-veres.png" alt="Portada de Sangre y Cadáveres" class="cover-img">
@@ -435,7 +612,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- The Marriage of the Republic -->
-      <div class="card" style="--card-color: #8B5A2B;">
+      <div class="card" data-category="historica" style="--card-color: #8B5A2B;">
         <div>
           <div class="card-cover">
             <img src="https://i.ibb.co/SXNrFc51/Portada-de-The-Marriage-of-the-Republic.png" alt="Portada de The Marriage of the Republic" class="cover-img">
@@ -454,7 +631,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- Getting to Know -->
-      <div class="card" style="--card-color: #00F2FE;">
+      <div class="card" data-category="fantasia-tribal" style="--card-color: #00F2FE;">
         <div>
           <div class="card-cover">
             <img src="https://i.ibb.co/TM63LgTZ/Portada-de-Getting-to-Know.png" alt="Portada de Getting to Know" class="cover-img">
@@ -475,7 +652,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </main>
 
-    <footer>
+  <!-- FOOTER -->
+  <footer>
     <p>&copy; 2026 UNIVERSO LIGNUM — Creado por Fernando Barra. Obras literarias e historias en un mismo universo.</p>
     <div class="social-links">
       <a href="https://www.instagram.com/herr_ferb?igsh=MTE3ZXV4bmpzODIzNg==" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Instagram">
@@ -490,20 +668,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </footer>
 
+  <!-- DYNAMIC CATEGORY FILTER SCRIPT -->
+  <script>
+    function filterStories(category, btnElement) {
+      // Update active button styling
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      if (btnElement) {
+        btnElement.classList.add('active');
+      }
 
-  <!-- Floating Social Media Bar -->
-  <div class="social-floating-bar">
-    <span style="font-size: 11px; color: #94A3B8; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.5px;">Redes:</span>
-    <a href="https://www.instagram.com/herr_ferb?igsh=MTE3ZXV4bmpzODIzNg==" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Instagram">
-      <img src="./public/instagram.jpg" alt="Instagram">
-    </a>
-    <a href="https://www.facebook.com/fernando.barra.942/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Facebook">
-      <img src="./public/facebook.jpg" alt="Facebook">
-    </a>
-    <a href="https://www.linkedin.com/in/fernando-barra-920ab0379/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn">
-      <img src="./public/linkedin.webp" alt="LinkedIn">
-    </a>
-  </div>
-
+      // Filter cards
+      const cards = document.querySelectorAll('#storiesGrid .card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+          card.style.opacity = '1';
+          card.style.transform = 'scale(1)';
+        } else {
+          card.style.display = 'none';
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.95)';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
