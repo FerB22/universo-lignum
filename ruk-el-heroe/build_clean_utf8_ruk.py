@@ -900,7 +900,7 @@ full_html = f"""<!DOCTYPE html>
                 </p>
                 <div class="hero-badges">
                     <span class="badge-item">✨ Edición Completa</span>
-                    <span class="badge-item">📖 9 Capítulos</span>
+                    <span class="badge-item">📖 nueve capítulos</span>
                     <span class="badge-item">👑 Estética Blanco & Dorado</span>
                 </div>
             </div>
@@ -910,7 +910,7 @@ full_html = f"""<!DOCTYPE html>
                 <div class="btn-hub-card" onclick="mostrarSeccion('seccion-lectura', 'lectura')">
                     <div class="hub-icon">📖</div>
                     <h3 class="hub-card-title">Lectura de Capítulos</h3>
-                    <p class="hub-card-desc">Explora la saga completa desde el Capítulo 1 hasta el 9 con controles de lectura personalizados.</p>
+                    <p class="hub-card-desc">Explora la saga completa desde el Capítulo Uno hasta el Nueve con controles de lectura personalizados.</p>
                 </div>
 
                 <div class="btn-hub-card" onclick="mostrarSeccion('seccion-personajes', 'personajes')">

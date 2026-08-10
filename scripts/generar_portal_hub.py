@@ -368,9 +368,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h2 class="card-title">La Piedra sin Pulir</h2>
           <p class="card-desc">Un poderoso señor engendra más de veinte hijos a los que concede poder sin disciplina. Cuando la soberbia desencadena la tragedia, el padre enfrentará una sentencia implacable para restaurar la justicia.</p>
           <div class="card-features">
-            <span class="feat-tag">Señor de las 7 Esposas</span>
+            <span class="feat-tag">Señor de las Siete Esposas</span>
             <span class="feat-tag">Justicia & Disciplina</span>
-            <span class="feat-tag">Estructura en 4 Actos</span>
+            <span class="feat-tag">Estructura en Cuatro Actos</span>
             <span class="feat-tag">Fábula de Linaje</span>
           </div>
         </div>
@@ -385,9 +385,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <span class="card-badge">Fantasía Oscura Tribal</span>
           <h2 class="card-title">Forgotten Sword</h2>
-          <p class="card-desc">Saga épica de 14 capítulos. Entre guerras tribales, pactos diplomáticos y el peso del liderazgo, guerreros y caudillos luchan por proteger a su pueblo y sobrevivir a la marea enemiga de Gricái.</p>
+          <p class="card-desc">Saga épica de catorce capítulos. Entre guerras tribales, pactos diplomáticos y el peso del liderazgo, guerreros y caudillos luchan por proteger a su pueblo y sobrevivir a la marea enemiga de Gricái.</p>
           <div class="card-features">
-            <span class="feat-tag">Saga de 14 Capítulos</span>
+            <span class="feat-tag">Saga de catorce capítulos</span>
             <span class="feat-tag">Guerras Tribales</span>
             <span class="feat-tag">Responsabilidad del Mando</span>
             <span class="feat-tag">Prólogo & Fichas</span>
@@ -404,9 +404,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <span class="card-badge" style="color: #D4AF37; border-color: #D4AF37;">En Creación · Fantasía Épica</span>
           <h2 class="card-title">Ruk el Héroe</h2>
-          <p class="card-desc">Novela épica de 9 capítulos. Acompaña a Ruk y sus compañeros en la travesía hacia el frente de Ende, forjando guerreros y uniendo tribus para resistir la embestida enemiga.</p>
+          <p class="card-desc">Novela épica de nueve capítulos. Acompaña a Ruk y sus compañeros en la travesía hacia el frente de Ende, forjando guerreros y uniendo tribus para resistir la embestida enemiga.</p>
           <div class="card-features">
-            <span class="feat-tag">9 Capítulos</span>
+            <span class="feat-tag">nueve capítulos</span>
             <span class="feat-tag">Espada del Salvador</span>
             <span class="feat-tag">Unión de Tribus</span>
             <span class="feat-tag">Éter & Sanación</span>
@@ -464,7 +464,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="card-desc">En el monte del suroeste, un exguardia de frontera huye de la desolación y encuentra una nueva razón para vivir al proteger a Ameřa, enfrentando la desconfianza de la tribu Häscht.</p>
           <div class="card-features">
             <span class="feat-tag">Tribu Häscht</span>
-            <span class="feat-tag">2 Personajes Principales</span>
+            <span class="feat-tag">Dos Personajes Principales</span>
             <span class="feat-tag">Cazadores & Guardias</span>
             <span class="feat-tag">Amor & Redención</span>
           </div>
