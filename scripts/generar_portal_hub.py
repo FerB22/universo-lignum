@@ -494,6 +494,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
     }
   </style>
+  <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ferb22.github.io/universo-lignum/" />
+  <meta property="og:title" content="UNIVERSO LIGNUM | Biblioteca de Historias por Fernando Barra" />
+  <meta property="og:description" content="Explora un universo literario unificado donde convergen sagas de fantasía tribal, crónicas de guerra, fábulas morales y dramas de Estado." />
+  <meta property="og:image" content="https://i.ibb.co/fYygPZQ8/Logo-Lignum-compressed.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="UNIVERSO LIGNUM | Biblioteca de Historias por Fernando Barra" />
+  <meta name="twitter:description" content="Explora un universo literario unificado donde convergen sagas de fantasía tribal, crónicas de guerra, fábulas morales y dramas de Estado." />
+  <meta name="twitter:image" content="https://i.ibb.co/fYygPZQ8/Logo-Lignum-compressed.png" />
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
