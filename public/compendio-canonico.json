@@ -24,18 +24,6 @@
       "icon": "🗺️",
       "items": [
         {
-          "id": "asentamiento-del-sr-lorim",
-          "title": "Asentamiento del Sr Lorim",
-          "saga": "Forgotten Sword",
-          "type": "Asentamiento",
-          "government": "",
-          "content": "Ubicación / Saga: Forgotten Sword",
-          "tags": [
-            "Asentamiento del Sr Lorim",
-            "Asentamiento"
-          ]
-        },
-        {
           "id": "basti-n-rhak",
           "title": "Bastión Rhak",
           "saga": "Desarrollo Continental",

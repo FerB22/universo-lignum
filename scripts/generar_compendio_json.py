@@ -104,6 +104,8 @@ def build_data():
     places_raw = re.findall(r'### 5\.\d+\. [^\n]*?([A-Za-zÁÉÍÓÚáéíóúñÑüÜöÖäÄ\'\s\/\-]+)\n(.*?)(?=\n### 5|\n---|\Z)', geo_sec, re.DOTALL)
     for name, body in places_raw:
         clean_name = name.strip()
+        if "asentamiento del sr lorim" in clean_name.lower():
+            continue
         meta, text_content = parse_metadata_fields(body)
         data["categories"]["geografia"]["items"].append({
             "id": re.sub(r'[^a-z0-9]+', '-', clean_name.lower()).strip('-'),
