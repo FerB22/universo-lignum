@@ -1,6 +1,6 @@
 {
   "title": "El saber del mundo — Compendio canónico",
-  "description": "Base de conocimiento enciclopédica del Universo Lignum: cosmología, geografía, facciones, cronología, saber arcano y personajes.",
+  "description": "Base de conocimiento enciclopédica del universo Lignum: cosmología, geografía, facciones, cronología, saber arcano y tradiciones.",
   "categories": {
     "cosmologia": {
       "name": "Cosmología y visión general",
@@ -8,9 +8,9 @@
       "items": [
         {
           "id": "vision-general",
-          "title": "Cosmología del Universo Lignum",
+          "title": "Cosmología del universo Lignum",
           "summary": "Mundo de fantasía medieval y tensión geopolítica intercontinental.",
-          "content": "El Universo Lignum es un vasto tapiz narrativo de fantasía medieval y política donde convergen reinos centralizados, dinastías forestales, tribus autónomas y los vestigios de una magia antigua casi extinguida tras el Cataclismo del Año 0 (Calendario Vödhar).\n\nEl bosque colosal Vertaik domina el centro-norte del continente, mientras que al sur se extiende el desierto de Maumak'lim y la desolación eléctrica de Zorkai Kal. La lengua culta del continente es el Märik, un idioma estructurado y aglutinante dotado de calendario propio y sistema de doce meses.",
+          "content": "El universo Lignum es un vasto tapiz narrativo de fantasía medieval y política donde convergen reinos centralizados, dinastías forestales, tribus autónomas y los vestigios de una magia antigua casi extinguida tras el Cataclismo del Año 0 (Calendario Vödhar).\n\nEl bosque colosal Vertaik domina el centro-norte del continente Kad, mientras que al sur se extiende el desierto de Maumak'lim y la desolación eléctrica de Zorkai Kal. La lengua culta del continente es el Märik, un idioma estructurado y aglutinante dotado de calendario propio y sistema de doce meses.",
           "tags": [
             "Cosmología",
             "Calendario Vödhar",
@@ -62,13 +62,13 @@
         {
           "id": "continente-kad",
           "title": "Continente Kad",
-          "saga": "Edification",
-          "type": "Continente",
+          "saga": "Historia Continental",
+          "type": "Masa continental principal",
           "government": "",
-          "content": "Ubicación / Saga: Edification",
+          "content": "El continente Kad constituye el escenario geográfico principal donde transcurren las crónicas y tensiones del universo Lignum. Su territorio se halla naturalmente dividido entre dos grandes hemisferios por la imponente cordillera de Mot-Savdarie, cuyo macizo central quedó fracturado tras el impacto primordial de un meteorito.\n\n• El Norte y Noroeste: Tierras dominadas por el inmenso y misterioso bosque Vertaik, las planicies costeras de Märschkascht —sede de los reinos de Viföld, Sakvil y Kresch—, el aislado y sacro Valle de Gorhak en la cordillera de Orhal, y las alturas heladas custodiadas por el Bastión Rhak.\n\n• El Sur y Suroeste: Un entorno árido y agreste marcado por la inmensidad del Desierto Merfer (Maumak'lim), gobernado en gran medida por la monarquía absoluta del Reino Máder; los picos gemelos cargados de magia ancestral de Mun-Schräk; y el inhóspito desierto de arena negra y tormentas eléctricas de Zorkai Kal (Orh-Sad), hogar de la tribu Vreschkamil.\n\n• El Sureste: La potencia cívica, marítima e insular de la República de Sokjavos, erigida como faro de diplomacia, jurisprudencia y navegación de la cuenca continental.\n\nEn Kad conviven reinos centralizados en constante expansión mercantil y tecnológica junto con antiguas tribus autónomas (como los Altari, Veridianos, Hültem y Nivrel), poseedoras de saberes ancestrales y disciplinas marciales únicas. La lengua culta que estructura el comercio, la diplomacia y el calendario común de doce meses en todo el continente es el Märik, cuya cronología oficial parte de la era posterior a la Gran Quema (Año 0 del Calendario Vödhar).",
           "tags": [
             "Continente Kad",
-            "Continente"
+            "Masa continental principal"
           ]
         },
         {

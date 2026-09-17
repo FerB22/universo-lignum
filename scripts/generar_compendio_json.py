@@ -48,7 +48,7 @@ def build_data():
 
     data = {
         "title": "El saber del mundo — Compendio canónico",
-        "description": "Base de conocimiento enciclopédica del Universo Lignum: cosmología, geografía, facciones, cronología, saber arcano y personajes.",
+        "description": "Base de conocimiento enciclopédica del universo Lignum: cosmología, geografía, facciones, cronología, saber arcano y tradiciones.",
         "categories": {
             "cosmologia": {
                 "name": "Cosmología y visión general",
@@ -86,13 +86,13 @@ def build_data():
     # 1. Cosmología
     data["categories"]["cosmologia"]["items"].append({
         "id": "vision-general",
-        "title": "Cosmología del Universo Lignum",
+        "title": "Cosmología del universo Lignum",
         "summary": "Mundo de fantasía medieval y tensión geopolítica intercontinental.",
         "content": (
-            "El Universo Lignum es un vasto tapiz narrativo de fantasía medieval y política donde convergen "
+            "El universo Lignum es un vasto tapiz narrativo de fantasía medieval y política donde convergen "
             "reinos centralizados, dinastías forestales, tribus autónomas y los vestigios de una magia antigua "
             "casi extinguida tras el Cataclismo del Año 0 (Calendario Vödhar).\n\n"
-            "El bosque colosal Vertaik domina el centro-norte del continente, mientras que al sur se extiende "
+            "El bosque colosal Vertaik domina el centro-norte del continente Kad, mientras que al sur se extiende "
             "el desierto de Maumak'lim y la desolación eléctrica de Zorkai Kal. La lengua culta del continente "
             "es el Märik, un idioma estructurado y aglutinante dotado de calendario propio y sistema de doce meses."
         ),
@@ -107,6 +107,32 @@ def build_data():
         if "asentamiento del sr lorim" in clean_name.lower():
             continue
         meta, text_content = parse_metadata_fields(body)
+
+        # Enriquecimiento canónico para el Continente Kad
+        if clean_name.lower() == "continente kad":
+            text_content = (
+                "El continente Kad constituye el escenario geográfico principal donde transcurren las crónicas "
+                "y tensiones del universo Lignum. Su territorio se halla naturalmente dividido entre dos grandes "
+                "hemisferios por la imponente cordillera de Mot-Savdarie, cuyo macizo central quedó fracturado tras "
+                "el impacto primordial de un meteorito.\n\n"
+                "• El Norte y Noroeste: Tierras dominadas por el inmenso y misterioso bosque Vertaik, las planicies "
+                "costeras de Märschkascht —sede de los reinos de Viföld, Sakvil y Kresch—, el aislado y sacro Valle "
+                "de Gorhak en la cordillera de Orhal, y las alturas heladas custodiadas por el Bastión Rhak.\n\n"
+                "• El Sur y Suroeste: Un entorno árido y agreste marcado por la inmensidad del Desierto Merfer "
+                "(Maumak'lim), gobernado en gran medida por la monarquía absoluta del Reino Máder; los picos gemelos "
+                "cargados de magia ancestral de Mun-Schräk; y el inhóspito desierto de arena negra y tormentas eléctricas "
+                "de Zorkai Kal (Orh-Sad), hogar de la tribu Vreschkamil.\n\n"
+                "• El Sureste: La potencia cívica, marítima e insular de la República de Sokjavos, erigida como faro de "
+                "diplomacia, jurisprudencia y navegación de la cuenca continental.\n\n"
+                "En Kad conviven reinos centralizados en constante expansión mercantil y tecnológica junto con antiguas "
+                "tribus autónomas (como los Altari, Veridianos, Hültem y Nivrel), poseedoras de saberes ancestrales y "
+                "disciplinas marciales únicas. La lengua culta que estructura el comercio, la diplomacia y el calendario común "
+                "de doce meses en todo el continente es el Märik, cuya cronología oficial parte de la era posterior a la Gran Quema "
+                "(Año 0 del Calendario Vödhar)."
+            )
+            meta["Tipo geográfico / Político"] = "Masa continental principal"
+            meta["Saga"] = "Historia Continental"
+
         data["categories"]["geografia"]["items"].append({
             "id": re.sub(r'[^a-z0-9]+', '-', clean_name.lower()).strip('-'),
             "title": clean_name,
