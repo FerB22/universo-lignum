@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ferb22.github.io/universo-lignum/sitemap.xml
