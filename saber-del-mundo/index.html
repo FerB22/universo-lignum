@@ -734,7 +734,7 @@
 
     async function loadCompendio() {
       try {
-        const res = await fetch('../public/compendio-canonico.json');
+        const res = await fetch('../public/compendio-canonico.json?v=' + Date.now(), { cache: 'no-cache' });
         if (!res.ok) throw new Error('No se pudo cargar el archivo canónico');
         compendioData = await res.json();
         
