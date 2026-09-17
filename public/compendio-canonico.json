@@ -564,16 +564,6 @@
           ]
         },
         {
-          "id": "diccionario-kavk",
-          "title": "Diccionario Kavk",
-          "category": "Vocabulario",
-          "content": "Tha: se refiere a el silencio, el más\n\nusado.\n\nAr: se refiere al silencio en el aire.\n\nKusk: se refiere a los árboles.\n\nKia: punta.\n\nSav: afilado.\n\nlik: cortante.",
-          "tags": [
-            "Diccionario Kavk",
-            "Lengua Märik"
-          ]
-        },
-        {
           "id": "eatak",
           "title": "Eatak",
           "category": "Lengua Märik / Días de la semana",
@@ -734,12 +724,12 @@
           ]
         },
         {
-          "id": "ntak",
-          "title": "ntak",
+          "id": "scht-ntak",
+          "title": "Schtëntak",
           "category": "Lengua Märik / Días de la semana",
           "content": "Día de las Estrellas en la semana Märik.\n\nSéptimo día de la semana.",
           "tags": [
-            "ntak",
+            "Schtëntak",
             "Lengua Märik"
           ]
         },
@@ -794,12 +784,12 @@
           ]
         },
         {
-          "id": "ndtak",
-          "title": "ndtak",
+          "id": "w-ndtak",
+          "title": "Wëndtak",
           "category": "Lengua Märik / Días de la semana",
           "content": "Día del Viento en la semana Märik.\n\nCuarto día de la semana.",
           "tags": [
-            "ndtak",
+            "Wëndtak",
             "Lengua Märik"
           ]
         }
