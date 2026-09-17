@@ -397,28 +397,6 @@
           ]
         },
         {
-          "id": "batalla-hermanos-valle",
-          "title": "Batalla hermanos valle",
-          "period": "Histórico",
-          "location": "Forgotten Sword",
-          "content": "muriera, así que se acercó y mientras estaba su hermanito en el suelo cansado y agotado por la lucha el hermano mayor le preguntó vocifero molesto por su incesante lucha en esta batalla\n\nUna batalla en el valle mientras el bando de los malos ganaba terreno, el protagonista alzó su espada y avanzó mientras sus compañeros quedaban atrás habías, superados por los soldados enemigos, el protagonista avanzó sin temor, decidido en que ese día no sería el último, que su espada iba a seguir desenvainada. No era el último. Peleó contra muchos hasta que se cansó. Pero él continuó, no se rindió. Aunque su cuerpo estaba cansado él continuó peleando, y su hermano a lo lejos lo vio, comprendió que él, su hermano menor, estaba sediento de venganza. Él no quería que su hermanito muriera, así que se acercó y mientras estaba su hermanito en el suelo cansado y agotado por la lucha el hermano mayor le preguntó vocifero molesto por su incesante lucha en esta batalla",
-          "tags": [
-            "Batalla hermanos valle",
-            "Batalla / Conflicto"
-          ]
-        },
-        {
-          "id": "c-mo-waldain-obtuvo-la-espada-rota",
-          "title": "Cómo Waldain obtuvo la espada rota",
-          "period": "Histórico",
-          "location": "Forgotten Sword",
-          "content": "Después de haber formado un equipo para demostrar los verdaderos planes de Deschastt, Waldain se pierde en el inmenso bosque, dentro de este, halla unas runas con inscripciones extrañas y antiguas. En ese lugar también llegan soldados reales del Reino Gäfka, ellos atacan a Wal, hiriéndolo. Esa sangre escurrida activa unos mecanismos en las runas. Luego de acabar con todos, Wal abre un tipo de baúl de rocas, adentro halla una espada fracturada, rota y trizada. Para probar su dureza, golpea las runa, pertiéndolas en varias partes, descubriendo el filo y resistencia de las espada.",
-          "tags": [
-            "Cómo Waldain obtuvo la espada rota",
-            "Suceso"
-          ]
-        },
-        {
           "id": "el-maleficio-y-origen-de-zorkai-kal",
           "title": "El Maleficio y Origen de Zorkai Kal",
           "period": "Era Antigua",
@@ -449,17 +427,6 @@
           "tags": [
             "La Gran Quema y el Cataclismo (Año 0)",
             "Hito Histórico"
-          ]
-        },
-        {
-          "id": "venganza-de-dalmerk",
-          "title": "Venganza de Dalmerk",
-          "period": "Histórico",
-          "location": "Rise",
-          "content": "En una parte de la historia, Dalmerk anuncia a Roidek que encontró a los bandidos que masacraron el pueblo cuando niños, y los mató sin remordimiento",
-          "tags": [
-            "Venganza de Dalmerk",
-            "Suceso"
           ]
         }
       ]

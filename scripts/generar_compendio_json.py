@@ -153,7 +153,13 @@ def build_data():
     for name, body in events_raw:
         clean_name = name.strip()
         # Omitir notas de tramas o borradores específicos
-        if any(w in clean_name.lower() for w in ["disputa", "trama en años"]):
+        if any(w in clean_name.lower() for w in [
+            "disputa", 
+            "trama en años", 
+            "batalla hermanos valle", 
+            "cómo waldain obtuvo la espada rota",
+            "venganza de dalmerk"
+        ]):
             continue
         meta, text_content = parse_metadata_fields(body)
         data["categories"]["cronologia"]["items"].append({
