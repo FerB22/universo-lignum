@@ -136,7 +136,7 @@ def build_data():
     lore_raw = re.findall(r'#### ✨ ([^\n]+)\n(.*?)(?=\n#### ✨|\n### |\n---|\Z)', lore_sec, re.DOTALL)
     for name, body in lore_raw:
         clean_name = name.strip()
-        if any(v.lower() in clean_name.lower() for v in ["arkia", "disciplina", "savlik", "thakusk", "rechazo", "relojes", "riqueza"]):
+        if any(v.lower() in clean_name.lower() for v in ["arkia", "disciplina", "savlik", "thakusk"]):
             meta, text_content = parse_metadata_fields(body)
             data["categories"]["saber"]["items"].append({
                 "id": re.sub(r'[^a-z0-9]+', '-', clean_name.lower()).strip('-'),

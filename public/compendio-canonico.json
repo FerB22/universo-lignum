@@ -336,17 +336,6 @@
       "icon": "⚔️",
       "items": [
         {
-          "id": "rechazo-lengua-impuesta",
-          "title": "Rechazo lengua impuesta",
-          "category": "Cultura y Lengua",
-          "saga": "Forgotten Sword",
-          "content": "Luego de la guerra, las tribus deciden rechazar la lengua que hablan y que les ha sido impuesta; regresan a sus antiguas lenguas para que no sean olvidadas.",
-          "tags": [
-            "Rechazo lengua impuesta",
-            "Cultura y Lengua"
-          ]
-        },
-        {
           "id": "arkia",
           "title": "Arkia",
           "category": "Disciplinas y Artes de Combate",
@@ -388,28 +377,6 @@
           "tags": [
             "Thakusk",
             "Disciplinas y Artes de Combate"
-          ]
-        },
-        {
-          "id": "ndice-de-riqueza",
-          "title": "Índice de riqueza",
-          "category": "Economía y Recursos",
-          "saga": "Hiviale",
-          "content": "En el reino de la Monarquía Consultiva, la distribución de la riqueza entre la población sigue una estructura desigual, pero con una clase media emergente gracias al desarrollo de instituciones educativas y la expansión del comercio. El índice de distribución de la riqueza se puede estimar de la siguiente manera: Ricos: 10% Este grupo incluye la nobleza, altos funcionarios del Gran Concejo, grandes comerciantes, y propietarios de vastas tierras o empresas que controlan recursos clave como el comercio y la agricultura. Clase Media: 50% Compuesta por comerciantes medianos, artesanos, profesionales como médicos, eruditos, y funcionarios administrativos. Esta clase ha crecido considerablemente en los últimos años, gracias a políticas de incentivo educativo y la apertura de nuevos mercados y rutas comerciales. Clase Baja: 30% Incluye a los campesinos, pequeños comerciantes y trabajadores de servicios, quienes, aunque viven modestamente, tienen acceso a recursos básicos como alimentación y vivienda, gracias a los programas sociales implementados por el Gran Concejo. Extrema Pobreza: 10% En este grupo se encuentran las personas que viven en condiciones precarias, generalmente sin tierra o propiedad, y dependen de la caridad o asistencia social del reino. Su situación se debe a factores como desastres naturales, guerra, o incapacidad para trabajar.",
-          "tags": [
-            "Índice de riqueza",
-            "Economía y Recursos"
-          ]
-        },
-        {
-          "id": "relojes",
-          "title": "Relojes",
-          "category": "Forgotten Sword",
-          "saga": "Forgotten Sword",
-          "content": "Relojes Públicos: Estos relojes se muestran en las partes céntricas de la capital. Estos relojes podrían ser vistos como maravillas tecnológicas y símbolos de prestigio para la ciudad. Instrumento para Medir el Paso del Tiempo Schtundglas (Reloj de Arena Mágico): Este no es un reloj de arena común, sino una versión mágica que utiliza arena brillante y cristales encantados. La arena, que brilla en diferentes colores según la hora del día, fluye a través de un cristal tallado con runas que indican las horas. Las runas se iluminan cuando la arena pasa sobre ellas, mostrando no solo la hora, sino también las fases lunares y las estaciones. El Schtundglas es un objeto preciado, utilizado por sabios y nobles para mantener un control preciso del tiempo.",
-          "tags": [
-            "Relojes",
-            "Forgotten Sword"
           ]
         }
       ]
