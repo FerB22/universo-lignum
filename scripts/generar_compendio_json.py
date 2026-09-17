@@ -104,7 +104,7 @@ def build_data():
     places_raw = re.findall(r'### 5\.\d+\. [^\n]*?([A-Za-zÁÉÍÓÚáéíóúñÑüÜöÖäÄ\'\s\/\-]+)\n(.*?)(?=\n### 5|\n---|\Z)', geo_sec, re.DOTALL)
     for name, body in places_raw:
         clean_name = name.strip()
-        if "asentamiento del sr lorim" in clean_name.lower():
+        if any(w in clean_name.lower() for w in ["asentamiento del sr lorim", "república de sokjavos"]):
             continue
         meta, text_content = parse_metadata_fields(body)
 
