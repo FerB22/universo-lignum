@@ -1298,9 +1298,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="drawer-category-group">
               <div class="drawer-category-title">${cat.icon} ${cat.name} (${matched.length})</div>
               ${matched.slice(0, 6).map(item => `
-                <a href="./saber-del-mundo/index.html" class="drawer-item-link">
+                <a href="./saber-del-mundo/index.html?item=${encodeURIComponent(item.id)}" class="drawer-item-link">
                   <span>${item.title}</span>
-                  <span class="drawer-item-tag">Explorar ›</span>
+                  <span class="drawer-item-tag">Consultar ›</span>
                 </a>
               `).join('')}
             </div>

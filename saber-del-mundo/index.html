@@ -301,7 +301,7 @@
       box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
     }
 
-    /* CUADRÍCULA DE CONTENIDOS */
+    /* CUADRÍCULA DE CONTENIDOS (TARJETAS COMPACTAS) */
     main {
       flex: 1;
       max-width: 1240px;
@@ -312,23 +312,24 @@
 
     .entries-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
     }
 
-    /* TARJETA DEL SABER */
+    /* TARJETA COMPACTA Y SELECCIONABLE */
     .lore-card {
       background: linear-gradient(145deg, rgba(14, 18, 27, 0.95) 0%, rgba(9, 12, 18, 0.98) 100%);
-      border: 1px solid rgba(212, 175, 55, 0.24);
+      border: 1px solid rgba(212, 175, 55, 0.22);
       border-radius: var(--radii-card);
-      padding: 1.8rem;
+      padding: 1.5rem;
       backdrop-filter: blur(12px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      transition: all 0.28s cubic-bezier(0.25, 1, 0.5, 1);
       display: flex;
       flex-direction: column;
       position: relative;
       overflow: hidden;
+      cursor: pointer;
     }
 
     .lore-card::before {
@@ -339,14 +340,14 @@
       right: 0;
       height: 3px;
       background: var(--colors-gold);
-      opacity: 0.6;
+      opacity: 0.5;
       transition: opacity 0.3s ease;
     }
 
     .lore-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
       border-color: var(--colors-gold);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.2);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.25);
     }
 
     .lore-card:hover::before {
@@ -358,14 +359,14 @@
       align-items: center;
       justify-content: space-between;
       gap: 8px;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.75rem;
     }
 
     .card-category-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 0.25rem 0.8rem;
+      padding: 0.25rem 0.75rem;
       border-radius: var(--radii-badge);
       background: rgba(212, 175, 55, 0.1);
       border: 1px solid rgba(212, 175, 55, 0.3);
@@ -386,40 +387,161 @@
 
     .card-title {
       font-family: var(--fonts-heading);
-      font-size: 1.45rem;
+      font-size: 1.35rem;
       font-weight: 800;
       color: var(--colors-goldLight);
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.6rem;
       letter-spacing: 1px;
       line-height: 1.25;
     }
 
-    .card-body-text {
+    .card-snippet {
       color: #CBD5E1;
       font-family: var(--fonts-body);
-      font-size: 0.98rem;
-      line-height: 1.75;
+      font-size: 0.94rem;
+      line-height: 1.65;
       flex: 1;
-      white-space: pre-line;
-      margin-bottom: 1.2rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 1rem;
     }
 
-    .card-tags {
+    .card-action-row {
       display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
+      align-items: center;
+      justify-content: space-between;
       padding-top: 0.8rem;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .card-tag {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #94A3B8;
-      font-size: 0.75rem;
-      padding: 0.2rem 0.65rem;
-      border-radius: 6px;
-      font-family: var(--fonts-ui);
+    .card-open-link {
+      font-family: var(--fonts-heading);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--colors-goldLight);
+      letter-spacing: 1px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .lore-card:hover .card-open-link {
+      color: #FFFFFF;
+      transform: translateX(4px);
+    }
+
+    /* MODAL DE DETALLE COMPLETO */
+    .detail-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 6, 10, 0.82);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 3000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.28s ease, visibility 0.28s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .detail-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .detail-modal-panel {
+      width: 100%;
+      max-width: 780px;
+      max-height: 85vh;
+      background: linear-gradient(145deg, rgba(16, 21, 31, 0.98) 0%, rgba(9, 12, 18, 0.99) 100%);
+      border: 1.5px solid rgba(212, 175, 55, 0.4);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(212, 175, 55, 0.2);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform: scale(0.95);
+      transition: transform 0.28s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .detail-modal-overlay.active .detail-modal-panel {
+      transform: scale(1);
+    }
+
+    .detail-modal-header {
+      padding: 1.6rem 2rem;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      background: rgba(10, 13, 20, 0.6);
+    }
+
+    .detail-header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .detail-modal-title {
+      font-family: var(--fonts-heading);
+      font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+      font-weight: 800;
+      color: var(--colors-goldLight);
+      letter-spacing: 1.5px;
+      line-height: 1.2;
+    }
+
+    .detail-modal-close {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--colors-goldLight);
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .detail-modal-close:hover {
+      background: rgba(212, 175, 55, 0.25);
+      border-color: var(--colors-gold);
+      color: #FFFFFF;
+      transform: scale(1.1);
+    }
+
+    .detail-modal-body {
+      padding: 2rem;
+      overflow-y: auto;
+      color: #E2E8F0;
+      font-family: var(--fonts-body);
+      font-size: 1.05rem;
+      line-height: 1.85;
+      white-space: pre-line;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .detail-modal-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 1.2rem 2rem;
+      border-top: 1px solid rgba(212, 175, 55, 0.15);
+      background: rgba(10, 13, 20, 0.5);
     }
 
     /* ESTADO VACÍO (SIN RESULTADOS) */
@@ -551,6 +673,30 @@
     </div>
   </main>
 
+  <!-- MODAL DE DETALLE DEL REGISTRO -->
+  <div class="detail-modal-overlay" id="detailModalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="detail-modal-panel" id="detailModalPanel">
+      <div class="detail-modal-header">
+        <div class="detail-header-left">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="card-category-badge" id="modalCategoryBadge">🗺️ Geografía</span>
+            <span class="card-saga-badge" id="modalSagaBadge"></span>
+          </div>
+          <h2 class="detail-modal-title" id="modalTitle">Título del Registro</h2>
+        </div>
+        <button class="detail-modal-close" id="modalCloseBtn" aria-label="Cerrar ventana">✕</button>
+      </div>
+
+      <div class="detail-modal-body" id="modalBody">
+        <!-- Contenido completo inyectado al hacer clic -->
+      </div>
+
+      <div class="detail-modal-tags" id="modalTags">
+        <!-- Etiquetas inyectadas dinámicamente -->
+      </div>
+    </div>
+  </div>
+
   <!-- PIE DE PÁGINA -->
   <footer>
     <p>&copy; 2026 UNIVERSO LIGNUM — Creado por Fernando Barra. Obras literarias e historias en un mismo universo.</p>
@@ -571,17 +717,51 @@
     let compendioData = null;
     let currentCategory = 'all';
     let searchQuery = '';
+    let flatItemsMap = new Map();
 
     const entriesGrid = document.getElementById('entriesGrid');
     const searchInput = document.getElementById('searchInput');
     const categoriesBar = document.getElementById('categoriesBar');
+
+    // Elementos del Modal
+    const modalOverlay = document.getElementById('detailModalOverlay');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalCategoryBadge = document.getElementById('modalCategoryBadge');
+    const modalSagaBadge = document.getElementById('modalSagaBadge');
+    const modalBody = document.getElementById('modalBody');
+    const modalTags = document.getElementById('modalTags');
 
     async function loadCompendio() {
       try {
         const res = await fetch('../public/compendio-canonico.json');
         if (!res.ok) throw new Error('No se pudo cargar el archivo canónico');
         compendioData = await res.json();
+        
+        // Mapear elementos por id único para consulta rápida en modal
+        flatItemsMap.clear();
+        Object.keys(compendioData.categories).forEach(catKey => {
+          const cat = compendioData.categories[catKey];
+          cat.items.forEach(item => {
+            const uniqueKey = `${catKey}-${item.id}`;
+            flatItemsMap.set(uniqueKey, {
+              ...item,
+              uniqueKey: uniqueKey,
+              catName: cat.name,
+              catIcon: cat.icon
+            });
+          });
+        });
+
+        // Verificar si la URL trae un parámetro específico (ej: ?item=bastion-rhak)
+        const urlParams = new URLSearchParams(window.location.search);
+        const targetItemId = urlParams.get('item');
+
         renderEntries();
+
+        if (targetItemId) {
+          openItemById(targetItemId);
+        }
       } catch (err) {
         console.error(err);
         entriesGrid.innerHTML = `
@@ -598,7 +778,6 @@
       const normalizedQuery = searchQuery.trim().toLowerCase();
       let matchedItems = [];
 
-      // Recorrer categorías seleccionadas
       Object.keys(compendioData.categories).forEach(catKey => {
         if (currentCategory !== 'all' && currentCategory !== catKey) {
           return;
@@ -606,18 +785,12 @@
 
         const catObj = compendioData.categories[catKey];
         catObj.items.forEach(item => {
-          // Evaluar filtro de búsqueda
           const matchTitle = item.title.toLowerCase().includes(normalizedQuery);
           const matchContent = item.content.toLowerCase().includes(normalizedQuery);
           const matchTags = item.tags && item.tags.some(t => t.toLowerCase().includes(normalizedQuery));
 
           if (!normalizedQuery || matchTitle || matchContent || matchTags) {
-            matchedItems.push({
-              ...item,
-              catKey: catKey,
-              catName: catObj.name,
-              catIcon: catObj.icon
-            });
+            matchedItems.push(flatItemsMap.get(`${catKey}-${item.id}`));
           }
         });
       });
@@ -633,20 +806,63 @@
 
       entriesGrid.innerHTML = matchedItems.map(item => {
         const sagaText = item.saga ? `<span class="card-saga-badge">${escapeHtml(item.saga)}</span>` : '';
-        const tagsHtml = (item.tags || []).map(t => `<span class="card-tag">${escapeHtml(t)}</span>`).join('');
+        // Snippet de máximo 140 caracteres
+        const snippetText = item.content.length > 140 ? item.content.slice(0, 140) + '...' : item.content;
 
         return `
-          <article class="lore-card">
+          <article class="lore-card" data-key="${item.uniqueKey}">
             <div class="card-top-meta">
               <span class="card-category-badge">${item.catIcon} ${escapeHtml(item.catName)}</span>
               ${sagaText}
             </div>
             <h2 class="card-title">${escapeHtml(item.title)}</h2>
-            <div class="card-body-text">${escapeHtml(item.content)}</div>
-            ${tagsHtml ? `<div class="card-tags">${tagsHtml}</div>` : ''}
+            <div class="card-snippet">${escapeHtml(snippetText)}</div>
+            <div class="card-action-row">
+              <span class="card-open-link">Consultar crónica ›</span>
+              ${item.tags && item.tags[0] ? `<span class="card-tag">${escapeHtml(item.tags[0])}</span>` : ''}
+            </div>
           </article>
         `;
       }).join('');
+    }
+
+    function openModal(item) {
+      modalCategoryBadge.textContent = `${item.catIcon} ${item.catName}`;
+      modalSagaBadge.textContent = item.saga || (item.period ? `Época: ${item.period}` : '');
+      modalTitle.textContent = item.title;
+      modalBody.textContent = item.content;
+
+      if (item.tags && item.tags.length > 0) {
+        modalTags.style.display = 'flex';
+        modalTags.innerHTML = item.tags.map(t => `<span class="card-tag">${escapeHtml(t)}</span>`).join('');
+      } else {
+        modalTags.style.display = 'none';
+      }
+
+      modalOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      // Actualizar URL sin recargar para permitir compartir enlaces directos
+      const newUrl = new URL(window.location);
+      newUrl.searchParams.set('item', item.id);
+      window.history.replaceState({}, '', newUrl);
+    }
+
+    function closeModal() {
+      modalOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+      const newUrl = new URL(window.location);
+      newUrl.searchParams.delete('item');
+      window.history.replaceState({}, '', newUrl);
+    }
+
+    function openItemById(itemId) {
+      for (const [key, item] of flatItemsMap.entries()) {
+        if (item.id === itemId) {
+          openModal(item);
+          break;
+        }
+      }
     }
 
     function escapeHtml(str) {
@@ -661,6 +877,29 @@
     }
 
     // Eventos
+    entriesGrid.addEventListener('click', (e) => {
+      const card = e.target.closest('.lore-card');
+      if (!card) return;
+      const key = card.getAttribute('data-key');
+      const item = flatItemsMap.get(key);
+      if (item) {
+        openModal(item);
+      }
+    });
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) {
+        closeModal();
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
     searchInput.addEventListener('input', (e) => {
       searchQuery = e.target.value;
       renderEntries();
