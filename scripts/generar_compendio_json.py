@@ -167,11 +167,14 @@ def build_data():
             "tags": [clean_name, meta.get("Tipo de acontecimiento", "Hito")]
         })
 
-    # 6. Lengua Märik y Calendario (Sección 8 sin Lone Mercenary)
+    # 6. Lengua Märik y Calendario (Sección 8 sin Lone Mercenary ni notas sueltas como 'Diccionario')
     lang_sec = full_text[full_text.find('## 8. Glosario'):]
     terms_raw = re.findall(r'#### 8\.1\.\d+\. [^\n]*?([A-Za-zÁÉÍÓÚáéíóúñÑüÜöÖäÄ\'\s\/\-]+)\n(.*?)(?=\n#### 8\.|\n### |\n---|\Z)', lang_sec, re.DOTALL)
     for name, body in terms_raw:
         clean_name = name.strip()
+        # Omitir la entrada incompleta/fragmentaria 'Diccionario'
+        if clean_name.lower() in ["diccionario"]:
+            continue
         meta, text_content = parse_metadata_fields(body)
         data["categories"]["lengua"]["items"].append({
             "id": re.sub(r'[^a-z0-9]+', '-', clean_name.lower()).strip('-'),
