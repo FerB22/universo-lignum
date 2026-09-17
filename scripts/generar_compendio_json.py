@@ -79,11 +79,6 @@ def build_data():
                 "name": "Lengua Märik y calendario",
                 "icon": "📖",
                 "items": []
-            },
-            "personajes": {
-                "name": "Registro selecto de personajes",
-                "icon": "👤",
-                "items": []
             }
         }
     }
@@ -184,35 +179,6 @@ def build_data():
             "tags": [clean_name, "Lengua Märik"]
         })
 
-    # 7. Personajes canónicos seleccionados (Sección 3 - sin Lone Mercenary ni Haughtness)
-    allowed_sagas = ["Forgotten Sword", "Crown's Burden", "Crown and Alliance", "Edification", "Iron and Blood", "Luzumbra"]
-    char_sec = full_text[full_text.find('## 3. Registro de personajes'):full_text.find('## 4. Facciones')]
-    
-    saga_blocks = re.split(r'### 3\.\d+\. Saga:\s*', char_sec)
-    for s_block in saga_blocks[1:]:
-        header_line = s_block.split('\n', 1)[0]
-        saga_name_match = re.match(r'([^\(\n]+)', header_line)
-        if not saga_name_match:
-            continue
-        saga_name = saga_name_match.group(1).strip()
-        
-        if not any(a.lower() in saga_name.lower() for a in allowed_sagas):
-            continue
-            
-        chars = re.findall(r'#### [^\n]*?([A-Za-zÁÉÍÓÚáéíóúñÑüÜöÖäÄ\'\s\/\-]+)\n(.*?)(?=\n#### |\n---|\Z)', s_block, re.DOTALL)
-        for c_name, c_body in chars:
-            c_clean_name = c_name.strip()
-            meta, text_content = parse_metadata_fields(c_body)
-            data["categories"]["personajes"]["items"].append({
-                "id": re.sub(r'[^a-z0-9]+', '-', c_clean_name.lower()).strip('-'),
-                "title": c_clean_name,
-                "saga": saga_name,
-                "role": meta.get("Rol / Cargo", "Personaje"),
-                "status": meta.get("Estado vital", "Canónico"),
-                "faction": meta.get("Facción / Orden", ""),
-                "content": text_content[:1500] if len(text_content) > 1500 else text_content,
-                "tags": [c_clean_name, saga_name]
-            })
 
     os.makedirs(os.path.dirname(DEST_PATH), exist_ok=True)
     with open(DEST_PATH, 'w', encoding='utf-8') as f:
