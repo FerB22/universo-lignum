@@ -152,6 +152,9 @@ def build_data():
     events_raw = re.findall(r'### 7\.\d+\. [^\n]*?([A-Za-zÁÉÍÓÚáéíóúñÑüÜöÖäÄ\'\s\/\-\(\)0-9]+)\n(.*?)(?=\n### 7|\n---|\Z)', chrono_sec, re.DOTALL)
     for name, body in events_raw:
         clean_name = name.strip()
+        # Omitir notas de tramas o borradores específicos
+        if any(w in clean_name.lower() for w in ["disputa", "trama en años"]):
+            continue
         meta, text_content = parse_metadata_fields(body)
         data["categories"]["cronologia"]["items"].append({
             "id": re.sub(r'[^a-z0-9]+', '-', clean_name.lower()).strip('-'),
@@ -168,7 +171,7 @@ def build_data():
     for raw_name, body in terms_raw:
         clean_name = re.sub(r'^[^\w\s]+', '', raw_name).strip()
         # Omitir entradas fragmentarias o borradores de diccionario
-        if any(w in clean_name.lower() for w in ["diccionario"]):
+        if any(w in clean_name.lower() for w in ["diccionario", "adjetivos posesivos"]):
             continue
         meta, text_content = parse_metadata_fields(body)
         data["categories"]["lengua"]["items"].append({

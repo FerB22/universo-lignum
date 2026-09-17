@@ -452,17 +452,6 @@
           ]
         },
         {
-          "id": "disputa",
-          "title": "Disputa",
-          "period": "Histórico",
-          "location": "Edification",
-          "content": "isputa. Tema de la disputa Hiviale promulgó que la construcción de barcos fuera solo de metal, y dejaran que los barcos pequeños fueran de madera. Esto encarecería los costos, pero esta medida ayuda a la disminución de hundimiento.\n\nSzellek Ejnar, miembro menor de la familia Ejnar, su familia controla gran parte del mercado de la industria naval. Asentados como una familia influyente, cuando Hiviale asciende al trono, promueve nuevas leyes que entorpecen a la familia Ejnar. La familia fuerza a Szellek a planear una forma de quitarla del trono, pero, conforme pasa el tiempo, Hiviale cambia la forma de pensar de Szellek, provocando que se deslinde de su familia. Terminada la promulgación de la nueva ley naval, Hiviale demuestra que su nueva idea es idónea para los planes de la familia Ejnar, acabando cualquier disputa.\n\nTema de la disputa Hiviale promulgó que la construcción de barcos fuera solo de metal, y dejaran que los barcos pequeños fueran de madera. Esto encarecería los costos, pero esta medida ayuda a la disminución de hundimiento.",
-          "tags": [
-            "Disputa",
-            "Suceso"
-          ]
-        },
-        {
           "id": "el-maleficio-y-origen-de-zorkai-kal",
           "title": "El Maleficio y Origen de Zorkai Kal",
           "period": "Era Antigua",
@@ -496,17 +485,6 @@
           ]
         },
         {
-          "id": "trama-en-a-os",
-          "title": "Trama en años",
-          "period": "Histórico",
-          "location": "Forgotten Sword",
-          "content": "haber hecho lo suficiente.\n\nLa idea es que la historia abarque 2 años, en los que en el principio eran diplomacia, pero esta fue desatendida y los unificacionistas expandieron su territorio, ubtuvieron la ayuda de reinos fuertes y tribus con buen entrenamiento militar. Hubo un momento en el que fueron superados, y la capital de Revenst fue casi destruida por fuerzas gricanas. Hubo un bando que solo se esforzaba por sobrevivir, cosechar y sembrar, en este estaba Wal. Hubo otro bando, este fue minoritario, en el que estaba Hlied como líder, ya que su padre, Ronan, estaba muy apenado por verse diezmado y por no haber hecho lo suficiente.",
-          "tags": [
-            "Trama en años",
-            "Hito Histórico"
-          ]
-        },
-        {
           "id": "venganza-de-dalmerk",
           "title": "Venganza de Dalmerk",
           "period": "Histórico",
@@ -523,16 +501,6 @@
       "name": "Lengua Märik y calendario",
       "icon": "📖",
       "items": [
-        {
-          "id": "adjetivos-posesivos",
-          "title": "Adjetivos posesivos",
-          "category": "Lengua Märik",
-          "content": "Re = tu",
-          "tags": [
-            "Adjetivos posesivos",
-            "Lengua Märik"
-          ]
-        },
         {
           "id": "aismond",
           "title": "Aismond",
