@@ -442,142 +442,125 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: #000000;
     }
 
-    /* BANDEJA DE MINIATURAS INFERIORES */
-    .carousel-shelf-wrapper {
+    /* CONTENEDOR CON FLECHAS FLANQUEANTES */
+    .showcase-wrapper {
       position: relative;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0.5rem 0;
     }
 
-    .carousel-shelf {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .shelf-item {
-      width: 110px;
-      height: 155px;
-      border-radius: 10px;
-      border: 1.5px solid rgba(255, 255, 255, 0.12);
-      background: #080A0E;
-      overflow: hidden;
-      cursor: pointer;
-      opacity: 0.5;
-      transition: all 0.3s ease;
-      position: relative;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .shelf-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      pointer-events: none;
-    }
-
-    .shelf-item:hover {
-      opacity: 0.85;
-      transform: translateY(-4px);
-      border-color: rgba(212, 175, 55, 0.5);
-    }
-
-    .shelf-item.active {
-      opacity: 1;
-      border: 2px solid var(--item-color, var(--colors-gold));
-      transform: translateY(-8px) scale(1.08);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.3);
-    }
-
-    .shelf-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-      background: rgba(14, 18, 27, 0.9);
-      padding: 6px;
-      text-align: center;
-    }
-
-    .shelf-placeholder-rune {
-      font-size: 1.3rem;
-      color: var(--colors-gold);
-    }
-
-    .shelf-placeholder-text {
-      font-family: var(--fonts-heading);
-      font-size: 0.62rem;
-      color: var(--colors-goldLight);
-      line-height: 1.1;
-    }
-
-    /* BOTONES DE NAVEGACIÓN LATERAL */
-    .carousel-nav-btn {
-      width: 44px;
-      height: 44px;
+    /* FLECHAS DE NAVEGACIÓN LATERALES */
+    .stage-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 54px;
+      height: 54px;
       border-radius: 50%;
-      background: rgba(14, 18, 27, 0.85);
-      border: 1px solid rgba(212, 175, 55, 0.35);
+      background: rgba(11, 15, 23, 0.88);
+      border: 1.5px solid rgba(212, 175, 55, 0.45);
       color: var(--colors-goldLight);
-      font-size: 1.8rem;
+      font-size: 2rem;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      backdrop-filter: blur(8px);
-      transition: all 0.25s ease;
+      backdrop-filter: blur(12px);
+      transition: all 0.28s cubic-bezier(0.25, 1, 0.5, 1);
       line-height: 1;
-      padding-bottom: 3px;
-      margin: 0 12px;
+      padding-bottom: 4px;
+      z-index: 20;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8), 0 0 15px rgba(212, 175, 55, 0.15);
+      user-select: none;
     }
 
-    .carousel-nav-btn:hover {
-      background: rgba(212, 175, 55, 0.2);
+    .stage-arrow:hover {
+      background: rgba(212, 175, 55, 0.22);
       border-color: var(--colors-gold);
       color: #FFFFFF;
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
-      transform: scale(1.08);
+      transform: translateY(-50%) scale(1.12);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9), 0 0 25px rgba(212, 175, 55, 0.4);
     }
 
-    /* INDICADORES DE PUNTOS */
-    .carousel-dots {
+    .stage-arrow.prev-arrow {
+      left: -27px;
+    }
+
+    .stage-arrow.next-arrow {
+      right: -27px;
+    }
+
+    /* INDICADOR SECUENCIAL DE TÍTULOS (MINI-CARRUSEL DE TÍTULOS) */
+    .title-nav-strip {
+      width: 100%;
       display: flex;
-      justify-content: center;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
+      gap: 1.2rem;
+      padding: 0.8rem 1.4rem;
+      background: rgba(14, 18, 27, 0.7);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 40px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      max-width: 900px;
     }
 
-    .carousel-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(212, 175, 55, 0.25);
+    .title-pill-btn {
+      background: transparent;
+      border: none;
+      color: var(--colors-textMuted);
+      font-family: var(--fonts-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
       transition: all 0.25s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 260px;
     }
 
-    .carousel-dot.active {
-      width: 28px;
-      border-radius: 12px;
-      background: var(--colors-gold);
-      border-color: var(--colors-gold);
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+    .title-pill-btn:hover {
+      color: var(--colors-goldLight);
+      background: rgba(212, 175, 55, 0.1);
+    }
+
+    .title-pill-active {
+      color: var(--colors-goldLight);
+      font-family: var(--fonts-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 1.5px;
+      padding: 0.55rem 1.4rem;
+      border-radius: 22px;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      box-shadow: 0 0 18px rgba(212, 175, 55, 0.25);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .title-nav-separator {
+      color: var(--colors-goldDark);
+      font-size: 0.75rem;
+      opacity: 0.7;
+      user-select: none;
     }
 
     /* RESPONSIVIDAD */
     @media (max-width: 900px) {
       .showcase-card {
         grid-template-columns: 1fr;
-        padding: 2rem 1.5rem;
+        padding: 2.2rem 1.5rem;
         gap: 2rem;
       }
       .showcase-cover-wrapper {
@@ -592,9 +575,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .story-pills {
         justify-content: center;
       }
-      .shelf-item {
-        width: 85px;
-        height: 120px;
+      .stage-arrow.prev-arrow {
+        left: -12px;
+      }
+      .stage-arrow.next-arrow {
+        right: -12px;
+      }
+      .title-nav-strip {
+        gap: 0.6rem;
+        padding: 0.6rem 0.8rem;
+      }
+      .title-pill-btn {
+        max-width: 140px;
+        font-size: 0.75rem;
+        padding: 0.4rem 0.6rem;
+      }
+      .title-pill-active {
+        font-size: 0.85rem;
+        padding: 0.45rem 0.9rem;
       }
     }
 
@@ -608,11 +606,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         padding: 1rem 1.5rem;
         font-size: 0.95rem;
       }
-      .shelf-item {
-        width: 65px;
-        height: 95px;
+      .stage-arrow {
+        width: 42px;
+        height: 42px;
+        font-size: 1.5rem;
       }
-      .carousel-nav-btn {
+      .stage-arrow.prev-arrow {
+        left: -6px;
+      }
+      .stage-arrow.next-arrow {
+        right: -6px;
+      }
+      .title-nav-strip {
+        border-radius: 14px;
+        flex-direction: column;
+        gap: 0.4rem;
+        width: 100%;
+      }
+      .title-pill-btn {
+        max-width: 100%;
+      }
+      .title-nav-separator {
         display: none;
       }
     }
@@ -726,52 +740,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- CARRUSEL CINEMÁTICO DE CRÓNICAS -->
     <section class="carousel-stage" aria-label="Catálogo de crónicas de Universo Lignum">
       
-      <!-- ESCAPARATE PRINCIPAL (PORTADA A LA IZQUIERDA Y DETALLES A LA DERECHA) -->
-      <div class="showcase-card" id="showcaseCard">
-        <!-- Columna Izquierda: Portada Grande -->
-        <div class="showcase-cover-wrapper" id="showcaseCoverWrapper">
-          <img src="https://i.ibb.co/TM63LgTZ/Portada-de-Getting-to-Know.png" alt="Portada de la crónica" id="showcaseCoverImg" class="showcase-cover-img">
-          <div id="showcasePlaceholder" class="cover-placeholder" style="display: none;">
-            <span class="placeholder-rune">⚔</span>
-            <span class="placeholder-title" id="showcasePlaceholderTitle">Ruk el Héroe</span>
-            <span class="placeholder-subtitle">Portada en creación</span>
+      <!-- CONTENEDOR CON FLECHAS FLANQUEANTES Y ESCAPARATE -->
+      <div class="showcase-wrapper">
+        <button class="stage-arrow prev-arrow" id="prevBtn" aria-label="Crónica anterior">‹</button>
+
+        <!-- ESCAPARATE PRINCIPAL (PORTADA A LA IZQUIERDA Y DETALLES A LA DERECHA) -->
+        <div class="showcase-card" id="showcaseCard">
+          <!-- Columna Izquierda: Portada Grande -->
+          <div class="showcase-cover-wrapper" id="showcaseCoverWrapper">
+            <img src="https://i.ibb.co/TM63LgTZ/Portada-de-Getting-to-Know.png" alt="Portada de la crónica" id="showcaseCoverImg" class="showcase-cover-img">
+            <div id="showcasePlaceholder" class="cover-placeholder" style="display: none;">
+              <span class="placeholder-rune">⚔</span>
+              <span class="placeholder-title" id="showcasePlaceholderTitle">Ruk el Héroe</span>
+              <span class="placeholder-subtitle">Portada en creación</span>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Información y Sinopsis -->
+          <div class="showcase-info">
+            <div class="story-meta-header">
+              <span class="story-badge" id="detailBadge">Cuento Completo</span>
+              <span class="story-genre" id="detailGenre">Fantasía Tribal</span>
+            </div>
+            
+            <h2 class="story-title" id="detailTitle">Getting to Know</h2>
+            <span class="story-author" id="detailAuthor">por Fernando Barra</span>
+            
+            <p class="story-desc" id="detailDesc">Cargando crónica...</p>
+            
+            <div class="story-pills" id="detailPills"></div>
+            
+            <!-- Botón de acción principal destacado -->
+            <a href="./getting-to-know/index.html" id="detailCtaBtn" class="story-cta-btn">Abrir crónica y leer 📖</a>
           </div>
         </div>
 
-        <!-- Columna Derecha: Información y Sinopsis -->
-        <div class="showcase-info">
-          <div class="story-meta-header">
-            <span class="story-badge" id="detailBadge">Cuento Completo</span>
-            <span class="story-genre" id="detailGenre">Fantasía Tribal</span>
-          </div>
-          
-          <h2 class="story-title" id="detailTitle">Getting to Know</h2>
-          <span class="story-author" id="detailAuthor">por Fernando Barra</span>
-          
-          <p class="story-desc" id="detailDesc">Cargando crónica...</p>
-          
-          <div class="story-pills" id="detailPills"></div>
-          
-          <!-- Botón de acción principal destacado -->
-          <a href="./getting-to-know/index.html" id="detailCtaBtn" class="story-cta-btn">Abrir crónica y leer 📖</a>
-        </div>
+        <button class="stage-arrow next-arrow" id="nextBtn" aria-label="Crónica siguiente">›</button>
       </div>
 
-      <!-- BANDEJA DE NAVEGACIÓN ENTRE TOMOS -->
-      <div class="carousel-shelf-wrapper">
-        <button class="carousel-nav-btn prev-btn" id="prevBtn" aria-label="Crónica anterior">‹</button>
-        
-        <div class="carousel-shelf" id="carouselShelf">
-          <!-- Miniaturas de libros inyectadas dinámicamente -->
-        </div>
-        
-        <button class="carousel-nav-btn next-btn" id="nextBtn" aria-label="Crónica siguiente">›</button>
-      </div>
-
-      <!-- Indicadores de paginación -->
-      <div class="carousel-dots" id="carouselDots">
-        <!-- Puntos generados dinámicamente -->
-      </div>
+      <!-- INDICADOR SECUENCIAL DE TÍTULOS (MINI-CARRUSEL DE TÍTULOS) -->
+      <nav class="title-nav-strip" aria-label="Secuencia de títulos">
+        <button class="title-pill-btn" id="navPrevTitle" aria-label="Ver crónica previa">
+          <span>‹</span>
+          <span id="navPrevText">La Piedra sin Pulir</span>
+        </button>
+        <span class="title-nav-separator">✦</span>
+        <div class="title-pill-active" id="navActiveText" aria-current="true">Getting to Know</div>
+        <span class="title-nav-separator">✦</span>
+        <button class="title-pill-btn" id="navNextTitle" aria-label="Ver crónica siguiente">
+          <span id="navNextText">Forgotten Sword</span>
+          <span>›</span>
+        </button>
+      </nav>
 
     </section>
   </main>
@@ -855,8 +875,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     ];
 
     let currentIndex = 0;
-    const shelf = document.getElementById('carouselShelf');
-    const dotsContainer = document.getElementById('carouselDots');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     const showcaseCard = document.getElementById('showcaseCard');
@@ -864,48 +882,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const showcasePlaceholder = document.getElementById('showcasePlaceholder');
     const showcasePlaceholderTitle = document.getElementById('showcasePlaceholderTitle');
 
-    // Inicializar elementos en el DOM
+    // Elementos del navegador de títulos
+    const navPrevTitle = document.getElementById('navPrevTitle');
+    const navPrevText = document.getElementById('navPrevText');
+    const navActiveText = document.getElementById('navActiveText');
+    const navNextTitle = document.getElementById('navNextTitle');
+    const navNextText = document.getElementById('navNextText');
+
+    // Inicializar carrusel
     function initCarousel() {
-      shelf.innerHTML = '';
-      dotsContainer.innerHTML = '';
-
-      stories.forEach((story, index) => {
-        // Crear miniatura para la bandeja inferior
-        const item = document.createElement('div');
-        item.className = 'shelf-item';
-        item.setAttribute('data-index', index);
-        item.style.setProperty('--item-color', story.color);
-        
-        if (story.placeholder) {
-          item.innerHTML = `
-            <div class="shelf-placeholder">
-              <span class="shelf-placeholder-rune">⚔</span>
-              <span class="shelf-placeholder-text">${story.title}</span>
-            </div>
-          `;
-        } else {
-          item.innerHTML = `<img src="${story.cover}" alt="Miniatura de ${story.title}">`;
-        }
-
-        item.addEventListener('click', () => goToStory(index));
-        shelf.appendChild(item);
-
-        // Crear indicador de punto
-        const dot = document.createElement('button');
-        dot.className = 'carousel-dot';
-        dot.setAttribute('aria-label', `Ir a ${story.title}`);
-        dot.addEventListener('click', () => goToStory(index));
-        dotsContainer.appendChild(dot);
-      });
+      // Eventos de clic en el navegador de títulos
+      navPrevTitle.addEventListener('click', prevStory);
+      navNextTitle.addEventListener('click', nextStory);
 
       updateCarousel();
     }
 
-    // Actualizar el escaparate principal y las miniaturas
+    // Actualizar el escaparate principal y el navegador de títulos
     function updateCarousel() {
       const current = stories[currentIndex];
-      const items = document.querySelectorAll('.shelf-item');
-      const dots = document.querySelectorAll('.carousel-dot');
+      const prevIdx = (currentIndex - 1 + stories.length) % stories.length;
+      const nextIdx = (currentIndex + 1) % stories.length;
 
       // Actualizar color temático del escaparate
       showcaseCard.style.setProperty('--showcase-color', current.color);
@@ -941,14 +938,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const ctaBtn = document.getElementById('detailCtaBtn');
       ctaBtn.href = current.url;
 
-      // Actualizar estado activo en miniaturas y puntos
-      items.forEach((item, index) => {
-        item.classList.toggle('active', index === currentIndex);
-      });
-
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-      });
+      // Actualizar navegador de títulos continuo
+      navPrevText.textContent = stories[prevIdx].title;
+      navActiveText.textContent = current.title;
+      navNextText.textContent = stories[nextIdx].title;
     }
 
     function prevStory() {
