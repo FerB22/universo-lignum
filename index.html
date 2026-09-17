@@ -264,190 +264,96 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* ESCENARIO DEL CARRUSEL CINEMÁTICO */
     .carousel-stage {
-      max-width: 1200px;
+      max-width: 1100px;
+      width: 100%;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 2.8rem;
+      gap: 2.5rem;
     }
 
-    /* PISTA DE EXHIBICIÓN DE TOMOS (COVERFLOW) */
-    .carousel-track-wrapper {
-      position: relative;
+    /* ESCAPARATE PRINCIPAL (DOS COLUMNAS: PORTADA A LA IZQUIERDA Y DETALLES A LA DERECHA) */
+    .showcase-card {
       width: 100%;
-      display: flex;
+      background: linear-gradient(135deg, rgba(17, 21, 31, 0.95) 0%, rgba(10, 13, 20, 0.98) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      border-radius: 20px;
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 3rem;
       align-items: center;
-      justify-content: center;
-      padding: 2.5rem 1rem 1.5rem 1rem;
-      perspective: 1200px;
-    }
-
-    .carousel-track {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 24px;
-      width: 100%;
-      max-width: 1040px;
-      position: relative;
-      min-height: 380px;
-    }
-
-    /* MINIATURAS / TOMOS DEL CARRUSEL */
-    .carousel-item {
-      position: absolute;
-      width: 220px;
-      height: 320px;
-      border-radius: 14px;
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      background: #090B10;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
-      cursor: pointer;
-      overflow: hidden;
-      transition: all 0.45s cubic-bezier(0.25, 1, 0.5, 1);
-      user-select: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      will-change: transform, opacity;
-    }
-
-    .carousel-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      pointer-events: none;
-      transition: filter 0.4s ease;
-    }
-
-    /* Posicionamiento y perspectiva de los elementos */
-    .carousel-item.active {
-      transform: translateX(0) scale(1.22);
-      z-index: 10;
-      opacity: 1;
-      border: 2px solid var(--item-color, var(--colors-gold));
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.85), 0 0 35px rgba(212, 175, 55, 0.28);
-    }
-
-    .carousel-item.prev {
-      transform: translateX(-240px) scale(0.92);
-      z-index: 5;
-      opacity: 0.65;
-      filter: brightness(0.65);
-    }
-
-    .carousel-item.next {
-      transform: translateX(240px) scale(0.92);
-      z-index: 5;
-      opacity: 0.65;
-      filter: brightness(0.65);
-    }
-
-    .carousel-item.far-prev {
-      transform: translateX(-430px) scale(0.76);
-      z-index: 2;
-      opacity: 0.32;
-      filter: brightness(0.45);
-    }
-
-    .carousel-item.far-next {
-      transform: translateX(430px) scale(0.76);
-      z-index: 2;
-      opacity: 0.32;
-      filter: brightness(0.45);
-    }
-
-    .carousel-item.hidden {
-      transform: translateX(0) scale(0.5);
-      z-index: 0;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    /* BOTONES DE NAVEGACIÓN LATERAL */
-    .carousel-nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: rgba(14, 18, 27, 0.85);
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      color: var(--colors-goldLight);
-      font-size: 1.8rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 20;
-      backdrop-filter: blur(8px);
-      transition: all 0.25s ease;
-      line-height: 1;
-      padding-bottom: 3px;
-    }
-
-    .carousel-nav-btn:hover {
-      background: rgba(212, 175, 55, 0.2);
-      border-color: var(--colors-gold);
-      color: #FFFFFF;
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
-      transform: translateY(-50%) scale(1.08);
-    }
-
-    .carousel-nav-btn.prev-btn {
-      left: 12px;
-    }
-
-    .carousel-nav-btn.next-btn {
-      right: 12px;
-    }
-
-    /* PANEL CENTRAL DE DETALLES Y SINOPSIS */
-    .carousel-details-panel {
-      max-width: 820px;
-      width: 100%;
-      text-align: center;
-      background: linear-gradient(180deg, rgba(17, 21, 31, 0.9) 0%, rgba(10, 13, 20, 0.95) 100%);
-      border: 1px solid rgba(212, 175, 55, 0.22);
-      border-radius: var(--radii-card);
-      padding: 2.2rem 2rem 2.4rem 2rem;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), 0 0 30px rgba(212, 175, 55, 0.12);
+      backdrop-filter: blur(16px);
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(12px);
+      transition: border-color 0.4s ease, box-shadow 0.4s ease;
     }
 
-    .carousel-details-panel::before {
+    .showcase-card::before {
       content: '';
       position: absolute;
       top: 0;
-      left: 10%;
-      right: 10%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6), transparent);
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--showcase-color, var(--colors-gold));
+      opacity: 0.8;
+      transition: background 0.4s ease;
+    }
+
+    /* COLUMNA IZQUIERDA: PORTADA DESTACADA */
+    .showcase-cover-wrapper {
+      width: 100%;
+      height: 460px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2px solid rgba(212, 175, 55, 0.35);
+      background: #080A0E;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), 0 0 25px rgba(212, 175, 55, 0.2);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .showcase-cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.35s ease, transform 0.4s ease;
+    }
+
+    .showcase-cover-img:hover {
+      transform: scale(1.02);
+    }
+
+    /* COLUMNA DERECHA: INFORMACIÓN Y SINOPSIS */
+    .showcase-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
     }
 
     .story-meta-header {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 14px;
-      margin-bottom: 1.1rem;
+      gap: 12px;
+      margin-bottom: 1rem;
     }
 
     .story-badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
       padding: 0.3rem 0.95rem;
       border-radius: var(--radii-badge);
-      background: rgba(212, 175, 55, 0.08);
-      border: 1px solid rgba(212, 175, 55, 0.3);
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.35);
       color: var(--colors-goldLight);
       font-family: var(--fonts-heading);
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -455,7 +361,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     .story-genre {
       font-family: var(--fonts-heading);
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       color: var(--colors-textMuted);
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -463,20 +369,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     .story-title {
       font-family: var(--fonts-heading);
-      font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+      font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 800;
       color: var(--colors-goldLight);
       letter-spacing: 2px;
-      margin-bottom: 0.4rem;
-      line-height: 1.2;
-      text-shadow: 0 2px 15px rgba(0, 0, 0, 0.6);
+      margin-bottom: 0.3rem;
+      line-height: 1.18;
+      text-shadow: 0 3px 20px rgba(0, 0, 0, 0.7);
     }
 
     .story-author {
       font-family: var(--fonts-body);
       font-style: italic;
-      color: var(--colors-textMuted);
-      font-size: 0.95rem;
+      color: var(--colors-gold);
+      font-size: 1.02rem;
       margin-bottom: 1.3rem;
       display: block;
     }
@@ -484,16 +390,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .story-desc {
       font-family: var(--fonts-body);
       color: #CBD5E1;
-      font-size: 1.06rem;
+      font-size: 1.08rem;
       line-height: 1.85;
-      max-width: 680px;
-      margin: 0 auto 1.6rem auto;
+      margin-bottom: 1.8rem;
+      max-width: 620px;
     }
 
     .story-pills {
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-wrap: wrap;
       gap: 0.65rem;
       margin-bottom: 2.2rem;
@@ -503,27 +407,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.1);
       color: #CBD5E1;
-      padding: 0.3rem 0.85rem;
+      padding: 0.35rem 0.9rem;
       border-radius: 6px;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-family: var(--fonts-ui);
     }
 
-    /* BOTÓN PRINCIPAL DESTACADO */
+    /* BOTÓN DE ACCIÓN PRINCIPAL */
     .story-cta-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 1.05rem 2.8rem;
-      border-radius: 30px;
+      gap: 12px;
+      padding: 1.1rem 3rem;
+      border-radius: 35px;
       background: linear-gradient(135deg, rgba(212, 175, 55, 0.95) 0%, rgba(140, 109, 59, 0.95) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.35);
       color: #07090D;
       text-decoration: none;
       font-family: var(--fonts-heading);
       font-weight: 800;
-      font-size: 1.02rem;
+      font-size: 1.05rem;
       letter-spacing: 2px;
       text-transform: uppercase;
       box-shadow: 0 8px 30px rgba(212, 175, 55, 0.35);
@@ -534,17 +438,121 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .story-cta-btn:hover {
       transform: translateY(-3px) scale(1.03);
       background: linear-gradient(135deg, #FFFFFF 0%, var(--colors-gold) 100%);
-      box-shadow: 0 12px 35px rgba(212, 175, 55, 0.55);
+      box-shadow: 0 12px 40px rgba(212, 175, 55, 0.6);
       color: #000000;
     }
 
-    /* INDICADORES DE PUNTOS / PAGINACIÓN */
+    /* BANDEJA DE MINIATURAS INFERIORES */
+    .carousel-shelf-wrapper {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 0;
+    }
+
+    .carousel-shelf {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .shelf-item {
+      width: 110px;
+      height: 155px;
+      border-radius: 10px;
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      background: #080A0E;
+      overflow: hidden;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: all 0.3s ease;
+      position: relative;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .shelf-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    .shelf-item:hover {
+      opacity: 0.85;
+      transform: translateY(-4px);
+      border-color: rgba(212, 175, 55, 0.5);
+    }
+
+    .shelf-item.active {
+      opacity: 1;
+      border: 2px solid var(--item-color, var(--colors-gold));
+      transform: translateY(-8px) scale(1.08);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .shelf-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      background: rgba(14, 18, 27, 0.9);
+      padding: 6px;
+      text-align: center;
+    }
+
+    .shelf-placeholder-rune {
+      font-size: 1.3rem;
+      color: var(--colors-gold);
+    }
+
+    .shelf-placeholder-text {
+      font-family: var(--fonts-heading);
+      font-size: 0.62rem;
+      color: var(--colors-goldLight);
+      line-height: 1.1;
+    }
+
+    /* BOTONES DE NAVEGACIÓN LATERAL */
+    .carousel-nav-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(14, 18, 27, 0.85);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: var(--colors-goldLight);
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: all 0.25s ease;
+      line-height: 1;
+      padding-bottom: 3px;
+      margin: 0 12px;
+    }
+
+    .carousel-nav-btn:hover {
+      background: rgba(212, 175, 55, 0.2);
+      border-color: var(--colors-gold);
+      color: #FFFFFF;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+      transform: scale(1.08);
+    }
+
+    /* INDICADORES DE PUNTOS */
     .carousel-dots {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 10px;
-      margin-top: 0.8rem;
     }
 
     .carousel-dot {
@@ -567,45 +575,45 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* RESPONSIVIDAD */
     @media (max-width: 900px) {
-      .carousel-item.far-prev,
-      .carousel-item.far-next {
-        display: none;
+      .showcase-card {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.5rem;
+        gap: 2rem;
       }
-      .carousel-item.prev {
-        transform: translateX(-160px) scale(0.85);
-        opacity: 0.5;
+      .showcase-cover-wrapper {
+        max-width: 300px;
+        height: 400px;
+        margin: 0 auto;
       }
-      .carousel-item.next {
-        transform: translateX(160px) scale(0.85);
-        opacity: 0.5;
+      .showcase-info {
+        align-items: center;
+        text-align: center;
+      }
+      .story-pills {
+        justify-content: center;
+      }
+      .shelf-item {
+        width: 85px;
+        height: 120px;
       }
     }
 
-    @media (max-width: 640px) {
-      .carousel-track {
-        min-height: 310px;
-      }
-      .carousel-item {
-        width: 180px;
-        height: 260px;
-      }
-      .carousel-item.prev {
-        transform: translateX(-110px) scale(0.8);
-        opacity: 0.35;
-      }
-      .carousel-item.next {
-        transform: translateX(110px) scale(0.8);
-        opacity: 0.35;
-      }
-      .carousel-nav-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.4rem;
+    @media (max-width: 600px) {
+      .showcase-cover-wrapper {
+        max-width: 240px;
+        height: 330px;
       }
       .story-cta-btn {
         width: 100%;
-        padding: 0.95rem 1.5rem;
-        font-size: 0.92rem;
+        padding: 1rem 1.5rem;
+        font-size: 0.95rem;
+      }
+      .shelf-item {
+        width: 65px;
+        height: 95px;
+      }
+      .carousel-nav-btn {
+        display: none;
       }
     }
 
@@ -718,12 +726,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- CARRUSEL CINEMÁTICO DE CRÓNICAS -->
     <section class="carousel-stage" aria-label="Catálogo de crónicas de Universo Lignum">
       
-      <!-- Pista Coverflow de tomos -->
-      <div class="carousel-track-wrapper">
+      <!-- ESCAPARATE PRINCIPAL (PORTADA A LA IZQUIERDA Y DETALLES A LA DERECHA) -->
+      <div class="showcase-card" id="showcaseCard">
+        <!-- Columna Izquierda: Portada Grande -->
+        <div class="showcase-cover-wrapper" id="showcaseCoverWrapper">
+          <img src="https://i.ibb.co/TM63LgTZ/Portada-de-Getting-to-Know.png" alt="Portada de la crónica" id="showcaseCoverImg" class="showcase-cover-img">
+          <div id="showcasePlaceholder" class="cover-placeholder" style="display: none;">
+            <span class="placeholder-rune">⚔</span>
+            <span class="placeholder-title" id="showcasePlaceholderTitle">Ruk el Héroe</span>
+            <span class="placeholder-subtitle">Portada en creación</span>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Información y Sinopsis -->
+        <div class="showcase-info">
+          <div class="story-meta-header">
+            <span class="story-badge" id="detailBadge">Cuento Completo</span>
+            <span class="story-genre" id="detailGenre">Fantasía Tribal</span>
+          </div>
+          
+          <h2 class="story-title" id="detailTitle">Getting to Know</h2>
+          <span class="story-author" id="detailAuthor">por Fernando Barra</span>
+          
+          <p class="story-desc" id="detailDesc">Cargando crónica...</p>
+          
+          <div class="story-pills" id="detailPills"></div>
+          
+          <!-- Botón de acción principal destacado -->
+          <a href="./getting-to-know/index.html" id="detailCtaBtn" class="story-cta-btn">Abrir crónica y leer 📖</a>
+        </div>
+      </div>
+
+      <!-- BANDEJA DE NAVEGACIÓN ENTRE TOMOS -->
+      <div class="carousel-shelf-wrapper">
         <button class="carousel-nav-btn prev-btn" id="prevBtn" aria-label="Crónica anterior">‹</button>
         
-        <div class="carousel-track" id="carouselTrack">
-          <!-- Miniaturas inyectadas dinámicamente -->
+        <div class="carousel-shelf" id="carouselShelf">
+          <!-- Miniaturas de libros inyectadas dinámicamente -->
         </div>
         
         <button class="carousel-nav-btn next-btn" id="nextBtn" aria-label="Crónica siguiente">›</button>
@@ -732,21 +771,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- Indicadores de paginación -->
       <div class="carousel-dots" id="carouselDots">
         <!-- Puntos generados dinámicamente -->
-      </div>
-
-      <!-- Panel central de sinopsis y datos de la crónica activa -->
-      <div class="carousel-details-panel" id="carouselDetails">
-        <div class="story-meta-header">
-          <span class="story-badge" id="detailBadge">Cuento Completo</span>
-          <span class="story-genre" id="detailGenre">Fantasía Tribal</span>
-        </div>
-        <h2 class="story-title" id="detailTitle">Getting to Know</h2>
-        <span class="story-author" id="detailAuthor">por Fernando Barra</span>
-        <p class="story-desc" id="detailDesc">Cargando crónica...</p>
-        <div class="story-pills" id="detailPills"></div>
-        
-        <!-- Botón de acción principal destacado -->
-        <a href="./getting-to-know/index.html" id="detailCtaBtn" class="story-cta-btn">Abrir crónica y leer 📖</a>
       </div>
 
     </section>
@@ -831,44 +855,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     ];
 
     let currentIndex = 0;
-    const track = document.getElementById('carouselTrack');
+    const shelf = document.getElementById('carouselShelf');
     const dotsContainer = document.getElementById('carouselDots');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
+    const showcaseCard = document.getElementById('showcaseCard');
+    const showcaseCoverImg = document.getElementById('showcaseCoverImg');
+    const showcasePlaceholder = document.getElementById('showcasePlaceholder');
+    const showcasePlaceholderTitle = document.getElementById('showcasePlaceholderTitle');
 
     // Inicializar elementos en el DOM
     function initCarousel() {
-      track.innerHTML = '';
+      shelf.innerHTML = '';
       dotsContainer.innerHTML = '';
 
       stories.forEach((story, index) => {
-        // Crear tomo
+        // Crear miniatura para la bandeja inferior
         const item = document.createElement('div');
-        item.className = 'carousel-item';
+        item.className = 'shelf-item';
         item.setAttribute('data-index', index);
         item.style.setProperty('--item-color', story.color);
         
         if (story.placeholder) {
           item.innerHTML = `
-            <div class="cover-placeholder" style="width:100%; height:100%;">
-              <span class="placeholder-rune">⚔</span>
-              <span class="placeholder-title">${story.title}</span>
-              <span class="placeholder-subtitle">Portada en creación</span>
+            <div class="shelf-placeholder">
+              <span class="shelf-placeholder-rune">⚔</span>
+              <span class="shelf-placeholder-text">${story.title}</span>
             </div>
           `;
         } else {
-          item.innerHTML = `<img src="${story.cover}" alt="Portada de ${story.title}">`;
+          item.innerHTML = `<img src="${story.cover}" alt="Miniatura de ${story.title}">`;
         }
 
-        item.addEventListener('click', () => {
-          if (index !== currentIndex) {
-            goToStory(index);
-          } else {
-            window.location.href = story.url;
-          }
-        });
-
-        track.appendChild(item);
+        item.addEventListener('click', () => goToStory(index));
+        shelf.appendChild(item);
 
         // Crear indicador de punto
         const dot = document.createElement('button');
@@ -881,42 +901,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       updateCarousel();
     }
 
-    // Actualizar estados visuales de los tomos y del panel de información
+    // Actualizar el escaparate principal y las miniaturas
     function updateCarousel() {
-      const items = document.querySelectorAll('.carousel-item');
-      const dots = document.querySelectorAll('.carousel-dot');
-      const total = stories.length;
-
-      items.forEach((item, index) => {
-        item.className = 'carousel-item';
-        
-        // Calcular distancia cíclica más corta
-        let diff = (index - currentIndex) % total;
-        if (diff > total / 2) diff -= total;
-        if (diff < -total / 2) diff += total;
-
-        if (diff === 0) {
-          item.classList.add('active');
-        } else if (diff === -1) {
-          item.classList.add('prev');
-        } else if (diff === 1) {
-          item.classList.add('next');
-        } else if (diff === -2) {
-          item.classList.add('far-prev');
-        } else if (diff === 2) {
-          item.classList.add('far-next');
-        } else {
-          item.classList.add('hidden');
-        }
-      });
-
-      // Actualizar puntos
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-      });
-
-      // Actualizar panel de detalles
       const current = stories[currentIndex];
+      const items = document.querySelectorAll('.shelf-item');
+      const dots = document.querySelectorAll('.carousel-dot');
+
+      // Actualizar color temático del escaparate
+      showcaseCard.style.setProperty('--showcase-color', current.color);
+
+      // Actualizar columna izquierda (portada)
+      if (current.placeholder) {
+        showcaseCoverImg.style.display = 'none';
+        showcasePlaceholder.style.display = 'flex';
+        showcasePlaceholderTitle.textContent = current.title;
+      } else {
+        showcasePlaceholder.style.display = 'none';
+        showcaseCoverImg.style.display = 'block';
+        showcaseCoverImg.src = current.cover;
+        showcaseCoverImg.alt = `Portada de ${current.title}`;
+      }
+
+      // Actualizar columna derecha (información y sinopsis)
       document.getElementById('detailBadge').textContent = current.format;
       document.getElementById('detailGenre').textContent = current.genre;
       document.getElementById('detailTitle').textContent = current.title;
@@ -934,6 +940,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       const ctaBtn = document.getElementById('detailCtaBtn');
       ctaBtn.href = current.url;
+
+      // Actualizar estado activo en miniaturas y puntos
+      items.forEach((item, index) => {
+        item.classList.toggle('active', index === currentIndex);
+      });
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
     }
 
     function prevStory() {
@@ -964,27 +979,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
     });
 
-    // Soporte para gestos táctiles (Swipe en móviles)
+    // Soporte para gestos táctiles (Swipe en escaparate)
     let touchStartX = 0;
     let touchEndX = 0;
 
-    track.addEventListener('touchstart', (e) => {
+    showcaseCard.addEventListener('touchstart', (e) => {
       touchStartX = e.changedTouches[0].screenX;
     }, { passive: true });
 
-    track.addEventListener('touchend', (e) => {
+    showcaseCard.addEventListener('touchend', (e) => {
       touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
-    }, { passive: true });
-
-    function handleSwipe() {
       const swipeThreshold = 50;
       if (touchEndX < touchStartX - swipeThreshold) {
         nextStory();
       } else if (touchEndX > touchStartX + swipeThreshold) {
         prevStory();
       }
-    }
+    }, { passive: true });
 
     // Inicializar carrusel al cargar
     document.addEventListener('DOMContentLoaded', initCarousel);
