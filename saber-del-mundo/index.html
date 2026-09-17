@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El saber del mundo | Compendio canónico | Universo Lignum</title>
+
+  <!-- Favicon oficial Universo Lignum -->
+  <link rel="icon" type="image/png" href="https://i.ibb.co/fYygPZQ8/Logo-Lignum-compressed.png">
+  <link rel="apple-touch-icon" href="https://i.ibb.co/fYygPZQ8/Logo-Lignum-compressed.png">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NPEX2N2DC"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWTZLRCX09"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-6NPEX2N2DC');
+    gtag('config', 'G-FWTZLRCX09');
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-W2VVWR64');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Meta Tags SEO y Open Graph -->
+  <meta name="description" content="El saber del mundo: compendio canónico del Universo Lignum. Explora cosmología, geografía de los dieciséis enclaves, facciones, disciplinas marciales, cronología y lengua märik.">
+  <meta name="author" content="Fernando Barra">
+  <meta property="og:title" content="El saber del mundo | Compendio canónico | Universo Lignum">
+  <meta property="og:description" content="Enciclopedia canónica y archivo histórico del Universo Lignum por Fernando Barra.">
+  <meta property="og:image" content="https://i.ibb.co/fYygPZQ8/Logo-Lignum-compressed.png">
+  <meta property="og:url" content="https://ferb22.github.io/universo-lignum/saber-del-mundo/">
+  <meta property="og:type" content="website">
+
+  <!-- Fuentes medievales y elegantes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --colors-bgBase: #07090D;
+      --colors-bgSurface: #0E121B;
+      --colors-bgElevated: #151B26;
+      --colors-gold: #D4AF37;
+      --colors-goldLight: #F3E5AB;
+      --colors-goldDark: #8C6D3B;
+      --colors-textPrimary: #F8F6F0;
+      --colors-textMuted: #94A3B8;
+      --colors-borderGold: rgba(212, 175, 55, 0.3);
+
+      --fonts-heading: 'Cinzel', Georgia, serif;
+      --fonts-body: 'Lora', Georgia, serif;
+      --fonts-ui: 'Plus Jakarta Sans', sans-serif;
+
+      --radii-card: 16px;
+      --radii-badge: 9999px;
+      --radii-button: 12px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--colors-bgBase);
+      color: var(--colors-textPrimary);
+      font-family: var(--fonts-ui);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.1) 0%, transparent 65%),
+        radial-gradient(circle at 85% 45%, rgba(45, 106, 79, 0.08) 0%, transparent 55%),
+        radial-gradient(circle at 15% 80%, rgba(158, 42, 43, 0.07) 0%, transparent 60%);
+      transform: translateZ(0);
+    }
+
+    /* ENCABEZADO */
+    header {
+      background: rgba(10, 12, 16, 0.95);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      padding: 1rem 2rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .header-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.95rem;
+      text-decoration: none;
+      color: #FFFFFF;
+    }
+
+    .brand-logo-img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    }
+
+    .brand-title {
+      font-family: var(--fonts-heading);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: 2px;
+      color: var(--colors-goldLight);
+    }
+
+    .brand-sub {
+      font-family: var(--fonts-body);
+      font-style: italic;
+      font-size: 0.78rem;
+      color: var(--colors-textMuted);
+      display: block;
+    }
+
+    .back-home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.5rem 1.1rem;
+      border-radius: var(--radii-badge);
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: var(--colors-goldLight);
+      text-decoration: none;
+      font-family: var(--fonts-heading);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      transition: all 0.25s ease;
+    }
+
+    .back-home-btn:hover {
+      background: rgba(212, 175, 55, 0.2);
+      border-color: var(--colors-gold);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+
+    /* CONTENEDOR HERO */
+    .hero-archive {
+      text-align: center;
+      padding: 3.5rem 1.5rem 2rem 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-crest {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.35rem 1.2rem;
+      border-radius: var(--radii-badge);
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      color: var(--colors-gold);
+      font-family: var(--fonts-heading);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-archive h1 {
+      font-family: var(--fonts-heading);
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 900;
+      letter-spacing: 3px;
+      background: linear-gradient(180deg, #FFFFFF 20%, var(--colors-goldLight) 65%, var(--colors-gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero-archive p {
+      color: #CBD5E1;
+      font-family: var(--fonts-body);
+      font-size: 1.08rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    /* BARRA DE BÚSQUEDA Y FILTRO RÁPIDO */
+    .search-box-wrapper {
+      max-width: 650px;
+      margin: 0 auto 2.5rem auto;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 1.1rem 1.4rem 1.1rem 3.4rem;
+      border-radius: 30px;
+      background: rgba(14, 18, 27, 0.85);
+      border: 1.5px solid rgba(212, 175, 55, 0.35);
+      color: #FFFFFF;
+      font-family: var(--fonts-ui);
+      font-size: 1rem;
+      outline: none;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--colors-gold);
+      box-shadow: 0 10px 35px rgba(212, 175, 55, 0.25);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: var(--colors-gold);
+      pointer-events: none;
+    }
+
+    /* PESTAÑAS DE NAVEGACIÓN TEMÁTICA */
+    .categories-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      max-width: 1100px;
+      margin: 0 auto 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .category-tab-btn {
+      background: rgba(14, 18, 27, 0.7);
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      color: var(--colors-textMuted);
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      font-family: var(--fonts-heading);
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+
+    .category-tab-btn:hover {
+      color: var(--colors-goldLight);
+      border-color: var(--colors-gold);
+      background: rgba(212, 175, 55, 0.12);
+    }
+
+    .category-tab-btn.active {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(140, 109, 59, 0.35) 100%);
+      color: #FFFFFF;
+      border-color: var(--colors-gold);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    }
+
+    /* CUADRÍCULA DE CONTENIDOS */
+    main {
+      flex: 1;
+      max-width: 1240px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 1.5rem 5rem 1.5rem;
+    }
+
+    .entries-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 1.8rem;
+    }
+
+    /* TARJETA DEL SABER */
+    .lore-card {
+      background: linear-gradient(145deg, rgba(14, 18, 27, 0.95) 0%, rgba(9, 12, 18, 0.98) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.24);
+      border-radius: var(--radii-card);
+      padding: 1.8rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lore-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--colors-gold);
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+    }
+
+    .lore-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--colors-gold);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.2);
+    }
+
+    .lore-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-top-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 0.8rem;
+    }
+
+    .card-category-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.25rem 0.8rem;
+      border-radius: var(--radii-badge);
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--colors-gold);
+      font-family: var(--fonts-heading);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .card-saga-badge {
+      color: var(--colors-textMuted);
+      font-family: var(--fonts-heading);
+      font-size: 0.74rem;
+      letter-spacing: 0.5px;
+    }
+
+    .card-title {
+      font-family: var(--fonts-heading);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--colors-goldLight);
+      margin-bottom: 0.9rem;
+      letter-spacing: 1px;
+      line-height: 1.25;
+    }
+
+    .card-body-text {
+      color: #CBD5E1;
+      font-family: var(--fonts-body);
+      font-size: 0.98rem;
+      line-height: 1.75;
+      flex: 1;
+      white-space: pre-line;
+      margin-bottom: 1.2rem;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding-top: 0.8rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .card-tag {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #94A3B8;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 6px;
+      font-family: var(--fonts-ui);
+    }
+
+    /* ESTADO VACÍO (SIN RESULTADOS) */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 1rem;
+      background: rgba(14, 18, 27, 0.5);
+      border: 1px dashed rgba(212, 175, 55, 0.3);
+      border-radius: var(--radii-card);
+      color: var(--colors-textMuted);
+      font-family: var(--fonts-body);
+      font-size: 1.1rem;
+    }
+
+    /* PIE DE PÁGINA */
+    footer {
+      border-top: 1px solid rgba(212, 175, 55, 0.15);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      color: var(--colors-textMuted);
+      font-family: var(--fonts-body);
+      font-size: 0.9rem;
+      background: #080A0E;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.2rem;
+      margin-top: 1.3rem;
+    }
+
+    .social-icon-btn {
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      background: rgba(14, 18, 27, 0.8);
+      transition: all 0.25s ease;
+      overflow: hidden;
+    }
+
+    .social-icon-btn img {
+      width: 20px;
+      height: 20px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .social-icon-btn:hover {
+      transform: scale(1.15);
+      border-color: var(--colors-gold);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .entries-grid {
+        grid-template-columns: 1fr;
+      }
+      .categories-bar {
+        gap: 6px;
+      }
+      .category-tab-btn {
+        font-size: 0.78rem;
+        padding: 0.5rem 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W2VVWR64"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- ENCABEZADO -->
+  <header>
+    <div class="header-container">
+      <div class="brand-group">
+        <a href="../index.html" class="brand">
+          <img src="https://i.ibb.co/fYygPZQ8/Logo-Lignum-compressed.png" alt="Logo de Universo Lignum" class="brand-logo-img" onerror="this.src='../public/logo.png';">
+          <div>
+            <span class="brand-title">UNIVERSO LIGNUM</span>
+            <span class="brand-sub">El saber del mundo · Compendio canónico</span>
+          </div>
+        </a>
+      </div>
+      <a href="../index.html" class="back-home-btn">
+        <span>‹</span>
+        <span>Volver a crónicas</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO ARCHIVO -->
+  <section class="hero-archive">
+    <span class="hero-crest">✦ Archivo y saber del mundo ✦</span>
+    <h1>EL SABER DEL MUNDO</h1>
+    <p>Compendio canónico de los reinos, tribus, disciplinas marciales, cronología y lengua culta que vertebran el Universo Lignum.</p>
+
+    <!-- BARRA DE BÚSQUEDA -->
+    <div class="search-box-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" class="search-input" placeholder="Buscar por personaje, enclave, disciplina o término..." aria-label="Buscar en el compendio">
+    </div>
+
+    <!-- PESTAÑAS DE CATEGORÍAS -->
+    <div class="categories-bar" id="categoriesBar">
+      <button class="category-tab-btn active" data-cat="all">✦ Todo el archivo</button>
+      <button class="category-tab-btn" data-cat="geografia">🗺️ Geografía (16)</button>
+      <button class="category-tab-btn" data-cat="facciones">🛡️ Facciones (9)</button>
+      <button class="category-tab-btn" data-cat="saber">⚔️ Saber y disciplinas</button>
+      <button class="category-tab-btn" data-cat="cronologia">📜 Cronología</button>
+      <button class="category-tab-btn" data-cat="lengua">📖 Lengua Märik</button>
+      <button class="category-tab-btn" data-cat="personajes">👤 Personajes clave</button>
+    </div>
+  </section>
+
+  <!-- LISTADO PRINCIPAL -->
+  <main>
+    <div class="entries-grid" id="entriesGrid">
+      <!-- Inyección dinámica de entradas -->
+    </div>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p>&copy; 2026 UNIVERSO LIGNUM — Creado por Fernando Barra. Obras literarias e historias en un mismo universo.</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com/herr_ferb?igsh=MTE3ZXV4bmpzODIzNg==" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Instagram">
+        <img src="../public/instagram.jpg" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/fernando.barra.942/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Facebook">
+        <img src="../public/facebook.jpg" alt="Facebook">
+      </a>
+      <a href="https://www.linkedin.com/in/fernando-barra-920ab0379/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn">
+        <img src="../public/linkedin.webp" alt="LinkedIn">
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    let compendioData = null;
+    let currentCategory = 'all';
+    let searchQuery = '';
+
+    const entriesGrid = document.getElementById('entriesGrid');
+    const searchInput = document.getElementById('searchInput');
+    const categoriesBar = document.getElementById('categoriesBar');
+
+    async function loadCompendio() {
+      try {
+        const res = await fetch('../public/compendio-canonico.json');
+        if (!res.ok) throw new Error('No se pudo cargar el archivo canónico');
+        compendioData = await res.json();
+        renderEntries();
+      } catch (err) {
+        console.error(err);
+        entriesGrid.innerHTML = `
+          <div class="empty-state">
+            <p>Error al cargar el compendio. Comprueba la conexión o la ruta de los datos.</p>
+          </div>
+        `;
+      }
+    }
+
+    function renderEntries() {
+      if (!compendioData) return;
+
+      const normalizedQuery = searchQuery.trim().toLowerCase();
+      let matchedItems = [];
+
+      // Recorrer categorías seleccionadas
+      Object.keys(compendioData.categories).forEach(catKey => {
+        if (currentCategory !== 'all' && currentCategory !== catKey) {
+          return;
+        }
+
+        const catObj = compendioData.categories[catKey];
+        catObj.items.forEach(item => {
+          // Evaluar filtro de búsqueda
+          const matchTitle = item.title.toLowerCase().includes(normalizedQuery);
+          const matchContent = item.content.toLowerCase().includes(normalizedQuery);
+          const matchTags = item.tags && item.tags.some(t => t.toLowerCase().includes(normalizedQuery));
+
+          if (!normalizedQuery || matchTitle || matchContent || matchTags) {
+            matchedItems.push({
+              ...item,
+              catKey: catKey,
+              catName: catObj.name,
+              catIcon: catObj.icon
+            });
+          }
+        });
+      });
+
+      if (matchedItems.length === 0) {
+        entriesGrid.innerHTML = `
+          <div class="empty-state">
+            <p>No se hallaron registros en el archivo para la consulta «${escapeHtml(searchQuery)}».</p>
+          </div>
+        `;
+        return;
+      }
+
+      entriesGrid.innerHTML = matchedItems.map(item => {
+        const sagaText = item.saga ? `<span class="card-saga-badge">${escapeHtml(item.saga)}</span>` : '';
+        const tagsHtml = (item.tags || []).map(t => `<span class="card-tag">${escapeHtml(t)}</span>`).join('');
+
+        return `
+          <article class="lore-card">
+            <div class="card-top-meta">
+              <span class="card-category-badge">${item.catIcon} ${escapeHtml(item.catName)}</span>
+              ${sagaText}
+            </div>
+            <h2 class="card-title">${escapeHtml(item.title)}</h2>
+            <div class="card-body-text">${escapeHtml(item.content)}</div>
+            ${tagsHtml ? `<div class="card-tags">${tagsHtml}</div>` : ''}
+          </article>
+        `;
+      }).join('');
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/[&<>'"]/g, tag => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+      }[tag] || tag));
+    }
+
+    // Eventos
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderEntries();
+    });
+
+    categoriesBar.addEventListener('click', (e) => {
+      const btn = e.target.closest('.category-tab-btn');
+      if (!btn) return;
+
+      document.querySelectorAll('.category-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      currentCategory = btn.getAttribute('data-cat');
+      renderEntries();
+    });
+
+    document.addEventListener('DOMContentLoaded', loadCompendio);
+  </script>
+</body>
+</html>

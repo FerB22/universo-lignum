@@ -1,0 +1,1735 @@
+{
+  "title": "El saber del mundo — Compendio canónico",
+  "description": "Base de conocimiento enciclopédica del Universo Lignum: cosmología, geografía, facciones, cronología, saber arcano y personajes.",
+  "categories": {
+    "cosmologia": {
+      "name": "Cosmología y visión general",
+      "icon": "🌌",
+      "items": [
+        {
+          "id": "vision-general",
+          "title": "Cosmología del Universo Lignum",
+          "summary": "Mundo de fantasía medieval y tensión geopolítica intercontinental.",
+          "content": "El Universo Lignum es un vasto tapiz narrativo de fantasía medieval y política donde convergen reinos centralizados, dinastías forestales, tribus autónomas y los vestigios de una magia antigua casi extinguida tras el Cataclismo del Año 0 (Calendario Vödhar).\n\nEl bosque colosal Vertaik domina el centro-norte del continente, mientras que al sur se extiende el desierto de Maumak'lim y la desolación eléctrica de Zorkai Kal. La lengua culta del continente es el Märik, un idioma estructurado y aglutinante dotado de calendario propio y sistema de doce meses.",
+          "tags": [
+            "Cosmología",
+            "Calendario Vödhar",
+            "Vertaik"
+          ]
+        }
+      ]
+    },
+    "geografia": {
+      "name": "Geografía y enclaves",
+      "icon": "🗺️",
+      "items": [
+        {
+          "id": "asentamiento-del-sr-lorim",
+          "title": "Asentamiento del Sr Lorim",
+          "saga": "Forgotten Sword",
+          "type": "Asentamiento",
+          "government": "",
+          "content": "Ubicación / Saga: Forgotten Sword",
+          "tags": [
+            "Asentamiento del Sr Lorim",
+            "Asentamiento"
+          ]
+        },
+        {
+          "id": "basti-n-rhak",
+          "title": "Bastión Rhak",
+          "saga": "Desarrollo Continental",
+          "type": "Fortaleza Inexpugnable",
+          "government": "Comandancia del Bastión",
+          "content": "Fortaleza inexpugnable de bloques de piedra blanca sobre cumbres heladas, erigida antes de la Gran Guerra por la Tribu Hültem.\n\nMonumento de la ingeniería defensiva de la Tribu Hültem para resistir cualquier asedio.\n\nCumbres heladas, piedra blanca.",
+          "tags": [
+            "Bastión Rhak",
+            "Fortaleza Inexpugnable"
+          ]
+        },
+        {
+          "id": "ciudad-aktral",
+          "title": "Ciudad Aktral",
+          "saga": "Desarrollo Continental",
+          "type": "Ciudadela Fortificada",
+          "government": "Consejo de Aktral",
+          "content": "Gran ciudadela fortificada construida en terrazas escalonadas de granito, con palacios en la cima y ríos caudalosos a sus faldas.\n\nImportante capital y centro defensivo de granito y comercio fluvial.\n\nTerrazas de granito y ríos.",
+          "tags": [
+            "Ciudad Aktral",
+            "Ciudadela Fortificada"
+          ]
+        },
+        {
+          "id": "ciudad-de-veridia",
+          "title": "Ciudad de Veridia",
+          "saga": "Tribu Veridiana",
+          "type": "Reino",
+          "government": "",
+          "content": "Actualmente, gracias al liderazgo de Kova, Veridia se ha ramificado, comerciando con otros pueblos y reinos. Esto provocó que haya más personas no veridianas en esta ciudad. Poco después de finalizada la guerra, Kova decidió expandir el pueblo y se funcionó con el anterior asentamiento. Haciendo de este lugar una ciudad. Los principales comercios de Veridia son la venta de una rara planta que provoca dolor si alguien miente, y el turismo, ya que es una zona con un hermoso manantial.\n\nUbicación / Saga: Tribu Veridiana",
+          "tags": [
+            "Ciudad de Veridia",
+            "Reino"
+          ]
+        },
+        {
+          "id": "continente-kad",
+          "title": "Continente Kad",
+          "saga": "Edification",
+          "type": "Continente",
+          "government": "",
+          "content": "Ubicación / Saga: Edification",
+          "tags": [
+            "Continente Kad",
+            "Continente"
+          ]
+        },
+        {
+          "id": "el-reino-de-vif-ld",
+          "title": "El Reino de Viföld",
+          "saga": "Hiviale",
+          "type": "Reino",
+          "government": "",
+          "content": "1. Geografía y Recursos\n\nUbicación: La capital se forma\n\ndesde los altos riscos de la frontera\n\ncontinental hasta las altas\n\nmontañas del oriente. La capital se\n\nsurte de la pesca y de las cosechas\n\nde oriente.\n\nRecursos naturales: Surtidos de\n\npesca y cebada, sus principales\n\nexportaciones. Aunque escasos de\n\nciertas frutas como la manzana y\n\npera. Sus grandes tierras de trigo\n\nabastecen a oriente.\n\nClima: Clima templado pero frío en\n\nla capital, dado sus tierras de\n\ncosecha.\n\n2. Estructura Social\n\nNobleza y clases sociales: El rey es\n\ncercano al pueblo, aunque los\n\nnobles no tanto.\n\nCon un consejo, promulgan leyes y\n\ndemás.\n\nEl comercio es parte central del\n\nreino. El libre comercio permite que\n\nlos comerciantes participen\n\nactivamente.\n\nRoles de género: Principalmente los\n\nhombres tienen los altos cargos,\n\naunque hay excepciones.\n\nRelaciones entre tribus y reinos: El\n\nreino estableció, siglos antes, un\n\ntratado de no ataque contra las\n\ntribus vecinas, sino que también\n\nfortaleció su contacto con estas.\n\n3. Gobierno y Monarquía\n\nSistema de gobierno: El rey es casi\n\nabsoluto en su poder, aunque\n\nlimitado en ciertos aspectos como\n\nla promulgación de leyes.\n\nSucesión al trono: La sucesión está\n\nbajo herencia, siendo la persona\n\nmás cercana la que hereda el trono.\n\nPolítica interna y externa: Siempre\n\nestá en duda el liderazgo del rey o\n\nreina, es por eso que este o esta\n\ndebe evitar problemas con los\n\nnobles.\n\nLos dos reinos vecinos, uno amigo,\n\nel Reino Gäfka; y el otro enemigo, el\n\nReino Müshka, el contrario intenta\n\nusar cualquier forma para evitar que\n\nel reino prospere.\n\n4. Economía\n\nComercio: Comercia con dos reinos\n\nvecinos, el Reino Gäfka y Müshka.\n\nEs autosustentable, principalmente\n\nde la pesca y el trigo.\n\nMoneda:\n\n1 moneda de oro = 100 monedas de\n\nplata = 10.000 monedas de bronce.\n\nProducción local: Abarca grandes\n\nramas de venta, como la agrícola,\n\ncon el trigo y cebada; la\n\nmanufactura de barcos grandes y\n\npequeños.\n\nDefine los principales productos\n\nagrícolas, manufacturas, y si tienen\n\nindustrias especializadas (armas,\n\ntextiles, barcos).\n\n5. Ejército y Defensa\n\nFuerzas armadas: ¿El reino cuenta\n\ncon un ejército profesional o\n\ndepende de tropas campesinas\n\nreclutadas en tiempos de guerra?\n\nTecnología militar: ¿Qué armas y\n\ntácticas usa el ejército? ¿Hay\n\ncaballeros, arqueros, o mercenarios?\n\nFortificaciones: Castillos, murallas y\n\nfortalezas son importantes.\n\nConsidera cómo están diseñadas\n\nlas defensas y si han sido probadas\n\nen guerras.\n\n6. Religión y Cultura\n\nReligión: Si existe una religión, ¿es\n\nmonoteísta, politeísta o animista?\n\n¿Cuál es el papel de los sacerdotes\n\nen la política y la vida cotidiana?\n\nCostumbres y festividades: Define\n\nlas tradiciones del reino, cómo\n\ncelebran las festividades, los\n\nrituales que realizan, y las\n\nsupersticiones populares.\n\nEducación y artes: Piensa en cómo\n\nse difunde el conocimiento. ¿Hay\n\nuniversidades o academias? ¿El\n\nreino valora las artes como la\n\nmúsica, pintura o literatura?\n\n7. Leyes y Justicia\n\nSistema legal: ¿Quién aplica la\n\njusticia? ¿Los reyes o nobles actúan\n\ncomo jueces? ¿Existen leyes\n\nescritas o es más un sistema\n\nbasado en la tradición?\n\nCastigos y crímenes: Define qué se\n\nconsidera un delito y cómo se\n\ncastiga (prisión, multas, ejecución).\n\n¿Hay juicios justos o la corrupción\n\nes común?\n\n8. Historia del Reino\n\nOrígenes del reino: Define cómo se\n\nfundó el reino, si fue por conquista,\n\nunificación de tribus o la caída de\n\nun imperio anterior.\n\nConflictos pasados: La historia de\n\nguerras, invasiones y rebeliones\n\nafectará la cultura y las tensiones\n\nactuales en tu historia.\n\nLíderes legendarios: Crea figuras\n\nhistóricas que sean reverenciadas o\n\ntemidas, cuyas acciones todavía\n\ninfluencien el presente.\n\n, promulgan leyes y demás. El comercio es parte central del reino. El libre comercio permite que los comerciantes participen activamente. Roles de género: Principalmente los hombres tienen los altos cargos, aunque hay excepciones. Relaciones entre tribus y reinos: El reino estableció, siglos antes, un tratado de no ataque contra las tribus vecinas, sino que también fortaleció su contacto con estas. 3. Gobierno y Monarquía Sistema de gobierno: El rey es casi absoluto en su poder, aunque limitado en ciertos aspectos como la promulgación de leyes. Sucesión al trono: La sucesión está bajo herencia, siendo la persona más cercana la que hereda el trono. Política interna y externa: Siempre está en duda el liderazgo del rey o reina, es por eso que este o esta debe evitar problemas con los nobles. Los dos reinos vecinos, uno amigo, el Reino Gäfka; y el otro enemigo, el Reino\n\nUbicación / Saga: Hiviale",
+          "tags": [
+            "El Reino de Viföld",
+            "Reino"
+          ]
+        },
+        {
+          "id": "el-desierto-merfer",
+          "title": "El desierto Merfer",
+          "saga": "Forgotten Sword",
+          "type": "Continente",
+          "government": "",
+          "content": "Geografía del continente:\n\nEl desierto ocupa casi la mitad del\n\ncontinente y está ubicado en el sur.\n\nEl reino Máder gobierna la mitad del\n\ndesierto y está situado en el noroeste\n\nde este.\n\nReino Máder:\n\nEs el reino más grande del continente.\n\nSe caracteriza por ser un reino\n\ncomerciante.\n\nSu gobierno es una monarquía\n\nabsoluta, con un rey que tiene control\n\ntotal.\n\nTiene grandes ciudades fortificadas,\n\nsiendo la capital la más grande de\n\ntodas.\n\nSus construcciones están hechas de\n\nbarro, roca y madera, mientras que el\n\ncuarzo es un material exclusivo de los\n\nricos.\n\nCaracterísticas del desierto:\n\nEs árido, pero cuenta con grandes\n\noasis y zonas habitables.\n\nGrandes rocas alzadas.\n\nrido, pero cuenta con grandes oasis y zonas habitables. Grandes rocas alzadas.\n\nUbicación / Saga: Forgotten Sword",
+          "tags": [
+            "El desierto Merfer",
+            "Continente"
+          ]
+        },
+        {
+          "id": "kor-vaure",
+          "title": "Kor-Vaure",
+          "saga": "Desarrollo Continental",
+          "type": "Lago de Montaña / Santuario",
+          "government": "Santuario natural libre",
+          "content": "Lago prístino y sereno situado en zona montañosa, permanentemente envuelto en densa niebla y rodeado de coníferas y cumbres nevadas.\n\nLugar místico de aislamiento y aguas puras protegido por el clima montañoso.\n\nZona montañosa, niebla perpetua.",
+          "tags": [
+            "Kor-Vaure",
+            "Lago de Montaña / Santuario"
+          ]
+        },
+        {
+          "id": "maumak-lim",
+          "title": "Maumak'lim",
+          "saga": "Desarrollo Continental",
+          "type": "Desierto / Región Sur",
+          "government": "Reino Máder (Monarquía absoluta)",
+          "content": "Vasto desierto que cubre casi la mitad sur del continente. Alberga al poderoso Reino Máder, una monarquía absoluta comercial con urbes de barro y roca, y arquitectura de cuarzo para la nobleza.\n\nCuna de civilizaciones comerciales y ricas rutas caravaneras del sur.\n\nSur del continente.",
+          "tags": [
+            "Maumak'lim",
+            "Desierto / Región Sur"
+          ]
+        },
+        {
+          "id": "mot-savdarie",
+          "title": "Mot-Savdarie",
+          "saga": "Desarrollo Continental",
+          "type": "Macizo Montañoso / Frontera",
+          "government": "Frontera natural no reclamada",
+          "content": "Macizo montañoso central que divide el norte y el sur del continente. Su cumbre se encuentra fracturada por el violento impacto de un meteorito ancestral cargado de energía mística.\n\nPunto de impacto de un meteorito arcano que moldeó la geografía y energía del centro del mundo.\n\nCentro continental, fuente mística.",
+          "tags": [
+            "Mot-Savdarie",
+            "Macizo Montañoso / Frontera"
+          ]
+        },
+        {
+          "id": "mun-schr-k",
+          "title": "Mun-Schräk",
+          "saga": "Desarrollo Continental",
+          "type": "Picos Gemelos / Valles Mágicos",
+          "government": "Comunidades locales del suroeste",
+          "content": "Picos montañosos gemelos afilados en el suroeste donde la magia ancestral dejó su huella más profunda, con valles fértiles y manantiales a sus pies.\n\nEpicentro de canalizaciones mágicas primordiales que enriquecieron las tierras circundantes.\n\nSuroeste del continente.",
+          "tags": [
+            "Mun-Schräk",
+            "Picos Gemelos / Valles Mágicos"
+          ]
+        },
+        {
+          "id": "m-rschkascht",
+          "title": "Märschkascht",
+          "saga": "Desarrollo Continental",
+          "type": "Planicies y Costa Noroeste",
+          "government": "Reinos de Viföld, Sakvil y Kresch",
+          "content": "Valles baldíos y planicies azotadas por el viento en el noroeste. En su franja costera se alzan tres reinos prominentes: Viföld, Sakvil y Kresch.\n\nRegión costera estratégica conectada con la historia de Edification (Reino Viföld).\n\nNoroeste continental.",
+          "tags": [
+            "Märschkascht",
+            "Planicies y Costa Noroeste"
+          ]
+        },
+        {
+          "id": "rep-blica-de-sokjavos",
+          "title": "República de Sokjavos",
+          "saga": "Desarrollo Continental",
+          "type": "República Insular / Gran Ciudad-Estado",
+          "government": "El Senado, el Alto Tribunal y el Consejo",
+          "content": "Potencia cívica e insular en el sureste gobernada por el Senado, el Alto Tribunal y el Consejo. Protegida por torres faro y murallas de piedra clara; cuna de juristas, diplomáticos y navegantes.\n\nEstado marítimo y cívico fundado sobre leyes avanzadas y supremacía naval.\n\nSureste insular.",
+          "tags": [
+            "República de Sokjavos",
+            "República Insular / Gran Ciudad-Estado"
+          ]
+        },
+        {
+          "id": "valle-de-gorhak",
+          "title": "Valle de Gorhak",
+          "saga": "Desarrollo Continental",
+          "type": "Valle Sagrado / Región",
+          "government": "Guardianes de las Capillas de Orhal",
+          "content": "Valle aislado en el extremo noroeste al abrigo de la cordillera de Orhal. Considerada tierra sagrada con capillas antiguas y pastores que buscan respuestas espirituales.\n\nSantuario milenario de recogimiento y meditación resguardado por las altas cumbres.\n\nExtremo Noroeste, Cordillera de Orhal.",
+          "tags": [
+            "Valle de Gorhak",
+            "Valle Sagrado / Región"
+          ]
+        },
+        {
+          "id": "varkengraad",
+          "title": "Varkengraad",
+          "saga": "Forgotten Sword",
+          "type": "Bosque",
+          "government": "",
+          "content": "En lo profundo del bosque, los pilares de\n\nroca de una antigua tribu se alzan como\n\ntestigos de un tiempo olvidado. Grabados\n\ncon símbolos arcaicos, vibran con una\n\nenergía que eriza la piel. La gravedad aquí\n\nes menor, haciendo que los pasos sean\n\nligeros y etéreos, como si algo invisible\n\ntratara de elevarte. El aire es denso, el\n\nsilencio abrumador, y entre las piedras\n\ncaídas y los restos dispersos, la sensación\n\nde que este lugar aún está habitado es\n\ninnegable.\n\nMomento en la historia:\n\nWal, junto con un grupo de soldados, llega\n\na este lugar sin esperarlo, en el cual los\n\nsoldados tribales de ese lugar los\n\nsorprenden; terminando en una batalla.\n\ns de ese lugar los sorprenden; terminando en una batalla.\n\nUbicación / Saga: Forgotten Sword",
+          "tags": [
+            "Varkengraad",
+            "Bosque"
+          ]
+        },
+        {
+          "id": "zorkai-kal-orh-sad",
+          "title": "Zorkai Kal / Orh-Sad",
+          "saga": "Desarrollo Continental",
+          "type": "Desierto de Arena Negra / Tierras Eléctricas",
+          "government": "Tribu Vreschkamil",
+          "content": "Desierto de arena negra y atmósfera cargada de electricidad estática en el sur. Nacido de un maleficio ancestral; cuenta con cristales fulminantes, tormentas silenciosas y es el hogar de la Tribu Vreschkamil.\n\nNacido del maleficio de odio de un maestro hechicero, mitigado posteriormente por su aprendiz para permitir la vida.\n\nArena negra, cristales fulminantes, tormentas eléctricas silenciosas.",
+          "tags": [
+            "Zorkai Kal / Orh-Sad",
+            "Desierto de Arena Negra / Tierras Eléctricas"
+          ]
+        }
+      ]
+    },
+    "facciones": {
+      "name": "Facciones, órdenes y tribus",
+      "icon": "🛡️",
+      "items": [
+        {
+          "id": "comisi-n-de-arqueras",
+          "title": "Comisión de Arqueras",
+          "saga": "Lignum World",
+          "type": "Comisión / Orden",
+          "seat": "Lignum World",
+          "content": "Es una organización especializada en el arco y sus variantes. Fundada por Riav Edeka en el año 1166 D.G.G cuando ella tenía 30 años. Esta comisión tenía como principal objetivo proteger y resguardar a los inocentes. Tenía una jerarquía definida en donde se entrenaba a jóvenes mujeres en el uso de diversos arcos. Fungió como velador por varios siglos hasta su cese en el año 1572 D.G.G a causa de disputas con las tribus que reclamaban que la organización estaba expandiendo su poderío y autoritarismo. Luego de una gran batalla se determinó el cese de sus funciones y los miembros fueron desplazados a otras organizaciones.",
+          "tags": [
+            "Comisión de Arqueras",
+            "Comisión / Orden"
+          ]
+        },
+        {
+          "id": "los-veridianos",
+          "title": "Los Veridianos",
+          "saga": "Tribu Veridiana",
+          "type": "Organización",
+          "seat": "Tribu Veridiana",
+          "content": "Según los datos recabados los Veridianos aparecieron en el año 102 D.G.G. Aunque no se saben sus ancestros, sí está confirmado que están conectados a los Aeorianos. Los Veridianos son una raza que entre sus principales atractivos son que tienen piel pálida y cabello plateado. Además, otro aspecto a destacar es el arco Kek, debido a que sus características la hacen el mejor arco de entre todas las tribus; cabe señalar que este arco solo lo usan las mujeres.",
+          "tags": [
+            "Los Veridianos",
+            "Organización"
+          ]
+        },
+        {
+          "id": "rep-blica-de-sokjavos",
+          "title": "República de Sokjavos",
+          "saga": "Desarrollo Continental",
+          "type": "República Cívica / Estado Insular",
+          "seat": "Sureste insular",
+          "content": "Potencia cívica e insular en el sureste gobernada por el Senado, el Alto Tribunal y el Consejo. Protegida por torres faro y murallas de piedra clara; cuna de juristas, diplomáticos y navegantes.",
+          "tags": [
+            "República de Sokjavos",
+            "República Cívica / Estado Insular"
+          ]
+        },
+        {
+          "id": "tribu-h-ltem",
+          "title": "Tribu Hültem",
+          "saga": "Desarrollo Continental",
+          "type": "Tribu Ancestral / Maestros Canteros",
+          "seat": "Bastión Rhak y Cumbres del Norte",
+          "content": "Constructores ancestrales del Bastión Rhak. Reconocidos por su dominio colosal del granito blanco y la arquitectura militar inexpugnable antes de la Gran Guerra.\n\nConstructores del Bastión Rhak.",
+          "tags": [
+            "Tribu Hültem",
+            "Tribu Ancestral / Maestros Canteros"
+          ]
+        },
+        {
+          "id": "tribu-koralenn",
+          "title": "Tribu Koralenn",
+          "saga": "Iron and Blood",
+          "type": "Tribu",
+          "seat": "Iron and Blood",
+          "content": "🛡️\n\nFicha Técnica: Tribu\n\nKoralenn\n\n🔰\n\nNombre Completo\n\nTribu Koralenn — conocidos como “Los\n\nHerederos del Hierro y la Sangre”\n\n🏔️\n\nUbicación y Territorio\n\nRegión: Altiplanos de Ruk-Tah, zona\n\nmontañosa al norte del continente\n\nClima: Seco, con vientos helados y\n\nnieblas constantes en las alturas\n\nAsentamientos: Fortalezas excavadas\n\nen roca viva, bastiones con alta\n\nautosuficiencia militar\n\nRecursos: Minerales férreos, animales\n\nresistentes, y maderas duras del\n\nbosque seco\n\n⚔️\n\nEstructura Social y Militar\n\n📜\n\nGobierno\n\nDirigida por el Consejo de Sangre:\n\ncompuesto por Ancianos Guerreros y\n\nGenerales de campañas exitosas\n\nLas decisiones tribales se toman por\n\nvoto cerrado tras consejo ritual\n\nLa casta militar rige toda la estructura\n\nsocial, seguida por forjadores,\n\ncriadores y artesanos\n\n🛡️\n\nFuerza Militar\n\nTodos los adultos (hombres y mujeres)\n\nson combatientes activos\n\nCada tribu tiene su fuerza regular y su\n\nélite de juramentados\n\nLos Diez Juramentados son la cúspide\n\nde la gloria tribal: soldados de élite con\n\nal menos veinte misiones mortales\n\ncompletadas\n\n📚\n\nTradición y Valores\n\nFundamentales\n\nEl Honor se gana en batalla, no en\n\npalabras ni cargos heredados\n\nEl Respeto se demuestra con la\n\neficacia al lado del compañero, no con\n\nafectos ni promesas\n\nEl Pragmatismo rige el combate: lo\n\nsentimental es debilidad\n\nLa Emoción es útil solo si es dominada,\n\nnunca como guía de decisiones\n\nEl Individuo sirve al colectivo, y no al\n\nrevés\n\n❤️\n\nRelaciones y Reproducción\n\nEl amor romántico es considerado una\n\ndistracción.\n\nLas relaciones afectivas activas entre\n\nsoldados están prohibidas —\n\nespecialmente en unidades de élite.\n\nLa procreación está regulada por el\n\nConsejo de Sangre:\n\nLa mujer es designada en tiempos de\n\npaz o tras campañas exitosas\n\nElla elige al varón con quien concebir,\n\nsolo para ese propósito\n\nEl varón no puede rechazar la elección,\n\nsalvo por razones de salud o servicio\n\nactivo extremo\n\nLa unión no debe prolongarse ni\n\nmostrarse afectiva públicamente\n\n👶\n\nCrianza de los hijos\n\nEl niño es criado por la madre hasta los\n\ncinco años\n\nDurante ese período:\n\nSe permite a la madre descansar de\n\ncampañas, pero sigue entrenando\n\nSe espera que enseñe disciplina,\n\nautocontrol, y valores tribales al niño\n\nA los cinco años, el niño es entregado\n\nal Pabellón del Acero, donde comienza\n\nsu vida como guerrero\n\nDesde entonces, pierde vínculo directo\n\ncon su madre o padre\n\nLa tribu se convierte en su única familia\n\n🔮\n\nEspiritualidad\n\nVeneran a los Espíritus del Hierro\n\n(disciplina) y la Sangre (valor)\n\nLa fe no es mística sino funcional: los\n\nrituales están al servicio de la fortaleza\n\nespiritual\n\nVisiones y sueños pueden tener valor\n\nprofético, pero deben ser validados por\n\nacción y resultado\n\n🪓\n\nRitos de Pasaje\n\nImportantes\n\nRitoEdadSignificadoRito del Acero5 añosEl\n\nniño es separado de la madre y comienza\n\nsu entrenamientoRito de Sangre12-14\n\nañosPrimera prueba de combate contra\n\nenemigos simuladosRito del Vínculo de\n\nAcero18+ añosSe le asigna su unidad\n\npermanenteRito del Juramento FinalSegún\n\nméritosEntrada a los Diez Juramentados\n\n🧩\n\nNotas culturales para uso\n\nnarrativo\n\nEl silencio tiene más peso que las\n\npalabras: un gesto puede ser\n\nconfesión, despedida o promesa\n\nLas emociones están presentes, pero\n\nreprimidas: eso crea tensión poderosa\n\nen los personajes\n\nCualquier ruptura de la norma se paga\n\ncon exilio, pérdida del rango o muerte\n\nritual",
+          "tags": [
+            "Tribu Koralenn",
+            "Tribu"
+          ]
+        },
+        {
+          "id": "tribu-revenst",
+          "title": "Tribu Revenst",
+          "saga": "Forgotten Sword",
+          "type": "Tribu",
+          "seat": "Forgotten Sword",
+          "content": "1. Nombre y Ubicación\n\nNombre de la Tribu: Revenst.\n\nUbicación Geográfica: Entre el suroeste y\n\nel sureste están las Montañas Antiguas.\n\nSu geografía es helada, nevando gran\n\nparte del tiempo. En territorio es la más\n\ngrande.\n\n2. Estructura Social y Política\n\nLiderazgo y Gobierno: La rige un líder, que\n\npuede ser elegido o promovido, junto con\n\nsu grupo de generales y consejeros.\n\nRoles y Jerarquías: Es una tribu guerrera,\n\nla base es la milicia, en donde hay gran\n\nrespeto y honor por estos.\n\nRelación con Otras Tribus o Reinos:\n\nAlianzas comerciales entre tribus y con\n\nciertas restricciones con los reinos.\n\n3. Cultura y Costumbres\n\nCreencias y Mitos: Mitos sobre animales\n\nespirituales.\n\nFiestas y Celebraciones: El casamiento\n\nvirgen, el año nuevo, ceremonia por las\n\npersonas que mueren en batalla.\n\nTabúes y Prohibiciones: (Nada)\n\nIncluye cualquier norma o prohibición\n\nimportante. Por ejemplo, podría estar\n\nprohibido cazar ciertas criaturas, entrar en\n\náreas sagradas sin permiso o\n\ndesobedecer a los ancianos.\n\n4. Economía y Sustento\n\nRecursos y Bienes Principales: Minerales y\n\ncosechas, bienes artesanales e\n\ninvenciones.\n\nMétodos de Subsistencia: Cazadores\n\nespecializados en el sigilo.\n\nIntercambio y Comercio: Comercio de\n\ninnovaciones y telas, principalmente con\n\ntribus, y con los reinos, es restringido.\n\n5. Relación con el Medio Ambiente\n\nConexión con la Naturaleza: Cuidado de\n\nlas runas antiguas.\n\nCriaturas Autóctonas: Especifica si hay\n\ncriaturas autóctonas en su territorio y\n\ncómo interactúan con ellas. Pueden\n\nconsiderarlas protectoras, amenazas o\n\nincluso aliadas.\n\n6. Disciplinas y Habilidades Especiales\n\nDisciplinas Únicas: Si la tribu tiene\n\nhabilidades específicas, como el Thakusk\n\no una técnica avanzada de arquería o\n\ncombate, describe cómo se entrenan en\n\nellas y el propósito de estas disciplinas.\n\nConocimientos Ancestrales: Detalla si\n\nposeen conocimientos pasados de\n\ngeneración en generación, como el uso de\n\nhierbas medicinales, técnicas de\n\nsupervivencia, o saberes sobre criaturas\n\nlocales.\n\nEnfoque Mágico: Aunque la magia es\n\nlimitada, la tribu puede tener\n\nconocimientos primitivos o rituales que\n\ninsinúan magia, como el uso de cuarzos\n\nque tienen propiedades especiales.\n\n7. Lengua y Comunicación\n\nIdioma Propio o Dialecto: Explica si la tribu\n\ntiene un idioma propio o dialecto único, así\n\ncomo palabras y expresiones que puedan\n\nreflejar su cosmovisión.\n\nMétodos de Transmisión de\n\nConocimiento: Indica si usan historias\n\norales, canciones, danzas, o símbolos\n\ngrabados en piedra o madera para\n\ntransmitir su historia y conocimiento.\n\n8. Conflictos y Desafíos Actuales\n\nConflictos Internos: Describe cualquier\n\nproblema dentro de la tribu, como luchas\n\nde poder, diferencias entre generaciones, o\n\ndesafíos en su estructura de liderazgo.\n\nAmenazas Externas: Enumera peligros que\n\nla tribu enfrenta del exterior, como la\n\nexpansión de los reinos cercanos,\n\nrivalidades con otras tribus, o problemas\n\nambientales que afectan su modo de vida.\n\nAdaptación al Cambio: ¿Están dispuestos\n\na cambiar sus costumbres ante los\n\ncambios del entorno (como el paso de la\n\nEdad Media a la Moderna) o son\n\nresistentes a perder sus tradiciones?\n\n9. Vestimenta y Simbología\n\nRopa y Estilo: Describe cómo se visten,\n\nincluyendo si usan materiales locales,\n\ndiseños específicos, colores simbólicos o\n\njoyería.\n\nSímbolos y Marcas Culturales: Podrían\n\ntener símbolos sagrados, tatuajes,\n\npinturas o marcas en su vestimenta que\n\nrepresenten su identidad, alianzas o\n\nrangos.\n\n10. Meta y Motivación de la Tribu en la\n\nHistoria\n\nObjetivos Colectivos: Puede ser preservar\n\nsu independencia, expandir su territorio,\n\nproteger su cultura o garantizar la\n\nsupervivencia de su pueblo frente a\n\nnuevas amenazas.\n\nCambio Potencial: Considera si la tribu\n\nestá abierta a evolucionar, adaptándose a\n\nla llegada de nuevas ideas y desafíos, o si\n\nestán decididos a conservar sus raíces y\n\nvalores sin importar las consecuencias.",
+          "tags": [
+            "Tribu Revenst",
+            "Tribu"
+          ]
+        },
+        {
+          "id": "tribu-vreschkamil",
+          "title": "Tribu Vreschkamil",
+          "saga": "Desarrollo Continental",
+          "type": "Tribu Humanoide Rúnica",
+          "seat": "Zorkai Kal / Orh-Sad",
+          "content": "Humanoides imponentes («Vresch» = músculo, «Kamil» = morado) de piel violeta/lavanda endurecida por el clima, con vetas minerales brillantes y ojos dorados/blancos. Extremadamente disciplinados, orgullosos y silenciosos; portan runas corporales y habitan Zorkai Kal.\n\nEtimología: Vresch (músculo) + Kamil (morado).",
+          "tags": [
+            "Tribu Vreschkamil",
+            "Tribu Humanoide Rúnica"
+          ]
+        },
+        {
+          "id": "tribu-zomina",
+          "title": "Tribu Zomina",
+          "saga": "Sin orden",
+          "type": "Tribu",
+          "seat": "Sin orden",
+          "content": "🌄 La Tribu de los Gigantes\n\n🛡️ Nombre:\n\nTribu Zomina.\n\n👤 Características físicas:\n\nAltura promedio: Mujeres 1.90 m / Hombres\n\n2.10 m\n\nMusculosos, de complexión imponente, pero\n\nágiles.\n\nColor de piel característico (ej. bronce oscuro o\n\npálido con vetas azules).\n\nPelo trenzado como tradición tribal.\n\n💠 Cultura:\n\nValoran el honor, la lealtad y el combate justo.\n\nSu sociedad es matrilineal o tiene guerreras\n\ncomo líderes.\n\nPoseen un arte marcial propio basado en la\n\nfuerza, la danza y la estrategia.\n\nCreen que sus cuerpos fueron moldeados por\n\ndioses ancestrales, lo que provoca celos entre\n\notras tribus.\n\n🩸 Historia:\n\nHistóricamente perseguidos por otras tribus que\n\nlos temían o envidiaban.\n\nFueron casi exterminados varias veces.\n\nNunca han tenido un aliado real… hasta ahora.",
+          "tags": [
+            "Tribu Zomina",
+            "Tribu"
+          ]
+        },
+        {
+          "id": "woltak-fuerza-de-choque",
+          "title": "Woltak (Fuerza de choque)",
+          "saga": "Forgotten Sword",
+          "type": "Militar",
+          "seat": "Territorio de la Tribu Aurís",
+          "content": "Fuerza de élite y choque de la Tribu Aurís fundada en 1468 por el general Ferniak Drus y el líder tribal Sephereis Zra para combatir grandes amenazas enemigas. Lema: «Utilizar la fuerza, si es necesario». Símbolo: el Aschmie. Bajo el mando del General Superior Ünval Leor.\n\n1. Identidad del Grupo\n\nNombre del grupo: Woltak, «fuerza» en\n\nauka antiguo.\n\nLema o frase distintiva: “Utilizar la fuerza,\n\nsi es necesario”.\n\nSímbolo o emblema: Un Aschmie como\n\nsímbolo.\n\n2. Origen y Contexto\n\nHistoria: Fundado en el año 1468 para ser\n\nla fuerza bruta de la tribu.\n\nFundadores: Ferniak Drus, general auriano,\n\ny el líder tribal Sephereis Zra.\n\nRazón de su existencia: Para luchar contra\n\ngrandes fuerzas enemigas.\n\n3. Estructura y Jerarquía\n\nLíder o líderes: General Superior Unval\n\nLeor y el líder Tanns Leor.\n\nOrganización interna: Lidera el General\n\nSuperior en conjunto con sus generales y\n\nconsejeros.\n\nMiembros: Soldados superiores al resto.\n\nSetenta y tres miembros. Para ingresar, se\n\nrequiere superar una prueba que solo\n\ncinco personas superan, en promedio.\n\n4. Cultura y Valores\n\nCreencias o principios: Velar por la\n\nprotección de las personas y de la tribu.\n\nRituales o tradiciones: Rigurosas pruebas,\n\ny meritocracia.\n\nIdioma o códigos: Señas manuales,\n\nsilbidos y sonidos bucales.\n\n5. Recursos y Logística\n\nBase de operaciones: La fortaleza en Gijar,\n\ncerca de la capital.\n\nRecursos: Armas como el Aschmie,\n\ntecnología militar innovadora, y alimentos\n\nno perecibles\n\nFuente de ingresos: Inversión del Estado\n\ntribal.\n\n6. Influencia y Relaciones\n\nAliados: Tribus como la Tribu Klignak y la\n\nTribu Revenst.\n\nEnemigos: Reino Gricai y tribus\n\nunificacionistas.\n\nRelación con el protagonista: En varias\n\nocasiones le salvan el pellejo, y es una\n\nfuente de protección.\n\n7. Actividades y Especialización\n\nMisiones principales: Funciona en\n\nmomentos en que la milicia no es\n\nsuficiente, con espionaje, fuerza bruta,\n\nlogística, etc.\n\nHabilidades destacadas: Gran\n\ncoordinación con sus miembros en\n\nmomentos de fuerza bruta.\n\n8. Reglas y Castigos\n\nNormas internas: Cero relaciones\n\namorosas entre miembros, lealtad a la\n\ntribu, acatamiento de las órdenes.\n\nConsecuencias por incumplimiento:\n\nSuspensión, multas y deposiciones.\n\n9. Apariencia y Distintivos\n\nVestimenta o armaduras: Armaduras\n\ngrandes y ostentosas, espada con marcas\n\nrúnicas, como principal. Ropa cómoda\n\ntribal en momentos simples.\n\nMarcas o señales: Un Aschmie marcado\n\nen la armadura y espada.\n\n10. Rumores o Mitos\n\nLeyendas sobre ellos: Se dice que los\n\nmiembro pueden resistir a cualquier tipo\n\nde tortura.\n\nVerdades ocultas: Que en las catacumbas\n\nde la fortaleza están los peores\n\ndelincuentes y asesinos.\n\nAschmie: Hoja Arco\n\nUn arma compacta y letal diseñada para\n\ncombates cuerpo a cuerpo. Consiste en\n\nuna cuchilla arqueada que se extiende\n\nsobre el dorso de la mano, con puntas\n\nfilosas en cada extremo. Su mango, sólido\n\ny ergonómico, permite un agarre firme,\n\nmientras la hoja amplifica el daño de los\n\ngolpes y facilita cortes rápidos. Perfecta\n\npara guerreros ágiles y tácticos.",
+          "tags": [
+            "Woltak (Fuerza de choque)",
+            "Militar"
+          ]
+        }
+      ]
+    },
+    "saber": {
+      "name": "Saber tradicional y disciplinas",
+      "icon": "⚔️",
+      "items": [
+        {
+          "id": "rechazo-lengua-impuesta",
+          "title": "Rechazo lengua impuesta",
+          "category": "Cultura y Lengua",
+          "saga": "Forgotten Sword",
+          "content": "Luego de la guerra, las tribus deciden rechazar la lengua que hablan y que les ha sido impuesta; regresan a sus antiguas lenguas para que no sean olvidadas.",
+          "tags": [
+            "Rechazo lengua impuesta",
+            "Cultura y Lengua"
+          ]
+        },
+        {
+          "id": "arkia",
+          "title": "Arkia",
+          "category": "Disciplinas y Artes de Combate",
+          "saga": "Tribu Altari",
+          "content": "Arkia, o «punta silenciosa», traducido del Kavkn Antiguo. Es una de las tres disciplinas de los altarianos; la arquería. Su destreza con el arco ha tenido gran renombre a lo largo de los milenios, grandes tribus le tienen un gran respeto a los Altari. Aunque no tiene magia, sí tiene una fuerte cuerda que hace que la flecha surque los cielos con gran velocidad. Asimismo, si se tiene en cuenta a las demás tribus, el arco altariano quedaría en el top dos en poder. Esto demuestra que no necesariamente debe tener magia para ser poderosa. Así como los jóvenes eligen su disciplina, esta también es elegible, aunque tiene más competencia que el Thakusk.",
+          "tags": [
+            "Arkia",
+            "Disciplinas y Artes de Combate"
+          ]
+        },
+        {
+          "id": "las-tres-disciplinas",
+          "title": "Las tres disciplinas",
+          "category": "Disciplinas y Artes de Combate",
+          "saga": "Tribu Altari",
+          "content": "Las tres disciplinas, o en Kavk «Daikaven», conforma a las tres disciplinas más importantes que salvaguardan la tribu; Thakusk, Arkia y Savlik. Llenas de honor y respeto por las diferentes tribus contiguas. Los jóvenes, desde pequeño, escogen su disciplina con la que estarán por el resto de su vida. Todos dotan de honor y respeto, pero se valora más a un espadachín.",
+          "tags": [
+            "Las tres disciplinas",
+            "Disciplinas y Artes de Combate"
+          ]
+        },
+        {
+          "id": "savlik",
+          "title": "Savlik",
+          "category": "Disciplinas y Artes de Combate",
+          "saga": "Tribu Altari",
+          "content": "Savlik, o «afilado cortante», traducido del Kavk, es la tercera disciplina de los Altarianos. Se refiere a las espadas o espadachines. Es la disciplina más importante y con más competencia. La gran mayoría de los jóvenes decide unirse a esta disciplina, dado su honor y respeto que puedes ganar si logras estar dentro de los mejores. Aquí constantemente se está poniendo a prueba tu habilidad, en combates o duelos.",
+          "tags": [
+            "Savlik",
+            "Disciplinas y Artes de Combate"
+          ]
+        },
+        {
+          "id": "thakusk",
+          "title": "Thakusk",
+          "category": "Disciplinas y Artes de Combate",
+          "saga": "Tribu Altari",
+          "content": "El Thakusk, \"silencio en los árboles\", traducido al español desde el Kavk Antiguo, es una técnica de espionaje, principalmente, que, como sus nombre lo dice, consiste en pasar por entre los árboles sigilosamente. Es una habilidad que han aprendido y utilizado por siglos la Tribu Altari. Requiere gran destreza y fuerza dado que los brazos son los más usados en esta disciplina. En esta disciplina hay tres uniones: espionaje, ataque y soporte. Cada uno con su distintivo y requerimiento físico psicológico. Usualmente son los más jóvenes los que practican esta disciplina, por su osadía y estado físico joven. Esta orden, junto con las demás, forma parte de los puntos de ataque de la Tribu Altari.",
+          "tags": [
+            "Thakusk",
+            "Disciplinas y Artes de Combate"
+          ]
+        },
+        {
+          "id": "ndice-de-riqueza",
+          "title": "Índice de riqueza",
+          "category": "Economía y Recursos",
+          "saga": "Hiviale",
+          "content": "En el reino de la Monarquía Consultiva, la distribución de la riqueza entre la población sigue una estructura desigual, pero con una clase media emergente gracias al desarrollo de instituciones educativas y la expansión del comercio. El índice de distribución de la riqueza se puede estimar de la siguiente manera: Ricos: 10% Este grupo incluye la nobleza, altos funcionarios del Gran Concejo, grandes comerciantes, y propietarios de vastas tierras o empresas que controlan recursos clave como el comercio y la agricultura. Clase Media: 50% Compuesta por comerciantes medianos, artesanos, profesionales como médicos, eruditos, y funcionarios administrativos. Esta clase ha crecido considerablemente en los últimos años, gracias a políticas de incentivo educativo y la apertura de nuevos mercados y rutas comerciales. Clase Baja: 30% Incluye a los campesinos, pequeños comerciantes y trabajadores de servicios, quienes, aunque viven modestamente, tienen acceso a recursos básicos como alimentación y vivienda, gracias a los programas sociales implementados por el Gran Concejo. Extrema Pobreza: 10% En este grupo se encuentran las personas que viven en condiciones precarias, generalmente sin tierra o propiedad, y dependen de la caridad o asistencia social del reino. Su situación se debe a factores como desastres naturales, guerra, o incapacidad para trabajar.",
+          "tags": [
+            "Índice de riqueza",
+            "Economía y Recursos"
+          ]
+        },
+        {
+          "id": "relojes",
+          "title": "Relojes",
+          "category": "Forgotten Sword",
+          "saga": "Forgotten Sword",
+          "content": "Relojes Públicos: Estos relojes se muestran en las partes céntricas de la capital. Estos relojes podrían ser vistos como maravillas tecnológicas y símbolos de prestigio para la ciudad. Instrumento para Medir el Paso del Tiempo Schtundglas (Reloj de Arena Mágico): Este no es un reloj de arena común, sino una versión mágica que utiliza arena brillante y cristales encantados. La arena, que brilla en diferentes colores según la hora del día, fluye a través de un cristal tallado con runas que indican las horas. Las runas se iluminan cuando la arena pasa sobre ellas, mostrando no solo la hora, sino también las fases lunares y las estaciones. El Schtundglas es un objeto preciado, utilizado por sabios y nobles para mantener un control preciso del tiempo.",
+          "tags": [
+            "Relojes",
+            "Forgotten Sword"
+          ]
+        }
+      ]
+    },
+    "cronologia": {
+      "name": "Cronología continental",
+      "icon": "📜",
+      "items": [
+        {
+          "id": "a-o-1700",
+          "title": "Año 1700",
+          "period": "Año 1700",
+          "location": "Tribu Altari",
+          "content": "En esta época, la tribu Altari era una de las pocas tribus que permanecían, con sus costumbres y cultura. El mestizaje fue algo que no cambió mucho a la tribu, pero sí tuvieron nuevas costumbres. En este año, en la historia de Skal, se menciona que el oro altariano tiene más valor que los otros tipos de oro, dado su constitución y el prestigio de ser altariano.",
+          "tags": [
+            "Año 1700",
+            "Hito Histórico"
+          ]
+        },
+        {
+          "id": "batalla-hermanos-valle",
+          "title": "Batalla hermanos valle",
+          "period": "Histórico",
+          "location": "Forgotten Sword",
+          "content": "muriera, así que se acercó y mientras estaba su hermanito en el suelo cansado y agotado por la lucha el hermano mayor le preguntó vocifero molesto por su incesante lucha en esta batalla\n\nUna batalla en el valle mientras el bando de los malos ganaba terreno, el protagonista alzó su espada y avanzó mientras sus compañeros quedaban atrás habías, superados por los soldados enemigos, el protagonista avanzó sin temor, decidido en que ese día no sería el último, que su espada iba a seguir desenvainada. No era el último. Peleó contra muchos hasta que se cansó. Pero él continuó, no se rindió. Aunque su cuerpo estaba cansado él continuó peleando, y su hermano a lo lejos lo vio, comprendió que él, su hermano menor, estaba sediento de venganza. Él no quería que su hermanito muriera, así que se acercó y mientras estaba su hermanito en el suelo cansado y agotado por la lucha el hermano mayor le preguntó vocifero molesto por su incesante lucha en esta batalla",
+          "tags": [
+            "Batalla hermanos valle",
+            "Batalla / Conflicto"
+          ]
+        },
+        {
+          "id": "c-mo-waldain-obtuvo-la-espada-rota",
+          "title": "Cómo Waldain obtuvo la espada rota",
+          "period": "Histórico",
+          "location": "Forgotten Sword",
+          "content": "Después de haber formado un equipo para demostrar los verdaderos planes de Deschastt, Waldain se pierde en el inmenso bosque, dentro de este, halla unas runas con inscripciones extrañas y antiguas. En ese lugar también llegan soldados reales del Reino Gäfka, ellos atacan a Wal, hiriéndolo. Esa sangre escurrida activa unos mecanismos en las runas. Luego de acabar con todos, Wal abre un tipo de baúl de rocas, adentro halla una espada fracturada, rota y trizada. Para probar su dureza, golpea las runa, pertiéndolas en varias partes, descubriendo el filo y resistencia de las espada.",
+          "tags": [
+            "Cómo Waldain obtuvo la espada rota",
+            "Suceso"
+          ]
+        },
+        {
+          "id": "disputa",
+          "title": "Disputa",
+          "period": "Histórico",
+          "location": "Edification",
+          "content": "isputa. Tema de la disputa Hiviale promulgó que la construcción de barcos fuera solo de metal, y dejaran que los barcos pequeños fueran de madera. Esto encarecería los costos, pero esta medida ayuda a la disminución de hundimiento.\n\nSzellek Ejnar, miembro menor de la familia Ejnar, su familia controla gran parte del mercado de la industria naval. Asentados como una familia influyente, cuando Hiviale asciende al trono, promueve nuevas leyes que entorpecen a la familia Ejnar. La familia fuerza a Szellek a planear una forma de quitarla del trono, pero, conforme pasa el tiempo, Hiviale cambia la forma de pensar de Szellek, provocando que se deslinde de su familia. Terminada la promulgación de la nueva ley naval, Hiviale demuestra que su nueva idea es idónea para los planes de la familia Ejnar, acabando cualquier disputa.\n\nTema de la disputa Hiviale promulgó que la construcción de barcos fuera solo de metal, y dejaran que los barcos pequeños fueran de madera. Esto encarecería los costos, pero esta medida ayuda a la disminución de hundimiento.",
+          "tags": [
+            "Disputa",
+            "Suceso"
+          ]
+        },
+        {
+          "id": "el-maleficio-y-origen-de-zorkai-kal",
+          "title": "El Maleficio y Origen de Zorkai Kal",
+          "period": "Era Antigua",
+          "location": "Zorkai Kal / Orh-Sad",
+          "content": "Intento de exterminio mágico contra la Tribu Vreschkamil.\n\nUn maestro hechicero desató una tormenta perpetua de odio para extinguir a los Vreschkamil. Su aprendiz, arrepentido años después, logró mitigar el maleficio para que la vida resurgiera adaptada a la electricidad y la arena negra.\n\nCreación del desierto de arena negra y adaptación eléctrica de los Vreschkamil.",
+          "tags": [
+            "El Maleficio y Origen de Zorkai Kal",
+            "Hito Histórico"
+          ]
+        },
+        {
+          "id": "emboscada-y-parto-hlied",
+          "title": "Emboscada y parto Hlied",
+          "period": "Histórico",
+          "location": "Forgotten Sword",
+          "content": "Hlied y Nolle iban de regreso, pasando por un monte boscoso. De repente, mercenarios los acorralan, los soldados las protegen, pero varios mueren. Nolle decide salir para ayudar y, así, proteger a Hlied, quien está embarazada. Mientras el arquero en el recuperaba las fuerzas en su bazo derecho, Nolle le lanza su daga y los mata. Ella utiliza todo su arsenal para herir y matar enemigos. Finalmente, los soldados logran acabar con todos los mercenarios. Pero Hlied siente que el bebé ya viene.",
+          "tags": [
+            "Emboscada y parto Hlied",
+            "Batalla / Conflicto"
+          ]
+        },
+        {
+          "id": "la-gran-quema-y-el-cataclismo-a-o-0",
+          "title": "La Gran Quema y el Cataclismo (Año 0)",
+          "period": "Año 0 Calendario Vödhar",
+          "location": "Santuarios tribales de todo el continente",
+          "content": "Envidia y miedo de los reyes ante la supremacía mágica tribal.\n\nLos reinos, envidiosos del dominio mágico absoluto de las tribus, atacaron sus santuarios y quemaron sus grimorios milenarios. La masacre concluyó con el cataclismo desatado por un sabio longevo. Gran parte del conocimiento arcano se perdió para siempre y dio inicio al Calendario Vödhar.\n\nPérdida de la magia ancestral, colapso de santuarios e inicio del Calendario Vödhar (Año 0).",
+          "tags": [
+            "La Gran Quema y el Cataclismo (Año 0)",
+            "Hito Histórico"
+          ]
+        },
+        {
+          "id": "trama-en-a-os",
+          "title": "Trama en años",
+          "period": "Histórico",
+          "location": "Forgotten Sword",
+          "content": "haber hecho lo suficiente.\n\nLa idea es que la historia abarque 2 años, en los que en el principio eran diplomacia, pero esta fue desatendida y los unificacionistas expandieron su territorio, ubtuvieron la ayuda de reinos fuertes y tribus con buen entrenamiento militar. Hubo un momento en el que fueron superados, y la capital de Revenst fue casi destruida por fuerzas gricanas. Hubo un bando que solo se esforzaba por sobrevivir, cosechar y sembrar, en este estaba Wal. Hubo otro bando, este fue minoritario, en el que estaba Hlied como líder, ya que su padre, Ronan, estaba muy apenado por verse diezmado y por no haber hecho lo suficiente.",
+          "tags": [
+            "Trama en años",
+            "Hito Histórico"
+          ]
+        },
+        {
+          "id": "venganza-de-dalmerk",
+          "title": "Venganza de Dalmerk",
+          "period": "Histórico",
+          "location": "Rise",
+          "content": "En una parte de la historia, Dalmerk anuncia a Roidek que encontró a los bandidos que masacraron el pueblo cuando niños, y los mató sin remordimiento",
+          "tags": [
+            "Venganza de Dalmerk",
+            "Suceso"
+          ]
+        }
+      ]
+    },
+    "lengua": {
+      "name": "Lengua Märik y calendario",
+      "icon": "📖",
+      "items": [
+        {
+          "id": "adjetivos-posesivos",
+          "title": "Adjetivos posesivos",
+          "category": "Lengua Märik",
+          "content": "Re = tu",
+          "tags": [
+            "Adjetivos posesivos",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "aismond",
+          "title": "Aismond",
+          "category": "Lengua Märik / Calendario",
+          "content": "Segundo mes del invierno en el calendario Märik. Significa \"Mes del Hielo\".\n\nCongelación de lagos y ríos.",
+          "tags": [
+            "Aismond",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "bl-tmond",
+          "title": "Blütmond",
+          "category": "Lengua Märik / Calendario",
+          "content": "Segundo mes de la primavera en el calendario Märik. Significa \"Mes de las Flores\".\n\nFloración continental.",
+          "tags": [
+            "Blütmond",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "componentes-apelarivos-modificadores",
+          "title": "Componentes apelarivos modificadores",
+          "category": "Lengua Märik",
+          "content": "Jü Denota énfasis, se utiliza para aclarar. ¡Bük jü! Los componentes apelativos modificadores se refieren a palabras que su significado modifica al verbo, dotándole de énfasis, duda o incertidumbre, orden o mandato, ironía o sarcasmo, confirmación o refuerzo, condicionalidad o posibilidad, sorpresa o incredulidad, natación intensificada, cambio de opinión o corrección.",
+          "tags": [
+            "Componentes apelarivos modificadores",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "diccionario",
+          "title": "Diccionario",
+          "category": "Lengua Märik",
+          "content": "Ashlai\n\nTraducción: Cendal.\n\nFonética: /ˈæʃlaɪ/\n\nSignificado:\n\nTela de seda o lino muy delgada y transparent\n\ne.",
+          "tags": [
+            "Diccionario",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "diccionario-kavk",
+          "title": "Diccionario Kavk",
+          "category": "Vocabulario",
+          "content": "Tha: se refiere a el silencio, el más\n\nusado.\n\nAr: se refiere al silencio en el aire.\n\nKusk: se refiere a los árboles.\n\nKia: punta.\n\nSav: afilado.\n\nlik: cortante.",
+          "tags": [
+            "Diccionario Kavk",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "eatak",
+          "title": "Eatak",
+          "category": "Lengua Märik / Días de la semana",
+          "content": "Día de la Tierra en la semana Märik.\n\nTercer día de la semana.",
+          "tags": [
+            "Eatak",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "entmond",
+          "title": "Entmond",
+          "category": "Lengua Märik / Calendario",
+          "content": "Tercer mes del verano en el calendario Märik. Significa \"Mes de la Cosecha\".\n\nRecolección agrícola.",
+          "tags": [
+            "Entmond",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "feuhtak",
+          "title": "Feuhtak",
+          "category": "Lengua Märik / Días de la semana",
+          "content": "Día del Fuego en la semana Märik.\n\nSexto día de la semana.",
+          "tags": [
+            "Feuhtak",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "formulaci-n-de-preguntas-y-exclamaciones",
+          "title": "Formulación de preguntas y exclamaciones",
+          "category": "Lengua Märik",
+          "content": "Las preguntas y exclamaciones son así: el\n\npronombre interrogativo o exclamativo +\n\nverbo + pronombre indicativo +\n\ncomponente apelativo modificador +\n\nsujeto +",
+          "tags": [
+            "Formulación de preguntas y exclamaciones",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "frases-y-su-composici-n",
+          "title": "Frases y su composición",
+          "category": "Lengua Märik",
+          "content": "Wer rëa ki jo? (¿Quiénes son ellos) Pronombre interrogativo, verbo, componente apelativo modificador de duda y sujeto. Jo rëa lëo jäkar (Ellos son {soldados / cazadores}) Sujeto, verbo, componente apelativo modificador de aclaración y sustantivo. Mïka jo li väi dü perke (Madre, ellos son buenos) Vocativo, sujeto, pronombre indicativo, verbo, componente apelativo modificador de refuerzo y adjetivo.",
+          "tags": [
+            "Frases y su composición",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "frestmond",
+          "title": "Frestmond",
+          "category": "Lengua Märik / Calendario",
+          "content": "Tercer mes del invierno en el calendario Märik. Significa \"Mes de la Escarcha\".\n\nFin del invierno.",
+          "tags": [
+            "Frestmond",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "goltmond",
+          "title": "Goltmond",
+          "category": "Lengua Märik / Calendario",
+          "content": "Primer mes del otoño en el calendario Märik. Significa \"Mes del Oro\" por el tono dorado de las hojas.\n\nComienzo de la caída de hojas.",
+          "tags": [
+            "Goltmond",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "hitzmond",
+          "title": "Hitzmond",
+          "category": "Lengua Märik / Calendario",
+          "content": "Primer mes del verano en el calendario Märik. Significa \"Mes del Calor\".\n\nTemperaturas máximas.",
+          "tags": [
+            "Hitzmond",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "lengua",
+          "title": "Lengua",
+          "category": "Lengua Märik",
+          "content": "Abecedario español, pero con más\n\nfonemas: ä, ü, ë y ö.\n\nEsta lengua consta de palabras cortas,\n\ncon consonantes mayoritariamente.\n\nPrevalecen las vocales ä, ü, ë y ö.\n\nNo existe la coma vocativa porque existen\n\npalabras que refieren al receptor y al\n\nmencionado:\n\nReceptor\n\nLi = receptor femenino singular.\n\nLis = receptor femenino plural.\n\nLë = receptor masculino singular.\n\nLës = receptor masculino plural.\n\nEk = mencionado femenino singular.\n\nEks = mencionado femenino plural.\n\nËk = mencionado masculino singular.\n\nËks = mencionado masculino singular.\n\nNo hay informalidad o formalidad en el\n\ntrato en los pronombres indicativos.\n\nGramática\n\nSujeto +  pronombre indicativo + verbo +\n\ncomponente apelativo modificador.\n\nPronombre indicativo: revela el receptor o\n\nmencionado.",
+          "tags": [
+            "Lengua",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "lentzmond",
+          "title": "Lentzmond",
+          "category": "Lengua Märik / Calendario",
+          "content": "Primer mes de la primavera en el calendario Märik. Significa \"Mes de la Primavera\".\n\nPrimeros brotes.",
+          "tags": [
+            "Lentzmond",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "mondtak",
+          "title": "Mondtak",
+          "category": "Lengua Märik / Días de la semana",
+          "content": "Día de la Luna en la semana Märik.\n\nPrimer día de la semana.",
+          "tags": [
+            "Mondtak",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "naschmond",
+          "title": "Naschmond",
+          "category": "Lengua Märik / Calendario",
+          "content": "Tercer mes del otoño en el calendario Märik. Significa \"Mes de la Noche\".\n\nVíspera del invierno.",
+          "tags": [
+            "Naschmond",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "nombre-de-meses-y-d-as",
+          "title": "Nombre de meses y días",
+          "category": "Vocabulario",
+          "content": "Nombres de los Meses\n\nInvierno\n\n1. Wintamond - Mes del Invierno (Winta =\n\ninvierno, Mond = luna).\n\n- El mes más frío, donde la nieve cubre la\n\ntierra y las noches son largas.\n\n2. Aismond - Mes del Hielo (Ais = hielo).\n\n- El hielo domina los ríos y lagos, y las\n\ntormentas de nieve son comunes.\n\n3. Frestmond - Mes de la Escarcha (Frest =\n\nescarcha).\n\n- El frío persiste, pero los días comienzan\n\na alargarse lentamente.\n\nPrimavera\n\n4. Lentzmond - Mes de la Primavera (Lentz\n\n= primavera).\n\n- La nieve se derrite, y los primeros\n\nbrotes verdes aparecen.\n\n5. Blütmond - Mes de las Flores (Blüt =\n\nflores).\n\n- Los campos se llenan de flores, y el\n\nclima se vuelve más cálido.\n\n6. Söntmond - Mes del Sol (Sönt = sol).\n\n- El sol brilla con fuerza, y la naturaleza\n\nestá en pleno apogeo.\n\nVerano\n\n7. Hitzmond - Mes del Calor (Hitz = calor).\n\n- El mes más caluroso, donde el sol\n\nalcanza su máxima intensidad.\n\n8. Rigenmond - Mes de la Lluvia (Rigen =\n\nlluvia).\n\n- Las lluvias refrescan la tierra,\n\npreparándola para la cosecha.\n\n9. Entmond - Mes de la Cosecha (Ent =\n\ncosecha).\n\n- Los campos están listos para la\n\nrecolección, y el trabajo es intenso.\n\nOtoño\n\n10. Goltmond - Mes del Oro (Golt = oro).\n\n- Las hojas de los árboles cambian a\n\ntonos dorados y rojizos.\n\n11. Schatnmond - Mes de las Sombras\n\n(Schatn = sombras).\n\n- Los días se acortan, y las noches se\n\nvuelven más largas y frías.\n\n12. Naschmond - Mes de la Noche (Nasch\n\n= noche).\n\n- El mes más oscuro, donde las noches\n\nson largas y el frío comienza a apoderarse\n\nde la tierra.\n\nCiclo Estacional\n\n- Invierno: Wintamond, Aismond,\n\nFrestmond.\n\n- Primavera: Lentzmond, Blütmond,\n\nSöntmond.\n\n- Verano: Hitzmond, Rigenmond, Entmond.\n\n- Otoño: Goltmond, Schatnmond,\n\nNaschmond.\n\nNombres de los Días\n\n1. Mondtak - Día de la Luna (Mond = luna,\n\nTag = día).\n\n2. Sönttak - Día del Sol (Sönt = sol).\n\n3. Eatak - Día de la Tierra (Ea = tierra).\n\n4. Wëndtak - Día del Viento (Wënd =\n\nviento).\n\n5. Wastak - Día del Agua (Was = agua).\n\n6. Feuhtak - Día del Fuego (Feuh = fuego).\n\n7. Schtëntak - Día de las Estrellas (Schtën\n\n= estrella).\n\nrano 7. Hitzmond - Mes del Calor (Hitz = calor). - El mes más caluroso, donde el sol alcanza su máxima intensidad. 8. Rigenmond - Mes de la Lluvia (Rigen = lluvia). - Las lluvias refrescan la tierra, preparándola para la cosecha. 9. Entmond - Mes de la Cosecha (Ent = cosecha). - Los campos están listos para la recolección, y el trabajo es intenso. Otoño 10. Goltmond - Mes del Oro (Golt = oro). - Las hojas de los árboles cambian a tonos dorados y rojizos. 11. Schatnmond - Mes de las Sombras (Schatn = sombras). - Los días se acortan, y las noches se vuelven más largas y frías. 12. Naschmond - Mes de la Noche (Nasch = noche). - El mes más oscuro, donde las noches son largas y el frío comienza a apoderarse de la tierra. Ciclo Estacional - Invierno: W",
+          "tags": [
+            "Nombre de meses y días",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "rigenmond",
+          "title": "Rigenmond",
+          "category": "Lengua Märik / Calendario",
+          "content": "Segundo mes del verano en el calendario Märik. Significa \"Mes de la Lluvia\".\n\nTemporada de tormentas y lluvias fértiles.",
+          "tags": [
+            "Rigenmond",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "schatnmond",
+          "title": "Schatnmond",
+          "category": "Lengua Märik / Calendario",
+          "content": "Segundo mes del otoño en el calendario Märik. Significa \"Mes de las Sombras\".\n\nAcortamiento de los días y nieblas.",
+          "tags": [
+            "Schatnmond",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "schtundglas",
+          "title": "Schtundglas",
+          "category": "Lengua Märik / Instrumentos",
+          "content": "Reloj de arena mágico imbuido de runas luminosas que señalan con precisión horas, estaciones del año y fases lunares.\n\nUtilizado por sabios, astrónomos y gobernantes.",
+          "tags": [
+            "Schtundglas",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "ntak",
+          "title": "ntak",
+          "category": "Lengua Märik / Días de la semana",
+          "content": "Día de las Estrellas en la semana Märik.\n\nSéptimo día de la semana.",
+          "tags": [
+            "ntak",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "s-ntmond",
+          "title": "Söntmond",
+          "category": "Lengua Märik / Calendario",
+          "content": "Tercer mes de la primavera en el calendario Märik. Significa \"Mes del Sol\".\n\nAumento de horas de luz.",
+          "tags": [
+            "Söntmond",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "s-nttak",
+          "title": "Sönttak",
+          "category": "Lengua Märik / Días de la semana",
+          "content": "Día del Sol en la semana Märik.\n\nSegundo día de la semana.",
+          "tags": [
+            "Sönttak",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "vreschkamil",
+          "title": "Vreschkamil",
+          "category": "Etnografía / Lingüística",
+          "content": "Tribu y pueblo de humanoides de piel violeta y vetas minerales. Proviene de «Vresch» (músculo) y «Kamil» (morado).\n\nHabitantes de Zorkai Kal.",
+          "tags": [
+            "Vreschkamil",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "wastak",
+          "title": "Wastak",
+          "category": "Lengua Märik / Días de la semana",
+          "content": "Día del Agua en la semana Märik.\n\nQuinto día de la semana.",
+          "tags": [
+            "Wastak",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "wintamond",
+          "title": "Wintamond",
+          "category": "Lengua Märik / Calendario",
+          "content": "Primer mes del invierno en el calendario Märik. Significa \"Mes del Invierno\".\n\nInicio de las nevadas.",
+          "tags": [
+            "Wintamond",
+            "Lengua Märik"
+          ]
+        },
+        {
+          "id": "ndtak",
+          "title": "ndtak",
+          "category": "Lengua Märik / Días de la semana",
+          "content": "Día del Viento en la semana Märik.\n\nCuarto día de la semana.",
+          "tags": [
+            "ndtak",
+            "Lengua Märik"
+          ]
+        }
+      ]
+    },
+    "personajes": {
+      "name": "Registro selecto de personajes",
+      "icon": "👤",
+      "items": [
+        {
+          "id": "erkes-aschorf",
+          "title": "Erkes Aschorf",
+          "saga": "Crown and Alliance",
+          "role": "principal",
+          "status": "Vivo",
+          "faction": "Reino del norte del continente.",
+          "content": "de origen Reino del norte del continente. (Reino del norte del continente.). Orgulloso, con hambre de probarse digno del trono. Inteligente, aunque impaciente; le cuesta aceptar consejos sin sent...\n\nOrgulloso, con hambre de probarse digno del trono. Inteligente, aunque impaciente; le cuesta aceptar consejos sin sentir que lo tratan como niño. Emocionalmente dependiente de la\n\nHijo del rey y la reina, único\n\nheredero legítimo.\n\nRasgos físicos:\n\nComplexión esbelta, aún en desarrollo;\n\nno ha terminado de crecer del todo.\n\nCabello castaño.\n\nMirada intensa pero joven, mezcla de\n\ninseguridad y ansias de demostrar.\n\nRasgos que recuerdan a su padre,\n\naunque más suaves por la juventud.\n\nNombre: Erkes Aschorf\n\nEdad: 15 años en el presente de la historia.\n\nOrigen: Reino del norte del continente.\n\nFamilia: Hijo del rey y la reina, único\n\nheredero legítimo.\n\nRasgos físicos:\n\nComplexión esbelta, aún en desarrollo;\n\nno ha terminado de crecer del todo.\n\nCabello castaño.\n\nMirada intensa pero joven, mezcla de\n\ninseguridad y ansias de demostrar.\n\nRasgos que recuerdan a su padre,\n\naunque más suaves por la juventud.\n\nPersonalidad:\n\nOrgulloso, con hambre de probarse\n\ndigno del trono.\n\nInteligente, aunque impaciente; le\n\ncuesta aceptar consejos sin sentir que\n\nlo tratan como niño.\n\nEmocionalmente dependiente de la\n\nprometida: la respeta, la admira y, en\n\nsecreto, busca su aprobación\n\nconstante.\n\nAmbivalente entre la inocencia de su\n\nedad y la carga de ser heredero.\n\nHabilidades / Conocimientos:\n\nE",
+          "tags": [
+            "Erkes Aschorf",
+            "Crown and Alliance"
+          ]
+        },
+        {
+          "id": "senescal-del-reino-del-norte",
+          "title": "Senescal del Reino del Norte",
+          "saga": "Crown and Alliance",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Reino del Norte",
+          "content": "r con un sirviente. Personalidad: Calmado: rara vez se altera, incluso en medio de crisis; transmite serenidad a quienes lo rodean. Sabio: cita ejemplos de la historia del reino para aconsejar; conoce los tratados y alianzas como si fueran parte de su memoria personal. Diligente: siempre pendiente de los detalles administrativos, lo que evita que el rey se ocupe de asuntos menores. Leal: su vida está dedicada al rey y al reino, no a su ambición personal. Prudente: mide sus palabras, pero cuando habla, todos escuchan. Habilidades / Conocimientos: Dominio de leyes, protocolos y tratados diplomáticos. Experto administrador: controla tesoro, tributos, comercio y logística militar. Estratega en política, aunque no necesariamente un general de batalla. Gran orador: capaz de calmar a una asamblea o sofocar rumores con firmeza y lógica. Debilidades / Conflictos internos: Su lea\n\nUbicación / Saga: Crown and Alliance",
+          "tags": [
+            "Senescal del Reino del Norte",
+            "Crown and Alliance"
+          ]
+        },
+        {
+          "id": "sera-b-tkov",
+          "title": "Äsera Bötkov",
+          "saga": "Crown and Alliance",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Prometida del príncipe del reino",
+          "content": "de origen Reino poderoso y autoritario del (Prometida del príncipe del reino). Seria y madura para su edad, capaz de observar y analizar situaciones complejas. Obediente y respetuosa, pero con un ...\n\nSeria y madura para su edad, capaz de\n\nobservar y analizar situaciones\n\ncomplejas.\n\nObediente y respetuosa, pero con un\n\ninstinto de supervivencia que la hace\n\ncautelosa.\n\nInteligente y estratégica: aprende\n\nrápido, sabe leer a los adultos y\n\nanticipar sus movimientos.\n\nSensible y afectuosa con quien se gana\n\nsu confianza, especialmente el príncipe.\n\nHabilidades / Conocimientos:\n\nEducación avanzada: historia, política,\n\nHija de un monarca fuerte y calculador; criada con la idea de que su vida es una herramienta política.\n\nNombre: Äsera Bötkov\n\nEdad: 6 años al llegar al reino vecino; 22\n\naños en el presente de la historia.\n\nOrigen: Reino poderoso y autoritario del\n\nsur/norte (según tu mapa).\n\nFamilia: Hija de un monarca fuerte y\n\ncalculador; criada con la idea de que su\n\nvida es una herramienta política.\n\nPosición: Prometida del príncipe del reino\n\nanfitrión; enviada como garantía del\n\ntratado entre reinos.\n\nRasgos físicos:\n\nComplexión pequeña y delicada,\n\napariencia frágil.\n\nOjos que reflejan inteligencia y\n\ncuriosidad más allá de su edad.\n\nCabello oscuro o rubio (dependiendo\n\ndel contraste que quieras con el\n\npríncipe).\n\nPersonalidad:\n\nSeria y madura para su edad, capaz de\n\nobservar y analizar situaciones\n\ncomplejas.\n\nObediente y respetuosa, pero con un\n\ninstinto de supervivenc",
+          "tags": [
+            "Äsera Bötkov",
+            "Crown and Alliance"
+          ]
+        },
+        {
+          "id": "derkon-desera",
+          "title": "Derkon Desera",
+          "saga": "Crown's Burden",
+          "role": "principal",
+          "status": "Vivo",
+          "faction": "Crown's Burden",
+          "content": "(Crown's Burden). Derkon es un rey sabio, firme y profundamente discernidor. Gobierna con pragmatismo y autoridad, pero también...\n\nDerkon es un rey sabio, firme y profundamente discernidor. Gobierna con pragmatismo y autoridad, pero también\n\nNombre: Derkon Desera\n\nEdad: 45-50 años (Capítulo 1), muere a\n\nlos 55-60 años (entre Capítulos 2 y 3)\n\nEstatura: 1.88 m\n\nApariencia:\n\nRostro marcado por la experiencia y la\n\nautoridad, piel bronceada y curtida por\n\ncampañas militares y vida al aire libre.\n\nOjos azul claro intenso, penetrantes y\n\nsabios, con mirada que evalúa constantemente pero también muestra comprensión. Cejas gruesas y expresivas, ligeramente arqueadas, de color castaño con canas incipientes. Arrugas profundas en la frente y alrededor de los ojos (patas de gallo), marcas de décadas de preocupación y liderazgo. Nariz recta y fuerte, ligeramente prominente. Labios de grosor medio, con expresión habitualmente seria pero capaz de sonrisas discretas. Barba de candado (perilla) y bigote cuidados pero no excesivamente pulidos, de color castaño con mechones grises. Pómulos marcados, mandíbula cuadrada y fuerte.\n\nCabello castaño oscuro con\n\nabundantes canas en las sienes y\n\nmechones plateados, largo hasta los\n\nhombros, ondulado y despeinado de\n\nforma natural (nunca demasiado\n\nformal).\n\nPiel con pequeñas marcas, cicatrices\n\nsutiles y manchas de sol, testimonio de\n\nuna vida de guerra y gobierno.\n\nExpresión facial habitualmente\n\nreflexiva, con profundidad en la mirada\n\nque denota",
+          "tags": [
+            "Derkon Desera",
+            "Crown's Burden"
+          ]
+        },
+        {
+          "id": "lyra",
+          "title": "Lyra",
+          "saga": "Crown's Burden",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Protectora de las Marcas del",
+          "content": "de origen Humana (Protectora de las Marcas del). Cabello castaño oscuro, a menudo\n\nrecogido en una trenza o moño funcional,\n\ncon algunas plumas ornamentales que\n\nsugieren un origen cultural específico o un\n\nrango.\n\n* ojos: avellana, penetrantes y\n\nobservadores, con una ligera expresión de\n\ncautela y determinación.\n\n* cicatrices: leves marcas en el rostro\n\n(posiblemente la mejilla izquierda),\n\nindicativas de pasadas batallas o\n\nencuentros cercanos.\n\n* atuendo: armadura ligera y funcional,\n\ncompuesta por cuero endurecido, placas\n\nmetálicas (especialmente en el hombro y\n\nbrazaletes con motivos que recuerdan a\n\ncriaturas míticas o heráldica de su región)\n\ny tela escarlata. la armadura sugiere\n\nagilidad y protección equilibrada.\n\n* armamento:\n\n* arco largo o compuesto, principal\n\nherramienta de combate.\n\n* numerosas flechas en un carcaj dorsal,\n\ncon diferentes tipos de punta (caza,\n\nperforación de armadura, etc.).\n\n* espada corta o wakizashi al cinto,\n\ncomo arma secundaria para el combate\n\ncuerpo a cuerpo.\n\nhabilidades destacadas:\n\n* maestría con el arco: precisión\n\nexcepcional a larga distancia, capaz de\n\ndisparar en movimiento o bajo presión.\n\n* supervivencia en terreno hostil:\n\nconocimiento profundo de la flora y fauna,\n\nrastreo, sigilo y capacidad para subsistir\n\nen la naturaleza.\n\n* combate cercano: aunque prefiere la\n\ndistancia, es competente con armas\n\nblancas y en el combate desarmado si es\n\nnecesario.\n\nsentidos agudizados: vista y oído\n\nexcepcionales, vitales para su rol.",
+          "tags": [
+            "Lyra",
+            "Crown's Burden"
+          ]
+        },
+        {
+          "id": "em-zerm",
+          "title": "em Zerm",
+          "saga": "Crown's Burden",
+          "role": "principal",
+          "status": "Vivo",
+          "faction": "Crown's Burden",
+          "content": "(Crown's Burden). Zara es introvertida, reflexiva y profundamente firme en sus convicciones. Observa más de lo que habla, pero cuando a...\n\nZara es introvertida, reflexiva y\n\nprofundamente firme en sus convicciones.\n\nObserva más de lo que habla, pero cuando\n\nactúa, lo hace con determinación\n\nabsoluta. Su carácter reservado no es\n\ntimidez, sino autocontrol aprendido en la\n\nadversidad. Es leal a quienes ganan su\n\nconfianza, pero esa confianza es difícil de\n\nobtener.\n\nHistoria antes de Aldric:\n\nZara nació en un reino nórdico de la zona\n\nnorte helada del continente, una región de\n\ninviernos eternos y recursos escasos.\n\nDurante una guerra territorial, su aldea fue\n\n(Valida extranjera, introvertida/\n\nfirme)\n\nNombre: Ořem Zerm\n\nEdad: 9 años (niña), 17-20 años (adulta)\n\nEstatura: 1.60 m\n\nApariencia:\n\nRostro ovalado de rasgos delicados\n\npero serios, piel muy pálida (típica de las tierras heladas del norte). Ojos grises claros, fríos y penetrantes, con mirada firme pero reservada. Cejas oscuras, rectas y bien definidas, que contrastan con su piel clara. Nariz recta y proporcionada. Labios rosados naturales, con expresión habitualmente neutra o ligeramente severa. Pómulos suavemente marcados. Cabello negro azabache, lacio y largo, que cae hasta más abajo de los hombros. Porta una diadema metálica oscura con diseños intrincados de estilo nórdico (nudos celtas o runas), símbolo de su linaje del norte helado. Viste con pieles oscuras (negro y gris) típicas de las tierras frías, con cuellos",
+          "tags": [
+            "em Zerm",
+            "Crown's Burden"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Crown's Burden",
+          "role": "principal",
+          "status": "Vivo",
+          "faction": "[Por definir - sugiero que sea uno de",
+          "content": "de origen tribal que fueron entregadas como ([Por definir - sugiero que sea uno de)\n\nEntrenamiento militar completo, aunque prefiere delegar comandos a generales experimentados Excelente negociador formado en las sutilezas de la diplomacia entre reinosUniverso_-Lignum.pdf\n\nNombre: [Por definir según la región de tu\n\nhistoria]\n\nEdad: 28 años\n\nReino: [Por definir - sugiero que sea uno de\n\nlos reinos más poderosos del continente\n\nexplorado en Lignum]\n\nTítulo Completo: Rey de [nombre del reino],\n\nProtector de las [tierras/regiones bajo su\n\ndominio]\n\nApariencia Física:\n\nComplexión atlética resultado del\n\nentrenamiento militar obligatorio de su\n\nlinaje\n\nPorte autoritario que proyecta poder\n\nincluso en situaciones informales\n\nRasgos distintivos de la nobleza de su\n\nregión (a definir según tu diseño del\n\nreino)\n\nPersonalidad y Temperamento:\n\nPragmático y orientado a resultados;\n\nvalora la eficiencia sobre el\n\nsentimentalismo\n\nEducado en la tradición política de los\n\nreinos: expansión territorial y\n\nconsolidación de poder\n\nEscasa tolerancia a la desobediencia o\n\ncuestionamiento de su autoridad\n\nCapaz de evaluar situaciones\n\nestratégicamente sin dejarse llevar por\n\nimpulsos\n\nNo es cruel por naturaleza, pero\n\ntampoco permite que la compasión\n\ninterfiera con objetivos políticos\n\nSituación Política:\n\nHeredó el trono hace 4-6 años tras la\n\nmuerte de su padre\n\nHa consolidado su poder interno pero\n\nnecesita expandir fronteras para\n\nmantener la lealtad de nobles y\n\nmilitares\n\nLas tres tribus ",
+          "tags": [
+            "",
+            "Crown's Burden"
+          ]
+        },
+        {
+          "id": "ter-ih-t-sche",
+          "title": "Teráih Täsche",
+          "saga": "Crown's Burden",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Crown's Burden",
+          "content": "(Crown's Burden). Lyris es la más compasiva, protectora y sabia de las Validas. Funciona como mediadora natural entre las demás, resolv...\n\nLyris es la más compasiva, protectora y sabia de las Validas. Funciona como mediadora natural entre las demás, resolviendo conflictos con paciencia y empatía. Es profundamente fiel a Aldric y a sus compañeras, anteponiendo siempre el bienestar colectivo al suyo propio. Su naturaleza amorosa la convierte en la «hermana mayor» del grupo.\n\n(Valida sabia/amable)\n\nNombre: Teráih Täsche\n\nEdad: 10 años (niña), 18-21 años\n\n(adulta)\n\nEstatura: 1.64 m\n\nApariencia:\n\nRostro delicado y juvenil, de rasgos\n\nsuaves y armónicos, piel clara con\n\npecas sutiles. Ojos grandes color avellana claro (casi dorados), cálidos y expresivos, que transmiten empatía y bondad. Cejas finas y suavemente arqueadas, de color rojizo. Nariz pequeña y redondeada. Labios rosados naturales, carnosos, con expresión habitualmente serena o sonriente. Mejillas redondeadas que le dan aspecto juvenil y acogedor. Cabello rojo cobrizo intenso, largo y ondulado, con mechones que caen naturalmente sobre los hombros, adornado con pequeñas joyas y cuentas doradas entrelazadas. Porta una diadema dorada con gema verde central (esmeralda o jade), símbolo de su conexión con la sabiduría y la sanación.\n\nCollar de cadenas doradas con\n\ncolgante heráldico, pendientes\n\nelegantes, y joyería que denota su\n\nestatus como Valida.\n\nViste con túnica verde oliva y capucha\n\ndorada, colores que reflejan su\n\nc",
+          "tags": [
+            "Teráih Täsche",
+            "Crown's Burden"
+          ]
+        },
+        {
+          "id": "vetzen-desera",
+          "title": "Vetzen Desera",
+          "saga": "Crown's Burden",
+          "role": "principal",
+          "status": "Vivo",
+          "faction": "Crown's Burden",
+          "content": "(Crown's Burden)\n\n(Protagonista/Rey)\n\nNombre: Vetzen Desera\n\nEdad: 10 años (inicio), 18-21 años\n\n(joven/adulto)\n\nEstatura: 1.85 m\n\nApariencia:\n\nRostro de facciones finas y armónicas,\n\npiel clara.\n\nOjos azul claro, expresivos y\n\npenetrantes.\n\nCeja marcada y recta, que intensifica la\n\nmirada seria y determinada.\n\nNariz recta y proporcionada.\n\nLabios definidos, de forma regular, con\n\nuna expresión natural de firmeza o\n\ndesdén.\n\nPómulos sutilmente marcados.\n\nCabello castaño rojizo, abundante, con\n\nondas suaves, peinado naturalmente\n\nhacia un lado.\n\nMandíbula recta y bien marcada.\n\nAusencia de vello facial, aspecto\n\njuvenil incluso en la madurez.\n\nGeneralmente viste de manera sobria,\n\nfavoreciendo la elegancia sobria que\n\ncorresponde a la realeza de Lignum.\n\nPersonalidad y trayecto:\n\nDe niño, Aldric es engreído, impaciente y\n\ntiende a despreciar a quienes considera\n\npor debajo de él. Sin embargo, tras ser\n\nabofeteado por la Valida que ama durante\n\nsu adolescencia, inicia un giro crucial: se\n\nvuelve introspectivo, aprende humildad y\n\nempieza a luchar contra sus instintos\n\nautoritarios. Siendo rey, busca el equilibrio\n\nentre el pragmatismo heredado de su\n\npadre y una sensibilidad creciente hacia\n\nsus gobernados.\n\nHistoria antes de las Validas:\n\nHijo único del rey Theron y la reina Elise,\n\ncriado entre el lujo y el deber. Su relación\n\ndistante con su padre y la temprana\n\nmuerte de su madre marcaron su carácter\n\nambicioso y, en un inicio, su incapacidad\n\nde empatizar. Las Validas, esp",
+          "tags": [
+            "Vetzen Desera",
+            "Crown's Burden"
+          ]
+        },
+        {
+          "id": "zert-ha-metvo",
+          "title": "Zert-ha Metvo",
+          "saga": "Crown's Burden",
+          "role": "principal",
+          "status": "Vivo",
+          "faction": "Crown's Burden",
+          "content": "(Crown's Burden). Zert-ha es la líder natural del grupo de Validas. Desde niña demostró instinto de mando, altivez y capacidad para impo...\n\nZert-ha es la líder natural del grupo de Validas. Desde niña demostró instinto de mando, altivez y capacidad para imponer su voluntad sin necesidad de gritar. Es profundamente exigente consigo misma y con los demás, organiza, dirige y desafía constantemente. Rara vez muestra debilidad o vulnerabilidad, ocultando\n\nNombre: Zert-ha Metvo\n\nEdad: 11 años (niña), 19-22 años\n\n(adulta)\n\nEstatura: 1.71 m\n\nApariencia:\n\nRostro ovalado de rasgos\n\naristocráticos, piel clara y luminosa.\n\nOjos azul claro intenso, penetrantes y\n\ncalculadores, con mirada directa y\n\ndominante.\n\nCejas castañas claras, arqueadas naturalmente, que refuerzan su expresión seria y evaluadora. Nariz recta y proporcionada, de perfil aristocrático. Labios rosados naturales, carnosos, con expresión habitualmente neutral o ligeramente altiva. Pómulos sutilmente marcados que le dan elegancia natural. Cabello rubio miel (con tonos dorados), largo y lacio, peinado con ondas suaves que caen hasta más abajo de los hombros. Porta una corona de laureles dorados con gemas azules incrustadas, símbolo de liderazgo y nobleza de su casa. Pendientes largos de oro con gemas azules colgantes que complementan su corona.\n\nCollar ceremonial dorado con diseños\n\ngeométricos y gemas azules, indicativo\n\nde su alto rango.\n\nViste con vestido formal de corte\n\naristocrático en tonos azul turquesa y\n\ndorado, ",
+          "tags": [
+            "Zert-ha Metvo",
+            "Crown's Burden"
+          ]
+        },
+        {
+          "id": "svalen-kest",
+          "title": "Üsvalen Kest",
+          "saga": "Crown's Burden",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Crown's Burden",
+          "content": "(Crown's Burden). Celeste es férrea, disciplinada y profundamente desconfiada. Criada en una corte de intrigas y conflictos, aprendió d...\n\nCeleste es férrea, disciplinada y\n\nprofundamente desconfiada. Criada en\n\nuna corte de intrigas y conflictos, aprendió\n\ndesde niña a no bajar la guardia. Como\n\nreina, impone respeto mediante su\n\npresencia intimidante y su capacidad para\n\nmanejar situaciones políticas complejas.\n\nSin embargo, esta coraza emocional la\n\nmantiene aislada incluso de su esposo.\n\nHistoria antes del matrimonio:\n\n(Reina/Cuarta Valida)\n\nNombre: Üsvalen Kest\n\nEdad: ~20 años al casarse con Aldric\n\nEstatura: 1.72 m\n\nApariencia:\n\nRostro de rasgos finos y aristocráticos,\n\npiel extremadamente pálida que\n\ndenota un linaje nórdico o de tierras\n\nfrías.\n\nOjos azul hielo, penetrantes y calculadores, con mirada intensa y desconfiada. Cejas delgadas y bien definidas, ligeramente arqueadas, que refuerzan su expresión seria. Nariz recta y proporcionada. Labios oscuros (labial rojo oscuro o vino), carnosos, con expresión habitualmente cerrada o en gesto severo. Pómulos marcados y prominentes, que le dan una elegancia regia pero distante. Cabello platinado-blanco (casi gris muy claro), largo hasta los hombros con ondas suaves, con flequillo lateral que cubre parcialmente un ojo. Pendientes elegantes con piedras rojas (rubíes o granates), símbolo de su casa real.\n\nViste con armadura ceremonial de\n\ntonos oscuros (negro y dorado),\n\ndecorada con motivos heráldicos y\n\ncalaveras ornamenta",
+          "tags": [
+            "Üsvalen Kest",
+            "Crown's Burden"
+          ]
+        },
+        {
+          "id": "acompa-ante-de-hiviale",
+          "title": "Acompañante de Hiviale",
+          "saga": "Edification",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Edification",
+          "content": "(Edification)\n\nPienso en un amigo que acompañe a Hiviale, alguien miembro de la milicia, hábil con la espada. Podría un guardia de la nobleza.",
+          "tags": [
+            "Acompañante de Hiviale",
+            "Edification"
+          ]
+        },
+        {
+          "id": "b-rku",
+          "title": "Bürku",
+          "saga": "Edification",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Edification",
+          "content": "(Edification)\n\nDe familia noble y militar, su familia es respetada en la milicia. Perteneciente al reino vecino Lufshne. Planea conquistar Viföld para recibir la condonación de su hija, ya que engañó a su madre. Su hija le dijo que la única forma era conquistando al tan averso reino vecino Viföld.\n\nNombre: Bürku\n\nEdad: 30\n\nHistoria: De familia noble y militar,\n\nsu familia es respetada en la milicia.\n\nPerteneciente al reino vecino\n\nLufshne.\n\nPlanea conquistar Viföld para recibir\n\nla condonación de su hija, ya que\n\nengañó a su madre. Su hija le dijo\n\nque la única forma era\n\nconquistando al tan averso reino\n\nvecino Viföld.",
+          "tags": [
+            "Bürku",
+            "Edification"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Edification",
+          "role": "principal",
+          "status": "Vivo",
+          "faction": "Edification",
+          "content": "(Edification). humilde y valerosa, protectora....\n\nhumilde y valerosa, protectora.\n\nhasta suceder a su tío en el trono, Hiviale vivió en Wiakle, una pequeña ciudad de nobles cerca del Lago Jiuks.\n\nNombre: Hiviale Szviak (Hivia:lε Ζνia:k).\n\nEdad: 24 años.\n\nNacimiento: nacida en Wiakle, provincia de\n\nZnagh.\n\nHistoria: hasta suceder a su tío en el trono,\n\nHiviale vivió en Wiakle, una pequeña\n\nciudad de nobles cerca del Lago Jiuks.\n\nPersonalidad: humilde y valerosa,\n\nprotectora.\n\nApariencia: tiene el cabello largo y\n\nplateado, es delgada pero en buena forma,\n\ntiene ojos azules y una cara que muestra\n\namabilidad.\n\nCuando era niña, sus padres fueron\n\nasesinados misteriosamente. Para su\n\nprotección, el rey la llevó a Wiakle, donde\n\npasó su tiempo aprendiendo idiomas y\n\notros conocimientos, así como entrenando\n\nesgrima y tiro con arco.",
+          "tags": [
+            "",
+            "Edification"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Edification",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Edification",
+          "content": "(Edification)\n\njoven soldado hijo de nobles, se adscribió en la Guarda Real para cuidar a la reina Hiviale. Después, se enamoraron. En la historia se muestra como alguien valiente y consejero con Hiviale, formando una gran amistad.\n\nNombre: Szellek Ejnar.\n\nEdad: 24 años.\n\nNacimiento: nacido en Szavur, Tierras\n\nDehesas.\n\nHistoria: joven soldado hijo de nobles, se\n\nadscribió en la Guarda Real para cuidar a\n\nla reina Hiviale. Después, se enamoraron.\n\nEn la historia se muestra como alguien\n\nvaliente y consejero con Hiviale, formando\n\nuna gran amistad.",
+          "tags": [
+            "",
+            "Edification"
+          ]
+        },
+        {
+          "id": "t-o-de-hiviale",
+          "title": "Tío de Hiviale",
+          "saga": "Edification",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Edification",
+          "content": "(Edification)\n\nEl tío de Hiviale, después de la muerte de los padres de ella, decidió evitar cualquier altercado con los reinos vecinos, deseando que Hiviale viva una vida tranquila cuando lo suceda en el trono.",
+          "tags": [
+            "Tío de Hiviale",
+            "Edification"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Tribu Raumo, independiente.",
+          "content": "Por ahora es aprendiz en (Tribu Raumo, independiente.). Extrovertida,\n\naudaz, mayormente no es miedosa.\n\nVirtudes y Defectos: Enojadiza, se molesta\n\ncon facilidad. Es humilde y ...\n\nExtrovertida,\n\naudaz, mayormente no es miedosa.\n\nVirtudes y Defectos: Enojadiza, se molesta\n\ncon facilidad. Es humilde y bondadosa.\n\nCreencias y Filosofía de Vida: Le gusta su\n\ntribu.\n\n5. Relaciones\n\nFamilia y Amigos: Su padre, un cocinero,\n\ncon quien tiene una gran amistad; y su\n\nmadre, una agricultora, con quien tiene\n\naprende bastante.\n\nTiene una hermana, con quien discute y se\n\ndesafían mutuamente.\n\nAliados y Mentores: Su padre y madre,\n\nWaldain y su tía, quien le inculcó la\n\narquería.\n\nRivales y Enemigos: Un viajero con una\n\nidea revolucionaria, pero que solo quiero\n\npoder.\n\n6. Habilidades y Conocimientos\n\nSu padre le enseñó\n\ntodo lo que sabía sobre la cocina, pero a\n\nella no le fascinaba del todo, así que se\n\nenlistó en la arquería.\n\n4. Personalidad y Valores\n\nRasgos de Personalidad: Extrovertida,\n\naudaz, mayormente no es miedosa.\n\nVirtudes y Defectos: Enojadiza, se molesta\n\ncon facilidad. Es humilde y bondadosa.\n\nCreencias y Filosofía de Vida: Le gusta su\n\ntribu.\n\n5. Relaciones\n\nFamilia y Amigos: Su padre, un cocinero,\n\ncon quien tiene una gran amistad; y su\n\nmadre, una agricultora, con quien tiene\n\naprende bastante.\n\nTiene una hermana, con quien discute y se\n\ndesafían mutuamente.\n\nAliados y Mentores: Su padre y madre,\n\nWaldain y su tía, quien le inculcó la\n\narquería.\n\nRivales y Enemigos: U",
+          "tags": [
+            "",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "a-feja",
+          "title": "a Feja",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Tribu Häscht",
+          "content": "de origen Tribu Häscht (Tribu Häscht). Cabello azabache, largo, de textura\n\nondulada\n\n- ojos: azules intensos, de mirada\n\ndespierta y sagaz\n\n- piel: tono natural, curtida por el sol por la\n\nvida al aire libre\n\n- complexión: fuerte y ágil, propia del\n\nentrenamiento en la caza y la vida tribal\n\ncarácter y habilidades\n\n- personalidad: observadora, determinada\n\ny resiliente; habituada a decidir bajo\n\npresión y afrontar cambios repentinos.\n\n- habilidades principales: rastreo, sigilo,\n\nuso de armas tribales (arcos, lanzas),\n\nsupervivencia, orientación en la naturaleza.\n\n- vestimenta típica: atuendo práctico\n\nhecho de pieles y fibras locales, adaptado\n\npara movilidad y camuflaje en distintos\n\nhábitats., ojos azules intensos, de mirada\n\ndespierta y sagaz\n\n- piel: tono natural, curtida por el sol por la\n\nvida al aire libre\n\n- complexión: fuerte y ágil, propia del\n\nentrenamiento en la caza y la vida tribal\n\ncarácter y habilidades\n\n- personalidad: observadora, determinada\n\ny resiliente; habituada a decidir bajo\n\npresión y afrontar cambios repentinos.\n\n- habilidades principales: rastreo, sigilo,\n\nuso de armas tribales (arcos, lanzas),\n\nsupervivencia, orientación en la naturaleza.\n\n- vestimenta típica: atuendo práctico\n\nhecho de pieles y fibras locales, adaptado\n\npara movilidad y camuflaje en distintos\n\nhábitats..\n\nObservadora, determinada\n\ny resiliente; habituada a decidir bajo\n\npresión y afrontar cambios repentinos.\n\n- Habilidades principales: Rastreo, sigilo,\n\nuso de armas tribales (ar",
+          "tags": [
+            "a Feja",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "",
+          "content": "Su rol dentro de la tribu o. Ejemplos de\n\ncualidades, como si es reservado, audaz,\n\nleal, curioso o terco.\n\nVirtudes y Defectos: Aspectos positivos y ...\n\nEjemplos de\n\ncualidades, como si es reservado, audaz,\n\nleal, curioso o terco.\n\nVirtudes y Defectos: Aspectos positivos y\n\nlimitaciones, como si es bondadoso pero\n\nimpulsivo, o hábil pero orgulloso.\n\nCreencias y Filosofía de Vida: Valores\n\npropios de su tribu o reino, y su postura\n\nsobre la magia y la soberanía. ¿Valora la\n\nautonomía tribal o el orden de un reino?\n\n5. Relaciones\n\nFamilia y Amigos: La relación con\n\nfamiliares y amigos cercanos, su círculo\n\nde confianza.\n\nAliados y Mentores: Figuras clave en su\n\nvida, como un maestro tribal o un mentor\n\nde combate que le haya influido\n\nprofundamente.\n\nRivales y Enemigos: Individuos de su tribu\n\no de un reino vecino que le causen\n\nproblemas o le motiven a superarse.\n\n6. Habilidades y Conocimientos\n\nHabilidades Especiales: Puede incluir\n\ndisciplinas tribales (como Thakusk o\n\narquería) o conocimientos propios de su\n\nreino, como la estrategia o diplomacia.\n\nPuede incluir disciplinas tribales (como Thakusk o arquería) o conocimientos propios de su reino, como la estrategia o diplomacia.\n\nSu crianza,\n\neducación y entrenamiento. ¿Recibió\n\nformación en disciplinas tribales, como\n\nThakusk, o en técnicas de combate real?\n\n4. Personalidad y Valores\n\nRasgos de Personalidad: Ejemplos de\n\ncualidades, como si es reservado, audaz,\n\nleal, curioso o terco.\n\nVirtudes y Defectos: Aspectos positiv",
+          "tags": [
+            "",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "aprendiz-guarda-nivrel",
+          "title": "Aprendiz Guarda Nivrel",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Tribu de los Nivrel, asentada",
+          "content": "de origen Hijo primogénito del Líder Tribal Nivrel, (Tribu de los Nivrel, asentada)\n\nNombre: _[sin definir]_\n\nEdad: 21 años\n\nProcedencia: Tribu de los Nivrel, asentada\n\nen la esquina nevada del noroeste del\n\ncontinente, bajo la protección del liderazgo\n\nde su padre, el actual Líder Tribal.\n\nAltura: 190 cm\n\nComplexión: Alta, fuerte y flexible, con la\n\nmusculatura definida sin perder agilidad.\n\nIdentidad y Origen\n\nHijo primogénito del Líder Tribal Nivrel,\n\ncreció entre relatos de la resistencia en la\n\nGuerra de la Unificación y las enseñanzas\n\nsobre equilibrio entre poder y compasión.\n\nComo descendiente directo del linaje\n\nprotector de la tribu, su educación\n\ncombinó las antiguas artes del Hesk con\n\nel entendimiento político de los Reinos del\n\nnorte.\n\nFormación y Rol\n\nActualmente es un aprendiz de Guarda,\n\nfigura encargada de preservar el orden\n\ninterno de la tribu y actuar como escudo\n\nde los Sigilos, exploradores y líderes. Los\n\nGuardas son entrenados para proteger sin\n\natacar, servir como enlace con otras tribus\n\naliadas y ser símbolo viviente del código\n\nde lealtad Nivrel.\n\n- Habilidades principales: defensa con\n\nlanza y escudo, lectura del terreno para\n\nposicionamiento táctico, control de la\n\nrespiración en combate cuerpo a cuerpo.\n\n- Fortalezas personales: resistencia física\n\nsobresaliente, reflejos entrenados para\n\nproteger incluso bajo tormentas de hielo,\n\nempatía y liderazgo natural.\n\n- Entrenamiento adicional: retórica política\n\ny lenguaje de honor, necesarios para\n\nr",
+          "tags": [
+            "Aprendiz Guarda Nivrel",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "aprendiz-de-cazador-nibrel",
+          "title": "Aprendiz de Cazador Nibrel",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Tribu de los Nibrel, asentada",
+          "content": "de origen Los Nibrel son una tribu aislada que (Tribu de los Nibrel, asentada)\n\ntribal del hielo y el silencio, un arte que\n\nNombre: _[sin definir]_\n\nEdad: 19 años\n\nProcedencia: Tribu de los Nibrel, asentada\n\nen la esquina nevada del noroeste del\n\ncontinente, una región marcada por\n\nmontañas heladas, tundras brumosas y\n\nauroras que cubren el cielo durante los\n\ninviernos eternos.\n\nAltura: 175 cm\n\nComplexión: Atlética y delgada\n\nIdentidad y Origen\n\nLos Nibrel son una tribu aislada que\n\nsobrevive en un clima extremo, donde la\n\npureza del aire y la nieve ha moldeado su\n\naspecto característico: cabello\n\nblanquiplateado y ojos celestes claros. Su\n\ncultura conserva los vestigios de la magia\n\ntribal del hielo y el silencio, un arte que\n\nusaban para ocultarse de los invasores y\n\nmanipular el entorno en silencio absoluto.\n\nFormación y Rol\n\nComo aprendiz de Goheg, se entrena bajo\n\nun régimen que combina táctica militar\n\nmoderna con el legado espiritual de su\n\npueblo. Su papel está enfocado en la\n\ninfiltración en terrenos hostiles,\n\nexploración bajo climas extremos y\n\nneutralización discreta de amenazas.\n\n- Habilidades principales: camuflaje en\n\nterrenos nevados, rastreo en condiciones\n\nadversas, combate con dagas ocultas y\n\ndesplazamiento sin ruido sobre hielo.\n\n- Entrenamiento adicional: resistencia al\n\nfrío, lectura del viento para detectar\n\npresencias y sincronización con otros\n\nsigilos en misiones grupales.\n\nPersonalidad y Actitud\n\nFría y calculadora en apariencia, pero\n\nintensament",
+          "tags": [
+            "Aprendiz de Cazador Nibrel",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "arhai",
+          "title": "Arhai",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Waldain",
+          "content": "(Waldain). Cabello castaño\n\ncolor de ojos: azules\n\nrasgos distintivos: ninguna\n\nforma de vestir: ropa medieval con ribete.\n\npostura y lenguaje corporal: erguida.\n\nexpresiones comunes: mirada desafiante.\n\notros detalles estéticos: pendiente\n\ncaracterísticas y prioridades\n\n(1 al 5), ojos azules\n\nrasgos distintivos: ninguna\n\nforma de vestir: ropa medieval con ribete.\n\npostura y lenguaje corporal: erguida.\n\nexpresiones comunes: mirada desafiante.\n\notros detalles estéticos: pendiente\n\ncaracterísticas y prioridades\n\n(1 al 5).\n\n3\n\n4\n\nImagen de joven Imagen de adulto\n\nBásico\n\nNombre: Arhai\n\nApellido: Leum\n\nCumpleaños: 27 de Schatnmond\n\nEdad: Casi 18 años\n\nAltura: 167 cm\n\nPeso: 60 kg\n\nGénero: Femenino\n\nAfiliación: Waldain\n\nApariencia básica\n\nComplexión: Atlética\n\nColor de piel: Caucásico\n\nColor y estilo de cabello: Castaño\n\nColor de ojos: Azules\n\nRasgos distintivos: Ninguna\n\nForma de vestir: Ropa medieval con ribete.\n\nPostura y lenguaje corporal: Erguida.\n\nExpresiones comunes: Mirada desafiante.\n\nOtros detalles estéticos: Pendiente\n\nCaracterísticas y prioridades\n\n(1 al 5)\n\nFuerza: 3\n\nSalud: 4\n\nEnergía: 4\n\nDestreza: 3\n\nHigiene: 5\n\nEstilo: 4\n\nBelleza: 4\n\nFamilia: 4\n\nAmigos: 2\n\nAmor: 5\n\nPoder: 3\n\nFama: 2\n\nDinero: 4\n\nJusticia: 5\n\nVenganza: 2\n\nOpinión ajena: 3\n\nElogios: 3\n\nSer la mejor: 4\n\nSocial\n\n(1 al 5)\n\nHonestidad: 4\n\nObediencia: 5 (con Wal)\n\nAstucia: 4\n\nUrbanidad: 3\n\nInterés: 4\n\nGenio: 3\n\nCarisma: 3\n\nTenebrosidad: 4\n\nTimidez: 5\n\nAgresividad: 4\n\nEmpatía: 5\n\nAdorabilidad: 4\n\nPerfeccioni",
+          "tags": [
+            "Arhai",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "azame",
+          "title": "Azame",
+          "saga": "Forgotten Sword",
+          "role": "principal",
+          "status": "Vivo",
+          "faction": "Amable.",
+          "content": "(Indeterminado). de origen Humana. (Amable.). Cabello castaño rojizo.\n\ntipo/longitud del cabello: largo\n\ncolor de ojos: azules.\n\ntono de piel: caucásico.\n\ntipo de piel: suave., ojos azules.\n\ntono de piel: caucásico.\n\ntipo de piel: suave..\n\n(Indeterminado).\n\nReligión del personaje: (Indeterminado).\n\nJuventud:\n\nInformación de Nacimiento\n\nNombre completo: Azame\n\nRazón del nombre: Nombre de la diosa de\n\nla razón.\n\nFecha de nacimiento: 3 de Söntmond,\n\n1654.\n\nApariencia Física\n\nColor de cabello: Castaño rojizo.\n\nTipo/Longitud del cabello: Largo\n\nColor de ojos: Azules.\n\nTono de piel: Caucásico.\n\nTipo de piel: Suave.\n\nRaza: Humana.\n\nForma del rostro: Cuadrada.\n\nMarcas de nacimiento o cicatrices:\n\n(Indeterminado).\n\nCaracterística predominante: Ojos azules.\n\nAltura: 170 cm.\n\nPeso: 70 kg.\n\nTipo de cuerpo: Delgado.\n\nFamilia\n\nNombre de la madre: (Indeterminado).\n\nNombre del padre: Rey Bergkái.\n\nVive con: Waldain.\n\nHermanos: Tres.\n\nFamilia política: (Indeterminado).\n\nSobrinos/Sobrinas: (Indeterminado).\n\nEstado de los abuelos: (Indeterminado).\n\nOtros familiares: (Indeterminado).\n\nReligión\n\nReligión de la familia: (Indeterminado).\n\nReligión del personaje: (Indeterminado).\n\nFilosofía: (Indeterminado).\n\nOtras creencias: (Indeterminado).\n\nGustos y Disgustos\n\nColor favorito: Rojo\n\nColor menos favorito: Rosado..\n\nComida favorita: (Indeterminado).\n\nComida menos favorita: (Indeterminado).\n\nLibro favorito: Proverbios de Sä.\n\nMejor amigo: Waldain.\n\nEnemigo: (Indeterminado).\n\nNovio: Waldain.\n\nActivida",
+          "tags": [
+            "Azame",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "cadete-de-revenst",
+          "title": "Cadete de Revenst",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Autoridad de Revenst",
+          "content": "Cadete de Élite en la Guardia de origen Autoridad de Revenst (Autoridad de Revenst). Cabello plateado, liso y largo hasta media espalda (usualmente recogido en combate), ojos celestes intensos, de mirada firme y determinada.\n\nVirtudes: Honorable, disciplinada, constante, leal a su tribu Debilidades: Dificultad para pedir ayuda, carga emocional autoimpuesta, introversión\n\n一 es descendiente de una larga línea de militares de renombre en Hiltar. Su abuelo fue general de frontera, y su madre, capitana de la guardia real. Desde su niñez, 一 sintió el peso del legado familiar, lo que la llevó a entrenar con una dedicación que superaba la de sus pares. Se unió al cuerpo militar de la capital a los 14 años, destacando rápidamente por su precisión con el arco y su habilidad con las dagas. Su actitud reservada y su enfoque férreo le han ganado respeto y cierta distancia por parte de sus compañeros. 一 no busca reconocimiento: su meta es no deshonrar el nombre de su familia.\n\nNombre:\n\nEdad: 19 años\n\nTribu: Autoridad de Revenst\n\nLugar de nacimiento: Ciudadela de Hiltar\n\n(Capital de Revenst)\n\nRango actual: Cadete de Élite en la Guardia\n\nde la Corona\n\nDescripción Física\n\nAltura: 175 cm\n\nComplexión: Atlética, con músculos\n\ndefinidos pero esbelta, propia del\n\nentrenamiento constante\n\nCabello: Plateado, liso y largo hasta\n\nmedia espalda (usualmente recogido\n\nen combate)\n\nOjos: Celestes intensos, de mirada\n\nfirme y determinada\n\nPiel: Clara, marcada con leves\n\ncicatrices que testifican su experie",
+          "tags": [
+            "Cadete de Revenst",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "cazadora-de-revenst",
+          "title": "Cazadora de Revenst",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Sin orden",
+          "content": "(Sin orden). Cabello ** castaño claro, de textura\n\nligeramente ondulada y largo medio\n\n(cayendo encima de los hombros)[1].\n\n- **ojos:** claros, de tono azul o verde\n\n(elige el que mejor encaje en la historia)[1].\n\n- **rostro y porte:** juvenil y carismática,\n\ncon una energía positiva evidente en su\n\nexpresión y gestos[1].\n\n***",
+          "tags": [
+            "Cazadora de Revenst",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "rasgos-de-personalidad",
+          "title": "rasgos de personalidad",
+          "saga": "Forgotten Sword",
+          "role": "Personaje",
+          "status": "Canónico",
+          "faction": "",
+          "content": "- alegre y carismática: con una actitud\n\npositiva y sonrisa contagiosa, inspira a\n\nquienes la rodean[1].\n\n- determinada y disciplinada: se exige a sí\n\nmisma estar a la altura del recuerdo de su\n\npadre y a cumplir con el legado familiar[1].\n\n- considerada y empática: busca siempre\n\nel bien común y escucha a los demás,\n\nejerciendo liderazgo inclusivo[1].\n\n- espíritu competitivo: necesita demostrar\n\nsu valor constantemente, sobre todo\n\nfrente a las expectativas y la historia\n\nfamiliar[1].\n\n- honor y lealtad: siente un profundo\n\nrespeto por las tradiciones y el honor de su\n\ntribu, aun cuando la magia tribal está en\n\ndeclive[1].\n\n***",
+          "tags": [
+            "rasgos de personalidad",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "motivaciones-y-conflictos-quiere-cumplir-con-las-expectativas",
+          "title": "motivaciones y conflictos\n- quiere cumplir con las expectativas",
+          "saga": "Forgotten Sword",
+          "role": "Personaje",
+          "status": "Canónico",
+          "faction": "",
+          "content": "asociadas al prestigio familiar,\n\nespecialmente el legado militar de su\n\npadre[1].\n\n- procura mantener viva la esencia de la\n\ntribu y el valor de la conexión con la\n\nnaturaleza, aunque la magia tribal se haya\n\ndebilitado[1].\n\n- se ve afectada por el cambio cultural tras\n\nla llegada de los reinos, luchando por\n\nmantener la identidad de su pueblo ante la\n\nmezcla y adaptación[1].\n\n***",
+          "tags": [
+            "motivaciones y conflictos\n- quiere cumplir con las expectativas",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "habilidades-y-v-nculo-comunitario",
+          "title": "habilidades y vínculo comunitario",
+          "saga": "Forgotten Sword",
+          "role": "Personaje",
+          "status": "Canónico",
+          "faction": "",
+          "content": "- experta en arquería y rastreo, uniendo\n\ntradición y técnicas modernas gracias a su\n\nformación dentro de un linaje destacado[1].\n\n- influye positivamente en los jóvenes,\n\nsiendo vista como un referente y consejera\n\ndentro de la tribu[1].\n\n- sufre el clásico dilema entre seguir sus\n\npropias aspiraciones o responder\n\nplenamente al rol histórico de su familia y\n\ntribu[1].\n\n***",
+          "tags": [
+            "habilidades y vínculo comunitario",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "posibilidades-de-desarrollo-explorar-c-mo-le-afecta-la-presi-n-de",
+          "title": "posibilidades de desarrollo\n- explorar cómo le afecta la presión de",
+          "saga": "Forgotten Sword",
+          "role": "Personaje",
+          "status": "Canónico",
+          "faction": "",
+          "content": "cargar con un apellido ilustre, llevándola\n\ntanto al crecimiento personal como a la\n\nautoexigencia excesiva[1].\n\n- profundizar el conflicto sobre la pérdida/\n\ntransformación de la magia tribal: ¿hay\n\naún lugar para la fe en lo sagrado?[1].\n\n- exponer su vulnerabilidad ante el temor\n\nde que la tribu pierda su identidad,\n\nponiéndose a sí misma como puente entre\n\ntradición y cambio[1].\n\nesta ficha integral, que une personalidad y\n\napariencia, potencia el desarrollo narrativo\n\nde tu personaje, dándole matices\n\nemocionales y visuales sólidos[1][1]., ojos ** claros, de tono azul o verde\n\n(elige el que mejor encaje en la historia)[1].\n\n- **rostro y porte:** juvenil y carismática,\n\ncon una energía positiva evidente en su\n\nexpresión y gestos[1].\n\n***",
+          "tags": [
+            "posibilidades de desarrollo\n- explorar cómo le afecta la presión de",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "rasgos-de-personalidad",
+          "title": "rasgos de personalidad",
+          "saga": "Forgotten Sword",
+          "role": "Personaje",
+          "status": "Canónico",
+          "faction": "",
+          "content": "- alegre y carismática: con una actitud\n\npositiva y sonrisa contagiosa, inspira a\n\nquienes la rodean[1].\n\n- determinada y disciplinada: se exige a sí\n\nmisma estar a la altura del recuerdo de su\n\npadre y a cumplir con el legado familiar[1].\n\n- considerada y empática: busca siempre\n\nel bien común y escucha a los demás,\n\nejerciendo liderazgo inclusivo[1].\n\n- espíritu competitivo: necesita demostrar\n\nsu valor constantemente, sobre todo\n\nfrente a las expectativas y la historia\n\nfamiliar[1].\n\n- honor y lealtad: siente un profundo\n\nrespeto por las tradiciones y el honor de su\n\ntribu, aun cuando la magia tribal está en\n\ndeclive[1].\n\n***",
+          "tags": [
+            "rasgos de personalidad",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "motivaciones-y-conflictos-quiere-cumplir-con-las-expectativas",
+          "title": "motivaciones y conflictos\n- quiere cumplir con las expectativas",
+          "saga": "Forgotten Sword",
+          "role": "Personaje",
+          "status": "Canónico",
+          "faction": "",
+          "content": "asociadas al prestigio familiar,\n\nespecialmente el legado militar de su\n\npadre[1].\n\n- procura mantener viva la esencia de la\n\ntribu y el valor de la conexión con la\n\nnaturaleza, aunque la magia tribal se haya\n\ndebilitado[1].\n\n- se ve afectada por el cambio cultural tras\n\nla llegada de los reinos, luchando por\n\nmantener la identidad de su pueblo ante la\n\nmezcla y adaptación[1].\n\n***",
+          "tags": [
+            "motivaciones y conflictos\n- quiere cumplir con las expectativas",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "habilidades-y-v-nculo-comunitario",
+          "title": "habilidades y vínculo comunitario",
+          "saga": "Forgotten Sword",
+          "role": "Personaje",
+          "status": "Canónico",
+          "faction": "",
+          "content": "- experta en arquería y rastreo, uniendo\n\ntradición y técnicas modernas gracias a su\n\nformación dentro de un linaje destacado[1].\n\n- influye positivamente en los jóvenes,\n\nsiendo vista como un referente y consejera\n\ndentro de la tribu[1].\n\n- sufre el clásico dilema entre seguir sus\n\npropias aspiraciones o responder\n\nplenamente al rol histórico de su familia y\n\ntribu[1].\n\n***",
+          "tags": [
+            "habilidades y vínculo comunitario",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "posibilidades-de-desarrollo-explorar-c-mo-le-afecta-la-presi-n-de",
+          "title": "posibilidades de desarrollo\n- explorar cómo le afecta la presión de",
+          "saga": "Forgotten Sword",
+          "role": "Personaje",
+          "status": "Canónico",
+          "faction": "",
+          "content": "cargar con un apellido ilustre, llevándola\n\ntanto al crecimiento personal como a la\n\nautoexigencia excesiva[1].\n\n- profundizar el conflicto sobre la pérdida/\n\ntransformación de la magia tribal: ¿hay\n\naún lugar para la fe en lo sagrado?[1].\n\n- exponer su vulnerabilidad ante el temor\n\nde que la tribu pierda su identidad,\n\nponiéndose a sí misma como puente entre\n\ntradición y cambio[1].\n\nesta ficha integral, que une personalidad y\n\napariencia, potencia el desarrollo narrativo\n\nde tu personaje, dándole matices\n\nemocionales y visuales sólidos[1][1]..\n\n##### Ficha de Personalidad y Apariencia\n\n**Edad:** 19 años\n\n**Rol:** Cazadora con arco, miembro de\n\nfamilia influyente en la tribu\n\n**Rango social:** Linaje privilegiado,\n\nheredera de un legado militar destacado[1].\n\n***\n\n##### Apariencia\n\n- **Cabello:** Castaño claro, de textura\n\nligeramente ondulada y largo medio\n\n(cayendo encima de los hombros)[1].\n\n- **Ojos:** Claros, de tono azul o verde\n\n(elige el que mejor encaje en la historia)[1].\n\n- **Rostro y porte:** Juvenil y carismática,\n\ncon una energía positiva evidente en su\n\nexpresión y gestos[1].\n\n***\n\n##### Rasgos de Personalidad\n\n- Alegre y carismática: Con una actitud\n\npositiva y sonrisa contagiosa, inspira a\n\nquienes la rodean[1].\n\n- Determinada y disciplinada: Se exige a sí\n\nmisma estar a la altura del recuerdo de su\n\npadre y a cumplir con el legado familiar[1].\n\n- Considerada y empática: Busca siempre\n\nel bien común y escucha a los demás,\n\nejerciendo liderazgo inclusivo[1].\n\n",
+          "tags": [
+            "posibilidades de desarrollo\n- explorar cómo le afecta la presión de",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "dvikai-romz",
+          "title": "Dvikai Romz",
+          "saga": "Forgotten Sword",
+          "role": "principal",
+          "status": "Vivo",
+          "faction": "Mediana.",
+          "content": "Ninguna. de origen Humana. (Mediana.). Cabello pelinegro.\n\ntipo/longitud del cabello: mediano,\n\nsobrepasa los hombros.\n\ncolor de ojos: azules.\n\ntono de piel: caucásico.\n\ntipo de piel: suave., ojos azules.\n\ntono de piel: caucásico.\n\ntipo de piel: suave..\n\n(Indeterminado)\n\nReligión del personaje: (Indeterminado)\n\nPersonaje descartado\n\nInformación de Nacimiento\n\nNombre completo: Dvikai Romz\n\nRazón del nombre: Nombre de la diosa de\n\nla naturaleza.\n\nApodos: Vika.\n\nRazón de los apodos: Sencillez.\n\nFecha de nacimiento: 26 de lentzmond,\n\naño 1654.\n\nApariencia Física\n\nColor de cabello: Pelinegro.\n\nTipo/Longitud del cabello: Mediano,\n\nsobrepasa los hombros.\n\nColor de ojos: Azules.\n\nTono de piel: Caucásico.\n\nTipo de piel: Suave.\n\nRaza: Humana.\n\nForma del rostro: Ovalada.\n\nMarcas de nacimiento o cicatrices: Nada.\n\nCaracterística predominante: Ojos.\n\nAltura: 174 cm.\n\nPeso: 70 kg.\n\nTipo de cuerpo: Mesomorfa.\n\nFamilia\n\nNombre de la madre: (Indeterminado)\n\nNombre del padre: Rey Bergkái Romz.\n\nVive con: su padre.\n\nHermanos: Cuatro.\n\nFamilia política: (Indeterminado)\n\nSobrinos/Sobrinas: (Indeterminado)\n\nEstado de los abuelos: (Indeterminado)\n\nOtros familiares: (Indeterminado)\n\nReligión\n\nReligión de la familia: (Indeterminado)\n\nReligión del personaje: (Indeterminado)\n\nFilosofía: (Indeterminado)\n\nOtras creencias: (Indeterminado)\n\nGustos y Disgustos\n\nColor favorito: Violeta y azul obscuro.\n\nColor menos favorito: Verde.\n\nComida: Za-Se\n\nMejor amigo: (Indeterminado)\n\nEnemiga: Hlied.\n\nNovio: Waldain.",
+          "tags": [
+            "Dvikai Romz",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Reino de Äschtak.",
+          "content": "General de la milicia del (Reino de Äschtak.). Valiente,\n\npendenciero, orgulloso.\n\nVirtudes y Defectos: Propenso a peleas y\n\ndiscusiones cuando se pone en duda su\n\nlide...\n\nValiente,\n\npendenciero, orgulloso.\n\nVirtudes y Defectos: Propenso a peleas y\n\ndiscusiones cuando se pone en duda su\n\nliderazgo.\n\nCreencias y Filosofía de Vida: Piensa que\n\nlos reinos deben controlar todo y no\n\noponérseles.\n\n5. Relaciones\n\nFamilia y Amigos: La relación con\n\nfamiliares y amigos cercanos, su círculo\n\nde confianza.\n\nAliados y Mentores: Figuras clave en su\n\nvida, como un maestro tribal o un mentor\n\nde combate que le haya influido\n\nprofundamente.\n\nRivales y Enemigos: Individuos de su tribu\n\no de un reino vecino que le causen\n\nproblemas o le motiven a superarse.\n\n6. Habilidades y Conocimientos\n\nHabilidades Especiales: Puede incluir\n\ndisciplinas tribales (como Thakusk o\n\narquería) o conocimientos propios de su\n\nreino, como la estrategia o diplomacia.\n\nPuede incluir disciplinas tribales (como Thakusk o arquería) o conocimientos propios de su reino, como la estrategia o diplomacia.\n\nSe crio en el castillo\n\nreal, su educación y entrenamiento fueron\n\nahí.\n\n4. Personalidad y Valores\n\nRasgos de Personalidad: Valiente,\n\npendenciero, orgulloso.\n\nVirtudes y Defectos: Propenso a peleas y\n\ndiscusiones cuando se pone en duda su\n\nliderazgo.\n\nCreencias y Filosofía de Vida: Piensa que\n\nlos reinos deben controlar todo y no\n\noponérseles.\n\n5. Relaciones\n\nFamilia y Amigos: La relación con\n\nfamiliares y amigos cercan",
+          "tags": [
+            "",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "hegeraya",
+          "title": "Hegeraya",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Ereseo, pequeña",
+          "content": "de origen Humana (Ereseo, pequeña). Reservada, por necesidad y desconfianza. Observadora, atenta a cada gesto y tono de quienes la rodean. Leal, sólo con ...\n\nReservada, por necesidad y desconfianza. Observadora, atenta a cada gesto y tono de quienes la rodean. Leal, sólo con quienes le demuestran dignidad y respeto. Fuerte en silencio, posee un temple que no necesita demostrarse en voz alta. Devota, conserva en secreto sus\n\nConocimientos básicos de herbolaria,\n\naprendidos en su niñez.\n\nDestrezas domésticas: cocina, costura,\n\nlimpieza.\n\nEscucha aguda, sabe cuándo hablar y\n\ncuándo guardar silencio.\n\nBuena memoria y capacidad de\n\nadaptación.\n\nNacida en una aldea remota del noreste,\n\nEreseo, vivió los primeros años de su vida\n\nrodeada de sencillez, naturaleza y\n\ntradición. Su comunidad era pequeña,\n\nunida por la fe en los antiguos dioses y el\n\ntrabajo en la tierra. A los doce años, su\n\naldea fue saqueada por bandidos. Muchos\n\nfueron asesinados, otros —como ella—\n\ncapturados y vendidos como esclavos.\n\nSeparada de sus raíces, fue adquirida por\n\nun señor de poder y riqueza, quien la\n\ndestinó a servir en su casa. Aunque no es\n\nmaltratada físicamente, vive bajo las\n\nnormas estrictas de una vida de\n\nservidumbre, donde sus palabras valen\n\npoco y su libertad no existe.\n\nCarácter y Personalidad:\n\nReservada, por necesidad y\n\ndesconfianza.\n\nObservadora, atenta a cada gesto y\n\ntono de quienes la rodean.\n\nLeal, sólo con quienes le demuestran\n\ndignidad y respeto.\n\nFuerte en silencio, posee un",
+          "tags": [
+            "Hegeraya",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Forgotten Sword",
+          "role": "principal",
+          "status": "Vivo",
+          "faction": "",
+          "content": "I. Datos básicos\n\nNombre completo: Hertzia\n\nSobrenombres o títulos: Herz\n\nEdad: 16 años\n\nSexo / Género: Femenino\n\nRaza o linaje: Azerja\n\nNacionalidad / Reino / Tribu de origen:\n\nAutoridad de Revenst\n\nOcupación / Rol principal: Aprendiz\n\nmilitar\n\nEstado civil / Familia: Ambos padres,\n\ndos hermanos\n\nReligión o creencias: Ninguna\n\nLenguas habladas: Tescher y Hegara\n\nII. Apariencia\n\nDescripción general (complexión,\n\naltura, peso aproximado): Complexión\n\ndelgada\n\nRasgos faciales distintivos: Ojos\n\npenetrantes\n\nColor de ojos: Azules\n\nColor de cabello: Naranjo\n\nMarcas, cicatrices, tatuajes: Cicatrices\n\nen brazos\n\nRopaje habitual: Ropa tribal antigua\n\nArmas u objetos que porta: Dagas\n\nsimples\n\nSímbolos personales o heráldicos:\n\nNinguno\n\nIII. Personalidad\n\nAmbiciosa y resuelta: Es una joven que\n\nno teme perseguir lo que quiere. Su\n\nmotivación es clara: destacarse y\n\ndemostrar que puede ser grande,\n\nincluso si eso implica métodos poco\n\nortodoxos.\n\nManipuladora y astuta: Al inicio, no\n\nduda en chantajear para lograr su\n\nmeta. Sabe leer a las personas y usa\n\nesa información en su beneficio.\n\nValiente y audaz: No teme los riesgos.\n\nSe involucra en un robo y enfrenta\n\nsituaciones peligrosas con\n\ndeterminación.\n\nCarácter fuerte y carismático: Tiene\n\nuna presencia que intimida y atrae a la\n\nvez. Es energética, persuasiva y\n\ndeterminada.\n\nFondo vulnerable y redimible: A pesar\n\nde su fachada fría y calculadora, es\n\ncapaz de la empatía y de cambiar\n\ncuando ve el valor de la lealtad y la\n\nfamili",
+          "tags": [
+            "",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "heya-tirett",
+          "title": "Heya Tirett",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Antiguo campesino del reino;",
+          "content": "de origen Antiguo campesino del reino; (Antiguo campesino del reino;). Cabello castaño oscuro, abundante y\n\nligeramente ondulado, de longitud media\n\n- ojos: azules, de mirada fría y dura por las\n\ncicatrices del pasado\n\n- piel: clara, con pecas notables y\n\nendurecida por el trabajo tanto en el\n\ncampo como en la vida militar\n\n- complexión: atlética, robusta y entrenada\n\npor el rigor de la milicia y la vida laboriosa\n\nprevia\n\n- marcas/distintivos: dos cicatrices\n\nnotorias en el rostro: una en la mejilla\n\nderecha y otra sobre la ceja derecha\n\n- labios: ligeramente partidos, a causa de\n\ngolpes o inclemencias sufridas en su labor\n\nrasgos craneales\n\n- frente: ancha, despejada, con líneas de\n\nexpresión tempranas\n\n- cráneo: ovalado, ya modelado, sin\n\nirregularidades\n\n- sienes: marcadas y ligeramente\n\nhundidas, producto de tensiones\n\nfrecuentes\n\n- implantación del cabello: simétrica, con\n\nmechones que caen de forma natural y\n\ndespeinada sobre la frente\n\n-mandíbula: firme, angular y bien definida,\n\ndotando al rostro de determinación\n\n- pómulos: pronunciados, dando carácter y\n\ngravedad a sus facciones\n\ncarácter y habilidades\n\n- personalidad: reservado, endurecido por\n\nel dolor; determinado y metódico, con una\n\nsólida ética de trabajo forjada tanto en el\n\ncampo como en el ejército\n\n- habilidades principales: manejo de\n\narmas largas y cortas, vigilancia, disciplina\n\nmilitar, resistencia física y conocimiento\n\nagrícola por su vida anterior\n\n- vestimenta típica: uniforme de la milicia\n\nreal ",
+          "tags": [
+            "Heya Tirett",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "hlied-steinwal",
+          "title": "Hlied Steinwal",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Tribu Revenst.",
+          "content": "Arquera, miembro de la (Tribu Revenst.). Se distingue por\n\nsu liderazgo y determinación en las cosas\n\nque se propone.\n\nVirtudes y Defectos: Amorosa y atenta.\n\nTard...\n\nSe distingue por\n\nsu liderazgo y determinación en las cosas\n\nque se propone.\n\nVirtudes y Defectos: Amorosa y atenta.\n\nTarda en perdonar\n\n5. Relaciones\n\nFamilia y Amigos: La relación con\n\nfamiliares y amigos cercanos, su círculo\n\nde confianza.\n\nEquipo y Pertenencias\n\nArmas o Herramientas: Equipamiento\n\nsignificativo, como un arco, una daga, o un\n\nsímbolo de su tribu o reino.\n\nRecibió la mejor\n\neducación y entrenamiento militar.\n\n4. Personalidad y Valores\n\nRasgos de Personalidad: Se distingue por\n\nsu liderazgo y determinación en las cosas\n\nque se propone.\n\nVirtudes y Defectos: Amorosa y atenta.\n\nTarda en perdonar\n\n5. Relaciones\n\nFamilia y Amigos: La relación con\n\nfamiliares y amigos cercanos, su círculo\n\nde confianza.\n\nEquipo y Pertenencias\n\nArmas o Herramientas: Equipamiento\n\nsignificativo, como un arco, una daga, o un\n\nsímbolo de su tribu o reino.\n\nJuventud:\n\nAdultez:\n\nNombre: Hlied Steinwal\n\nEdad: 20 años.\n\nGénero: Femenino\n\nAfiliación: Tribu Revenst.\n\nOcupación o Rol: Arquera, miembro de la\n\nprotección tribal.\n\n2. Descripción Física\n\nApariencia General: Complexión\n\nmesomorfa, 180 cm, rasgos marcados.\n\nOjos azules, pelinegra, caucásica.\n\nRasgos Distintivos: Herida de quemadura\n\nen el brazo derecho, joyas características\n\nde su tribu.\n\nVestimenta: Ropa militar tribal para la\n\nnieve.\n\n3. Historia y Contexto\n\nOrí",
+          "tags": [
+            "Hlied Steinwal",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Amable.",
+          "content": "Cazadora. de origen Humana-Moüli. (Amable.). Cabello pelirrojo.\n\ntipo/longitud del cabello: pelilargo.\n\ncolor de ojos: celestes.\n\ntono de piel: caucásico.\n\ntipo de piel: suave., ojos celestes.\n\ntono de piel: caucásico.\n\ntipo de piel: suave..\n\n(No determinado).\n\nReligión del personaje: (No determinado).\n\nJuventud:\n\nAdultez:\n\nInformación de Nacimiento\n\nNombre completo: Häksa.\n\nRazón del nombre: «Hä» proviene de\n\n«Häs»: «árbol». «Ksa» proviene de «Ksia»:\n\n«celeste».\n\nApodos: Häki.\n\nRazón de los apodos: Diminutivo.\n\nFecha de nacimiento: 26 de Lentzmond,\n\naño 1653.\n\nApariencia Física\n\nColor de cabello: Pelirrojo.\n\nTipo/Longitud del cabello: Pelilargo.\n\nColor de ojos: Celestes.\n\nTono de piel: Caucásico.\n\nTipo de piel: Suave.\n\nRaza: Humana-Moüli.\n\nForma del rostro: Circular.\n\nMarcas de nacimiento o cicatrices:\n\nAlgunas en el abdomen.\n\nCaracterística predominante: Color de pelo.\n\nAltura: 170 cm.\n\nPeso: 65 kg.\n\nTipo de cuerpo: Delgado.\n\nFamilia\n\nNombre de la madre: (No determinado).\n\nNombre del padre: (No determinado).\n\nVive con: Sus padres, luego con Sauri.\n\nHermanos: (No determinado).\n\nFamilia política: (No determinado).\n\nSobrinos/Sobrinas: (No determinado).\n\nEstado de los abuelos: (No determinado).\n\nOtros familiares: (No determinado).\n\nReligión\n\nReligión de la familia: (No determinado).\n\nReligión del personaje: (No determinado).\n\nFilosofía: “Salvar a cuantos pueda”.\n\nOtras creencias: (No determinado).\n\nGustos y Disgustos\n\nColor favorito: Rojo.\n\nColor menos favorito: Naranjo.\n\nComid",
+          "tags": [
+            "",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "",
+          "content": "Su rol dentro de la tribu o. Reservada,\n\nenojadiza, leal.\n\nVirtudes y Defectos: Reservada con sus\n\nsentimientos.\n\nCreencias y Filosofía de Vida: Valore...\n\nReservada,\n\nenojadiza, leal.\n\nVirtudes y Defectos: Reservada con sus\n\nsentimientos.\n\nCreencias y Filosofía de Vida: Valores\n\npropios de su tribu o reino, y su postura\n\nsobre la magia y la soberanía. ¿Valora la\n\nautonomía tribal o el orden de un reino?\n\n5. Relaciones\n\nFamilia y Amigos: La relación con\n\nfamiliares y amigos cercanos, su círculo\n\nde confianza.\n\nAliados y Mentores: Figuras clave en su\n\nvida, como un maestro tribal o un mentor\n\nde combate que le haya influido\n\nprofundamente.\n\nRivales y Enemigos: Individuos de su tribu\n\no de un reino vecino que le causen\n\nproblemas o le motiven a superarse.\n\n6. Habilidades y Conocimientos\n\nHabilidades Especiales: Puede incluir\n\ndisciplinas tribales (como Thakusk o\n\narquería) o conocimientos propios de su\n\nreino, como la estrategia o diplomacia.\n\nPuede incluir disciplinas tribales (como Thakusk o arquería) o conocimientos propios de su reino, como la estrategia o diplomacia.\n\nSu crianza,\n\neducación y entrenamiento. ¿Recibió\n\nformación en disciplinas tribales, como\n\nThakusk, o en técnicas de combate real?\n\n4. Personalidad y Valores\n\nRasgos de Personalidad: Reservada,\n\nenojadiza, leal.\n\nVirtudes y Defectos: Reservada con sus\n\nsentimientos.\n\nCreencias y Filosofía de Vida: Valores\n\npropios de su tribu o reino, y su postura\n\nsobre la magia y la soberanía. ¿Valora la\n\nautonomía tribal o",
+          "tags": [
+            "",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "kaelira",
+          "title": "Kaelira",
+          "saga": "Forgotten Sword",
+          "role": "principal",
+          "status": "Vivo",
+          "faction": "Tribu tribal del norte",
+          "content": "Hija del líder tribal, destinada a de origen Avenkar, conocida por su maestría (Tribu tribal del norte). Cabello largo, trenzado en múltiples mechones decorados con cuentas de madera y plumas. es de color castaño oscuro con destellos dorados por el sol., ojos azul intenso, con una mirada que transmite confianza y determinación..\n\nFortaleza\n\nExperta en combate con lanzas y arcos.\n\nGran resistencia física y mental, capaz\n\nde liderar marchas prolongadas.\n\nDiplomática hábil, capaz de convencer\n\nincluso a los más escépticos.\n\nConflictos Internos:\n\nAunque proyecta fuerza, teme fracasar en\n\nsu misión de unir a las tribus, sintiendo la\n\npresión constante de ser la heredera de un\n\nlegado. Además, lucha contra el prejuicio\n\nde quienes no ven a una mujer como líder\n\nlegítima.\n\nKaelira busca unificar las tribus bajo un propósito común sin someterse a los reinos, creyendo que solo la independencia puede garantizar su supervivencia y libertad.\n\nDesde pequeña, Kaelira fue educada en las artes de la guerra y el liderazgo. A los 15 años, demostró su valía al salvar a su tribu de un ataque sorpresa liderando a un pequeño grupo de guerreros. Este acto cimentó su reputación como una futura líder. Sin embargo, su mayor lucha es demostrar que su éxito no solo se debe a su linaje, sino a su habilidad y dedicación.\n\nJuventud:\n\nAdultez:\n\nDescartada\n\nNombre: Kaelira\n\nEdad: 27 años\n\nTribu: Avenkar, conocida por su maestría\n\nen el combate cuerpo a cuerpo y su fuerte\n\nconexión con la naturaleza.\n\nRango: ",
+          "tags": [
+            "Kaelira",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "kaescha",
+          "title": "Kaescha",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Autoridad de Revenst",
+          "content": "(Autoridad de Revenst). Cabello pelicorto pelirrojo\n\ncolor de ojos: azules\n\nrasgos distintivos: cicatrices en su\n\nabdomen\n\nforma de vestir: ropa militar revenense\n\npostura y lenguaje corporal: erguida\n\nexpresiones comunes: mirada desafiante\n\notros detalles estéticos: pendientes\n\ncaracterísticas y prioridades\n\n(1 al 5), ojos azules\n\nrasgos distintivos: cicatrices en su\n\nabdomen\n\nforma de vestir: ropa militar revenense\n\npostura y lenguaje corporal: erguida\n\nexpresiones comunes: mirada desafiante\n\notros detalles estéticos: pendientes\n\ncaracterísticas y prioridades\n\n(1 al 5).\n\n5\n\n2\n\nImagen de joven\n\nImagen de adulto\n\nTípico\n\nNombre: Kaescha\n\nApellido: Toum\n\nAlias: Käsch\n\nCumpleaños: 18 de blütmond\n\nEdad: 22 años\n\nAltura: 171 cm\n\nPeso: 63 kg\n\nGénero: Femenino\n\nAfiliación: Autoridad de Revenst\n\nApariencia básica\n\nComplexión: Atlética\n\nColor de piel: Caucásica\n\nColor y estilo de cabello: Pelicorto pelirrojo\n\nColor de ojos: Azules\n\nRasgos distintivos: Cicatrices en su\n\nabdomen\n\nForma de vestir: Ropa militar revenense\n\nPostura y lenguaje corporal: Erguida\n\nExpresiones comunes: Mirada desafiante\n\nOtros detalles estéticos: Pendientes\n\nCaracterísticas y prioridades\n\n(1 al 5)\n\nFuerza: 4\n\nSalud: 5\n\nEnergía: 5\n\nDestreza: 5\n\nHigiene: 5\n\nEstilo: 5\n\nBelleza: 5\n\nFamilia: 2\n\nAmigos: 1\n\nAmor: 4\n\nPoder: 3\n\nFama: 5\n\nDinero: 4\n\nJusticia: 4\n\nVenganza: 3\n\nOpinión ajena: 2\n\nElogios: 5\n\nSer el mejor:  5\n\nSocial\n\n(1 al 5)\n\nHonestidad: 3\n\nObediencia: 4\n\nAstucia: 5\n\nUrbanidad: 3\n\nInterés: 4\n\nGenio: 3\n\nCari",
+          "tags": [
+            "Kaescha",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Férrea y decidida, pero",
+          "content": "Aprendiz de líder tribal. de origen Humana, con ancestros Fazos. (Férrea y decidida, pero). Cabello rubio oscuro.\n\n- tipo/longitud del cabello: largo y algo\n\nrizado, hasta la cintura.\n\n- color de ojos: azul intenso.\n\n- tono de piel: caucásica, clara con un\n\nligero bronceado.\n\n- tipo de piel: suave pero con algunas\n\ncicatrices de entrenamiento.\n\n- raza: humana, con ancestros fazos.\n\n- forma del rostro: ovalado con pómulos\n\naltos.\n\n- marcas de nacimiento o cicatrices: una\n\npequeña cicatriz en la mejilla izquierda,\n\nresultado de un entrenamiento de\n\ncombate.\n\n- característica predominante: sus ojos\n\npenetrantes y su postura altiva.\n\n- altura: 1.80 m.\n\n- peso: 75 kg.\n\n- tipo de cuerpo: atlético y esbelto.\n\nfamilia\n\n- nombre de la madre: sanvia thenal.\n\n- nombre del padre: völkai thenal.\n\n- vive con: su familia tribal.\n\n- hermanos: dos hermanos mayores,\n\nthelk y nirai.\n\n- familia política: ninguna.\n\n- sobrinos/sobrinas: ninguno.\n\n- estado de los abuelos: fallecidos.\n\n- otros familiares: varios tíos y primos\n\ndentro del clan.\n\nreligión\n\n- religión de la familia: culto a los\n\nantiguos espíritus de la naturaleza.\n\n- religión del personaje: sigue las\n\ncreencias familiares, pero con un enfoque\n\nmás pragmático.\n\n- filosofía: \"la fuerza y la sabiduría son las\n\nverdaderas magias\".\n\n- otras creencias: respeto por los\n\nancestros y los espíritus del bosque.\n\ngustos y disgustos\n\n- color favorito: verde esmeralda.\n\n- color menos favorito: rojo sangre.\n\n- comida favorita: guiso de venado con\n\nh",
+          "tags": [
+            "",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Tribu Aurís.",
+          "content": "General militar. (Tribu Aurís.). Posesiva,\n\ndominante, inteligente, leal, estratega, sin\n\nreparos en obtener lo que quiere.\n\nVirtudes y Defectos: Demasiad...\n\nPosesiva,\n\ndominante, inteligente, leal, estratega, sin\n\nreparos en obtener lo que quiere.\n\nVirtudes y Defectos: Demasiado posesiva\n\ny valora el mérito al casamiento.\n\nCreencias y Filosofía de Vida: “Para\n\nobtener lo que quieres, a veces solo tienes\n\nque estirar la mano”.\n\n5. Relaciones\n\nFamilia y Amigos: Tanns, su esposo; Hlied,\n\nsu hija mayor; Sauri y Hald, los gemelos.\n\nAliados y Mentores: Sus padres.\n\nRivales y Enemigos: El reino Gricai.\n\n6. Habilidades y Conocimientos\n\nHabilidades Especiales: Puede incluir\n\ndisciplinas tribales (como Thakusk o\n\narquería) o conocimientos propios de su\n\nreino, como la estrategia o diplomacia.\n\nPuede incluir disciplinas tribales (como Thakusk o arquería) o conocimientos propios de su reino, como la estrategia o diplomacia.\n\nCrianza, educación y\n\nentrenamiento militar, bajo técnicas de\n\ncombate tribales.\n\n4. Personalidad y Valores\n\nRasgos de Personalidad: Posesiva,\n\ndominante, inteligente, leal, estratega, sin\n\nreparos en obtener lo que quiere.\n\nVirtudes y Defectos: Demasiado posesiva\n\ny valora el mérito al casamiento.\n\nCreencias y Filosofía de Vida: “Para\n\nobtener lo que quieres, a veces solo tienes\n\nque estirar la mano”.\n\n5. Relaciones\n\nFamilia y Amigos: Tanns, su esposo; Hlied,\n\nsu hija mayor; Sauri y Hald, los gemelos.\n\nAliados y Mentores: Sus padres.\n\nRivales y Enemigos: El reino ",
+          "tags": [
+            "",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Tribu Raumo.",
+          "content": "Miembro del consejo de (Tribu Raumo.). Ejemplos de\n\ncualidades, como si es reservado, audaz,\n\nleal, curioso o terco.\n\nVirtudes y Defectos: Aspectos positivos y ...\n\nEjemplos de\n\ncualidades, como si es reservado, audaz,\n\nleal, curioso o terco.\n\nVirtudes y Defectos: Aspectos positivos y\n\nlimitaciones, como si es bondadoso pero\n\nimpulsivo, o hábil pero orgulloso.\n\nCreencias y Filosofía de Vida: Valores\n\npropios de su tribu o reino, y su postura\n\nsobre la magia y la soberanía. ¿Valora la\n\nautonomía tribal o el orden de un reino?\n\n5. Relaciones\n\nFamilia y Amigos: La relación con\n\nfamiliares y amigos cercanos, su círculo\n\nde confianza.\n\nAliados y Mentores: Figuras clave en su\n\nvida, como un maestro tribal o un mentor\n\nde combate que le haya influido\n\nprofundamente.\n\nRivales y Enemigos: Individuos de su tribu\n\no de un reino vecino que le causen\n\nproblemas o le motiven a superarse.\n\n6. Habilidades y Conocimientos\n\nHabilidades Especiales: Puede incluir\n\ndisciplinas tribales (como Thakusk o\n\narquería) o conocimientos propios de su\n\nreino, como la estrategia o diplomacia.\n\nPuede incluir disciplinas tribales (como Thakusk o arquería) o conocimientos propios de su reino, como la estrategia o diplomacia.\n\nSu crianza,\n\neducación y entrenamiento. ¿Recibió\n\nformación en disciplinas tribales, como\n\nThakusk, o en técnicas de combate real?\n\n4. Personalidad y Valores\n\nRasgos de Personalidad: Ejemplos de\n\ncualidades, como si es reservado, audaz,\n\nleal, curioso o terco.\n\nVirtudes y Defectos: Aspect",
+          "tags": [
+            "",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Tribu Aurís.",
+          "content": "Miembro del grupo (Tribu Aurís.). Coqueta, audaz,\n\nrebelde, a veces altiva, ruda, competitiva\n\nVirtudes y Defectos: A veces desobedece\n\nmucho, es amable co...\n\nCoqueta, audaz,\n\nrebelde, a veces altiva, ruda, competitiva\n\nVirtudes y Defectos: A veces desobedece\n\nmucho, es amable con los que le interesa.\n\nCreencias y Filosofía de Vida: “La libertad\n\nes importante, pero en ciertos casos no\n\nesencial”.\n\n5. Relaciones\n\nFamilia y Amigos: Tanns, su padre; Kiviai,\n\nsu madre, y Unvalk, su hermano mayor.\n\n6. Habilidades y Conocimientos\n\nHabilidades Especiales: Excelente\n\ncombate cuerpo a cuerpo, equiparable al\n\nnivel de los gemelos.\n\nExcelente combate cuerpo a cuerpo, equiparable al nivel de los gemelos.\n\nCrianza, educación y\n\nentrenamiento militar excelente. Bajo\n\ntécnicas específicas de combate cuerpo a\n\ncuerpo.\n\n4. Personalidad y Valores\n\nRasgos de Personalidad: Coqueta, audaz,\n\nrebelde, a veces altiva, ruda, competitiva\n\nVirtudes y Defectos: A veces desobedece\n\nmucho, es amable con los que le interesa.\n\nCreencias y Filosofía de Vida: “La libertad\n\nes importante, pero en ciertos casos no\n\nesencial”.\n\n5. Relaciones\n\nFamilia y Amigos: Tanns, su padre; Kiviai,\n\nsu madre, y Unvalk, su hermano mayor.\n\n6. Habilidades y Conocimientos\n\nHabilidades Especiales: Excelente\n\ncombate cuerpo a cuerpo, equiparable al\n\nnivel de los gemelos.\n\nJuventud:\n\nAdultez:\n\nNombre: Nolle Leor.\n\nEdad: 16 años.\n\nGénero: Femenino.\n\nAfiliación: Tribu Aurís.\n\nOcupación o Rol: Miembro del grupo\n\nprivado de soldados d",
+          "tags": [
+            "",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "orven-fostar",
+          "title": "Orven Fostar",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Tribu Revenst.",
+          "content": "Consejero y mensajero. (Tribu Revenst.). Ejemplos de\n\ncualidades, como si es reservado, audaz,\n\nleal, curioso o terco.\n\nVirtudes y Defectos: Aspectos positivos y ...\n\nEjemplos de\n\ncualidades, como si es reservado, audaz,\n\nleal, curioso o terco.\n\nVirtudes y Defectos: Aspectos positivos y\n\nlimitaciones, como si es bondadoso pero\n\nimpulsivo, o hábil pero orgulloso.\n\nCreencias y Filosofía de Vida: Valores\n\npropios de su tribu o reino, y su postura\n\nsobre la magia y la soberanía. ¿Valora la\n\nautonomía tribal o el orden de un reino?\n\n5. Relaciones\n\nFamilia y Amigos: La relación con\n\nfamiliares y amigos cercanos, su círculo\n\nde confianza.\n\nAliados y Mentores: Figuras clave en su\n\nvida, como un maestro tribal o un mentor\n\nde combate que le haya influido\n\nprofundamente.\n\nRivales y Enemigos: Individuos de su tribu\n\no de un reino vecino que le causen\n\nproblemas o le motiven a superarse.\n\n6. Habilidades y Conocimientos\n\nHabilidades Especiales: Puede incluir\n\ndisciplinas tribales (como Thakusk o\n\narquería) o conocimientos propios de su\n\nreino, como la estrategia o diplomacia.\n\nPuede incluir disciplinas tribales (como Thakusk o arquería) o conocimientos propios de su reino, como la estrategia o diplomacia.\n\nBuena crianza y\n\neducación, entrenamiento dado por su\n\npadre.\n\n4. Personalidad y Valores\n\nRasgos de Personalidad: Ejemplos de\n\ncualidades, como si es reservado, audaz,\n\nleal, curioso o terco.\n\nVirtudes y Defectos: Aspectos positivos y\n\nlimitaciones, como si es bondadoso pero\n\nimpulsivo,",
+          "tags": [
+            "Orven Fostar",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "raikeno-haiver",
+          "title": "Raikeno Haiver",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Exmiliciano de un reino tirano",
+          "content": "de origen Nacido en el campo, creció (Exmiliciano de un reino tirano). A pesar de las tragedias que lo marcaron, mantiene una disposición amable y comprensiva, especialmente con los despos...\n\nA pesar de las tragedias que lo marcaron, mantiene una disposición amable y comprensiva, especialmente con los desposeídos. No obstante, en las decisiones importantes se muestra firme, decidido y hasta inflexible cuando se trata de proteger a otros. Historia Cuando estalló la guerra, las tropas del reino tirano lo reclutaron por fuerza para engrosar las filas de la milicia campesina. La brutalidad del régimen no tardó en\n\nNombre: Raikeno Haiver\n\nEdad: 24 años\n\nSexo: Masculino\n\nAltura: 1,94 m\n\nComplexión: Mesomorfa, musculosa\n\nRasgos físicos: Cabello castaño, ojos\n\nverdes\n\nProcedencia: Exmiliciano de un reino tirano\n\nDatos Básicos\n\nOrigen: Nacido en el campo, creció\n\ncomo granjero. Su vida estaba\n\nmarcada por el trabajo físico y la\n\ncercanía con la tierra. Jamás pensó en\n\nla guerra hasta que, con la llegada del\n\nconflicto, fue obligado a dejar el arado\n\npor la espada.\n\nPersonalidad: A pesar de las tragedias\n\nque lo marcaron, mantiene una\n\ndisposición amable y comprensiva,\n\nespecialmente con los desposeídos.\n\nNo obstante, en las decisiones\n\nimportantes se muestra firme, decidido\n\ny hasta inflexible cuando se trata de\n\nproteger a otros.\n\nHistoria\n\nCuando estalló la guerra, las tropas del\n\nreino tirano lo reclutaron por fuerza para\n\nengrosar las filas de la milicia campesina.\n\nLa brutalidad",
+          "tags": [
+            "Raikeno Haiver",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "- Tribu Royai, empobrecida tribu.",
+          "content": "de origen - Tribu Royai, empobrecida tribu. (- Tribu Royai, empobrecida tribu.). - Coqueta y carismática, utiliza su\n\nencanto natural para influir en quienes la\n\nrodean.\n\n- Manipuladora cuando es ne...\n\n- Coqueta y carismática, utiliza su\n\nencanto natural para influir en quienes la\n\nrodean.\n\n- Manipuladora cuando es necesario,\n\ncapaz de leer a las personas y jugar con\n\nsus emociones para conseguir sus\n\nobjetivos.\n\n- Leal hasta la médula con quienes se\n\nganan su confianza; protegerá a los suyos\n\nsin importar el costo.\n\n- Ama con intensidad y pasión,\n\nmostrando una faceta vulnerable solo a\n\naquellos que realmente importan.\n\nDeschastt.\n\nNombre: Riua.\n\nFamilia: Deschastt.\n\nPersonalidad:\n\n- Coqueta y carismática, utiliza su\n\nencanto natural para influir en quienes la\n\nrodean.\n\n- Manipuladora cuando es necesario,\n\ncapaz de leer a las personas y jugar con\n\nsus emociones para conseguir sus\n\nobjetivos.\n\n- Leal hasta la médula con quienes se\n\nganan su confianza; protegerá a los suyos\n\nsin importar el costo.\n\n- Ama con intensidad y pasión,\n\nmostrando una faceta vulnerable solo a\n\naquellos que realmente importan.\n\nApariencia:\n\n- Rasgos marcados pero armónicos, con\n\nuna belleza exótica que resalta en su tribu.\n\n- Cabello largo y oscuro, a menudo\n\nadornado con trenzas decoradas con\n\ncuentas o plumas.\n\n- Ojos grandes y expresivos, de un tono\n\nprofundo que parece contener secretos.\n\n- Lleva pintura tribal en patrones\n\nintrincados durante ceremonias o eventos\n\nimportantes.\n\nOrigen:\n\n- Tribu R",
+          "tags": [
+            "",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Tribu Revenst.",
+          "content": "Líder de la Tribu Revenst. (Tribu Revenst.). Valiente, severo,\n\nreservado e inteligente.\n\nVirtudes y Defectos: Terco.\n\nCreencias y Filosofía de Vida: Con su frase...\n\nValiente, severo,\n\nreservado e inteligente.\n\nVirtudes y Defectos: Terco.\n\nCreencias y Filosofía de Vida: Con su frase\n\nPuede incluir disciplinas tribales (como Thakusk o arquería) o conocimientos propios de su reino, como la estrategia o diplomacia.\n\nCriado, educado y\n\nentrenado en la aldea Zaucen en su\n\nmansión.\n\n4. Personalidad y Valores\n\nRasgos de Personalidad: Valiente, severo,\n\nreservado e inteligente.\n\nVirtudes y Defectos: Terco.\n\nCreencias y Filosofía de Vida: Con su frase\n\nNombre: Ronan Steinwal.\n\nEdad: 44 años.\n\nGénero: Masculino.\n\nAfiliación: Tribu Revenst.\n\nOcupación o Rol: Líder de la Tribu Revenst.\n\n2. Descripción Física\n\nApariencia General: Complexión\n\nmesomorfa, 194 cm, rostro serio.\n\nOjos azules, cabello negro y caucásico.\n\nRasgos Distintivos: Cicatriz en su brazo\n\nizquierdo.\n\nVestimenta: Ropa elegante con estilo\n\nguerrero.\n\n3. Historia y Contexto\n\nOrígenes y Cultura: Aldea Zuacen, capital\n\nde la tribu. Hijo de políticos adinerados.\n\nRelación con las Tribus y los Reinos:\n\nAprueba la independencia de las tribus.\n\nInfancia y Formación: Criado, educado y\n\nentrenado en la aldea Zaucen en su\n\nmansión.\n\n4. Personalidad y Valores\n\nRasgos de Personalidad: Valiente, severo,\n\nreservado e inteligente.\n\nVirtudes y Defectos: Terco.\n\nCreencias y Filosofía de Vida: Con su frase\n\ncélebre: “Siempre debe haber cie",
+          "tags": [
+            "",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "rouja",
+          "title": "Rouja",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "",
+          "content": "Cabello color de ojos, ojos rasgos distintivos.\n\nHigiene\n\nAmigos\n\nImagen de joven\n\nImagen de adulto\n\nTípico\n\nNombre: Rouja\n\nApellido: Hertver\n\nAlias: Rou\n\nCumpleaños: 17 de Entmond\n\nEdad:\n\nAltura:\n\nPeso:\n\nGénero:\n\nAfiliación:\n\nApariencia básica\n\nComplexión: [Delgado, atlético, robusto,\n\netc]\n\nColor de piel:\n\nColor y estilo de cabello:\n\nColor de ojos:\n\nRasgos distintivos: [Cicatrices, tatuajes,\n\nmarcas de nacimiento, etc.]\n\nForma de vestir: [Estilo general, colores\n\npredominantes, elementos constantes]\n\nPostura y lenguaje corporal: [Erguido,\n\nencorvado, seguro, tímido, etc.]\n\nExpresiones comunes: [Fruncir el ceño,\n\nsonrisa fácil, mirada desafiante…]\n\nOtros detalles estéticos: [Accesorios,\n\nmaquillaje, prótesis, etc.]\n\nCaracterísticas y prioridades\n\n(1 al 5)\n\nFuerza:\n\nSalud:\n\nEnergía:\n\nDestreza:\n\nHigiene:\n\nEstilo:\n\nBelleza:\n\nFamilia:\n\nAmigos:\n\nAmor:\n\nPoder:\n\nFama:\n\nDinero:\n\nJusticia:\n\nVenganza:\n\nOpinión ajena:\n\nElogios:\n\nSer el mejor:\n\nSocial\n\n(1 al 5)\n\nHonestidad:\n\nObediencia:\n\nAstucia:\n\nUrbanidad:\n\nInterés:\n\nGenio:\n\nCarisma:\n\nTenebrosidad:\n\nTimidez:\n\nAgresividad:\n\nEmpatía:\n\nAdorabilidad:\n\nPerfeccionismo:\n\nHabilidades\n\n(1 al 5)\n\nCombate:\n\nVelocidad:\n\nSigilo:\n\nMeditación:\n\nPercepción:\n\nSupervivencia:\n\nFlexibilidad:\n\nComunicación:\n\nCocina:\n\nSeduccion:\n\nManipulación:\n\nSuerte:\n\nImaginación:\n\nMente\n\n(1 al 5)\n\nInteligencia:\n\nFelicidad:\n\nHumor:\n\nAnsiedad:\n\nPaciencia:\n\nPosesión:\n\nCelos:\n\nBueno o malo:\n\nExtrovertido o introvertido:\n\nAgradable o desagradable:\n\nValiente o cobarde:\n\nPreca",
+          "tags": [
+            "Rouja",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "",
+          "content": "Su rol dentro de la tribu o. Ejemplos de\n\ncualidades, como si es reservado, audaz,\n\nleal, curioso o terco.\n\nVirtudes y Defectos: Aspectos positivos y ...\n\nEjemplos de\n\ncualidades, como si es reservado, audaz,\n\nleal, curioso o terco.\n\nVirtudes y Defectos: Aspectos positivos y\n\nlimitaciones, como si es bondadoso pero\n\nimpulsivo, o hábil pero orgulloso.\n\nCreencias y Filosofía de Vida: Valores\n\npropios de su tribu o reino, y su postura\n\nsobre la magia y la soberanía. ¿Valora la\n\nautonomía tribal o el orden de un reino?\n\n5. Relaciones\n\nFamilia y Amigos: La relación con\n\nfamiliares y amigos cercanos, su círculo\n\nde confianza.\n\nAliados y Mentores: Figuras clave en su\n\nvida, como un maestro tribal o un mentor\n\nde combate que le haya influido\n\nprofundamente.\n\nRivales y Enemigos: Individuos de su tribu\n\no de un reino vecino que le causen\n\nproblemas o le motiven a superarse.\n\n6. Habilidades y Conocimientos\n\nHabilidades Especiales: Puede incluir\n\ndisciplinas tribales (como Thakusk o\n\narquería) o conocimientos propios de su\n\nreino, como la estrategia o diplomacia.\n\nPuede incluir disciplinas tribales (como Thakusk o arquería) o conocimientos propios de su reino, como la estrategia o diplomacia.\n\nSu crianza,\n\neducación y entrenamiento. ¿Recibió\n\nformación en disciplinas tribales, como\n\nThakusk, o en técnicas de combate real?\n\n4. Personalidad y Valores\n\nRasgos de Personalidad: Ejemplos de\n\ncualidades, como si es reservado, audaz,\n\nleal, curioso o terco.\n\nVirtudes y Defectos: Aspectos positiv",
+          "tags": [
+            "",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "skaivan-helvadur",
+          "title": "Skaivan Helvadur",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Tribu Raumo.",
+          "content": "Aprendiz de su padre, (Tribu Raumo.). Ejemplos de\n\ncualidades, como si es reservado, audaz,\n\nleal, curioso o terco.\n\nVirtudes y Defectos: Aspectos positivos y ...\n\nEjemplos de\n\ncualidades, como si es reservado, audaz,\n\nleal, curioso o terco.\n\nVirtudes y Defectos: Aspectos positivos y\n\nlimitaciones, como si es bondadoso pero\n\nimpulsivo, o hábil pero orgulloso.\n\nCreencias y Filosofía de Vida: Valores\n\npropios de su tribu o reino, y su postura\n\nsobre la magia y la soberanía. ¿Valora la\n\nautonomía tribal o el orden de un reino?\n\n5. Relaciones\n\nFamilia y Amigos: La relación con\n\nfamiliares y amigos cercanos, su círculo\n\nde confianza.\n\nAliados y Mentores: Figuras clave en su\n\nvida, como un maestro tribal o un mentor\n\nde combate que le haya influido\n\nprofundamente.\n\nRivales y Enemigos: Individuos de su tribu\n\no de un reino vecino que le causen\n\nproblemas o le motiven a superarse.\n\n6. Habilidades y Conocimientos\n\nHabilidades Especiales: Puede incluir\n\ndisciplinas tribales (como Thakusk o\n\narquería) o conocimientos propios de su\n\nreino, como la estrategia o diplomacia.\n\nPuede incluir disciplinas tribales (como Thakusk o arquería) o conocimientos propios de su reino, como la estrategia o diplomacia.\n\nSu crianza,\n\neducación y entrenamiento. ¿Recibió\n\nformación en disciplinas tribales, como\n\nThakusk, o en técnicas de combate real?\n\n4. Personalidad y Valores\n\nRasgos de Personalidad: Ejemplos de\n\ncualidades, como si es reservado, audaz,\n\nleal, curioso o terco.\n\nVirtudes y Defectos: Aspecto",
+          "tags": [
+            "Skaivan Helvadur",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Tribu Raumo.",
+          "content": "Aprendiz espadachín y (Tribu Raumo.). Audaz y leal, algo\n\nserio.\n\nVirtudes y Defectos: Gran lealtad, pelea a\n\nmenudo.\n\nCreencias y Filosofía de Vida: Valores\n\np...\n\nAudaz y leal, algo\n\nserio.\n\nVirtudes y Defectos: Gran lealtad, pelea a\n\nmenudo.\n\nCreencias y Filosofía de Vida: Valores\n\npropios de su tribu o reino, y su postura\n\nsobre la magia y la soberanía. ¿Valora la\n\nautonomía tribal o el orden de un reino?\n\n5. Relaciones\n\nFamilia y Amigos: La relación con\n\nfamiliares y amigos cercanos, su círculo\n\nde confianza.\n\nAliados y Mentores: Figuras clave en su\n\nvida, como un maestro tribal o un mentor\n\nde combate que le haya influido\n\nprofundamente.\n\nRivales y Enemigos: Individuos de su tribu\n\no de un reino vecino que le causen\n\nproblemas o le motiven a superarse.\n\n6. Habilidades y Conocimientos\n\nHabilidades Especiales: Puede incluir\n\ndisciplinas tribales (como Thakusk o\n\narquería) o conocimientos propios de su\n\nreino, como la estrategia o diplomacia.\n\nPuede incluir disciplinas tribales (como Thakusk o arquería) o conocimientos propios de su reino, como la estrategia o diplomacia.\n\nEntrenado en la\n\nespada.\n\n4. Personalidad y Valores\n\nRasgos de Personalidad: Audaz y leal, algo\n\nserio.\n\nVirtudes y Defectos: Gran lealtad, pelea a\n\nmenudo.\n\nCreencias y Filosofía de Vida: Valores\n\npropios de su tribu o reino, y su postura\n\nsobre la magia y la soberanía. ¿Valora la\n\nautonomía tribal o el orden de un reino?\n\n5. Relaciones\n\nFamilia y Amigos: La relación con\n\nfamiliares y amigos cercanos, s",
+          "tags": [
+            "",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Tribu Aurís, la segunda tribu",
+          "content": "Líder de la Tribu Aurís. (Tribu Aurís, la segunda tribu). Liderazgo,\n\nanalítico, dominante, inteligente, estratega\n\ny protector.\n\nVirtudes y Defectos: Áspero, duro, a veces\n\naltiv...\n\nLiderazgo,\n\nanalítico, dominante, inteligente, estratega\n\ny protector.\n\nVirtudes y Defectos: Áspero, duro, a veces\n\naltivo, controlador.\n\nCreencias y Filosofía de Vida: Promueve la\n\nindependencia.\n\n5. Relaciones\n\nFamilia y Amigos: Su esposa es su mayor\n\napoyo, Kiviai. Dos hijos: Nolle y Unvalk.\n\nAliados y Mentores: Su padre, un hombre\n\nacérrimo.\n\nRivales y Enemigos: Deschastt, no tolera\n\npersuasión y personalidad.\n\n6. Habilidades y Conocimientos\n\nHabilidades Especiales: Excelente dominio\n\nde la espada.\n\nExcelente dominio de la espada.\n\nCrianza, educación y\n\nentrenamiento militar, bajo técnicas de\n\ncombate tribales.\n\n4. Personalidad y Valores\n\nRasgos de Personalidad: Liderazgo,\n\nanalítico, dominante, inteligente, estratega\n\ny protector.\n\nVirtudes y Defectos: Áspero, duro, a veces\n\naltivo, controlador.\n\nCreencias y Filosofía de Vida: Promueve la\n\nindependencia.\n\n5. Relaciones\n\nFamilia y Amigos: Su esposa es su mayor\n\napoyo, Kiviai. Dos hijos: Nolle y Unvalk.\n\nAliados y Mentores: Su padre, un hombre\n\nacérrimo.\n\nRivales y Enemigos: Deschastt, no tolera\n\npersuasión y personalidad.\n\n6. Habilidades y Conocimientos\n\nHabilidades Especiales: Excelente dominio\n\nde la espada.\n\nNombre: Tanns Leor.\n\nEdad: 49 años.\n\nGénero: Masculino.\n\nAfiliación: Tribu Aurís, la segunda tribu\n\nmás grande, al sur de Revenst.\n\n",
+          "tags": [
+            "",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "umiko-uni",
+          "title": "Umiko Uni",
+          "saga": "Forgotten Sword",
+          "role": "principal",
+          "status": "Vivo",
+          "faction": "Hija del líder tribal,",
+          "content": "de origen Imire, una de las tres tribus (Hija del líder tribal,)\n\nEducada en historia tribal\n\nHija del líder tribal,\n\nconsejera informal de su padre,\n\nrepresentante de su pueblo en cuestiones\n\ndiplomáticas menores\n\nApariencia Física:\n\nConserva rasgos distintivos de su\n\nlinaje tribal, aunque atenuados por\n\ngeneraciones de mestizaje\n\nPosible rastro residual de\n\ncaracterísticas físicas únicas de su\n\ntribu ojos rasgados\n\nPorte digno pero sin la rigidez\n\naristocrática de la nobleza de los reinos\n\nViste con elementos tradicionales de\n\nsu tribu combinados con practicidad\n\nPersonalidad y Temperamento:\n\nNaturalmente empática y considerada;\n\nprioriza el bienestar colectivo sobre\n\nambiciones personales\n\nExcelente mediadora en conflictos\n\ninternos de la tribu gracias a su\n\ncapacidad de escuchar genuinamente\n\nSe transforma cuando su pueblo está\n\nNombre: Umiko Uni\n\nEdad: 22-24 años\n\nTribu: Imire, una de las tres tribus\n\nhermanas\n\nTítulo/Posición: Hija del líder tribal,\n\nconsejera informal de su padre,\n\nrepresentante de su pueblo en cuestiones\n\ndiplomáticas menores\n\nApariencia Física:\n\nConserva rasgos distintivos de su\n\nlinaje tribal, aunque atenuados por\n\ngeneraciones de mestizaje\n\nPosible rastro residual de\n\ncaracterísticas físicas únicas de su\n\ntribu ojos rasgados\n\nPorte digno pero sin la rigidez\n\naristocrática de la nobleza de los reinos\n\nViste con elementos tradicionales de\n\nsu tribu combinados con practicidad\n\nPersonalidad y Temperamento:\n\nNaturalmente empática y considerada;\n\nprioriz",
+          "tags": [
+            "Umiko Uni",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "uzer-merus",
+          "title": "Uzer Merus",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "",
+          "content": "Nombre: Uzer Merus\n\nEdad: 22 años\n\nSexo: Femenino\n\nAltura: 1,65 m\n\nProcedencia: Familia militar\n\nDatos Básicos\n\nContexto familiar: Criada en un entorno\n\nmarcial, donde la disciplina y el honor\n\nfueron pilares de su educación. La\n\ninfluencia militar en su hogar le inculcó\n\nvalores de lealtad, obediencia\n\nestratégica y la importancia de la\n\nfuerza combinada con el intelecto.\n\nPersonalidad: Amable en el trato\n\ncotidiano, transmite cercanía y\n\ncomprensión. No obstante, en\n\nsituaciones de liderazgo o combate,\n\nmuestra firmeza y temple, evitando\n\ndejarse llevar por la emoción. Su\n\ncarisma se basa en la confianza que\n\ninspira a otros.\n\nBreve Historia\n\nDesde pequeña fue instruida en el uso de\n\nlas armas, acompañando a miembros de\n\nsu familia en entrenamientos y\n\ncampamentos. A los 15 años ya\n\ndestacaba en el arco largo, habilidad que\n\nperfeccionó con la práctica constante y el\n\nestudio de técnicas de puntería.\n\nPosteriormente, decidió equilibrar su\n\nformación con el combate cuerpo a\n\ncuerpo, sabiendo que la distancia no\n\nsiempre sería su aliada.\n\nA los 20 años participó en su primera\n\nmisión real junto a veteranos,\n\ndemostrando no solo destreza marcial,\n\nsino también capacidad de decisión bajo\n\npresión. Desde entonces ha forjado una\n\nreputación de guerrera capaz y respetada.\n\nHabilidades de Combate\n\nArquería:\n\nDominio del arco largo y corto.\n\nCapacidad para disparar en\n\nmovimiento y a distintas distancias.\n\nExcelente visión y puntería afinada por\n\naños de práctica.\n\nCuerpo a cuerpo:\n",
+          "tags": [
+            "Uzer Merus",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "veyra-hesa-korl",
+          "title": "Veyra Hesa-korl",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Clan de los Dos Ríos (Tribu",
+          "content": "de origen Clan de los Dos Ríos (Tribu (Clan de los Dos Ríos (Tribu). Cabello rubio cenizo, largo, usualmente trenzado en dos mechones., ojos azules intensos, con una mirada serena pero firme..\n\nPrudente y estratégica, evita la\n\nviolencia innecesaria.\n\nDe carácter firme, su liderazgo se\n\nsostiene más en la confianza que en la\n\nimposición.\n\nAstuta en política, capaz de tejer\n\nalianzas entre pueblos diversos.\n\nOrgullosa de las tradiciones, pero no\n\nrehúsa adaptarlas cuando la\n\nsupervivencia lo exige.\n\nRol en el clan:\n\nConsejera principal y heredera de la\n\njefatura tribal.\n\nRepresentante en los pactos y\n\nasambleas con otros pueblos.\n\nGuardiana de los ritos espirituales\n\nligados al río y la cosecha.\n\nConflictos principales:\n\nCon Norvak: Defender las tierras de su\n\nclan frente a las pretensiones\n\nEstrategia militar basada en movilidad, hostigamiento y uso del terreno.\n\nNombre completo: Veyra Hesa-korl\n\nApodos/Títulos:\n\nLa Dama de los Dos Ríos\n\nGuardiana de las Llanuras\n\nLa Voz del Clan\n\nEdad: 27 años\n\nOrigen: Clan de los Dos Ríos (Tribu\n\nasentada en las praderas de Eshkar)\n\nAspecto físico:\n\nCabello: Rubio cenizo, largo,\n\nusualmente trenzado en dos\n\nmechones.\n\nOjos: Azules intensos, con una mirada\n\nserena pero firme.\n\nVestimenta: Túnicas tribales bordadas\n\ncon motivos geométricos, adornadas\n\ncon joyería de cobre y cuentas de\n\npiedra. Porta una capa oscura de piel\n\nen ceremonias y viajes.\n\nPorte: Erguido, imponente sin perder\n\nfeminidad.\n\nPersonalidad:\n\nPrudente y estratégica, evita ",
+          "tags": [
+            "Veyra Hesa-korl",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "v-lkai",
+          "title": "Völkai",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "",
+          "content": "______. Cabello ______\n\ntipo/longitud del cabello: ______\n\ncolor de ojos: ______\n\ntono de piel: ______\n\ntipo de piel: ______, ojos ______\n\ntono de piel: ______\n\ntipo de piel: ______.\n\n______\n\n¿Temerario o cauteloso?: ______\n\n¿Es igual cuando está solo?: ______\n\nMayor arrepentimiento: ______\n\nSecreto más oscuro: ______\n\nPrincipal confidente: ______\n\n¿Es fácil confiar?: ______\n\nMayor sueño: ______\n\nPlan para el futuro: ______\n\n¿Quiere casarse?: ______\n\n¿Quiere tener hijos?: ______\n\nInformación de Nacimiento\n\nNombre completo: Völkai\n\nRazón del nombre: ______\n\nApodos: ______\n\nRazón de los apodos: ______\n\nFecha de nacimiento: ______\n\n##### Apariencia Física\n\nColor de cabello: ______\n\nTipo/Longitud del cabello: ______\n\nColor de ojos: ______\n\nTono de piel: ______\n\nTipo de piel: ______\n\nRaza: ______\n\nForma del rostro: ______\n\nMarcas de nacimiento o cicatrices: ______\n\nCaracterística predominante: ______\n\nAltura: ______\n\nPeso: ______\n\nTipo de cuerpo: ______\n\n##### Familia\n\nNombre de la madre: ______\n\nNombre del padre: ______\n\nPadrastros/Madrastras: ______\n\nVive con: ______\n\nHermanos: ______\n\nFamilia política:\n\nSobrinos/Sobrinas: ______\n\nEstado de los abuelos: ______\n\nOtros familiares: ______\n\n##### Gustos y Disgustos\n\nColor favorito: ______\n\nMejor amigo: ______\n\nEnemigo: ______\n\nEsposa: ______\n\nActividad favorita: ______\n\n##### Infancia\n\nOcupación: ______\n\nResidencia: ______\n\nTrabajos de los padres: ______\n\nEstado económico: ______\n\nAmbiente en el hogar: ______\n\nEducación: ______\n\nCiu",
+          "tags": [
+            "Völkai",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "wald-in-helvadur",
+          "title": "Waldáin Helvadur",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Tribu Raumo, al noreste de las",
+          "content": "Por ahora es aprendiz de (Tribu Raumo, al noreste de las). Valiente, asía ser alguien digno de respeto, como su padre; a veces puede ser engreído y ufano; pero también demuestr...\n\nValiente, asía ser\n\nalguien digno de respeto, como su padre; a\n\nveces puede ser engreído y ufano; pero\n\ntambién demuestra humildad.\n\nVirtudes y Defectos: Impulsivo en\n\nsituaciones difíciles, bien puede ser\n\nengreído, bien puede ser humilde con las\n\npersonas que pasan dificultades.\n\n5. Relaciones\n\nFamilia y Amigos: Su padre, quien lo\n\nmotiva a esforzarse. Su madre, quien le\n\nrecuerda que amar es bueno.\n\nY su hermano mayor, quien lo aconseja.\n\nTiene dos grandes amigos: Taika, con\n\nquien compite con la espada, y Alva, a\n\nquien ama en secreto.\n\nRivales y Enemigos: Su mejor amigo,\n\nTaika, con quien compite para demostrar\n\nquién es el mejor con la espada.\n\nEquipo y Pertenencias\n\nArmas o Herramientas: Su espada\n\nprincipal, trizada pero, gracias a la magia,\n\nresistente. También tiene una daga\n\nescondida en su pierna derecha.\n\nEntrenado desde\n\npequeño en el uso de la espada, dagas y\n\narmas blancas.\n\n4. Personalidad y Valores\n\nRasgos de Personalidad: Valiente, asía ser\n\nalguien digno de respeto, como su padre; a\n\nveces puede ser engreído y ufano; pero\n\ntambién demuestra humildad.\n\nVirtudes y Defectos: Impulsivo en\n\nsituaciones difíciles, bien puede ser\n\nengreído, bien puede ser humilde con las\n\npersonas que pasan dificultades.\n\n5. Relaciones\n\nFamilia y Amigos: Su padre, quien lo\n\nmotiva a esforzarse. Su madr",
+          "tags": [
+            "Waldáin Helvadur",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "zva",
+          "title": "Zva",
+          "saga": "Forgotten Sword",
+          "role": "principal",
+          "status": "Vivo",
+          "faction": "Sin orden",
+          "content": "(Sin orden)\n\nBirth Info\n\n- Full Name: Zva Soljaka.\n\n- Date of Birth: 15 de Frestmond, año (por\n\ndeterminar) del calendario real.\n\n##### **Physical Appearance**\n\nhasta la cintura.\n\nmediodía.\n\nimperfecciones.\n\naltos.\n\nmarca de nacimiento en forma de estrella\n\nen el hombro izquierdo.\n\nradiante y su mirada vivaz.\n\na su entrenamiento en equitación y\n\nesgrima.\n\n##### **Family**\n\nSolbright.\n\nreal.\n\npríncipe Finn Solbright.\n\npaternos fallecidos; abuela materna viva,\n\npero retirada en un monasterio.\n\nprimos en la corte real.\n\n##### **Religion**\n\nCulto del Sol, una religión que venera al sol\n\ncomo fuente de vida y justicia.\n\ndel Sol, pero cuestiona algunas de sus\n\ntradiciones más rígidas.\n\ncegar.\"\n\nde la libertad individual y la compasión.\n\n##### **Likes & Dislikes**\n\naburrido).\n\nmiel.\n\ndesde que era niña).\n\ny flauta.\n\nun libro de aventuras épicas.\n\nmedieval).\n\nuna familia aliada.\n\nambicioso que desconfía de su influencia.\n\ncoquetea con Sir Gareth, un caballero leal.\n\nexplorar los bosques cercanos al castillo.\n\n##### **Childhood**\n\nliderazgo.\n\ndel reino.\n\nrica.\n\ngracias a la personalidad de Elara.\n\nhistoria, política, esgrima y equitación.\n\nla torre más alta del castillo con su padre.\n\nganó su primer torneo de equitación a los\n\n12 años.\n\n##### **Miscellaneous**\n\ncarismática.\n\nambas; le encanta la aventura, pero sabe\n\ncuándo ser prudente.\n\nveces reflexiona sobre sus\n\nresponsabilidades.\n\nsalvar a un cervatillo herido cuando era\n\nniña.\n\nabandonar el castillo y vivir como una\n\nplebeya.\n\nin",
+          "tags": [
+            "Zva",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Forgotten Sword",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Tribu Aurís.",
+          "content": "Líder del grupo privado (Tribu Aurís.). Altivo, terco,\n\nvaliente, osado, líder, protector con los\n\nsuyos.\n\nVirtudes y Defectos: Altivo, protector y\n\nlíder.\n\nCreen...\n\nAltivo, terco,\n\nvaliente, osado, líder, protector con los\n\nsuyos.\n\nVirtudes y Defectos: Altivo, protector y\n\nlíder.\n\nCreencias y Filosofía de Vida: “Libertad sin\n\nalgo de control es inviable”.\n\n5. Relaciones\n\nFamilia y Amigos: Su padre, Tanns; y Kiviai,\n\nsu madre, y Nolle, su hermana menor.\n\nAliados y Mentores: Su padre y su abuelo\n\nson su inspiración.\n\nRivales y Enemigos: No le agrada mucho\n\nWal.\n\n6. Habilidades y Conocimientos\n\nHabilidades Especiales: Excelente\n\nespadachín, estrategia.\n\nExcelente espadachín, estrategia.\n\nCrianza, educación y\n\nentrenamiento militar excelente. Bajo\n\ntécnicas específicas de combate cuerpo a\n\ncuerpo.\n\n4. Personalidad y Valores\n\nRasgos de Personalidad: Altivo, terco,\n\nvaliente, osado, líder, protector con los\n\nsuyos.\n\nVirtudes y Defectos: Altivo, protector y\n\nlíder.\n\nCreencias y Filosofía de Vida: “Libertad sin\n\nalgo de control es inviable”.\n\n5. Relaciones\n\nFamilia y Amigos: Su padre, Tanns; y Kiviai,\n\nsu madre, y Nolle, su hermana menor.\n\nAliados y Mentores: Su padre y su abuelo\n\nson su inspiración.\n\nRivales y Enemigos: No le agrada mucho\n\nWal.\n\n6. Habilidades y Conocimientos\n\nHabilidades Especiales: Excelente\n\nespadachín, estrategia.\n\nNombre: Únval Leor.\n\nEdad: 22 años.\n\nGénero: Masculino.\n\nAfiliación: Tribu Aurís.\n\nOcupación o Rol: Líder del grupo privado\n\nde soldados del jefe t",
+          "tags": [
+            "",
+            "Forgotten Sword"
+          ]
+        },
+        {
+          "id": "fora-vahren",
+          "title": "Fora Vahren",
+          "saga": "Iron and Blood",
+          "role": "principal",
+          "status": "Vivo",
+          "faction": "Comandante de los Diez",
+          "content": "Comandante de los Diez de origen Tribu Heget, Clan de los Altiplanos. Cabello rubio, liso, habitualmente recogido en trenzas de combate., ojos grises acerados, con mirada fría y evaluadora..\n\nRasgos principales: Líder autoritaria, de disciplina férrea. Pragmatismo absoluto en combate: la misión y la victoria están por encima de los sentimientos. Fría y calculadora en público, pero capaz de mostrar ternura en momentos privados con personas muy cercanas. Carisma basado en el respeto y la competencia, no en el afecto abierto. Ama la precisión y el control: detesta el desorden táctico o emocional.\n\nla\n\nmisión y la victoria están por encima\n\nde los sentimientos.\n\nFría y calculadora en público, pero\n\ncapaz de mostrar ternura en\n\nmomentos privados con personas muy\n\ncercanas.\n\nCarisma basado en el respeto y la\n\ncompetencia, no en el afecto abierto.\n\nAma la precisión y el control: detesta el\n\ndesorden táctico o emocional.\n\nHabilidades destacadas:\n\nMaestría en combate cuerpo a cuerpo\n\ny con cuchillo.\n\nEstratega experimentada en\n\noperaciones de incursión y\n\nemboscadas.\n\nExcelente capacidad de lectura de la\n\nmoral y fuerza de sus soldados.\n\n📜\n\nFicha Técnica – Fora\n\nVahren\n\nNombre completo: Fora Vahren\n\nEdad: 30 años\n\nRango: Comandante de los Diez\n\nJuramentados (Primera en mando)\n\nOrigen: Tribu Heget, Clan de los Altiplanos\n\nEstado civil: Soltera (por tradición tribal)\n\nHijos: Uno (varón, no reconocido\n\noficialmente por el padre)\n\n🛡\n\nApariencia física\n\nAltura: 1,78 m\n\nComplexión: Atlética",
+          "tags": [
+            "Fora Vahren",
+            "Iron and Blood"
+          ]
+        },
+        {
+          "id": "jeriak-goge",
+          "title": "Jeriak Goge",
+          "saga": "Iron and Blood",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Segundo al mando de los Diez",
+          "content": "Segundo al mando de los Diez de origen Tribu Haget, Clan de los Valles. Cabello castaño oscuro, corto, con mechones que empiezan a mostrar canas prematuras., ojos marrón profundo, cálidos en privado pero firmes en combate..\n\nRasgos principales: Gentil y protector con quienes estima, especialmente con Fora y, en secreto, con su hijo. Valiente hasta la imprudencia cuando la vida de un compañero está en riesgo. Prefiere el diálogo antes que el castigo, aunque respeta la dureza de la disciplina tribal. Guarda un fuerte sentido del honor personal: no rompe su palabra. Más emotivo que Fora, pero sabe contenerse en público.\n\n📜\n\nFicha Técnica – Jeriak\n\nGoge\n\nNombre completo: Jeriak Goge\n\nEdad: 29 años\n\nRango: Segundo al mando de los Diez\n\nJuramentados\n\nOrigen: Tribu Haget, Clan de los Valles\n\nEstado civil: Soltero (por tradición tribal)\n\nHijos: Uno (varón, no reconocido\n\noficialmente, fruto de su unión con Elira)\n\n🛡\n\nApariencia física\n\nAltura: 1,85 m\n\nComplexión: Robusta, de hombros\n\nanchos, musculatura potente y\n\nresistente.\n\nCabello: Castaño oscuro, corto, con\n\nmechones que empiezan a mostrar\n\ncanas prematuras.\n\nOjos: Marrón profundo, cálidos en\n\nprivado pero firmes en combate.\n\nPiel: Morena, curtida por campañas\n\nprolongadas al sol y el viento.\n\nMarcas de guerra: Varias cicatrices en\n\nbrazos y torso, ninguna en el rostro.\n\nVestimenta habitual: Armadura media\n\nde cuero endurecido y placas\n\nmetálicas en hombros y antebrazos;\n\nbrazalete tribal con el emblema del\n\nClan de los Valles.\n",
+          "tags": [
+            "Jeriak Goge",
+            "Iron and Blood"
+          ]
+        },
+        {
+          "id": "jessah",
+          "title": "Jessah",
+          "saga": "Iron and BloodLotus and Oak",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Iron and BloodLotus and Oak",
+          "content": "(Iron and BloodLotus and Oak). Dócil, amable, curiosa, de voz suave...\n\nDócil, amable, curiosa, de voz suave\n\n📜\n\nFicha Técnica: Jessah\n\nNombre: Jessah Hoshin\n\nEdad: 19 años\n\nRol: Hija menor, aprendiz de medicina\n\nherbal\n\nCarácter: Dócil, amable, curiosa, de voz\n\nsuave\n\nApariencia: Cabello largo suelto, adornado\n\ncon cintas de lino. Piel clara, sonrisa dulce,\n\nojos grandes que transmiten calma. Viste\n\ntúnicas de lino bordadas con símbolos\n\nflorales.\n\nPersonalidad:\n\nEs la más espiritual de la familia,\n\ncriada para cuidar huertos medicinales\n\ny atender enfermos.\n\nPosee una visión ingenua pero sincera:\n\ncree que la unión con Kaoru puede\n\ntraer paz verdadera.\n\nSiente fascinación por la fuerza y la\n\ndeterminación de Kaoru; lo ve como\n\nuna figura protectora y casi mítica.\n\nAdmira en secreto la valentía de su\n\nhermana Aiko, pero no comparte su\n\ndureza.\n\nObjetivo Personal:\n\nConvertirse en un puente de\n\nreconciliación: sueña con suavizar el\n\ncorazón de Kaoru y, desde su rol de\n\nesposa, influir en él.\n\nSer madre de un heredero que una a\n\nlas tribus sin violencia.\n\nMantener la armonía entre ella y su\n\nhermana, aunque sospecha que Aiko\n\ndesprecia este sueño.\n\nConflicto Interno:\n\nNo distingue bien entre manipulación y\n\nprotección: su amor por Kaoru se\n\nmezcla con miedo y curiosidad.\n\nLucha por no sentirse traidora a su\n\npropio pueblo, convencida de que\n\npuede cambiar a Kaoru desde dentro.\n\n📜\n\nNotas para Explorar\n\nRelación entre hermanas: Profundiza el\n\ncontraste: Aiko es el escudo, Yume la",
+          "tags": [
+            "Jessah",
+            "Iron and BloodLotus and Oak"
+          ]
+        },
+        {
+          "id": "kaor",
+          "title": "Kaor",
+          "saga": "Iron and BloodLotus and Oak",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Iron and BloodLotus and Oak",
+          "content": "(Iron and BloodLotus and Oak). Hábil orador y estratega nato...\n\nHábil orador y estratega nato\n\nMaestro en combate cuerpo a cuerpo\n\n📜\n\nFicha Técnica: Kaor\n\nNombre: Kaor Terz\n\nEdad: 30 años\n\nRol: Líder del Clan de las Montañas del\n\nNorte; caudillo y diplomático\n\nCarácter esencial: Carismático, calculador,\n\noportunista, pragmático\n\nApariencia:\n\nComplexión atlética, hombros amplios,\n\nporte erguido.\n\nCabello largo atado en coleta,\n\nligeramente despeinado, como marca\n\nde su carácter indomable.\n\nOjos oscuros, casi negros, con una\n\nmirada profunda que oscila entre el\n\nencanto y la amenaza velada.\n\nViste ropas de viaje de telas gruesas y\n\npiel curtida; siempre porta un sable\n\ncorto de filo limpio, símbolo de su\n\nautoridad.\n\nPersonalidad:\n\nHábil orador y estratega nato: sabe\n\ncuándo mostrarse generoso, cuándo\n\ninfundir miedo y cuándo seducir.\n\nDesprecia la ingenuidad, pero la valora\n\ncomo herramienta: detecta rápido las\n\ndebilidades emocionales de otros.\n\nAunque valora la tradición como\n\ndiscurso, internamente la considera un\n\nfreno: busca moldearla a su\n\nconveniencia.\n\nGuarda un aura de rectitud cuando\n\ntrata con ancianos y sabios, pero revela\n\nsin pudor su faceta dominante con\n\naquellos a quienes controla de cerca.\n\nVirtudes:\n\nVisionario: comprende la necesidad de\n\nadaptarse a los nuevos tiempos,\n\nincluso si eso exige destruir viejas\n\ncostumbres.\n\nAstuto negociador: nunca ofrece algo\n\nsin calcular lo que puede quitar a\n\ncambio.\n\nProtector cuando le conviene: sabe\n\nganarse la lealtad",
+          "tags": [
+            "Kaor",
+            "Iron and BloodLotus and Oak"
+          ]
+        },
+        {
+          "id": "zais",
+          "title": "Zais",
+          "saga": "Iron and BloodLotus and Oak",
+          "role": "secundario",
+          "status": "Vivo",
+          "faction": "Iron and BloodLotus and Oak",
+          "content": "(Iron and BloodLotus and Oak). Firme, disciplinada, reflexiva, protectora...\n\nFirme, disciplinada, reflexiva, protectora\n\n📜\n\nFicha Técnica: Zais\n\nNombre: Zais Hoshin\n\nEdad: 22 años\n\nRol: Soldado de la guardia tribal\n\nCarácter: Firme, disciplinada, reflexiva,\n\nprotectora\n\nApariencia: Cabello oscuro recogido en un\n\nmoño de guerrera, mirada severa pero\n\nclara, estatura mediana, postura recta.\n\nViste ropajes sencillos reforzados con\n\ncuero liviano y bandas de bambú.\n\nPersonalidad:\n\nDe espíritu recto, ha jurado guardar las\n\nfronteras de su pueblo sin portar\n\narmas letales.\n\nSu sentido del deber supera su\n\ncomodidad personal: aceptaría morir\n\nantes que doblegarse… pero no puede\n\ndesobedecer la decisión del consejo.\n\nSiente un desprecio silencioso por\n\nKaor, al que ve como un bárbaro\n\ndisfrazado de noble.\n\nAma profundamente a su hermana\n\nJessa; por ello se obliga a soportar\n\nesta unión, para protegerla desde\n\ndentro.\n\nObjetivo Personal:\n\nEvitar que Kaor destruya la esencia de\n\nsu tribu.\n\nEncontrar una forma de salvaguardar\n\nsus costumbres desde su nuevo papel\n\nde esposa.\n\nMantener la dignidad de su familia, aun\n\na costa de su propia felicidad.\n\nConflicto Interno:\n\nDebe decidir si convertirse en cómplice\n\nsilenciosa o en espía y traidora en su\n\npropia casa.\n\nSufre por la ingenuidad de Jessah,\n\nteme que su hermana no comprenda\n\ncuán hondo puede llegar Kaor.",
+          "tags": [
+            "Zais",
+            "Iron and BloodLotus and Oak"
+          ]
+        },
+        {
+          "id": "",
+          "title": "",
+          "saga": "Luzumbra",
+          "role": "principal",
+          "status": "Vivo",
+          "faction": "",
+          "content": "Imagen de joven\n\nImagen de adulto\n\nTípico\n\nNombre: Zamdas\n\nApellido: Hoskalm\n\nAlias: Luzumbra\n\nCumpleaños: 1659\n\nEdad: 24 años\n\nAltura: 180 cm\n\nPeso: 70 kg\n\nGénero: Femenino\n\nAfiliación: Tribu Xosgar\n\nApariencia básica\n\nComplexión: Atlética mesomorfa.\n\nColor de piel: Pálido\n\nColor y estilo de cabello: Negro azabache,\n\nlargo y liso\n\nColor de ojos: Violáceo\n\nRasgos distintivos: Mirada penentrante\n\nForma de vestir: Elegante vestido negro de\n\nestilo clásico, escote pronunciado,\n\nmangas largas.\n\nPostura y lenguaje corporal: Erguida,\n\nsegura.\n\nExpresiones comunes: Mirada penetrante\n\nOtros detalles estéticos: Collar\n\nCaracterísticas y prioridades\n\n(1 al 5)\n\nFuerza: 3\n\nSalud: 5\n\nEnergía: 5\n\nDestreza: 4\n\nHigiene: 5\n\nEstilo: 5\n\nBelleza: 5\n\nFamilia: 1\n\nAmigos: 2\n\nAmor: 1\n\nPoder: 5\n\nFama: 4\n\nDinero: 2\n\nJusticia: 5\n\nVenganza: 4\n\nOpinión ajena: 2\n\nElogios: 4\n\nSer la mejor: 5\n\nSocial\n\n(1 al 5)\n\nHonestidad: 5\n\nObediencia: 3\n\nAstucia: 5\n\nUrbanidad: 3\n\nInterés: 3\n\nGenio: 2\n\nCarisma: 1\n\nTenebrosidad: 5\n\nTimidez: 1\n\nAgresividad: 3\n\nEmpatía: 3\n\nAdorabilidad: 1\n\nPerfeccionismo: 4\n\nHabilidades\n\n(1 al 5)\n\nCombate: 2\n\nVelocidad: 2\n\nSigilo: 4\n\nMeditación: 4\n\nPercepción: 5\n\nSupervivencia: 3\n\nFlexibilidad: 3\n\nComunicación: 5\n\nCocina: 4\n\nSeduccion: 5\n\nManipulación: 5\n\nSuerte: 4\n\nImaginación: 3\n\nMente\n\n(1 al 5)\n\nInteligencia: 5\n\nFelicidad: 3\n\nHumor: 1\n\nAnsiedad: 1\n\nPaciencia: 1\n\nPosesión: 3\n\nCelos: 2\n\nBueno o malo: Buena\n\nExtrovertido o introvertido: Introvertida\n\nAgradable o desagradable: Agradable, más\n",
+          "tags": [
+            "",
+            "Luzumbra"
+          ]
+        },
+        {
+          "id": "svalen-y-sren",
+          "title": "Üsvalen Yösren",
+          "saga": "Luzumbra",
+          "role": "principal",
+          "status": "Vivo",
+          "faction": "Reino de Sihika.",
+          "content": "General superior. (Reino de Sihika.). Reservada, leal,\n\nautoritaria, enojadiza, valiente.\n\nVirtudes y Defectos: Demasiado osada,\n\nterca, poco amable.\n\nCreencias...\n\nReservada, leal,\n\nautoritaria, enojadiza, valiente.\n\nVirtudes y Defectos: Demasiado osada,\n\nterca, poco amable.\n\nCreencias y Filosofía de Vida: Protección\n\nde los vulnerables y de sus subordinados.\n\n5. Relaciones\n\nFamilia y Amigos:  Sus subordinados la\n\nrespetan.\n\nAliados y Mentores: Su padre es su\n\ninspiración, un hombre honrado y valiente.\n\nRivales y Enemigos: Los políticos\n\nobstruyen muchas veces lo que quiere\n\nhacer.\n\n6. Habilidades y Conocimientos\n\nHabilidades Especiales: Disciplinas\n\nestratégicas.\n\nDisciplinas estratégicas.\n\nFue entrenada en un\n\nasentamiento militar en donde fue\n\nreconocida por su fiereza.\n\n4. Personalidad y Valores\n\nRasgos de Personalidad: Reservada, leal,\n\nautoritaria, enojadiza, valiente.\n\nVirtudes y Defectos: Demasiado osada,\n\nterca, poco amable.\n\nCreencias y Filosofía de Vida: Protección\n\nde los vulnerables y de sus subordinados.\n\n5. Relaciones\n\nFamilia y Amigos:  Sus subordinados la\n\nrespetan.\n\nAliados y Mentores: Su padre es su\n\ninspiración, un hombre honrado y valiente.\n\nRivales y Enemigos: Los políticos\n\nobstruyen muchas veces lo que quiere\n\nhacer.\n\n6. Habilidades y Conocimientos\n\nHabilidades Especiales: Disciplinas\n\nestratégicas.\n\nNombre: Üsvalen Yösren\n\nEdad: 24 años.\n\nGénero: Femenino.\n\nAfiliación: Reino de Sihika.\n\nOcupación o Rol: General superior.\n\n2. Descripción Física\n\nApari",
+          "tags": [
+            "Üsvalen Yösren",
+            "Luzumbra"
+          ]
+        }
+      ]
+    }
+  }
+}

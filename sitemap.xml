@@ -7,6 +7,13 @@
     <changefreq>weekly</changefreq>
   </url>
 
+  <!-- El saber del mundo (Compendio canónico) -->
+  <url>
+    <loc>https://ferb22.github.io/universo-lignum/saber-del-mundo/</loc>
+    <priority>0.95</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
   <!-- Historias Principales y Cuentos -->
   <url>
     <loc>https://ferb22.github.io/universo-lignum/getting-to-know/</loc>
