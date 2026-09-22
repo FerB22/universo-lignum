@@ -52,6 +52,85 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   </script>
 
+  <!-- Datos estructurados Google (Série Literaria y Autor) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWorkSeries",
+    "name": "Universo Lignum",
+    "description": "Saga literaria de fantasía épica compuesta por novelas, cuentos y relatos creados por el escritor chileno Fernando Barra. Sus obras exploran guerras tribales, dramas de Estado, crónicas de honor y fábulas morales ambientadas en un universo de fantasía unificado.",
+    "genre": ["Fantasía épica", "Fantasía tribal", "Ficción de Estado"],
+    "inLanguage": "es",
+    "url": "https://ferb22.github.io/universo-lignum/",
+    "author": {
+      "@type": "Person",
+      "name": "Fernando Barra",
+      "nationality": "CL",
+      "sameAs": [
+        "https://www.instagram.com/herr_ferb",
+        "https://www.facebook.com/fernando.barra.942/",
+        "https://www.linkedin.com/in/fernando-barra-920ab0379/"
+      ]
+    },
+    "hasPart": [
+      {
+        "@type": "ShortStory",
+        "name": "Getting to Know",
+        "description": "Cuento completo de fantasía tribal. Un exguardia fronterizo halla redención al proteger a Ameřa en los montes del suroeste, entre las costumbres de la tribu Häscht.",
+        "author": { "@type": "Person", "name": "Fernando Barra" },
+        "inLanguage": "es",
+        "genre": "Fantasía tribal",
+        "url": "https://ferb22.github.io/universo-lignum/getting-to-know/"
+      },
+      {
+        "@type": "Book",
+        "name": "Forgotten Sword",
+        "description": "Novela de fantasía oscura. Entre guerras tribales y pactos diplomáticos, guerreros y caudillos luchan por sobrevivir a la marea enemiga de Gricái.",
+        "author": { "@type": "Person", "name": "Fernando Barra" },
+        "inLanguage": "es",
+        "genre": "Fantasía oscura",
+        "url": "https://ferb22.github.io/universo-lignum/forgotten-sword/"
+      },
+      {
+        "@type": "Book",
+        "name": "La Piedra sin Pulir",
+        "description": "Fábula moral en cuatro actos. Un poderoso señor engendra hijos sin disciplina; cuando la soberbia desencadena la tragedia, enfrenta una sentencia implacable.",
+        "author": { "@type": "Person", "name": "Fernando Barra" },
+        "inLanguage": "es",
+        "genre": "Fábula moral",
+        "url": "https://ferb22.github.io/universo-lignum/la-piedra-sin-pulir/"
+      },
+      {
+        "@type": "Book",
+        "name": "Ruk el Héroe",
+        "description": "Saga épica. Ruk y sus hermanos de armas marchan hacia el frente de Ende para unir a los pueblos y resistir la embestida enemiga.",
+        "author": { "@type": "Person", "name": "Fernando Barra" },
+        "inLanguage": "es",
+        "genre": "Fantasía épica",
+        "url": "https://ferb22.github.io/universo-lignum/ruk-el-heroe/"
+      },
+      {
+        "@type": "Book",
+        "name": "Sangre y Cadáveres",
+        "description": "Relato crudo sobre el renacimiento tras la devastación: resistencia armada, precio de la represalia y la oscuridad del universo escarlata.",
+        "author": { "@type": "Person", "name": "Fernando Barra" },
+        "inLanguage": "es",
+        "genre": "Fantasía oscura",
+        "url": "https://ferb22.github.io/universo-lignum/sangre-y-cadaveres/"
+      },
+      {
+        "@type": "Book",
+        "name": "The Marriage of the Republic",
+        "description": "Ficción de Estado. Dramas de gobierno, alianzas de conveniencia y las encrucijadas morales de un matrimonio sellado para salvar una república al borde de la capitulación.",
+        "author": { "@type": "Person", "name": "Fernando Barra" },
+        "inLanguage": "es",
+        "genre": "Intriga política",
+        "url": "https://ferb22.github.io/universo-lignum/marriage-of-the-republic/"
+      }
+    ]
+  }
+  </script>
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -953,6 +1032,101 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border-color: var(--colors-gold);
       box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
     }
+
+    /* ── FAQ SECTION ── */
+    .faq-section {
+      padding: 5rem 1.5rem 4rem;
+      position: relative;
+    }
+    .faq-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(212, 175, 55, 0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .faq-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .faq-heading {
+      font-family: var(--fonts-heading);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--colors-goldLight);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .faq-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .faq-item {
+      background: var(--colors-surfaceCard);
+      border: 1.5px solid rgba(212, 175, 55, 0.18);
+      border-radius: 14px;
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .faq-item[open] {
+      border-color: rgba(212, 175, 55, 0.4);
+      box-shadow: 0 4px 24px rgba(212, 175, 55, 0.1);
+    }
+    .faq-question {
+      font-family: var(--fonts-ui);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--colors-goldLight);
+      padding: 1.1rem 1.4rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      user-select: none;
+      transition: color 0.2s ease;
+    }
+    .faq-question::-webkit-details-marker { display: none; }
+    .faq-question::after {
+      content: '›';
+      font-size: 1.4rem;
+      color: var(--colors-gold);
+      transform: rotate(90deg);
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+    .faq-item[open] .faq-question::after {
+      transform: rotate(270deg);
+    }
+    .faq-question:hover { color: var(--colors-gold); }
+    .faq-answer {
+      font-family: var(--fonts-body);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--colors-textMuted);
+      padding: 0 1.4rem 1.2rem;
+    }
+    .faq-answer p { margin-bottom: 0.5rem; }
+    .faq-answer ul {
+      padding-left: 1.2rem;
+      margin-top: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .faq-answer li { color: var(--colors-textMuted); }
+    .faq-answer strong { color: var(--colors-goldLight); font-weight: 600; }
+    .faq-answer em { color: var(--colors-emeraldLight); font-style: italic; }
   </style>
   <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
   <meta property="og:type" content="website" />
@@ -1374,6 +1548,111 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     // Inicializar carrusel al cargar
     document.addEventListener('DOMContentLoaded', initCarousel);
+  </script>
+
+  <!-- SECCIÓN FAQ — PREGUNTAS FRECUENTES SOBRE UNIVERSO LIGNUM -->
+  <section class="faq-section" aria-label="Preguntas frecuentes sobre Universo Lignum">
+    <div class="faq-inner">
+      <span class="hero-crest" style="font-size: 0.75rem; letter-spacing: 0.25em; color: var(--colors-gold); opacity: 0.7;">✦ CONOCE EL UNIVERSO ✦</span>
+      <h2 class="faq-heading">Preguntas frecuentes</h2>
+
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary class="faq-question">¿Qué es el Universo Lignum?</summary>
+          <div class="faq-answer">
+            <p>El <strong>Universo Lignum</strong> es una saga literaria de fantasía épica creada por el escritor chileno <strong>Fernando Barra</strong>. Se trata de un universo de ficción unificado que engloba novelas, cuentos completos, fábulas morales y relatos de intriga política, todos ambientados en un mismo mundo de culturas tribales, guerras ancestrales y drama político. El proyecto se publica de forma independiente a través de esta biblioteca digital.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">¿Quién es el autor de las obras del Universo Lignum?</summary>
+          <div class="faq-answer">
+            <p>Todas las obras del Universo Lignum son escritas por <strong>Fernando Barra</strong>, escritor independiente chileno. Es el creador de toda la mitología, los personajes y las historias que conforman este universo de fantasía.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">¿Qué obras o historias componen este universo literario?</summary>
+          <div class="faq-answer">
+            <p>El Universo Lignum está compuesto actualmente por las siguientes obras:</p>
+            <ul>
+              <li><strong>Getting to Know</strong> — Cuento completo de fantasía tribal.</li>
+              <li><strong>Forgotten Sword</strong> — Novela de fantasía oscura en 14 capítulos.</li>
+              <li><strong>La Piedra sin Pulir</strong> — Fábula moral estructurada en cuatro actos.</li>
+              <li><strong>Ruk el Héroe</strong> — Saga épica sobre unión tribal y guerra.</li>
+              <li><strong>Sangre y Cadáveres</strong> — Relato crudo de venganza y supervivencia.</li>
+              <li><strong>The Marriage of the Republic</strong> — Ficción de intriga política y Estado.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">¿Es «Getting to Know» una novela o un cuento?</summary>
+          <div class="faq-answer">
+            <p><em>Getting to Know</em> es un <strong>cuento completo</strong> (relato breve) de fantasía tribal, no una novela. La obra narra la historia de un exguardia fronterizo que halla redención al proteger a Ameřa en los montes del suroeste, sorteando el recelo y las costumbres ancestrales de la tribu Häscht. Está disponible para su lectura íntegra en esta biblioteca.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">¿Dónde puedo leer las historias del Universo Lignum?</summary>
+          <div class="faq-answer">
+            <p>Todas las obras se publican de forma gratuita en esta biblioteca digital, accesible en <strong>ferb22.github.io/universo-lignum</strong>. Cada obra cuenta con su propia sección donde puedes leer capítulos, conocer a los personajes y consultar el archivo canónico «El saber del mundo».</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Datos estructurados Google (FAQ para Gemini AI Overview) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué es el Universo Lignum?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El Universo Lignum es una saga literaria de fantasía épica creada por el escritor chileno Fernando Barra. Es un universo de ficción unificado que engloba novelas, cuentos completos, fábulas morales y relatos de intriga política, todos ambientados en un mundo de culturas tribales, guerras ancestrales y drama político."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Quién es el autor de las obras del Universo Lignum?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Todas las obras del Universo Lignum son escritas por Fernando Barra, escritor independiente chileno, creador de toda la mitología, personajes e historias que conforman este universo de fantasía."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué obras o historias componen el Universo Lignum?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El Universo Lignum está compuesto por: Getting to Know (cuento completo de fantasía tribal), Forgotten Sword (novela de fantasía oscura en 14 capítulos), La Piedra sin Pulir (fábula moral en cuatro actos), Ruk el Héroe (saga épica), Sangre y Cadáveres (relato de venganza y supervivencia) y The Marriage of the Republic (ficción de intriga política)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Es Getting to Know una novela o un cuento?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Getting to Know es un cuento completo (relato breve) de fantasía tribal escrito por Fernando Barra, no una novela. Narra la historia de un exguardia fronterizo que halla redención al proteger a Ameřa entre las costumbres de la tribu Häscht."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Dónde puedo leer las historias del Universo Lignum?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Todas las obras se publican gratuitamente en la biblioteca digital en ferb22.github.io/universo-lignum. Cada historia tiene su propia sección con capítulos, fichas de personajes y el archivo canónico El saber del mundo."
+        }
+      }
+    ]
+  }
   </script>
 
   <!-- FOOTER -->
