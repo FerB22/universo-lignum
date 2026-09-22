@@ -60,3 +60,23 @@ Registro histórico de incidencias, errores, fallos técnicos y sus resoluciones
    - Se añadió `white-space: nowrap;`, `flex-shrink: 0;` y un degradado sutil con efecto táctil a `.header-seal-btn`.
    - Se implementaron puntos de quiebre `@media (max-width: 900px)`, `@media (max-width: 600px)` y `@media (max-width: 380px)` ajustando rellenos, tamaño del isotipo y tipografía.
    - Se introdujo una variante de etiqueta adaptativa: en pantallas grandes se visualiza «El saber del mundo» y en pantallas móviles se compacta elegantemente a «El saber», preservando la estética heráldica y de insignia pulida.
+
+---
+
+### Entrada: 22 de septiembre de 2026 — Visibilidad y fijación del botón «Abrir archivo completo» en el menú lateral móvil
+
+1. **Fecha y contexto / entorno:**
+   - **Fecha:** 22 de septiembre de 2026.
+   - **Entorno:** Menú lateral desplegable (*drawer*) de la enciclopedia «El saber del mundo» en navegadores móviles (Chrome, Brave, Safari en Android e iOS).
+
+2. **Problema detectado:**
+   - Al abrir el panel lateral en celulares, el botón inferior «Abrir archivo completo» quedaba oculto o cortado debajo de la barra de navegación del navegador móvil, impidiendo al usuario pulsar el botón para acceder al compendio completo.
+
+3. **Causa raíz:**
+   - **Uso estricto de `100vh`:** En navegadores móviles, `100vh` calcula la altura ignorando la barra dinámica de navegación y herramientas inferior del navegador, empujando los últimos 60 a 80 px de contenido fuera del área visible de la pantalla.
+   - **Falta de contención flexible (`min-height: 0` y `flex-shrink: 0`):** El cuerpo con la lista de entradas (`.drawer-body`) expandía la altura del panel flexible, mientras que el pie (`.drawer-footer`) carecía de anclaje estático (`margin-top: auto; flex-shrink: 0`).
+
+4. **Solución aplicada:**
+   - Se actualizó `.drawer-panel` empleando unidades de visualización dinámica moderna (`height: 100dvh; max-height: 100dvh; bottom: 0;`).
+   - Se configuró `.drawer-body` con `flex: 1 1 0%; min-height: 0; overflow-y: auto;`, garantizando que únicamente la lista intermedia se desplace con *scroll*.
+   - Se fijó `.drawer-footer` con `flex-shrink: 0; margin-top: auto;` y relleno compensatorio para áreas seguras (`env(safe-area-inset-bottom)`), asegurando que el botón permanezca visible y anclado al pie del panel en todo momento.
