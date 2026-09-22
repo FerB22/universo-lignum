@@ -557,16 +557,71 @@
     }
 
     .detail-modal-body {
-      padding: 2rem;
+      padding: 1.5rem 2rem;
       overflow-y: auto;
       color: #E2E8F0;
       font-family: var(--fonts-body);
-      font-size: 1.05rem;
+      font-size: 1rem;
       line-height: 1.85;
-      white-space: pre-line;
       display: flex;
       flex-direction: column;
-      gap: 1.4rem;
+      gap: 1rem;
+    }
+
+    /* Introducción (texto antes del primer encabezado) */
+    .modal-intro {
+      font-style: italic;
+      color: var(--colors-goldLight);
+      font-size: 1.05rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+    }
+
+    /* Párrafos genéricos (entradas sin emojis) */
+    .modal-para {
+      color: #CBD5E1;
+      font-size: 0.97rem;
+    }
+
+    /* Bloque de sección con emoji-encabezado */
+    .modal-section {
+      background: rgba(212, 175, 55, 0.04);
+      border: 1px solid rgba(212, 175, 55, 0.12);
+      border-radius: 10px;
+      padding: 0.9rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .modal-section-head {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .modal-section-emoji {
+      font-size: 1.15rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .modal-section-label {
+      font-family: var(--fonts-ui);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--colors-gold);
+    }
+
+    .modal-section-body {
+      font-family: var(--fonts-body);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: #CBD5E1;
+      white-space: pre-line;
+      padding-top: 0.2rem;
     }
 
     .detail-modal-tags {
@@ -863,7 +918,7 @@
       modalCategoryBadge.textContent = `${item.catIcon} ${item.catName}`;
       modalSagaBadge.textContent = item.saga || (item.period ? `Época: ${item.period}` : '');
       modalTitle.textContent = item.title;
-      modalBody.textContent = item.content;
+      modalBody.innerHTML = formatContent(item.content);
 
       if (item.tags && item.tags.length > 0) {
         modalTags.style.display = 'flex';
@@ -879,6 +934,99 @@
       const newUrl = new URL(window.location);
       newUrl.searchParams.set('item', item.id);
       window.history.replaceState({}, '', newUrl);
+    }
+
+    /**
+     * Convierte el texto plano del compendio en HTML estructurado.
+     * - Las líneas que comienzan con un emoji se tratan como encabezados de sección.
+     * - Las demás líneas se unen en párrafos continuos dentro de cada sección.
+     */
+    function formatContent(raw) {
+      if (!raw) return '';
+
+      // Regex para detectar si una línea empieza con emoji
+      const emojiHeadRe = /^[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}🗺🛡👤💠🩸📜🌄⚔🏔🌊🔥❄🌿🌙☀🌟💫✦✤🔰🎯🗡️🧭📖🌐🏛🕌⚡🐲🌺🎭🔮🪄🛕🗻🌋🌌🎪🎨]/u;
+
+      const lines = raw.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+
+      const sections = [];
+      let current = null;
+
+      for (const line of lines) {
+        if (emojiHeadRe.test(line)) {
+          // Es encabezado de sección — extraer emoji + texto
+          const match = line.match(/^([\p{Emoji_Presentation}\p{Extended_Pictographic}]+\s*)/u);
+          const emoji = match ? match[1].trim() : '';
+          const label = line.slice(emoji.length).replace(/:$/, '').trim();
+          current = { emoji, label, lines: [] };
+          sections.push(current);
+        } else {
+          if (current) {
+            current.lines.push(line);
+          } else {
+            // Texto introductorio antes del primer encabezado
+            sections.push({ emoji: '', label: '', lines: [line] });
+            current = sections[sections.length - 1];
+          }
+        }
+      }
+
+      // Si no se detectó ninguna sección (sin emojis), renderizar como párrafos simples
+      if (sections.length === 0 || sections.every(s => !s.emoji)) {
+        const unified = lines.join(' ');
+        const paragraphs = unified.split(/\s{2,}|\.\s+(?=[A-ZÁÉÍÓÚÑ])/).filter(p => p.trim());
+        return paragraphs.map(p => `<p class="modal-para">${escapeHtml(p.trim())}</p>`).join('');
+      }
+
+      return sections.map(section => {
+        // Unir líneas del cuerpo: concatenar hasta que la línea termine en punto/signo
+        // o sea corta (línea partida artificialmente)
+        const body = joinLines(section.lines);
+
+        if (!section.emoji && !section.label) {
+          return body ? `<p class="modal-para modal-intro">${escapeHtml(body)}</p>` : '';
+        }
+
+        const headLabel = section.label
+          ? `<span class="modal-section-emoji">${section.emoji}</span><span class="modal-section-label">${escapeHtml(section.label)}</span>`
+          : `<span class="modal-section-emoji">${section.emoji}</span>`;
+
+        const bodyHtml = body
+          ? `<div class="modal-section-body">${escapeHtml(body)}</div>`
+          : '';
+
+        return `
+          <div class="modal-section">
+            <div class="modal-section-head">${headLabel}</div>
+            ${bodyHtml}
+          </div>`;
+      }).join('');
+    }
+
+    /**
+     * Une líneas partidas artificialmente en párrafos coherentes.
+     * Si la línea anterior termina sin puntuación final, se une a la siguiente con espacio.
+     */
+    function joinLines(lines) {
+      if (!lines || lines.length === 0) return '';
+      const result = [];
+      let buffer = '';
+      for (const line of lines) {
+        if (!buffer) {
+          buffer = line;
+        } else {
+          const lastChar = buffer[buffer.length - 1];
+          const endsWithPunct = /[.!?»)]$/.test(lastChar);
+          if (endsWithPunct) {
+            result.push(buffer);
+            buffer = line;
+          } else {
+            buffer += ' ' + line;
+          }
+        }
+      }
+      if (buffer) result.push(buffer);
+      return result.join('\n');
     }
 
     function closeModal() {
