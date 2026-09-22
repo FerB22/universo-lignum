@@ -289,7 +289,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       align-items: center;
       gap: 8px;
       padding: 7px 18px;
-      background: rgba(212, 175, 55, 0.1);
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(140, 109, 59, 0.08) 100%);
       border: 1px solid rgba(212, 175, 55, 0.4);
       border-radius: var(--radii-badge);
       color: var(--colors-goldLight);
@@ -300,21 +300,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       text-transform: uppercase;
       cursor: pointer;
       backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       transition: all 0.25s ease;
       user-select: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
     .header-seal-btn:hover {
-      background: rgba(212, 175, 55, 0.22);
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(140, 109, 59, 0.2) 100%);
       border-color: var(--colors-gold);
       color: #FFFFFF;
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.35);
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
       transform: translateY(-2px);
+    }
+
+    .header-seal-btn:active {
+      transform: scale(0.97);
     }
 
     .seal-icon {
       color: var(--colors-gold);
       font-size: 0.85rem;
+      line-height: 1;
+    }
+
+    .seal-text-full {
+      display: inline;
+    }
+
+    .seal-text-short {
+      display: none;
     }
 
     /* CONTENEDOR PRINCIPAL */
@@ -692,6 +709,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* RESPONSIVIDAD */
     @media (max-width: 900px) {
+      header {
+        padding: 0.85rem 1.4rem;
+      }
+      .brand-title {
+        font-size: 1.15rem;
+        letter-spacing: 2px;
+      }
+      .header-seal-btn {
+        padding: 6px 14px;
+        font-size: 0.74rem;
+      }
       .showcase-card {
         grid-template-columns: 1fr;
         padding: 2.2rem 1.5rem;
@@ -731,6 +759,50 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     @media (max-width: 600px) {
+      header {
+        padding: 0.65rem 0.9rem;
+      }
+      .header-container {
+        gap: 0.6rem;
+      }
+      .brand {
+        gap: 0.6rem;
+        min-width: 0;
+        flex: 1;
+      }
+      .brand-logo-img {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+      }
+      .brand-title {
+        font-size: 0.98rem;
+        letter-spacing: 1.2px;
+        white-space: nowrap;
+      }
+      .brand-sub {
+        font-size: 0.66rem;
+        letter-spacing: 0.2px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 175px;
+      }
+      .header-seal-btn {
+        padding: 6px 11px;
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        gap: 5px;
+      }
+      .seal-icon {
+        font-size: 0.75rem;
+      }
+      .seal-text-full {
+        display: none;
+      }
+      .seal-text-short {
+        display: inline;
+      }
       .showcase-cover-wrapper {
         max-width: 240px;
         height: 330px;
@@ -762,6 +834,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
       .title-nav-separator {
         display: none;
+      }
+    }
+
+    @media (max-width: 380px) {
+      header {
+        padding: 0.55rem 0.7rem;
+      }
+      .brand-sub {
+        display: none;
+      }
+      .brand-title {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+      }
+      .header-seal-btn {
+        padding: 5px 9px;
+        font-size: 0.66rem;
+        letter-spacing: 0.5px;
       }
     }
 
@@ -1159,9 +1249,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="brand-sub">Biblioteca y crónicas de fantasía por Fernando Barra</span>
         </div>
       </a>
-      <button class="header-seal-btn" id="openDrawerBtn" aria-label="Abrir El saber del mundo">
+      <button class="header-seal-btn" id="openDrawerBtn" aria-label="Abrir El saber del mundo" title="Abrir El saber del mundo">
         <span class="seal-icon">✦</span>
-        El saber del mundo
+        <span class="seal-text-full">El saber del mundo</span>
+        <span class="seal-text-short">El saber</span>
       </button>
     </div>
   </header>
