@@ -40,3 +40,23 @@ Registro histórico de incidencias, errores, fallos técnicos y sus resoluciones
      }
      </script>
      ```
+
+---
+
+### Entrada: 22 de septiembre de 2026 — Corrección visual y responsiva del botón «El saber del mundo» en móviles
+
+1. **Fecha y contexto / entorno:**
+   - **Fecha:** 22 de septiembre de 2026.
+   - **Entorno:** Dispositivos móviles (pantallas estrechas <= 600 px) en la portada principal `index.html`.
+
+2. **Problema detectado:**
+   - En celulares, el botón de acceso al compendio «El saber del mundo» se deformaba convirtiéndose en un óvalo vertical gigante, con su texto apilado en cuatro renglones («EL \n SABER \n DEL \n MUNDO») y aplastando visualmente la cabecera.
+
+3. **Causa raíz:**
+   - **Ausencia de `white-space: nowrap` y `flex-shrink: 0`:** Al reducirse el ancho de la pantalla, el contenedor flexible comprimía el botón y quebraba cada palabra de la frase por sus espacios.
+   - **Carencia de reglas adaptadas en medios móviles:** El encabezado mantenía los rellenos de escritorio (`padding: 1.1rem 2rem;`), restando más de 64 px útiles y saturando el ancho disponible.
+
+4. **Solución aplicada:**
+   - Se añadió `white-space: nowrap;`, `flex-shrink: 0;` y un degradado sutil con efecto táctil a `.header-seal-btn`.
+   - Se implementaron puntos de quiebre `@media (max-width: 900px)`, `@media (max-width: 600px)` y `@media (max-width: 380px)` ajustando rellenos, tamaño del isotipo y tipografía.
+   - Se introdujo una variante de etiqueta adaptativa: en pantallas grandes se visualiza «El saber del mundo» y en pantallas móviles se compacta elegantemente a «El saber», preservando la estética heráldica y de insignia pulida.
