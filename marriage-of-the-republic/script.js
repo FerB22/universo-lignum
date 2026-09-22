@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
     card.addEventListener('click', () => {
       const textToCopy = card.querySelector('p') ? card.querySelector('p').innerText : card.innerText;
       navigator.clipboard.writeText(textToCopy).then(() => {
-        showToast('📋 Frase copiada al portapapeles');
+        showToast('✓ Frase copiada al portapapeles');
       }).catch(err => {
         console.error('Error al copiar:', err);
       });

@@ -80,3 +80,23 @@ Registro histórico de incidencias, errores, fallos técnicos y sus resoluciones
    - Se actualizó `.drawer-panel` empleando unidades de visualización dinámica moderna (`height: 100dvh; max-height: 100dvh; bottom: 0;`).
    - Se configuró `.drawer-body` con `flex: 1 1 0%; min-height: 0; overflow-y: auto;`, garantizando que únicamente la lista intermedia se desplace con *scroll*.
    - Se fijó `.drawer-footer` con `flex-shrink: 0; margin-top: auto;` y relleno compensatorio para áreas seguras (`env(safe-area-inset-bottom)`), asegurando que el botón permanezca visible y anclado al pie del panel en todo momento.
+
+---
+
+### Entrada: 22 de septiembre de 2026 — Supresión integral de emojis y migración a iconos vectoriales SVG
+
+1. **Fecha y contexto / entorno:**
+   - **Fecha:** 22 de septiembre de 2026.
+   - **Entorno:** Sitio web completo del Universo Lignum (portada `index.html`, compendio `saber-del-mundo/index.html`, base de datos JSON `public/compendio-canonico.json` y utilidades interactivas `marriage-of-the-republic/script.js`).
+
+2. **Problema detectado:**
+   - Presencia de emojis gráficos policromáticos del sistema operativo en botones de pestañas, barras de búsqueda, botones de llamada a la acción y datos de texto canónico. Dichos emojis provocaban inconsistencias visuales según el dispositivo (Android, iOS, Windows, macOS) y rompían la atmósfera medieval sobria y elegante de la obra literaria.
+
+3. **Causa raíz:**
+   - Uso histórico de glifos emoji como solución rápida para representar conceptos iconográficos (lupa, libro, mapa, escudo, espadas, pergamino) en lugar de gráficos vectoriales integrados al sistema de diseño.
+
+4. **Solución aplicada:**
+   - **Sustitución en interfaz:** Se reemplazaron todos los emojis de navegación, búsqueda y botones por iconos vectoriales SVG limpios (`stroke: currentColor`, `width: 16-18 px`), dotados de coherencia estilística.
+   - **Modernización de la base canónica:** En `public/compendio-canonico.json`, los iconos de categoría se migraron a identificadores semánticos (`cosmologia`, `geografia`, `facciones`, `saber`, `cronologia`, `lengua`), mapeados en JavaScript hacia sus respectivos SVG.
+   - **Estructuración del texto narrativo:** En las fichas con emojis como divisores (`tribu-koralenn` y `tribu-zomina`), se sustituyeron los glifos por marcadores de encabezado textuales (`[NOMBRE]:`, `[UBICACIÓN Y TERRITORIO]:`, `[CULTURA]:`), actualizando el analizador sintáctico `formatContent()` para estructurarlas en cajas visuales sin depender de expresiones regulares sobre rangos Unicode de emojis.
+   - **Símbolos tipográficos:** Se conservaron únicamente los caracteres tipográficos clásicos (`✦`, `✤`, `✕`), cuyo renderizado es estrictamente monocromático y heráldico.

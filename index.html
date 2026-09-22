@@ -1010,9 +1010,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       left: 2.4rem;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 0.9rem;
       color: var(--colors-gold);
       pointer-events: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .drawer-body {
@@ -1328,7 +1330,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="showcase-cover-wrapper" id="showcaseCoverWrapper">
             <img src="https://i.ibb.co/TM63LgTZ/Portada-de-Getting-to-Know.png" alt="Portada de la crónica" id="showcaseCoverImg" class="showcase-cover-img">
             <div id="showcasePlaceholder" class="cover-placeholder" style="display: none;">
-              <span class="placeholder-rune">⚔</span>
+              <span class="placeholder-rune">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"></polyline><line x1="13" y1="19" x2="19" y2="13"></line><line x1="16" y1="16" x2="20" y2="20"></line><line x1="19" y1="21" x2="21" y2="19"></line></svg>
+              </span>
               <span class="placeholder-title" id="showcasePlaceholderTitle">Ruk el Héroe</span>
               <span class="placeholder-subtitle">Portada en creación</span>
             </div>
@@ -1349,7 +1353,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="story-pills" id="detailPills"></div>
             
             <!-- Botón de acción principal destacado -->
-            <a href="./getting-to-know/index.html" id="detailCtaBtn" class="story-cta-btn">Abrir crónica y leer 📖</a>
+            <a href="./getting-to-know/index.html" id="detailCtaBtn" class="story-cta-btn">
+              <span>Abrir crónica y leer</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            </a>
           </div>
         </div>
 
@@ -1386,7 +1393,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="drawer-search-wrapper">
-      <span class="drawer-search-icon">🔍</span>
+      <span class="drawer-search-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </span>
       <input type="text" id="drawerSearchInput" class="drawer-search-input" placeholder="Buscar en el archivo..." aria-label="Buscar en el archivo">
     </div>
 
@@ -1396,7 +1408,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="drawer-footer">
       <a href="./saber-del-mundo/index.html" class="drawer-hub-btn">
-        <span>Abrir archivo completo 📖</span>
+        <span>Abrir archivo completo</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
       </a>
     </div>
   </aside>

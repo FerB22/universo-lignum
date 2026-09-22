@@ -283,9 +283,11 @@
       left: 1.2rem;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 1.2rem;
       color: var(--colors-gold);
       pointer-events: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* PESTAÑAS DE NAVEGACIÓN TEMÁTICA */
@@ -327,6 +329,13 @@
       color: #FFFFFF;
       border-color: var(--colors-gold);
       box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .cat-svg-icon {
+      display: inline-block;
+      vertical-align: middle;
+      stroke: currentColor;
+      flex-shrink: 0;
     }
 
     /* CUADRÍCULA DE CONTENIDOS (TARJETAS COMPACTAS) */
@@ -739,18 +748,38 @@
 
     <!-- BARRA DE BÚSQUEDA -->
     <div class="search-box-wrapper">
-      <span class="search-icon">🔍</span>
+      <span class="search-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </span>
       <input type="text" id="searchInput" class="search-input" placeholder="Buscar por enclave, disciplina, facción o término..." aria-label="Buscar en el compendio">
     </div>
 
     <!-- PESTAÑAS DE CATEGORÍAS -->
     <div class="categories-bar" id="categoriesBar">
       <button class="category-tab-btn active" data-cat="all">✦ Todo el archivo</button>
-      <button class="category-tab-btn" data-cat="geografia">🗺️ Geografía (14)</button>
-      <button class="category-tab-btn" data-cat="facciones">🛡️ Facciones (9)</button>
-      <button class="category-tab-btn" data-cat="saber">⚔️ Saber y disciplinas</button>
-      <button class="category-tab-btn" data-cat="cronologia">📜 Cronología</button>
-      <button class="category-tab-btn" data-cat="lengua">📖 Lengua Märik</button>
+      <button class="category-tab-btn" data-cat="geografia">
+        <svg class="cat-svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
+        <span>Geografía (14)</span>
+      </button>
+      <button class="category-tab-btn" data-cat="facciones">
+        <svg class="cat-svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <span>Facciones (9)</span>
+      </button>
+      <button class="category-tab-btn" data-cat="saber">
+        <svg class="cat-svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"></polyline><line x1="13" y1="19" x2="19" y2="13"></line><line x1="16" y1="16" x2="20" y2="20"></line><line x1="19" y1="21" x2="21" y2="19"></line></svg>
+        <span>Saber y disciplinas</span>
+      </button>
+      <button class="category-tab-btn" data-cat="cronologia">
+        <svg class="cat-svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+        <span>Cronología</span>
+      </button>
+      <button class="category-tab-btn" data-cat="lengua">
+        <svg class="cat-svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+        <span>Lengua Märik</span>
+      </button>
     </div>
   </section>
 
@@ -767,7 +796,10 @@
       <div class="detail-modal-header">
         <div class="detail-header-left">
           <div style="display: flex; align-items: center; gap: 8px;">
-            <span class="card-category-badge" id="modalCategoryBadge">🗺️ Geografía</span>
+            <span class="card-category-badge" id="modalCategoryBadge">
+              <svg class="cat-svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
+              <span>Geografía</span>
+            </span>
             <span class="card-saga-badge" id="modalSagaBadge"></span>
           </div>
           <h2 class="detail-modal-title" id="modalTitle">Título del Registro</h2>
@@ -807,6 +839,19 @@
     let searchQuery = '';
     let flatItemsMap = new Map();
 
+    const iconSVG = {
+      cosmologia: `<svg class="cat-svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>`,
+      geografia: `<svg class="cat-svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>`,
+      facciones: `<svg class="cat-svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`,
+      saber: `<svg class="cat-svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"></polyline><line x1="13" y1="19" x2="19" y2="13"></line><line x1="16" y1="16" x2="20" y2="20"></line><line x1="19" y1="21" x2="21" y2="19"></line></svg>`,
+      cronologia: `<svg class="cat-svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>`,
+      lengua: `<svg class="cat-svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>`
+    };
+
+    function getCategoryIcon(catKey) {
+      return iconSVG[catKey] || '<span class="cat-svg-icon">✦</span>';
+    }
+
     const entriesGrid = document.getElementById('entriesGrid');
     const searchInput = document.getElementById('searchInput');
     const categoriesBar = document.getElementById('categoriesBar');
@@ -835,6 +880,7 @@
             flatItemsMap.set(uniqueKey, {
               ...item,
               uniqueKey: uniqueKey,
+              catKey: catKey,
               catName: cat.name,
               catIcon: cat.icon
             });
@@ -900,7 +946,7 @@
         return `
           <article class="lore-card" data-key="${item.uniqueKey}">
             <div class="card-top-meta">
-              <span class="card-category-badge">${item.catIcon} ${escapeHtml(item.catName)}</span>
+              <span class="card-category-badge">${getCategoryIcon(item.catKey || item.catIcon)} <span>${escapeHtml(item.catName)}</span></span>
               ${sagaText}
             </div>
             <h2 class="card-title">${escapeHtml(item.title)}</h2>
@@ -915,7 +961,7 @@
     }
 
     function openModal(item) {
-      modalCategoryBadge.textContent = `${item.catIcon} ${item.catName}`;
+      modalCategoryBadge.innerHTML = `${getCategoryIcon(item.catKey || item.catIcon)} <span>${escapeHtml(item.catName)}</span>`;
       modalSagaBadge.textContent = item.saga || (item.period ? `Época: ${item.period}` : '');
       modalTitle.textContent = item.title;
       modalBody.innerHTML = formatContent(item.content);
@@ -938,14 +984,14 @@
 
     /**
      * Convierte el texto plano del compendio en HTML estructurado.
-     * - Las líneas que comienzan con un emoji se tratan como encabezados de sección.
-     * - Las demás líneas se unen en párrafos continuos dentro de cada sección.
+     * - Detecta encabezados [ETIQUETA]: para estructurar en secciones.
+     * - Si no hay etiquetas, une en párrafos continuos.
      */
     function formatContent(raw) {
       if (!raw) return '';
 
-      // Regex para detectar si una línea empieza con emoji
-      const emojiHeadRe = /^[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}🗺🛡👤💠🩸📜🌄⚔🏔🌊🔥❄🌿🌙☀🌟💫✦✤🔰🎯🗡️🧭📖🌐🏛🕌⚡🐲🌺🎭🔮🪄🛕🗻🌋🌌🎪🎨]/u;
+      // Regex para detectar encabezados con formato [ETIQUETA]: o [ETIQUETA]
+      const sectionTagRe = /^\[([^\]]+)\]:?\s*(.*)$/;
 
       const lines = raw.split('\n').map(l => l.trim()).filter(l => l.length > 0);
 
@@ -953,44 +999,38 @@
       let current = null;
 
       for (const line of lines) {
-        if (emojiHeadRe.test(line)) {
-          // Es encabezado de sección — extraer emoji + texto
-          const match = line.match(/^([\p{Emoji_Presentation}\p{Extended_Pictographic}]+\s*)/u);
-          const emoji = match ? match[1].trim() : '';
-          const label = line.slice(emoji.length).replace(/:$/, '').trim();
-          current = { emoji, label, lines: [] };
+        const tagMatch = line.match(sectionTagRe);
+        if (tagMatch) {
+          const label = tagMatch[1].trim();
+          const rest = tagMatch[2].trim();
+          current = { label, lines: rest ? [rest] : [] };
           sections.push(current);
         } else {
           if (current) {
             current.lines.push(line);
           } else {
             // Texto introductorio antes del primer encabezado
-            sections.push({ emoji: '', label: '', lines: [line] });
+            sections.push({ label: '', lines: [line] });
             current = sections[sections.length - 1];
           }
         }
       }
 
-      // Si no se detectó ninguna sección (sin emojis), renderizar como párrafos simples
-      if (sections.length === 0 || sections.every(s => !s.emoji)) {
+      // Si no se detectó ninguna sección estructurada, renderizar como párrafos simples
+      if (sections.length === 0 || sections.every(s => !s.label)) {
         const unified = lines.join(' ');
         const paragraphs = unified.split(/\s{2,}|\.\s+(?=[A-ZÁÉÍÓÚÑ])/).filter(p => p.trim());
         return paragraphs.map(p => `<p class="modal-para">${escapeHtml(p.trim())}</p>`).join('');
       }
 
       return sections.map(section => {
-        // Unir líneas del cuerpo: concatenar hasta que la línea termine en punto/signo
-        // o sea corta (línea partida artificialmente)
         const body = joinLines(section.lines);
 
-        if (!section.emoji && !section.label) {
+        if (!section.label) {
           return body ? `<p class="modal-para modal-intro">${escapeHtml(body)}</p>` : '';
         }
 
-        const headLabel = section.label
-          ? `<span class="modal-section-emoji">${section.emoji}</span><span class="modal-section-label">${escapeHtml(section.label)}</span>`
-          : `<span class="modal-section-emoji">${section.emoji}</span>`;
-
+        const headLabel = `<span class="modal-section-label">${escapeHtml(section.label)}</span>`;
         const bodyHtml = body
           ? `<div class="modal-section-body">${escapeHtml(body)}</div>`
           : '';

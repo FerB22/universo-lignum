@@ -4,7 +4,7 @@
   "categories": {
     "cosmologia": {
       "name": "Cosmología y visión general",
-      "icon": "🌌",
+      "icon": "cosmologia",
       "items": [
         {
           "id": "vision-general",
@@ -21,7 +21,7 @@
     },
     "geografia": {
       "name": "Geografía y enclaves",
-      "icon": "🗺️",
+      "icon": "geografia",
       "items": [
         {
           "id": "basti-n-rhak",
@@ -195,7 +195,7 @@
     },
     "facciones": {
       "name": "Facciones, órdenes y tribus",
-      "icon": "🛡️",
+      "icon": "facciones",
       "items": [
         {
           "id": "comisi-n-de-arqueras",
@@ -251,7 +251,7 @@
           "saga": "Iron and Blood",
           "type": "Tribu",
           "seat": "Iron and Blood",
-          "content": "🛡️\n\nFicha Técnica: Tribu\n\nKoralenn\n\n🔰\n\nNombre Completo\n\nTribu Koralenn — conocidos como “Los\n\nHerederos del Hierro y la Sangre”\n\n🏔️\n\nUbicación y Territorio\n\nRegión: Altiplanos de Ruk-Tah, zona\n\nmontañosa al norte del continente\n\nClima: Seco, con vientos helados y\n\nnieblas constantes en las alturas\n\nAsentamientos: Fortalezas excavadas\n\nen roca viva, bastiones con alta\n\nautosuficiencia militar\n\nRecursos: Minerales férreos, animales\n\nresistentes, y maderas duras del\n\nbosque seco\n\n⚔️\n\nEstructura Social y Militar\n\n📜\n\nGobierno\n\nDirigida por el Consejo de Sangre:\n\ncompuesto por Ancianos Guerreros y\n\nGenerales de campañas exitosas\n\nLas decisiones tribales se toman por\n\nvoto cerrado tras consejo ritual\n\nLa casta militar rige toda la estructura\n\nsocial, seguida por forjadores,\n\ncriadores y artesanos\n\n🛡️\n\nFuerza Militar\n\nTodos los adultos (hombres y mujeres)\n\nson combatientes activos\n\nCada tribu tiene su fuerza regular y su\n\nélite de juramentados\n\nLos Diez Juramentados son la cúspide\n\nde la gloria tribal: soldados de élite con\n\nal menos veinte misiones mortales\n\ncompletadas\n\n📚\n\nTradición y Valores\n\nFundamentales\n\nEl Honor se gana en batalla, no en\n\npalabras ni cargos heredados\n\nEl Respeto se demuestra con la\n\neficacia al lado del compañero, no con\n\nafectos ni promesas\n\nEl Pragmatismo rige el combate: lo\n\nsentimental es debilidad\n\nLa Emoción es útil solo si es dominada,\n\nnunca como guía de decisiones\n\nEl Individuo sirve al colectivo, y no al\n\nrevés\n\n❤️\n\nRelaciones y Reproducción\n\nEl amor romántico es considerado una\n\ndistracción.\n\nLas relaciones afectivas activas entre\n\nsoldados están prohibidas —\n\nespecialmente en unidades de élite.\n\nLa procreación está regulada por el\n\nConsejo de Sangre:\n\nLa mujer es designada en tiempos de\n\npaz o tras campañas exitosas\n\nElla elige al varón con quien concebir,\n\nsolo para ese propósito\n\nEl varón no puede rechazar la elección,\n\nsalvo por razones de salud o servicio\n\nactivo extremo\n\nLa unión no debe prolongarse ni\n\nmostrarse afectiva públicamente\n\n👶\n\nCrianza de los hijos\n\nEl niño es criado por la madre hasta los\n\ncinco años\n\nDurante ese período:\n\nSe permite a la madre descansar de\n\ncampañas, pero sigue entrenando\n\nSe espera que enseñe disciplina,\n\nautocontrol, y valores tribales al niño\n\nA los cinco años, el niño es entregado\n\nal Pabellón del Acero, donde comienza\n\nsu vida como guerrero\n\nDesde entonces, pierde vínculo directo\n\ncon su madre o padre\n\nLa tribu se convierte en su única familia\n\n🔮\n\nEspiritualidad\n\nVeneran a los Espíritus del Hierro\n\n(disciplina) y la Sangre (valor)\n\nLa fe no es mística sino funcional: los\n\nrituales están al servicio de la fortaleza\n\nespiritual\n\nVisiones y sueños pueden tener valor\n\nprofético, pero deben ser validados por\n\nacción y resultado\n\n🪓\n\nRitos de Pasaje\n\nImportantes\n\nRitoEdadSignificadoRito del Acero5 añosEl\n\nniño es separado de la madre y comienza\n\nsu entrenamientoRito de Sangre12-14\n\nañosPrimera prueba de combate contra\n\nenemigos simuladosRito del Vínculo de\n\nAcero18+ añosSe le asigna su unidad\n\npermanenteRito del Juramento FinalSegún\n\nméritosEntrada a los Diez Juramentados\n\n🧩\n\nNotas culturales para uso\n\nnarrativo\n\nEl silencio tiene más peso que las\n\npalabras: un gesto puede ser\n\nconfesión, despedida o promesa\n\nLas emociones están presentes, pero\n\nreprimidas: eso crea tensión poderosa\n\nen los personajes\n\nCualquier ruptura de la norma se paga\n\ncon exilio, pérdida del rango o muerte\n\nritual",
+          "content": "[FICHA]: Tribu Koralenn\n\n[NOMBRE COMPLETO]:\n\nTribu Koralenn — conocidos como “Los\n\nHerederos del Hierro y la Sangre”\n\n[UBICACIÓN Y TERRITORIO]:\n\nRegión: Altiplanos de Ruk-Tah, zona\n\nmontañosa al norte del continente\n\nClima: Seco, con vientos helados y\n\nnieblas constantes en las alturas\n\nAsentamientos: Fortalezas excavadas\n\nen roca viva, bastiones con alta\n\nautosuficiencia militar\n\nRecursos: Minerales férreos, animales\n\nresistentes, y maderas duras del\n\nbosque seco\n\n[ESTRUCTURA SOCIAL Y MILITAR]:\n\n[GOBIERNO]:\n\nDirigida por el Consejo de Sangre:\n\ncompuesto por Ancianos Guerreros y\n\nGenerales de campañas exitosas\n\nLas decisiones tribales se toman por\n\nvoto cerrado tras consejo ritual\n\nLa casta militar rige toda la estructura\n\nsocial, seguida por forjadores,\n\ncriadores y artesanos\n\n[FUERZA MILITAR]:\n\nTodos los adultos (hombres y mujeres)\n\nson combatientes activos\n\nCada tribu tiene su fuerza regular y su\n\nélite de juramentados\n\nLos Diez Juramentados son la cúspide\n\nde la gloria tribal: soldados de élite con\n\nal menos veinte misiones mortales\n\ncompletadas\n\n[TRADICIÓN Y VALORES]:\n\nEl Honor se gana en batalla, no en\n\npalabras ni cargos heredados\n\nEl Respeto se demuestra con la\n\neficacia al lado del compañero, no con\n\nafectos ni promesas\n\nEl Pragmatismo rige el combate: lo\n\nsentimental es debilidad\n\nLa Emoción es útil solo si es dominada,\n\nnunca como guía de decisiones\n\nEl Individuo sirve al colectivo, y no al\n\nrevés\n\n[RELACIONES Y REPRODUCCIÓN]:\n\nEl amor romántico es considerado una\n\ndistracción.\n\nLas relaciones afectivas activas entre\n\nsoldados están prohibidas —\n\nespecialmente en unidades de élite.\n\nLa procreación está regulada por el\n\nConsejo de Sangre:\n\nLa mujer es designada en tiempos de\n\npaz o tras campañas exitosas\n\nElla elige al varón con quien concebir,\n\nsolo para ese propósito\n\nEl varón no puede rechazar la elección,\n\nsalvo por razones de salud o servicio\n\nactivo extremo\n\nLa unión no debe prolongarse ni\n\nmostrarse afectiva públicamente\n\n[CRIANZA DE LOS HIJOS]:\n\nEl niño es criado por la madre hasta los\n\ncinco años\n\nDurante ese período:\n\nSe permite a la madre descansar de\n\ncampañas, pero sigue entrenando\n\nSe espera que enseñe disciplina,\n\nautocontrol, y valores tribales al niño\n\nA los cinco años, el niño es entregado\n\nal Pabellón del Acero, donde comienza\n\nsu vida como guerrero\n\nDesde entonces, pierde vínculo directo\n\ncon su madre o padre\n\nLa tribu se convierte en su única familia\n\n[ESPIRITUALIDAD]:\n\nVeneran a los Espíritus del Hierro\n\n(disciplina) y la Sangre (valor)\n\nLa fe no es mística sino funcional: los\n\nrituales están al servicio de la fortaleza\n\nespiritual\n\nVisiones y sueños pueden tener valor\n\nprofético, pero deben ser validados por\n\nacción y resultado\n\n[RITOS DE PASAJE]:\n\nRitoEdadSignificadoRito del Acero5 añosEl\n\nniño es separado de la madre y comienza\n\nsu entrenamientoRito de Sangre12-14\n\nañosPrimera prueba de combate contra\n\nenemigos simuladosRito del Vínculo de\n\nAcero18+ añosSe le asigna su unidad\n\npermanenteRito del Juramento FinalSegún\n\nméritosEntrada a los Diez Juramentados\n\n[NOTAS CULTURALES]:\n\nEl silencio tiene más peso que las\n\npalabras: un gesto puede ser\n\nconfesión, despedida o promesa\n\nLas emociones están presentes, pero\n\nreprimidas: eso crea tensión poderosa\n\nen los personajes\n\nCualquier ruptura de la norma se paga\n\ncon exilio, pérdida del rango o muerte\n\nritual",
           "tags": [
             "Tribu Koralenn",
             "Tribu"
@@ -287,7 +287,7 @@
           "saga": "Sin orden",
           "type": "Tribu",
           "seat": "Sin orden",
-          "content": "🌄 La Tribu de los Gigantes\n\n🛡️ Nombre:\n\nTribu Zomina.\n\n👤 Características físicas:\n\nAltura promedio: Mujeres 1.90 m / Hombres\n\n2.10 m\n\nMusculosos, de complexión imponente, pero\n\nágiles.\n\nColor de piel característico (ej. bronce oscuro o\n\npálido con vetas azules).\n\nPelo trenzado como tradición tribal.\n\n💠 Cultura:\n\nValoran el honor, la lealtad y el combate justo.\n\nSu sociedad es matrilineal o tiene guerreras\n\ncomo líderes.\n\nPoseen un arte marcial propio basado en la\n\nfuerza, la danza y la estrategia.\n\nCreen que sus cuerpos fueron moldeados por\n\ndioses ancestrales, lo que provoca celos entre\n\notras tribus.\n\n🩸 Historia:\n\nHistóricamente perseguidos por otras tribus que\n\nlos temían o envidiaban.\n\nFueron casi exterminados varias veces.\n\nNunca han tenido un aliado real… hasta ahora.",
+          "content": "[RESUMEN]: La Tribu de los Gigantes\n\n[NOMBRE]:\n\nTribu Zomina.\n\n[CARACTERÍSTICAS FÍSICAS]:\n\nAltura promedio: Mujeres 1.90 m / Hombres\n\n2.10 m\n\nMusculosos, de complexión imponente, pero\n\nágiles.\n\nColor de piel característico (ej. bronce oscuro o\n\npálido con vetas azules).\n\nPelo trenzado como tradición tribal.\n\n[CULTURA]:\n\nValoran el honor, la lealtad y el combate justo.\n\nSu sociedad es matrilineal o tiene guerreras\n\ncomo líderes.\n\nPoseen un arte marcial propio basado en la\n\nfuerza, la danza y la estrategia.\n\nCreen que sus cuerpos fueron moldeados por\n\ndioses ancestrales, lo que provoca celos entre\n\notras tribus.\n\n[HISTORIA]:\n\nHistóricamente perseguidos por otras tribus que\n\nlos temían o envidiaban.\n\nFueron casi exterminados varias veces.\n\nNunca han tenido un aliado real… hasta ahora.",
           "tags": [
             "Tribu Zomina",
             "Tribu"
@@ -309,7 +309,7 @@
     },
     "saber": {
       "name": "Saber tradicional y disciplinas",
-      "icon": "⚔️",
+      "icon": "saber",
       "items": [
         {
           "id": "arkia",
@@ -359,7 +359,7 @@
     },
     "cronologia": {
       "name": "Cronología continental",
-      "icon": "📜",
+      "icon": "cronologia",
       "items": [
         {
           "id": "a-o-1700",
@@ -409,7 +409,7 @@
     },
     "lengua": {
       "name": "Lengua Märik y calendario",
-      "icon": "📖",
+      "icon": "lengua",
       "items": [
         {
           "id": "aismond",
