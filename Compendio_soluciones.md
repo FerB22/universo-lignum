@@ -100,3 +100,25 @@ Registro histórico de incidencias, errores, fallos técnicos y sus resoluciones
    - **Modernización de la base canónica:** En `public/compendio-canonico.json`, los iconos de categoría se migraron a identificadores semánticos (`cosmologia`, `geografia`, `facciones`, `saber`, `cronologia`, `lengua`), mapeados en JavaScript hacia sus respectivos SVG.
    - **Estructuración del texto narrativo:** En las fichas con emojis como divisores (`tribu-koralenn` y `tribu-zomina`), se sustituyeron los glifos por marcadores de encabezado textuales (`[NOMBRE]:`, `[UBICACIÓN Y TERRITORIO]:`, `[CULTURA]:`), actualizando el analizador sintáctico `formatContent()` para estructurarlas en cajas visuales sin depender de expresiones regulares sobre rangos Unicode de emojis.
    - **Símbolos tipográficos:** Se conservaron únicamente los caracteres tipográficos clásicos (`✦`, `✤`, `✕`), cuyo renderizado es estrictamente monocromático y heráldico.
+
+---
+
+### Entrada: 23 de septiembre de 2026 — Desincronización de portada en el carrusel de historias y migración a almacenamiento local canónico
+
+1. **Fecha y contexto / entorno:**
+   - **Fecha:** 23 de septiembre de 2026.
+   - **Entorno:** Carrusel principal de crónicas en la portada (`index.html`) y páginas de inicio de cada historia. Navegadores modernos (Chromium, Brave, Safari, Firefox).
+
+2. **Problema detectado:**
+   - Al navegar entre historias en el escaparate del carrusel (por ejemplo, al cambiar de *Getting to Know* a *The Marriage of the Republic*), el título, género, sinopsis y botón de lectura se actualizaban de forma correcta, pero la imagen de la portada a la izquierda permanecía congelada mostrando la portada anterior (*Getting to Know*).
+
+3. **Causa raíz:**
+   - **Dependencia de proveedor externo no canónico (`i.ibb.co`):** Las portadas se solicitaban dinámicamente desde un servicio gratuito de alojamiento externo (`i.ibb.co`), cuyos enlaces presentaban latencias severas (más de 60 segundos por petición), límites de tasa (*rate limiting*) o bloqueos directos por parte de protectores de privacidad y bloqueadores de publicidad (como Brave Shields o listas de filtros de seguimiento).
+   - **Comportamiento del motor de renderizado del navegador ante fallas de red:** Cuando a un elemento `<img>` con una imagen previamente decodificada en memoria se le asigna un nuevo valor en su atributo `src` y dicha petición externa queda demorada o es bloqueada, el navegador retiene y continúa dibujando el mapa de bits anterior sin limpiarlo.
+   - **Ausencia de precarga y manejo de contingencia (*fallback*):** No existía precarga anticipada de las imágenes en memoria caché ni captura del evento `onerror` para conmutar a un estado visual seguro en caso de falla de descarga.
+
+4. **Solución aplicada:**
+   - **Alojamiento local optimizado:** Se descargaron y optimizaron todas las portadas en formato WebP de alto rendimiento (reduciendo el peso total en un 97 %, de ~7 MB a ~365 KB para el conjunto total) y se alojaron en el directorio canónico `public/portadas/` del propio repositorio de GitHub Pages, garantizando disponibilidad inmediata y sin bloqueos de terceros.
+   - **Precarga en memoria (`preloadCovers`):** Se introdujo una rutina en `initCarousel()` que instancia objetos `Image` para precargar todas las portadas en la memoria caché del navegador tras la carga inicial del DOM.
+   - **Transición visual y manejo resiliente de errores:** En la función `updateCarousel()`, se añadió una transición sutil de opacidad al cambiar de obra y se implementó un controlador `onerror` que, ante cualquier fallo de red, conmuta a la versión PNG local o despliega el panel decorativo con el título correspondiente, impidiendo que vuelva a mostrarse la portada de otra historia.
+   - **Actualización en páginas secundarias:** Se actualizaron las referencias de portada e imágenes de metadatos `og:image` y `twitter:image` en las páginas de las 6 historias del universo.

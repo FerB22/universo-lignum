@@ -1328,7 +1328,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="showcase-card" id="showcaseCard">
           <!-- Columna Izquierda: Portada Grande -->
           <div class="showcase-cover-wrapper" id="showcaseCoverWrapper">
-            <img src="https://i.ibb.co/TM63LgTZ/Portada-de-Getting-to-Know.png" alt="Portada de la crónica" id="showcaseCoverImg" class="showcase-cover-img">
+            <img src="./public/portadas/getting-to-know.webp" alt="Portada de la crónica" id="showcaseCoverImg" class="showcase-cover-img" onerror="this.src='./public/portadas/getting-to-know.png';">
             <div id="showcasePlaceholder" class="cover-placeholder" style="display: none;">
               <span class="placeholder-rune">
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"></polyline><line x1="13" y1="19" x2="19" y2="13"></line><line x1="16" y1="16" x2="20" y2="20"></line><line x1="19" y1="21" x2="21" y2="19"></line></svg>
@@ -1367,7 +1367,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <nav class="title-nav-strip" aria-label="Secuencia de títulos">
         <button class="title-pill-btn" id="navPrevTitle" aria-label="Ver crónica previa">
           <span>‹</span>
-          <span id="navPrevText">La Piedra sin Pulir</span>
+          <span id="navPrevText">The Marriage of the Republic</span>
         </button>
         <span class="title-nav-separator">✦</span>
         <div class="title-pill-active" id="navActiveText" aria-current="true">Getting to Know</div>
@@ -1423,7 +1423,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         format: 'Cuento Completo',
         genre: 'Fantasía Tribal',
         author: 'por Fernando Barra',
-        cover: 'https://i.ibb.co/TM63LgTZ/Portada-de-Getting-to-Know.png',
+        cover: './public/portadas/getting-to-know.webp',
+        fallbackCover: './public/portadas/getting-to-know.png',
         desc: 'En los montes del suroeste, un exguardia fronterizo halla redención al proteger a Ameřa, debiendo sobreponerse al recelo y las costumbres ancestrales de la tribu Häscht.',
         pills: ['Tribu Häscht', 'Supervivencia y honor', 'Relato completo'],
         url: './getting-to-know/index.html',
@@ -1435,7 +1436,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         format: 'Novela · 14 Capítulos',
         genre: 'Fantasía Oscura',
         author: 'por Fernando Barra',
-        cover: 'https://i.ibb.co/5hfYDKFT/Portada-de-Forgotten-Sword.png',
+        cover: './public/portadas/forgotten-sword.webp',
+        fallbackCover: './public/portadas/forgotten-sword.png',
         desc: 'Entre guerras tribales, pactos diplomáticos y el peso del liderazgo, guerreros y caudillos luchan por proteger a su pueblo y sobrevivir a la marea enemiga de Gricái.',
         pills: ['Capítulo 14 en redacción', 'Guerras de Gricái', 'Fichas de personajes'],
         url: './forgotten-sword/index.html',
@@ -1447,7 +1449,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         format: 'Fábula Moral',
         genre: 'Linaje y Justicia',
         author: 'por Fernando Barra',
-        cover: 'https://i.ibb.co/NdxnWgmS/Portada-de-La-Piedra-sin-Pulir.png',
+        cover: './public/portadas/la-piedra-sin-pulir.webp',
+        fallbackCover: './public/portadas/la-piedra-sin-pulir.png',
         desc: 'Un poderoso señor engendra más de veinte hijos a los que concede poder sin disciplina. Cuando la soberbia desencadena la tragedia, el padre enfrentará una sentencia implacable para restaurar el orden.',
         pills: ['Estructura en cuatro actos', 'Señor de las Siete Esposas', 'Historia interactiva'],
         url: './la-piedra-sin-pulir/index.html',
@@ -1459,7 +1462,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         format: 'Saga Épica',
         genre: 'Frente de Ende',
         author: 'por Fernando Barra',
-        cover: 'https://i.ibb.co/jvP88cKJ/Portada-en-Creaci-n.png',
+        cover: './public/portadas/ruk-el-heroe.webp',
+        fallbackCover: './public/portadas/ruk-el-heroe.png',
         placeholder: true,
         desc: 'Acompaña a Ruk y a sus hermanos de armas en la travesía hacia el frente de Ende, templando su acero y uniendo a los pueblos para resistir la embestida enemiga.',
         pills: ['Espada del Salvador', 'Unión de tribus', 'Nueve capítulos'],
@@ -1472,7 +1476,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         format: 'Relato Crudo',
         genre: 'Venganza y Cenizas',
         author: 'por Fernando Barra',
-        cover: 'https://i.ibb.co/MQxMcc6/Portada-de-Sangre-y-Cad-veres.png',
+        cover: './public/portadas/sangre-y-cadaveres.webp',
+        fallbackCover: './public/portadas/sangre-y-cadaveres.png',
         desc: 'Un relato desgarrador sobre el renacimiento tras la devastación. Explora la resistencia armada, el precio de la represalia y la oscuridad del universo escarlata.',
         pills: ['Resistencia armada', 'Conflicto escarlata', 'Venganza y honor'],
         url: './sangre-y-cadaveres/index.html',
@@ -1484,7 +1489,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         format: 'Ficción de Estado',
         genre: 'Intriga Política',
         author: 'por Fernando Barra',
-        cover: 'https://i.ibb.co/SXNrFc51/Portada-de-The-Marriage-of-the-Republic.png',
+        cover: './public/portadas/marriage-of-the-republic.webp',
+        fallbackCover: './public/portadas/marriage-of-the-republic.png',
         desc: 'Dramas de gobierno, alianzas de conveniencia y las encrucijadas morales de un matrimonio sellado para salvar a una república al borde de la capitulación.',
         pills: ['Capitulaciones y honor', 'Alianzas de poder', 'Drama republicano'],
         url: './marriage-of-the-republic/index.html',
@@ -1507,8 +1513,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const navNextTitle = document.getElementById('navNextTitle');
     const navNextText = document.getElementById('navNextText');
 
+    // Pre-cargar todas las portadas locales en memoria para cambio instantáneo
+    function preloadCovers() {
+      stories.forEach(s => {
+        if (s.cover) {
+          const img = new Image();
+          img.src = s.cover;
+        }
+      });
+    }
+
     // Inicializar carrusel
     function initCarousel() {
+      preloadCovers();
+
       // Eventos de clic en el navegador de títulos
       navPrevTitle.addEventListener('click', prevStory);
       navNextTitle.addEventListener('click', nextStory);
@@ -1533,7 +1551,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       } else {
         showcasePlaceholder.style.display = 'none';
         showcaseCoverImg.style.display = 'block';
-        showcaseCoverImg.src = current.cover;
+
+        // Gestión de error resiliente: si falla webp, intenta png o muestra placeholder
+        showcaseCoverImg.onerror = function() {
+          if (current.fallbackCover && showcaseCoverImg.src.indexOf(current.fallbackCover) === -1) {
+            showcaseCoverImg.src = current.fallbackCover;
+          } else {
+            showcaseCoverImg.style.display = 'none';
+            showcasePlaceholder.style.display = 'flex';
+            showcasePlaceholderTitle.textContent = current.title;
+          }
+        };
+
+        const targetUrl = new URL(current.cover, window.location.href).href;
+        if (showcaseCoverImg.src !== targetUrl) {
+          showcaseCoverImg.style.opacity = '0.35';
+          showcaseCoverImg.src = current.cover;
+          showcaseCoverImg.onload = function() {
+            showcaseCoverImg.style.opacity = '1';
+          };
+        } else {
+          showcaseCoverImg.style.opacity = '1';
+        }
         showcaseCoverImg.alt = `Portada de ${current.title}`;
       }
 
