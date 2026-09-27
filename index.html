@@ -456,11 +456,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: opacity 0.35s ease, transform 0.4s ease;
+      transition: opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
     .showcase-cover-img:hover {
       transform: scale(1.02);
+    }
+
+    .showcase-cover-img.is-animating {
+      opacity: 0 !important;
+      transform: scale(0.97);
     }
 
     /* COLUMNA DERECHA: INFORMACIÓN Y SINOPSIS */
@@ -469,6 +474,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       flex-direction: column;
       align-items: flex-start;
       text-align: left;
+      transition: opacity 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .showcase-info.is-animating {
+      opacity: 0;
+      transform: translateY(8px);
     }
 
     .story-meta-header {
@@ -1218,12 +1229,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: #FFFFFF;
     }
     .faq-question:hover { color: #FFFFFF; }
+    .faq-item .faq-answer-wrapper {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .faq-item[open] .faq-answer-wrapper {
+      grid-template-rows: 1fr;
+    }
     .faq-answer {
       font-family: var(--fonts-body);
       font-size: 0.94rem;
       line-height: 1.85;
       color: var(--colors-textMuted);
-      padding: 0 0.2rem 1.4rem;
+      overflow: hidden;
+      padding: 0 0.2rem;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity 0.28s ease, transform 0.28s ease, padding-bottom 0.3s ease;
+    }
+    .faq-item[open] .faq-answer {
+      opacity: 1;
+      transform: translateY(0);
+      padding-bottom: 1.4rem;
     }
     .faq-answer p { margin-bottom: 0.5rem; }
     .faq-answer ul {
@@ -1311,7 +1339,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
 
           <!-- Columna Derecha: Información y Sinopsis -->
-          <div class="showcase-info">
+          <div class="showcase-info" id="showcaseInfo">
             <div class="story-meta-header">
               <span class="story-badge" id="detailBadge">Cuento Completo</span>
               <span class="story-genre" id="detailGenre">Fantasía Tribal</span>
@@ -1506,71 +1534,83 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       updateCarousel();
     }
 
-    // Actualizar el escaparate principal y el navegador de títulos
+    let isCarouselTransitioning = false;
+
+    // Actualizar el escaparate principal con transición fluida
     function updateCarousel() {
+      if (isCarouselTransitioning) return;
+      isCarouselTransitioning = true;
+
       const current = stories[currentIndex];
       const prevIdx = (currentIndex - 1 + stories.length) % stories.length;
       const nextIdx = (currentIndex + 1) % stories.length;
 
-      // Actualizar color temático del escaparate
-      showcaseCard.style.setProperty('--showcase-color', current.color);
+      const infoCol = document.getElementById('showcaseInfo');
+      
+      // Fase 1: Desvanecimiento suave de salida
+      showcaseCoverImg.classList.add('is-animating');
+      if (infoCol) infoCol.classList.add('is-animating');
 
-      // Actualizar columna izquierda (portada)
-      if (current.placeholder) {
-        showcaseCoverImg.style.display = 'none';
-        showcasePlaceholder.style.display = 'flex';
-        showcasePlaceholderTitle.textContent = current.title;
-      } else {
-        showcasePlaceholder.style.display = 'none';
-        showcaseCoverImg.style.display = 'block';
+      setTimeout(() => {
+        // Actualizar color temático del escaparate
+        showcaseCard.style.setProperty('--showcase-color', current.color);
 
-        // Gestión de error resiliente: si falla webp, intenta png o muestra placeholder
-        showcaseCoverImg.onerror = function() {
-          if (current.fallbackCover && showcaseCoverImg.src.indexOf(current.fallbackCover) === -1) {
-            showcaseCoverImg.src = current.fallbackCover;
-          } else {
-            showcaseCoverImg.style.display = 'none';
-            showcasePlaceholder.style.display = 'flex';
-            showcasePlaceholderTitle.textContent = current.title;
-          }
-        };
-
-        const targetUrl = new URL(current.cover, window.location.href).href;
-        if (showcaseCoverImg.src !== targetUrl) {
-          showcaseCoverImg.style.opacity = '0.35';
-          showcaseCoverImg.src = current.cover;
-          showcaseCoverImg.onload = function() {
-            showcaseCoverImg.style.opacity = '1';
-          };
+        // Actualizar columna izquierda (portada)
+        if (current.placeholder) {
+          showcaseCoverImg.style.display = 'none';
+          showcasePlaceholder.style.display = 'flex';
+          showcasePlaceholderTitle.textContent = current.title;
         } else {
-          showcaseCoverImg.style.opacity = '1';
+          showcasePlaceholder.style.display = 'none';
+          showcaseCoverImg.style.display = 'block';
+
+          showcaseCoverImg.onerror = function() {
+            if (current.fallbackCover && showcaseCoverImg.src.indexOf(current.fallbackCover) === -1) {
+              showcaseCoverImg.src = current.fallbackCover;
+            } else {
+              showcaseCoverImg.style.display = 'none';
+              showcasePlaceholder.style.display = 'flex';
+              showcasePlaceholderTitle.textContent = current.title;
+            }
+          };
+
+          showcaseCoverImg.src = current.cover;
+          showcaseCoverImg.alt = `Portada de ${current.title}`;
         }
-        showcaseCoverImg.alt = `Portada de ${current.title}`;
-      }
 
-      // Actualizar columna derecha (información y sinopsis)
-      document.getElementById('detailBadge').textContent = current.format;
-      document.getElementById('detailGenre').textContent = current.genre;
-      document.getElementById('detailTitle').textContent = current.title;
-      document.getElementById('detailAuthor').textContent = current.author;
-      document.getElementById('detailDesc').textContent = current.desc;
+        // Actualizar columna derecha (información y sinopsis)
+        document.getElementById('detailBadge').textContent = current.format;
+        document.getElementById('detailGenre').textContent = current.genre;
+        document.getElementById('detailTitle').textContent = current.title;
+        document.getElementById('detailAuthor').textContent = current.author;
+        document.getElementById('detailDesc').textContent = current.desc;
 
-      const pillsContainer = document.getElementById('detailPills');
-      pillsContainer.innerHTML = '';
-      current.pills.forEach(pillText => {
-        const span = document.createElement('span');
-        span.className = 'story-pill-tag';
-        span.textContent = pillText;
-        pillsContainer.appendChild(span);
-      });
+        const pillsContainer = document.getElementById('detailPills');
+        pillsContainer.innerHTML = '';
+        current.pills.forEach(pillText => {
+          const span = document.createElement('span');
+          span.className = 'story-pill-tag';
+          span.textContent = pillText;
+          pillsContainer.appendChild(span);
+        });
 
-      const ctaBtn = document.getElementById('detailCtaBtn');
-      ctaBtn.href = current.url;
+        const ctaBtn = document.getElementById('detailCtaBtn');
+        ctaBtn.href = current.url;
 
-      // Actualizar navegador de títulos continuo
-      navPrevText.textContent = stories[prevIdx].title;
-      navActiveText.textContent = current.title;
-      navNextText.textContent = stories[nextIdx].title;
+        // Actualizar navegador de títulos continuo
+        navPrevText.textContent = stories[prevIdx].title;
+        navActiveText.textContent = current.title;
+        navNextText.textContent = stories[nextIdx].title;
+
+        // Fase 2: Entrada fluida
+        requestAnimationFrame(() => {
+          showcaseCoverImg.classList.remove('is-animating');
+          if (infoCol) infoCol.classList.remove('is-animating');
+          setTimeout(() => {
+            isCarouselTransitioning = false;
+          }, 300);
+        });
+      }, 160);
     }
 
     function prevStory() {
@@ -1706,6 +1746,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       renderDrawerItems(e.target.value);
     });
 
+    // Animación fluida de apertura y cierre en preguntas frecuentes
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const summary = item.querySelector('.faq-question');
+      summary.addEventListener('click', (e) => {
+        if (item.open) {
+          e.preventDefault();
+          item.classList.add('is-closing');
+          item.removeAttribute('open');
+        }
+      });
+    });
+
     // Inicializar carrusel al cargar
     document.addEventListener('DOMContentLoaded', initCarousel);
   </script>
@@ -1720,44 +1772,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <details class="faq-item">
           <summary class="faq-question">¿Qué es el universo Lignum?</summary>
-          <div class="faq-answer">
-            <p>El <strong>universo Lignum</strong> es una saga literaria de fantasía épica creada por el escritor chileno <strong>Fernando Barra</strong>. Se trata de un universo de ficción unificado que engloba novelas, cuentos completos, fábulas morales y relatos de intriga política, todos ambientados en un mismo mundo de culturas tribales, guerras ancestrales y drama político. El proyecto se publica de forma independiente a través de esta biblioteca digital.</p>
+          <div class="faq-answer-wrapper">
+            <div class="faq-answer">
+              <p>El <strong>universo Lignum</strong> es una saga literaria de fantasía épica creada por el escritor chileno <strong>Fernando Barra</strong>. Se trata de un universo de ficción unificado que engloba novelas, cuentos completos, fábulas morales y relatos de intriga política, todos ambientados en un mismo mundo de culturas tribales, guerras ancestrales y drama político. El proyecto se publica de forma independiente a través de esta biblioteca digital.</p>
+            </div>
           </div>
         </details>
 
         <details class="faq-item">
           <summary class="faq-question">¿Quién es el autor de las obras del universo Lignum?</summary>
-          <div class="faq-answer">
-            <p>Todas las obras del universo Lignum son escritas por <strong>Fernando Barra</strong>, escritor independiente chileno. Es el creador de toda la mitología, los personajes y las historias que conforman este universo de fantasía.</p>
+          <div class="faq-answer-wrapper">
+            <div class="faq-answer">
+              <p>Todas las obras del universo Lignum son escritas por <strong>Fernando Barra</strong>, escritor independiente chileno. Es el creador de toda la mitología, los personajes y las historias que conforman este universo de fantasía.</p>
+            </div>
           </div>
         </details>
 
         <details class="faq-item">
           <summary class="faq-question">¿Qué obras o historias componen este universo literario?</summary>
-          <div class="faq-answer">
-            <p>El universo Lignum está compuesto actualmente por las siguientes obras:</p>
-            <ul>
-              <li><strong>Getting to Know</strong> — Cuento completo de fantasía tribal.</li>
-              <li><strong>Forgotten Sword</strong> — Novela de fantasía oscura en 14 capítulos.</li>
-              <li><strong>La Piedra sin Pulir</strong> — Fábula moral estructurada en cuatro actos.</li>
-              <li><strong>Ruk el Héroe</strong> — Saga épica sobre unión tribal y guerra.</li>
-              <li><strong>Sangre y Cadáveres</strong> — Relato crudo de venganza y supervivencia.</li>
-              <li><strong>The Marriage of the Republic</strong> — Ficción de intriga política y Estado.</li>
-            </ul>
+          <div class="faq-answer-wrapper">
+            <div class="faq-answer">
+              <p>El universo Lignum está compuesto actualmente por las siguientes obras:</p>
+              <ul>
+                <li><strong>Getting to Know</strong> — Cuento completo de fantasía tribal.</li>
+                <li><strong>Forgotten Sword</strong> — Novela de fantasía oscura en 14 capítulos.</li>
+                <li><strong>La Piedra sin Pulir</strong> — Fábula moral estructurada en cuatro actos.</li>
+                <li><strong>Ruk el Héroe</strong> — Saga épica sobre unión tribal y guerra.</li>
+                <li><strong>Sangre y Cadáveres</strong> — Relato crudo de venganza y supervivencia.</li>
+                <li><strong>The Marriage of the Republic</strong> — Ficción de intriga política y Estado.</li>
+              </ul>
+            </div>
           </div>
         </details>
 
         <details class="faq-item">
           <summary class="faq-question">¿Es «Getting to Know» una novela o un cuento?</summary>
-          <div class="faq-answer">
-            <p><em>Getting to Know</em> es un <strong>cuento completo</strong> (relato breve) de fantasía tribal, no una novela. La obra narra la historia de un exguardia fronterizo que halla redención al proteger a Ameřa en los montes del suroeste, sorteando el recelo y las costumbres ancestrales de la tribu Häscht. Está disponible para su lectura íntegra en esta biblioteca.</p>
+          <div class="faq-answer-wrapper">
+            <div class="faq-answer">
+              <p><em>Getting to Know</em> es un <strong>cuento completo</strong> (relato breve) de fantasía tribal, no una novela. La obra narra la historia de un exguardia fronterizo que halla redención al proteger a Ameřa en los montes del suroeste, sorteando el recelo y las costumbres ancestrales de la tribu Häscht. Está disponible para su lectura íntegra en esta biblioteca.</p>
+            </div>
           </div>
         </details>
 
         <details class="faq-item">
           <summary class="faq-question">¿Dónde puedo leer las historias del universo Lignum?</summary>
-          <div class="faq-answer">
-            <p>Todas las obras se publican de forma gratuita en esta biblioteca digital, accesible en <strong>ferb22.github.io/universo-lignum</strong>. Cada obra cuenta con su propia sección donde puedes leer capítulos, conocer a los personajes y consultar el archivo canónico «El saber del mundo».</p>
+          <div class="faq-answer-wrapper">
+            <div class="faq-answer">
+              <p>Todas las obras se publican de forma gratuita en esta biblioteca digital, accesible en <strong>ferb22.github.io/universo-lignum</strong>. Cada obra cuenta con su propia sección donde puedes leer capítulos, conocer a los personajes y consultar el archivo canónico «El saber del mundo».</p>
+            </div>
           </div>
         </details>
 
