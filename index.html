@@ -1231,13 +1231,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .faq-question:hover { color: #FFFFFF; }
     .faq-answer-wrapper {
       overflow: hidden;
-      max-height: 0;
+      max-height: 0px;
       opacity: 0;
-      transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
-    }
-    .faq-item.is-open .faq-answer-wrapper {
-      max-height: 500px;
-      opacity: 1;
+      transition: max-height 0.38s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.32s ease;
+      will-change: max-height, opacity;
     }
     .faq-item.is-open .faq-question::after {
       content: '−';
@@ -1743,44 +1740,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       renderDrawerItems(e.target.value);
     });
 
-    // Animación fluida precisa de acordeón en preguntas frecuentes
-    document.querySelectorAll('.faq-item').forEach(item => {
-      const summary = item.querySelector('.faq-question');
-      const wrapper = item.querySelector('.faq-answer-wrapper');
-      
-      summary.addEventListener('click', (e) => {
-        e.preventDefault();
-        const isOpen = item.classList.contains('is-open');
+    // Inicializar listeners al cargar el DOM
+    document.addEventListener('DOMContentLoaded', () => {
+      initCarousel();
 
-        if (isOpen) {
-          // Animación de cierre
-          wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
-          requestAnimationFrame(() => {
+      // Animación fluida precisa de acordeón en preguntas frecuentes
+      document.querySelectorAll('.faq-item').forEach(item => {
+        const summary = item.querySelector('.faq-question');
+        const wrapper = item.querySelector('.faq-answer-wrapper');
+        if (!summary || !wrapper) return;
+
+        summary.addEventListener('click', (e) => {
+          e.preventDefault();
+
+          if (item.classList.contains('is-open')) {
+            // Cerrar suavemente
+            const currentH = wrapper.scrollHeight;
+            wrapper.style.maxHeight = currentH + 'px';
+            wrapper.style.opacity = '1';
+
+            requestAnimationFrame(() => {
+              wrapper.style.maxHeight = '0px';
+              wrapper.style.opacity = '0';
+              item.classList.remove('is-open');
+
+              setTimeout(() => {
+                item.removeAttribute('open');
+              }, 360);
+            });
+          } else {
+            // Abrir suavemente
+            item.setAttribute('open', '');
+            item.classList.add('is-open');
             wrapper.style.maxHeight = '0px';
-            item.classList.remove('is-open');
-            setTimeout(() => {
-              item.removeAttribute('open');
-            }, 350);
-          });
-        } else {
-          // Animación de apertura
-          item.setAttribute('open', '');
-          item.classList.add('is-open');
-          wrapper.style.maxHeight = '0px';
-          requestAnimationFrame(() => {
-            wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
-            setTimeout(() => {
-              if (item.classList.contains('is-open')) {
-                wrapper.style.maxHeight = 'none';
-              }
-            }, 380);
-          });
-        }
+            wrapper.style.opacity = '0';
+
+            requestAnimationFrame(() => {
+              const targetH = wrapper.scrollHeight;
+              wrapper.style.maxHeight = targetH + 'px';
+              wrapper.style.opacity = '1';
+
+              setTimeout(() => {
+                if (item.classList.contains('is-open')) {
+                  wrapper.style.maxHeight = 'none';
+                }
+              }, 400);
+            });
+          }
+        });
       });
     });
-
-    // Inicializar carrusel al cargar
-    document.addEventListener('DOMContentLoaded', initCarousel);
   </script>
 
   <!-- SECCIÓN FAQ — PREGUNTAS FRECUENTES SOBRE EL UNIVERSO LIGNUM -->
