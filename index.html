@@ -1229,29 +1229,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: #FFFFFF;
     }
     .faq-question:hover { color: #FFFFFF; }
-    .faq-item .faq-answer-wrapper {
-      display: grid;
-      grid-template-rows: 0fr;
-      transition: grid-template-rows 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    .faq-answer-wrapper {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
     }
-    .faq-item[open] .faq-answer-wrapper {
-      grid-template-rows: 1fr;
+    .faq-item.is-open .faq-answer-wrapper {
+      max-height: 500px;
+      opacity: 1;
+    }
+    .faq-item.is-open .faq-question::after {
+      content: '−';
+      color: #FFFFFF;
     }
     .faq-answer {
       font-family: var(--fonts-body);
       font-size: 0.94rem;
       line-height: 1.85;
       color: var(--colors-textMuted);
-      overflow: hidden;
-      padding: 0 0.2rem;
-      opacity: 0;
-      transform: translateY(-4px);
-      transition: opacity 0.28s ease, transform 0.28s ease, padding-bottom 0.3s ease;
-    }
-    .faq-item[open] .faq-answer {
-      opacity: 1;
-      transform: translateY(0);
-      padding-bottom: 1.4rem;
+      padding: 0 0.2rem 1.4rem;
     }
     .faq-answer p { margin-bottom: 0.5rem; }
     .faq-answer ul {
@@ -1746,14 +1743,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       renderDrawerItems(e.target.value);
     });
 
-    // Animación fluida de apertura y cierre en preguntas frecuentes
+    // Animación fluida precisa de acordeón en preguntas frecuentes
     document.querySelectorAll('.faq-item').forEach(item => {
       const summary = item.querySelector('.faq-question');
+      const wrapper = item.querySelector('.faq-answer-wrapper');
+      
       summary.addEventListener('click', (e) => {
-        if (item.open) {
-          e.preventDefault();
-          item.classList.add('is-closing');
-          item.removeAttribute('open');
+        e.preventDefault();
+        const isOpen = item.classList.contains('is-open');
+
+        if (isOpen) {
+          // Animación de cierre
+          wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+          requestAnimationFrame(() => {
+            wrapper.style.maxHeight = '0px';
+            item.classList.remove('is-open');
+            setTimeout(() => {
+              item.removeAttribute('open');
+            }, 350);
+          });
+        } else {
+          // Animación de apertura
+          item.setAttribute('open', '');
+          item.classList.add('is-open');
+          wrapper.style.maxHeight = '0px';
+          requestAnimationFrame(() => {
+            wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+            setTimeout(() => {
+              if (item.classList.contains('is-open')) {
+                wrapper.style.maxHeight = 'none';
+              }
+            }, 380);
+          });
         }
       });
     });
