@@ -122,3 +122,26 @@ Registro histórico de incidencias, errores, fallos técnicos y sus resoluciones
    - **Precarga en memoria (`preloadCovers`):** Se introdujo una rutina en `initCarousel()` que instancia objetos `Image` para precargar todas las portadas en la memoria caché del navegador tras la carga inicial del DOM.
    - **Transición visual y manejo resiliente de errores:** En la función `updateCarousel()`, se añadió una transición sutil de opacidad al cambiar de obra y se implementó un controlador `onerror` que, ante cualquier fallo de red, conmuta a la versión PNG local o despliega el panel decorativo con el título correspondiente, impidiendo que vuelva a mostrarse la portada de otra historia.
    - **Actualización en páginas secundarias:** Se actualizaron las referencias de portada e imágenes de metadatos `og:image` y `twitter:image` en las páginas de las 6 historias del universo.
+
+---
+
+### Entrada: 26 de septiembre de 2026 — Animación fluida continua en el acordeón de preguntas frecuentes
+
+1. **Fecha y contexto / entorno:**
+   - **Fecha:** 26 de septiembre de 2026.
+   - **Entorno:** Sección de preguntas frecuentes (.faq-section) en la portada (index.html) en navegadores basados en Chromium, Gecko y WebKit (Brave, Chrome, Edge, Firefox).
+
+2. **Problema detectado:**
+   - Al pulsar sobre las preguntas frecuentes para abrir o cerrar una respuesta, el despliegue del contenido se producía de forma instantánea y cortante, sin percibirse una transición suave ni continua.
+
+3. **Causa raíz:**
+   - **Comportamiento binario nativo de la etiqueta <details>:** Los navegadores aplican o retiran el atributo booleano open de manera inmediata al hacer clic en el elemento <summary>. Al retirarse open, el motor de renderizado oculta el árbol de nodos de forma atómica (display: none interno), impidiendo la ejecución de transiciones CSS de cierre y salto de apertura.
+   - **Incompatibilidad de transiciones sobre contenedores no calculados:** El intento de transición previa mediante grid-template-rows: 0fr -> 1fr no interpolaba correctamente las fases de cierre debido a la pérdida instantánea del contexto de visualización del elemento padre.
+
+4. **Solución aplicada:**
+   - **Contenedor envoltorio con gestión de altura dinámica (.faq-answer-wrapper):** Se encerró el bloque .faq-answer dentro de .faq-answer-wrapper con overflow: hidden; max-height: 0; opacity: 0; y una curva de aceleración suave cubic-bezier(0.25, 1, 0.5, 1).
+   - **Control de eventos en JavaScript mediante scrollHeight:**
+     - Al hacer clic, se intercepta la acción nativa mediante .preventDefault().
+     - Para la apertura: se asigna el atributo open, se calcula la altura real del contenido (wrapper.scrollHeight) y se anima suavemente hasta su despliegue total.
+     - Para el cierre: se fija la altura inicial en píxeles y, mediante equestAnimationFrame, se transiciona hacia  px, retirando el atributo open únicamente tras completar los 350 ms de la animación.
+   - Con ello se logró un deslizamiento elástico y continuo tanto al abrir como al cerrar cada ítem.
