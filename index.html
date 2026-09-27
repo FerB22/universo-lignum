@@ -1231,10 +1231,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .faq-question:hover { color: #FFFFFF; }
     .faq-answer-wrapper {
       overflow: hidden;
-      max-height: 0px;
-      opacity: 0;
-      transition: max-height 0.38s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.32s ease;
-      will-change: max-height, opacity;
+      will-change: height, opacity;
     }
     .faq-item.is-open .faq-question::after {
       content: '−';
@@ -1407,6 +1404,72 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
     </div>
   </aside>
+
+  <!-- SECCIÓN FAQ — PREGUNTAS FRECUENTES SOBRE EL UNIVERSO LIGNUM -->
+  <section class="faq-section" aria-label="Preguntas frecuentes sobre el universo Lignum">
+    <div class="faq-inner">
+      <span class="hero-crest" style="font-size: 0.75rem; letter-spacing: 0.25em; color: var(--colors-gold); opacity: 0.7;">✦ CONOCE EL UNIVERSO ✦</span>
+      <h2 class="faq-heading">Preguntas frecuentes</h2>
+
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary class="faq-question">¿Qué es el universo Lignum?</summary>
+          <div class="faq-answer-wrapper">
+            <div class="faq-answer">
+              <p>El <strong>universo Lignum</strong> es una saga literaria de fantasía épica creada por el escritor chileno <strong>Fernando Barra</strong>. Se trata de un universo de ficción unificado que engloba novelas, cuentos completos, fábulas morales y relatos de intriga política, todos ambientados en un mismo mundo de culturas tribales, guerras ancestrales y drama político. El proyecto se publica de forma independiente a través de esta biblioteca digital.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">¿Quién es el autor de las obras del universo Lignum?</summary>
+          <div class="faq-answer-wrapper">
+            <div class="faq-answer">
+              <p>Todas las obras del universo Lignum son escritas por <strong>Fernando Barra</strong>, escritor independiente chileno. Es el creador de toda la mitología, los personajes y las historias que conforman este universo de fantasía.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">¿Qué obras o historias componen este universo literario?</summary>
+          <div class="faq-answer-wrapper">
+            <div class="faq-answer">
+              <p>El universo Lignum está compuesto actualmente por las siguientes obras:</p>
+              <ul>
+                <li><strong>Getting to Know</strong> — Cuento completo de fantasía tribal.</li>
+                <li><strong>Forgotten Sword</strong> — Novela de fantasía oscura en 14 capítulos.</li>
+                <li><strong>La Piedra sin Pulir</strong> — Fábula moral estructurada en cuatro actos.</li>
+                <li><strong>Ruk el Héroe</strong> — Saga épica sobre unión tribal y guerra.</li>
+                <li><strong>Sangre y Cadáveres</strong> — Relato crudo de venganza y supervivencia.</li>
+                <li><strong>The Marriage of the Republic</strong> — Ficción de intriga política y Estado.</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">¿Es «Getting to Know» una novela o un cuento?</summary>
+          <div class="faq-answer-wrapper">
+            <div class="faq-answer">
+              <p><em>Getting to Know</em> es un <strong>cuento completo</strong> (relato breve) de fantasía tribal, no una novela. La obra narra la historia de un exguardia fronterizo que halla redención al proteger a Ameřa en los montes del suroeste, sorteando el recelo y las costumbres ancestrales de la tribu Häscht. Está disponible para su lectura íntegra en esta biblioteca.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">¿Dónde puedo leer las historias del universo Lignum?</summary>
+          <div class="faq-answer-wrapper">
+            <div class="faq-answer">
+              <p>Todas las obras se publican de forma gratuita en esta biblioteca digital, accesible en <strong>ferb22.github.io/universo-lignum</strong>. Cada obra cuenta con su propia sección donde puedes leer capítulos, conocer a los personajes y consultar el archivo canónico «El saber del mundo».</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
 
   <script>
     // Catálogo literario de Universo Lignum
@@ -1740,122 +1803,96 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       renderDrawerItems(e.target.value);
     });
 
-    // Inicializar listeners al cargar el DOM
-    document.addEventListener('DOMContentLoaded', () => {
-      initCarousel();
-
-      // Animación fluida precisa de acordeón en preguntas frecuentes
+    // Animación fluida cinemática de acordeón con Web Animations API
+    function initFaqAccordion() {
       document.querySelectorAll('.faq-item').forEach(item => {
         const summary = item.querySelector('.faq-question');
         const wrapper = item.querySelector('.faq-answer-wrapper');
         if (!summary || !wrapper) return;
 
+        let animation = null;
+        let isClosing = false;
+        let isOpening = false;
+
         summary.addEventListener('click', (e) => {
           e.preventDefault();
 
-          if (item.classList.contains('is-open')) {
-            // Cerrar suavemente
-            const currentH = wrapper.scrollHeight;
-            wrapper.style.maxHeight = currentH + 'px';
-            wrapper.style.opacity = '1';
-
-            requestAnimationFrame(() => {
-              wrapper.style.maxHeight = '0px';
-              wrapper.style.opacity = '0';
-              item.classList.remove('is-open');
-
-              setTimeout(() => {
-                item.removeAttribute('open');
-              }, 360);
-            });
-          } else {
+          if (isClosing || !item.hasAttribute('open')) {
             // Abrir suavemente
+            if (animation) animation.cancel();
+            isOpening = true;
+            isClosing = false;
+
             item.setAttribute('open', '');
             item.classList.add('is-open');
-            wrapper.style.maxHeight = '0px';
-            wrapper.style.opacity = '0';
 
-            requestAnimationFrame(() => {
-              const targetH = wrapper.scrollHeight;
-              wrapper.style.maxHeight = targetH + 'px';
-              wrapper.style.opacity = '1';
+            const targetHeight = wrapper.scrollHeight;
 
-              setTimeout(() => {
-                if (item.classList.contains('is-open')) {
-                  wrapper.style.maxHeight = 'none';
-                }
-              }, 400);
+            animation = wrapper.animate([
+              { height: '0px', opacity: 0 },
+              { height: targetHeight + 'px', opacity: 1 }
+            ], {
+              duration: 320,
+              easing: 'cubic-bezier(0.16, 1, 0.3, 1)'
             });
+
+            animation.onfinish = () => {
+              animation = null;
+              isOpening = false;
+              wrapper.style.height = '';
+              wrapper.style.opacity = '';
+            };
+
+            animation.oncancel = () => {
+              isOpening = false;
+            };
+
+          } else if (isOpening || item.hasAttribute('open')) {
+            // Cerrar suavemente
+            if (animation) animation.cancel();
+            isClosing = true;
+            isOpening = false;
+
+            const startHeight = wrapper.scrollHeight;
+            item.classList.remove('is-open');
+
+            animation = wrapper.animate([
+              { height: startHeight + 'px', opacity: 1 },
+              { height: '0px', opacity: 0 }
+            ], {
+              duration: 260,
+              easing: 'cubic-bezier(0.16, 1, 0.3, 1)'
+            });
+
+            animation.onfinish = () => {
+              item.removeAttribute('open');
+              animation = null;
+              isClosing = false;
+              wrapper.style.height = '';
+              wrapper.style.opacity = '';
+            };
+
+            animation.oncancel = () => {
+              isClosing = false;
+            };
           }
         });
       });
-    });
+    }
+
+    // Inicializar listeners garantizando que el DOM esté disponible
+    function startApp() {
+      initCarousel();
+      initFaqAccordion();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', startApp);
+    } else {
+      startApp();
+    }
   </script>
 
-  <!-- SECCIÓN FAQ — PREGUNTAS FRECUENTES SOBRE EL UNIVERSO LIGNUM -->
-  <section class="faq-section" aria-label="Preguntas frecuentes sobre el universo Lignum">
-    <div class="faq-inner">
-      <span class="hero-crest" style="font-size: 0.75rem; letter-spacing: 0.25em; color: var(--colors-gold); opacity: 0.7;">✦ CONOCE EL UNIVERSO ✦</span>
-      <h2 class="faq-heading">Preguntas frecuentes</h2>
-
-      <div class="faq-list">
-
-        <details class="faq-item">
-          <summary class="faq-question">¿Qué es el universo Lignum?</summary>
-          <div class="faq-answer-wrapper">
-            <div class="faq-answer">
-              <p>El <strong>universo Lignum</strong> es una saga literaria de fantasía épica creada por el escritor chileno <strong>Fernando Barra</strong>. Se trata de un universo de ficción unificado que engloba novelas, cuentos completos, fábulas morales y relatos de intriga política, todos ambientados en un mismo mundo de culturas tribales, guerras ancestrales y drama político. El proyecto se publica de forma independiente a través de esta biblioteca digital.</p>
-            </div>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">¿Quién es el autor de las obras del universo Lignum?</summary>
-          <div class="faq-answer-wrapper">
-            <div class="faq-answer">
-              <p>Todas las obras del universo Lignum son escritas por <strong>Fernando Barra</strong>, escritor independiente chileno. Es el creador de toda la mitología, los personajes y las historias que conforman este universo de fantasía.</p>
-            </div>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">¿Qué obras o historias componen este universo literario?</summary>
-          <div class="faq-answer-wrapper">
-            <div class="faq-answer">
-              <p>El universo Lignum está compuesto actualmente por las siguientes obras:</p>
-              <ul>
-                <li><strong>Getting to Know</strong> — Cuento completo de fantasía tribal.</li>
-                <li><strong>Forgotten Sword</strong> — Novela de fantasía oscura en 14 capítulos.</li>
-                <li><strong>La Piedra sin Pulir</strong> — Fábula moral estructurada en cuatro actos.</li>
-                <li><strong>Ruk el Héroe</strong> — Saga épica sobre unión tribal y guerra.</li>
-                <li><strong>Sangre y Cadáveres</strong> — Relato crudo de venganza y supervivencia.</li>
-                <li><strong>The Marriage of the Republic</strong> — Ficción de intriga política y Estado.</li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">¿Es «Getting to Know» una novela o un cuento?</summary>
-          <div class="faq-answer-wrapper">
-            <div class="faq-answer">
-              <p><em>Getting to Know</em> es un <strong>cuento completo</strong> (relato breve) de fantasía tribal, no una novela. La obra narra la historia de un exguardia fronterizo que halla redención al proteger a Ameřa en los montes del suroeste, sorteando el recelo y las costumbres ancestrales de la tribu Häscht. Está disponible para su lectura íntegra en esta biblioteca.</p>
-            </div>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">¿Dónde puedo leer las historias del universo Lignum?</summary>
-          <div class="faq-answer-wrapper">
-            <div class="faq-answer">
-              <p>Todas las obras se publican de forma gratuita en esta biblioteca digital, accesible en <strong>ferb22.github.io/universo-lignum</strong>. Cada obra cuenta con su propia sección donde puedes leer capítulos, conocer a los personajes y consultar el archivo canónico «El saber del mundo».</p>
-            </div>
-          </div>
-        </details>
-
-      </div>
-    </div>
-  </section>
 
   <!-- Datos estructurados Google (FAQ para Gemini AI Overview) -->
   <script type="application/ld+json">
