@@ -2,3 +2,14 @@
 Compendio_soluciones.md
 .tmp.driveupload/
 .agents/
+
+# Scripts de automatización y herramientas de desarrollo
+*.py
+*.ps1
+scripts/
+
+# Guías internas y notas de arquitectura
+estado_fichas_personajes.md
+guia_*.md
+*guia_*.md
+*arquitectura_*.md
