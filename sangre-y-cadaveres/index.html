@@ -895,59 +895,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
  <main>
  <!-- ==========================================
- VISTA 1: MENÚ PRINCIPAL (HUB)
+ LECTURA DIRECTA: HISTORIA COMPLETA
  ========================================== -->
- <section id="menu-principal" class="view-section active">
- <div class="hero-banner">
- <p style="font-size: 1.1rem; color: var(--text-main); font-style: italic; max-width: 800px; margin: 0 auto 1.5rem;">
- «La traición derrumba los reinos, y la Venganza los erige con sangre: uno nuevo emerge, uno al que la sangre decora y en que el ente nacido lo entrona».
- </p>
- <p style="font-size: 0.95rem; color: var(--text-muted);">
- Explora la historia interactiva, sus momentos clave y el simbolismo de la guerrera renacida.
- </p>
- </div>
-
- <div class="hub-grid">
- <!-- Tarjeta 1: Lectura -->
- <div class="hub-card" onclick="mostrarVista('historia')">
- <div class="card-icon"></div>
- <h2 class="card-title">Historia Completa</h2>
- <p class="card-desc">Lee el relato íntegro con controles de tamaño de letra, temas de lectura y sangría narrativa.</p>
- <span class="btn-card-action">Iniciar Lectura →</span>
- </div>
-
- <!-- Tarjeta 2: Momentos Clave -->
- <div class="hub-card" onclick="mostrarVista('momentos')">
- <div class="card-icon"></div>
- <h2 class="card-title">Momentos Clave</h2>
- <p class="card-desc">Desglose secuencial en tres actos: La Traición, el Despertar del Filo y el Bautismo en el Lago.</p>
- <span class="btn-card-action">Ver Pasajes →</span>
- </div>
-
- <!-- Tarjeta 3: Simbolismo -->
- <div class="hub-card" onclick="mostrarVista('simbolismo')">
- <div class="card-icon"></div>
- <h2 class="card-title">Simbolismo y Entes</h2>
- <p class="card-desc">Fichas sobre la Metamorfosis del cabello, el Líder Traidor, los Doce Caídos y el Agua del Desarraigo.</p>
- <span class="btn-card-action">Explorar Simbolismo →</span>
- </div>
-
- <!-- Tarjeta 4: Sentencia -->
- <div class="hub-card" onclick="mostrarVista('moraleja')">
- <div class="card-icon"></div>
- <h2 class="card-title">Sentencia y Moraleja</h2>
- <p class="card-desc">Análisis de la lealtad quebrantada y las advertencias morales ante el despertar de la Venganza.</p>
- <span class="btn-card-action">Ver Sentencia →</span>
- </div>
- </div>
- </section>
-
- <!-- ==========================================
- VISTA 2: HISTORIA COMPLETA (READER)
- ========================================== -->
- <section id="historia" class="view-section">
+ <section id="historia" class="view-section active">
  <nav class="sticky-nav">
- <button class="btn-back" onclick="mostrarVista('menu-principal')">← Volver al inicio</button>
  <span class="sticky-title">Lectura Completa</span>
  <div class="reading-metrics">
  <span id="readPercentage"> 0% leído</span>
@@ -1014,149 +965,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </div>
  </div>
  </section>
-
- <!-- ==========================================
- VISTA 3: MOMENTOS CLAVE (ACTOS)
- ========================================== -->
- <section id="momentos" class="view-section">
- <nav class="sticky-nav">
- <button class="btn-back" onclick="mostrarVista('menu-principal')">← Volver al inicio</button>
- <span class="sticky-title">Pasajes de la Obra</span>
- <span style="color: var(--gold-accent); font-weight:600; font-size:0.85rem;">Tres Actos Escénicos</span>
- </nav>
-
- <div class="timeline-container">
- <!-- Acto I -->
- <div class="timeline-card">
- <div class="timeline-badge">I</div>
- <h3 class="timeline-title">La Masacre y los Doce Caídos</h3>
- <p class="timeline-text">
- En el suelo manchado de muerte, la guerrera yace exhausta y arrodillada. A su alrededor reposan doce hombres ajusticiados y la figura de su antiguo líder, ejecutado por su propia mano tras romper la lealtad.
- </p>
- </div>
-
- <!-- Acto II -->
- <div class="timeline-card">
- <div class="timeline-badge">II</div>
- <h3 class="timeline-title">La Metamorfosis y el Cabello Carmesí</h3>
- <p class="timeline-text">
- La sangre impregnada en su rostro tiñe su cabello rubio, dejando emerger un rojo encendido. La mujer leal muere definitivamente para dar paso al ente nacido del filo y alimentado por la Venganza.
- </p>
- </div>
-
- <!-- Acto III -->
- <div class="timeline-card">
- <div class="timeline-badge">III</div>
- <h3 class="timeline-title">El Bautismo en el Lago del Bosque</h3>
- <p class="timeline-text">
- Despojándose de sus armaduras de cuero y su camisola, la mujer camina desnuda hacia las aguas sagradas del bosque. El agua la recibe para consagrar su renacimiento y purificar su nuevo destino.
- </p>
- </div>
- </div>
- </section>
-
- <!-- ==========================================
- VISTA 4: SIMBOLISMO Y ENTES
- ========================================== -->
- <section id="simbolismo" class="view-section">
- <nav class="sticky-nav">
- <button class="btn-back" onclick="mostrarVista('menu-principal')">← Volver al inicio</button>
- <span class="sticky-title">Simbolismo Conceptual</span>
- <span style="color: var(--gold-accent); font-weight:600; font-size:0.85rem;">4 Elementos Clave</span>
- </nav>
-
- <div class="symbol-grid">
- <!-- Ficha 1 -->
- <div class="symbol-card">
- <div class="symbol-header">
- <div class="symbol-avatar"></div>
- <div>
- <h3 class="symbol-title">El Líder Traidor</h3>
- <span class="symbol-tag">Causa del Colapso</span>
- </div>
- </div>
- <p class="symbol-desc">
- Representa el abuso de poder y la ruptura de la confianza sagrada. Su caída demuestra que la traición no solo destruye reinos, sino que engendra a su propio verdugo.
- </p>
- </div>
-
- <!-- Ficha 2 -->
- <div class="symbol-card">
- <div class="symbol-header">
- <div class="symbol-avatar"></div>
- <div>
- <h3 class="symbol-title">La Espada en la Diestra</h3>
- <span class="symbol-tag">Sostén y Venganza</span>
- </div>
- </div>
- <p class="symbol-desc">
- El único pilar al que se aferra en su estado de agotamiento. No es solo un arma de acero, sino la extensión física del juicio implacable sobre sus enemigos.
- </p>
- </div>
-
- <!-- Ficha 3 -->
- <div class="symbol-card">
- <div class="symbol-header">
- <div class="symbol-avatar"></div>
- <div>
- <h3 class="symbol-title">El Cabello Rojo</h3>
- <span class="symbol-tag">Metamorfosis</span>
- </div>
- </div>
- <p class="symbol-desc">
- La transición del rubio original al rojo encendido simboliza la muerte total de la servidora sumisa y el nacimiento de una reina entronada en la venganza.
- </p>
- </div>
-
- <!-- Ficha 4 -->
- <div class="symbol-card">
- <div class="symbol-header">
- <div class="symbol-avatar"></div>
- <div>
- <h3 class="symbol-title">El Lago y el Desarraigo</h3>
- <span class="symbol-tag">Renacimiento</span>
- </div>
- </div>
- <p class="symbol-desc">
- Al tirar su cuero y camisola al suelo y entrar desnuda al lago, se desprende de su identidad pasada para ser acogida y proclamada por la naturaleza misma.
- </p>
- </div>
- </div>
- </section>
-
- <!-- ==========================================
- VISTA 5: SENTENCIA Y MORALEJA
- ========================================== -->
- <section id="moraleja" class="view-section">
- <nav class="sticky-nav">
- <button class="btn-back" onclick="mostrarVista('menu-principal')">← Volver al inicio</button>
- <span class="sticky-title">Sentencia y Enseñanza</span>
- <span style="color: var(--gold-accent); font-weight:600; font-size:0.85rem;">Filosofía de la Venganza</span>
- </nav>
-
- <div class="moral-box">
- <div class="moral-highlight">
- «Procura matar por completo a quien traicionas, porque si despiertas a la Venganza, sucumbirás ante su espada».
- </div>
-
- <div class="moral-grid">
- <div class="moral-item">
- <h4>1. La Ilusión de la Impunidad</h4>
- <p>Los traidores asumen que el dolor paralizará a sus víctimas. El relato enseña que la traición puede transformar el dolor en una fuerza indestructible.</p>
- </div>
-
- <div class="moral-item">
- <h4>2. El Peso del Silencio</h4>
- <p>«Cada paso: un aviso que el hombre no oye sino cuando tiene la espada en su cuello». La retribución llega en silencio antes del golpe final.</p>
- </div>
-
- <div class="moral-item">
- <h4>3. El Desarraigo del Pasado</h4>
- <p>Para consumar la venganza y erigir un nuevo orden, es necesario despojarse de las viejas vestiduras y cadenas del sometimiento.</p>
- </div>
- </div>
- </div>
- </section>
  </main>
 
  <!-- Notificación Toast -->
@@ -1174,50 +982,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  JAVASCRIPT DE INTERACTIVIDAD Y VISTAS
  ========================================== -->
  <script>
- // Restablecimiento o Lectura del Estado Inicial
  document.addEventListener('DOMContentLoaded', () => {
- inicializarVistas();
  actualizarProgresoLectura();
  });
 
- // 1. SISTEMA DE TRANSICIÓN DE VISTAS (guia_transicion_vistas.md)
- function mostrarVista(idVistaDeseada) {
- const vistaActual = document.querySelector('.view-section.active');
- const vistaDestino = document.getElementById(idVistaDeseada);
-
- if (!vistaDestino || vistaActual === vistaDestino) return;
-
- if (vistaActual) {
- vistaActual.classList.add('fade-out');
- setTimeout(() => {
- vistaActual.classList.remove('active', 'fade-out');
- vistaDestino.classList.add('active');
- window.scrollTo({ top: 0, behavior: 'smooth' });
- history.pushState(null, null, `#${idVistaDeseada}`);
- actualizarProgresoLectura();
- }, 200);
- } else {
- vistaDestino.classList.add('active');
- history.pushState(null, null, `#${idVistaDeseada}`);
- actualizarProgresoLectura();
- }
- }
-
- function inicializarVistas() {
- const hash = window.location.hash.replace('#', '');
- if (hash && document.getElementById(hash)) {
- mostrarVista(hash);
- } else {
- mostrarVista('menu-principal');
- }
- }
-
- window.addEventListener('popstate', () => {
- const hash = window.location.hash.replace('#', '') || 'menu-principal';
- mostrarVista(hash);
- });
-
- // 2. CONTROLES DE TAMAÑO DE TEXTO
  let porcentajeFuenteActual = 100;
  const storyBody = document.getElementById('storyText');
 
@@ -1231,7 +999,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  storyBody.style.fontSize = '1.15rem';
  }
 
- // 3. SELECCIÓN DE TEMAS DE LECTURA
  function cambiarTema(nombreTema) {
  document.body.className = '';
  if (nombreTema !== 'carmesí') {
@@ -1239,7 +1006,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  }
  }
 
- // 4. BARRA DE PROGRESO DE LECTURA Y MÉTRICAS
  window.addEventListener('scroll', actualizarProgresoLectura);
 
  function actualizarProgresoLectura() {

@@ -981,18 +981,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h3 class="hub-card-title">Fichas de Personajes</h3>
                 <p class="hub-card-desc">Las fichas ilustradas y perfiles de los personajes se encuentran en proceso de creación.</p>
             </div>
-
-            <div class="btn-hub-card" onclick="mostrarSeccion('seccion-actos', 'actos')">
-                <span style="display:inline-block; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; padding:0.25rem 0.65rem; border-radius:9999px; background:rgba(212,175,55,0.15); color:#D4AF37; border:1px solid rgba(212,175,55,0.3); margin-bottom:0.6rem;">Cronología Escénica</span>
-                <h3 class="hub-card-title">Estructura en Actos</h3>
-                <p class="hub-card-desc">Recorre la cronología escénica del ascenso de los héroes y las batallas decisivas.</p>
-            </div>
-
-            <div class="btn-hub-card" onclick="mostrarSeccion('seccion-moraleja', 'citas')">
-                <span style="display:inline-block; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; padding:0.25rem 0.65rem; border-radius:9999px; background:rgba(212,175,55,0.15); color:#D4AF37; border:1px solid rgba(212,175,55,0.3); margin-bottom:0.6rem;">Frases Célebres</span>
-                <h3 class="hub-card-title">Citas y Reflexiones</h3>
-                <p class="hub-card-desc">Descubre las frases célebres de la historia y sus reflexiones principales.</p>
-            </div>
         </div>
         </main>
 
@@ -4346,74 +4334,6 @@ Horas después, los amigos se reunieron en el asentamiento.</p>
  </div>
  </section>
 
- <!-- VISTA SECUNDARIA 3: ESTRUCTURA EN ACTOS -->
- <section class="seccion-oculta" id="seccion-actos">
- <div class="section-nav-bar">
- <button class="btn-back-main" onclick="ocultarSeccion('seccion-actos')">
- ← Volver al inicio
- </button>
- <h2 class="section-header-title"> Estructura de la Saga</h2>
- </div>
-
- <div class="actos-container">
- <div class="card-acto">
- <span class="acto-badge">ACTO I</span>
- <h3 class="acto-titulo">El Peso de la Partida y la Llegada de los Refugiados</h3>
- <p class="acto-desc">
- En los días de tranquilidad previa, Ruk y sus amigos disfrutan de juegos inocentes hasta que la sombra de la guerra contra el Reino Dementi irrumpe en la aldea. Los adultos se preparan para partir al frente, mientras sesenta y ocho refugiados al mando de Dael llegan buscando cobijo.
- </p>
- </div>
-
- <div class="card-acto">
- <span class="acto-badge">ACTO II</span>
- <h3 class="acto-titulo">Manantiales de Sanación y las Rutas de Suministros</h3>
- <p class="acto-desc">
- A medida que el conflicto se intensifica en el frente de Ende, la logística de suministros y el auxilio médico se vuelven vitales. Los jóvenes apoyan en la retaguardia, asegurando que los guerreros tengan víveres y refugio en momentos de angustia.
- </p>
- </div>
-
- <div class="card-acto">
- <span class="acto-badge">ACTO III</span>
- <h3 class="acto-titulo">La Unión de las Tribus y los Héroes de Davir</h3>
- <p class="acto-desc">
- Frente a la marea enemiga, las tribus dispersas deben forjar guerreros y unir sus fuerzas en una sola causa. Ruk asume el peso de su legado, convirtiéndose en el símbolo de esperanza y valentía que unifica a los héroes de Davir.
- </p>
- </div>
- </div>
- </section>
-
- <!-- VISTA SECUNDARIA 4: MORALEJA Y CITAS -->
- <section class="seccion-oculta" id="seccion-moraleja">
- <div class="section-nav-bar">
- <button class="btn-back-main" onclick="ocultarSeccion('seccion-moraleja')">
- ← Volver al inicio
- </button>
- <h2 class="section-header-title"> Frases e Inspiración</h2>
- </div>
-
- 
-
- <div class="citas-grid">
- <div class="quote-card">
- <div class="quote-icon">“</div>
- <p class="quote-text">«Mira, Ruk. Son cosas que se deben hacer, es una responsabilidad defender al reino».</p>
- <div class="quote-author">— Kairo</div>
- </div>
-
- <div class="quote-card">
- <div class="quote-icon">“</div>
- <p class="quote-text">«Aunque a veces no nos gusten las cosas que llegan, uno debe ser firme y continuar. Tienes un gran potencial».</p>
- <div class="quote-author">— Padre de Riav</div>
- </div>
-
- <div class="quote-card">
- <div class="quote-icon">“</div>
- <p class="quote-text">«La guerra es mala, mueren personas... por eso debemos ser firmes y proteger nuestro hogar».</p>
- <div class="quote-author">— Riav</div>
- </div>
- </div>
- </section>
-
  </div>
 
  <!-- Notification Toast -->
@@ -4430,7 +4350,7 @@ Horas después, los amigos se reunieron en el asentamiento.</p>
  const menu = document.getElementById('menu-principal');
  const target = document.getElementById(idTarget);
 
- ['seccion-lectura', 'seccion-personajes', 'seccion-actos', 'seccion-moraleja'].forEach(secId => {
+ ['seccion-lectura', 'seccion-personajes'].forEach(secId => {
  if (secId !== idTarget) {
  const el = document.getElementById(secId);
  if (el) {
@@ -4479,7 +4399,7 @@ Horas después, los amigos se reunieron en el asentamiento.</p>
  }
 
  function regresarAlMenu() {
- ['seccion-lectura', 'seccion-personajes', 'seccion-actos', 'seccion-moraleja'].forEach(secId => {
+ ['seccion-lectura', 'seccion-personajes'].forEach(secId => {
  const el = document.getElementById(secId);
  if (el && el.style.display !== 'none') {
  ocultarSeccion(secId);
@@ -4563,8 +4483,6 @@ Horas después, los amigos se reunieron en el asentamiento.</p>
  const hash = window.location.hash.replace('#', '');
  if (hash === 'lectura') mostrarSeccion('seccion-lectura', 'lectura');
  else if (hash === 'personajes') mostrarSeccion('seccion-personajes', 'personajes');
- else if (hash === 'actos') mostrarSeccion('seccion-actos', 'actos');
- else if (hash === 'citas') mostrarSeccion('seccion-moraleja', 'citas');
  });
  </script>
 </body>

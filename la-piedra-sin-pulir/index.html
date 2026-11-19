@@ -866,7 +866,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <a href="../index.html" class="btn-back-to-hub-floating"> Volver a Historias</a>
  <!-- BARRA DE PROGRESO DE LECTURA SUPERIOR EN TIEMPO REAL -->
- <div id="progress-bar-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 6px; background: rgba(255, 204, 51, 0.12); z-index: 9999; display: none; pointer-events: none;">
+ <div id="progress-bar-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 6px; background: rgba(255, 204, 51, 0.12); z-index: 9999; display: block; pointer-events: none;">
  <div id="reading-progress-bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #FFCC33 0%, #FF9900 50%, #EF4444 100%); transition: width 0.1s ease-out; box-shadow: 0 0 12px rgba(255, 204, 51, 0.8);"></div>
  </div>
  
@@ -878,119 +878,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <!-- =============================================================
  VISTA 1: MENÚ PRINCIPAL (HUB CON ANIMACIÓN Y VISTAS EXCLUSIVAS)
  ============================================================= -->
- <main class="main-container" id="menu-principal">
-
-    <div class="hero-banner">
-      <div class="hero-emblem" style="font-family: var(--font-ui); font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--color-gold); font-weight: 700; margin-bottom: 12px;">
-        FÁBULA DRAMÁTICA Y MORAL
-      </div>
-
-      <div class="story-cover-hero" style="text-align: center; margin: 1rem 0;">
-        <img src="../public/portadas/la-piedra-sin-pulir.webp" onerror="this.src='../public/portadas/la-piedra-sin-pulir.png';" alt="Portada de La Piedra sin Pulir" style="max-width: 240px; width: 65%; height: auto; border-radius: 14px; border: 2px solid rgba(255,204,51,0.4); box-shadow: 0 8px 25px rgba(0,0,0,0.5); display: inline-block;">
-      </div>
-
-      <h1 class="hero-title" style="font-family: 'Cinzel', serif; font-size: 2.6rem; font-weight: 900; color: var(--color-gold); margin-bottom: 12px; letter-spacing: 2px;">
-        La Piedra sin Pulir
-      </h1>
-
-      <p class="hero-subtitle" style="font-family: 'Lora', serif; font-style: italic; font-size: 1.1rem; color: var(--text-gold); margin-bottom: 15px; max-width: 750px; margin-left: auto; margin-right: auto; line-height: 1.6;">
-        «El trágico relato del Señor de las Siete Esposas, el peso del orgullo sin ley y el precio ineludible de la verdadera justicia»
-      </p>
-
-      <div class="hero-badges" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
-        <span class="badge-item" style="padding: 6px 14px; border-radius: 20px; background: rgba(255, 204, 51, 0.12); color: var(--color-gold); border: 1px solid rgba(255, 204, 51, 0.3); font-size: 0.82rem; font-weight: 700;">Edición Completa</span>
-        <span class="badge-item" style="padding: 6px 14px; border-radius: 20px; background: rgba(255, 204, 51, 0.12); color: var(--color-gold); border: 1px solid rgba(255, 204, 51, 0.3); font-size: 0.82rem; font-weight: 700;">Estructura en Cuatro Actos</span>
-        <span class="badge-item" style="padding: 6px 14px; border-radius: 20px; background: rgba(255, 204, 51, 0.12); color: var(--color-gold); border: 1px solid rgba(255, 204, 51, 0.3); font-size: 0.82rem; font-weight: 700;">Estética Blanco & Dorado</span>
-      </div>
-    </div>
-
- 
- <div class="menu-grid">
- 
- <!-- Opción 1: Lectura Completa -->
- <div class="card-opcion card-historia" onclick="mostrarSeccion('sec-historia', 'historia')">
- <div>
-            <span style="display:inline-block; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; padding:0.2rem 0.55rem; border-radius:9999px; background:rgba(255,204,51,0.15); color:var(--color-gold); border:1px solid rgba(255,204,51,0.3); margin-bottom:0.75rem;">Relato Narrativo Original</span>
- 
- <div class="card-title">
- Historia Completa
- <span></span>
- </div>
- <div class="card-desc">
- Lee el relato narrativo original y completo, formateado con tipografía clásica e iluminación dorada.
- </div>
- </div>
- <div class="card-action">
- Iniciar Lectura <span>→</span>
- </div>
- </div>
-
- <!-- Opción 2: Actos Dramáticos -->
- <div class="card-opcion card-actos" onclick="mostrarSeccion('sec-actos', 'actos')">
- <div>
-            <span style="display:inline-block; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; padding:0.2rem 0.55rem; border-radius:9999px; background:rgba(239,68,68,0.15); color:var(--color-crimson); border:1px solid rgba(239,68,68,0.3); margin-bottom:0.75rem;">Estructura en Cuatro Actos</span>
- 
- <div class="card-title">
- Actos Escénicos
- <span></span>
- </div>
- <div class="card-desc">
- Explora la estructura de la historia dividida en sus 4 momentos cumbre: de la soberbia a la tumba.
- </div>
- </div>
- <div class="card-action" style="color: var(--color-crimson);">
- Ver Actos <span>→</span>
- </div>
- </div>
-
- <!-- Opción 3: Personajes -->
-        <div class="card-opcion card-personajes" style="cursor: default; opacity: 0.85;" title="Fichas en proceso de creación">
-          <div>
-            <span style="display:inline-block; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; padding:0.2rem 0.55rem; border-radius:9999px; background:rgba(16,185,129,0.15); color:#EF4444; border:1px solid rgba(239,68,68,0.4); background:rgba(239,68,68,0.12); margin-bottom:0.75rem;">En proceso de creación</span>
-            <div class="card-title">
-              Linaje & Personajes
-            </div>
-            <div class="card-desc">
-              Las fichas ilustradas y perfiles de los personajes se encuentran en proceso de creación.
-            </div>
-          </div>
-          <div class="card-action" style="color: var(--text-muted);">
-            En proceso de creación
-          </div>
-        </div>
-
- <!-- Opción 4: Moraleja -->
- <div class="card-opcion card-moraleja" onclick="mostrarSeccion('sec-moraleja', 'moraleja')">
- <div>
-            <span style="display:inline-block; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; padding:0.2rem 0.55rem; border-radius:9999px; background:rgba(168,85,247,0.15); color:var(--color-purple); border:1px solid rgba(168,85,247,0.3); margin-bottom:0.75rem;">Enseñanzas Universales</span>
- 
- <div class="card-title">
- Reflexión al Lector
- <span></span>
- </div>
- <div class="card-desc">
- Descubre las enseñanzas universales sobre la justicia, la responsabilidad y la lección perpetua.
- </div>
- </div>
- <div class="card-action" style="color: var(--color-purple);">
- Ver Moraleja <span>→</span>
- </div>
- </div>
-
- </div>
- </main>
-
-
  <!-- =============================================================
- VISTA SECUNDARIA 1: HISTORIA COMPLETA
+ VISTA DIRECTA: HISTORIA COMPLETA
  ============================================================= -->
- <section class="seccion-oculta" id="sec-historia">
+ <main class="seccion-oculta active" id="sec-historia" style="display: block; padding-top: 56px;">
  
  <!-- Barra de herramientas flotante -->
- <div class="sticky-toolbar">
- <button class="btn-cerrar" onclick="ocultarSeccion('sec-historia')">
- ← Volver al inicio
- </button>
+ <div class="sticky-toolbar" style="justify-content: center;">
  <div class="toolbar-controls">
  <button class="ctrl-btn" onclick="changeFontSize(-1)" title="Reducir fuente">A-</button>
  <button class="ctrl-btn" onclick="changeFontSize(1)" title="Aumentar fuente">A+</button>
@@ -1005,8 +899,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
  <article class="reader-container">
  <div class="chapter-header-box">
- <span class="chapter-tag"> TEXTO COMPLETO </span>
- <h2 class="chapter-title">LA PIEDRA SIN PULIR</h2>
+ <span class="chapter-tag"> FÁBULA MORAL · TEXTO COMPLETO </span>
+ <h1 class="chapter-title">La Piedra sin Pulir</h1>
  <div class="chapter-meta">
  <span id="reading-time-badge"> ~4 min restantes</span>
  <span id="reading-percent-badge"> 0% leído</span>
@@ -1145,205 +1039,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </div>
  </div>
  </article>
- </section>
-
-
- <!-- =============================================================
- VISTA SECUNDARIA 2: ACTOS DRAMÁTICOS
- ============================================================= -->
- <section class="seccion-oculta" id="sec-actos">
- <div class="sticky-toolbar">
- <button class="btn-cerrar" onclick="ocultarSeccion('sec-actos')">
- ← Volver al inicio
- </button>
- </div>
-
- <h2 style="font-family: var(--font-title); color: var(--color-gold); text-align: center; margin-bottom: 25px; font-size: 28px;">
- ESTRUCTURA DE LA HISTORIA EN 4 ACTOS 
- </h2>
-
- <div class="acts-grid">
- 
- <!-- Acto 1 -->
- <div class="act-card" style="--act-color: #FFCC33; --act-glow: rgba(255, 204, 51, 0.2);">
- <div class="act-header">
- <span class="act-badge">Acto I</span>
- <h3 class="act-title">La Cosecha del Orgullo</h3>
- </div>
- <p style="font-family: var(--font-ui); color: var(--text-muted); line-height: 1.7; margin-bottom: 15px;">
- El Señor de las Siete Esposas acumula riquezas y desea que su linaje se extienda como un bosque denso. Engendra más de veinte hijos a quienes colma de caballos, espadas y lujos, pero niega toda disciplina.
- </p>
- <div style="font-family: var(--font-ui); font-size: 13px; color: var(--color-gold); font-weight: 600;">
- Hito clave: "Que mi linaje sea como bosque espeso..."
- </div>
- </div>
-
- <!-- Acto 2 -->
- <div class="act-card" style="--act-color: #EF4444; --act-glow: rgba(239, 68, 68, 0.2);">
- <div class="act-header">
- <span class="act-badge" style="background: #EF4444; color: #FFF;">Acto II</span>
- <h3 class="act-title" style="color: #EF4444;">El Clamor del Pueblo</h3>
- </div>
- <p style="font-family: var(--font-ui); color: var(--text-muted); line-height: 1.7; margin-bottom: 15px;">
- Los hijos se convierten en tiranos impunes. Queman una aldea y asesinan sin piedad. La esposa menor advierte la pudrición, pero es la llegada del campesino con el niño marcado a fuego lo que rompe la ceguera del padre.
- </p>
- <div style="font-family: var(--font-ui); font-size: 13px; color: #EF4444; font-weight: 600;">
- Hito clave: "Que tu mirada no aparte la vista de lo que tu sangre ha hecho."
- </div>
- </div>
-
- <!-- Acto 3 -->
- <div class="act-card" style="--act-color: #A855F7; --act-glow: rgba(168, 85, 247, 0.2);">
- <div class="act-header">
- <span class="act-badge" style="background: #A855F7; color: #FFF;">Acto III</span>
- <h3 class="act-title" style="color: #A855F7;">La Sentencia Implacable</h3>
- </div>
- <p style="font-family: var(--font-ui); color: var(--text-muted); line-height: 1.7; margin-bottom: 15px;">
- El Señor despierta a su propia negligencia. Ordena a sus guardias antiguos arrestar y ejecutar fuera de los muros a todos sus más de veinte hijos. Expone sus cuerpos en seda roja en la plaza pública frente a sus madres.
- </p>
- <div style="font-family: var(--font-ui); font-size: 13px; color: #A855F7; font-weight: 600;">
- Hito clave: "Yo les di poder y negué disciplina. Yo sembré esta cosecha maldita."
- </div>
- </div>
-
- <!-- Acto 4 -->
- <div class="act-card" style="--act-color: #10B981; --act-glow: rgba(16, 185, 129, 0.2);">
- <div class="act-header">
- <span class="act-badge" style="background: #10B981; color: #0A0D14;">Acto IV</span>
- <h3 class="act-title" style="color: #10B981;">La Piedra sin Pulir</h3>
- </div>
- <p style="font-family: var(--font-ui); color: var(--text-muted); line-height: 1.7; margin-bottom: 15px;">
- El Señor desciende a la fosa común con sus hijos y se clava su propia daga en el abdomen para sellar la justicia contra sí mismo. Es enterrado bajo una piedra sin pulir ni inscripción para que sirva de advertencia eterna.
- </p>
- <div style="font-family: var(--font-ui); font-size: 13px; color: #10B981; font-weight: 600;">
- Hito clave: "Que mi sangre cierre esta herida que abrí en la tierra."
- </div>
- </div>
-
- </div>
- </section>
-
-
- <!-- =============================================================
- VISTA SECUNDARIA 3: LINAJE Y PERSONAJES
- ============================================================= -->
- <section class="seccion-oculta" id="sec-personajes">
- <div class="sticky-toolbar">
- <button class="btn-cerrar" onclick="ocultarSeccion('sec-personajes')">
- ← Volver al inicio
- </button>
- </div>
-
- <h2 style="font-family: var(--font-title); color: var(--color-gold); text-align: center; margin-bottom: 25px; font-size: 28px;">
- PERSONAJES DEL LINAJE Y LA HISTORIA 
- </h2>
-
- <div class="char-grid">
- 
- <!-- Personaje 1 -->
- <div class="char-card" style="--char-color: #FFCC33; --char-glow: rgba(255, 204, 51, 0.3);">
- <div class="char-avatar"></div>
- <h3 class="char-name">El Señor de las Siete Esposas</h3>
- <span class="char-role">Patriarca & Juez Final</span>
- <p class="char-desc">
- Hombre de inmensa riqueza y ambición. Creó un linaje numeroso por vanidad pero descuidó su moral. Al comprender el monstruo que engendró, ejecuta a sus propios hijos y se quita la vida en la fosa común.
- </p>
- </div>
-
- <!-- Personaje 2 -->
- <div class="char-card" style="--char-color: #10B981; --char-glow: rgba(16, 185, 129, 0.3);">
- <div class="char-avatar"></div>
- <h3 class="char-name">La Esposa Menor</h3>
- <span class="char-role">Voz de la Conciencia</span>
- <p class="char-desc">
- La única de las siete mujeres que se atrevió a confrontar al Señor, advirtiéndole que su linaje se estaba pudriendo internamente como una manzana guardada demasiado tiempo en un cofre.
- </p>
- </div>
-
- <!-- Personaje 3 -->
- <div class="char-card" style="--char-color: #06B6D4; --char-glow: rgba(6, 182, 212, 0.3);">
- <div class="char-avatar"></div>
- <h3 class="char-name">El Campesino de la Verdad</h3>
- <span class="char-role">Emisario del Pueblo</span>
- <p class="char-desc">
- Llevó el cuerpo sin vida de su niño marcado a fuego al trono del Señor. No exigió oro ni venganza, solo pronunció las palabras que quebraron definitivamente la ceguera del patriarca.
- </p>
- </div>
-
- <!-- Personaje 4 -->
- <div class="char-card" style="--char-color: #EF4444; --char-glow: rgba(239, 68, 68, 0.3);">
- <div class="char-avatar"></div>
- <h3 class="char-name">Los Veinte Hijos</h3>
- <span class="char-role">El Linaje Descarriado</span>
- <p class="char-desc">
- Criados en la impunidad y el privilegio. Creyeron que la nobleza de su sangre les daba derecho a saquear, forzar y quemar aldeas. Fueron ejecutados todos en un solo día por orden de su padre.
- </p>
- </div>
-
- <!-- Personaje 5 -->
- <div class="char-card" style="--char-color: #A855F7; --char-glow: rgba(168, 85, 247, 0.3);">
- <div class="char-avatar"></div>
- <h3 class="char-name">Las Siete Esposas</h3>
- <span class="char-role">Madres en Duelo</span>
- <p class="char-desc">
- Tomadas por cálculo político para multiplicar el linaje. Sufrieron el dolor desgarrador de ver a sus hijos ejecutados y alineados en ropa de seda sobre la plaza pública.
- </p>
- </div>
-
- <!-- Personaje 6 -->
- <div class="char-card" style="--char-color: #F59E0B; --char-glow: rgba(245, 158, 11, 0.3);">
- <div class="char-avatar"></div>
- <h3 class="char-name">El Pueblo & los Viejos Guardias</h3>
- <span class="char-role">Testigos Inmóviles</span>
- <p class="char-desc">
- Sufrieron años de abusos en silencio. Guardaron los cuerpos en la fosa y sellaron el lugar con una piedra sin pulir para recordar que el orgullo sin disciplina trae la ruina total.
- </p>
- </div>
-
- </div>
- </section>
-
-
- <!-- =============================================================
- VISTA SECUNDARIA 4: MORALEJA Y REFLEXIÓN
- ============================================================= -->
- <section class="seccion-oculta" id="sec-moraleja">
- <div class="sticky-toolbar">
- <button class="btn-cerrar" onclick="ocultarSeccion('sec-moraleja')">
- ← Volver al inicio
- </button>
- </div>
-
- <div class="reflection-hero">
- <h2> MORALEJA & ENSEÑANZA UNIVERSAL </h2>
- <p>
- «No hay linaje tan noble que pueda vivir sin justicia, ni poder tan grande que no se pudra cuando se alimenta solo de orgullo».
- </p>
- </div>
-
- <div class="moral-grid">
- <div class="moral-card" style="--moral-color: #FFCC33;">
- <h3> El Poder sin Disciplina</h3>
- <p>
- Darle armas, lujos y poder a las nuevas generaciones sin enseñarles valores ni templanza no engendra líderes ni herederos, sino tiranos irresponsables.
- </p>
- </div>
-
- <div class="moral-card" style="--moral-color: #EF4444;">
- <h3> La Ceguera Voluntaria</h3>
- <p>
- Ignorar las quejas del pueblo o excusar las faltas de los seres queridos bajo el pretexto de que "la sangre hierve" solo posterga un castigo aún más devastador.
- </p>
- </div>
-
- <div class="moral-card" style="--moral-color: #10B981;">
- <h3> La Piedra sin Pulir</h3>
- <p>
- El Señor no quiso una estatua de mármol ni honores gloriosos. Su tumba se marcó con una piedra tosca sin inscripción como símbolo de humildad y advertencia eterna.
- </p>
- </div>
- </div>
- </section>
+ </main>
 
  <!-- FOOTER -->
  <footer class="site-footer">
@@ -1351,92 +1047,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </footer>
 
  <!-- =============================================================
- LÓGICA JAVASCRIPT DE ANIMACIÓN Y TRANSICIÓN DE VISTAS
+ LÓGICA JAVASCRIPT DE LECTURA
  ============================================================= -->
  <script>
- // Función principal para mostrar una vista secundaria excluyendo el menú
- function mostrarSeccion(idTarget, hash) {
- const menu = document.getElementById('menu-principal');
- const target = document.getElementById(idTarget);
-
- if (!target) return;
-
- // 1. Ocultar cualquier otra sección secundaria abierta
- ['sec-historia', 'sec-actos', 'sec-personajes', 'sec-moraleja'].forEach(secId => {
- if (secId !== idTarget) {
- const el = document.getElementById(secId);
- if (el) {
- el.classList.remove('active', 'closing');
- el.style.display = 'none';
- }
- }
- });
-
- // 2. Iniciar animación de salida (fadeOut) en el Menú Principal
- menu.classList.add('closing');
-
- // 3. Esperar 250 milisegundos para sincronizar la animación CSS con JavaScript
- setTimeout(() => {
- menu.classList.add('hidden');
- menu.classList.remove('closing');
-
- // 4. Desplegar la sección elegida con animación de entrada (fadeIn)
- target.style.display = 'block';
- target.classList.remove('closing');
- target.classList.add('active');
- 
- // Mostrar u ocultar barra de progreso si estamos en la vista de historia
- const progressBarContainer = document.getElementById('progress-bar-container');
- if (idTarget === 'sec-historia') {
- progressBarContainer.style.display = 'block';
- updateReadingProgress();
- } else {
- progressBarContainer.style.display = 'none';
- }
-
- // Actualizar la URL hash y hacer desplazamiento suave al inicio
- if (hash) {
- window.location.hash = hash;
- }
- window.scrollTo({ top: 0, behavior: 'smooth' });
- }, 250);
- }
-
- // Función para ocultar una sección y retornar al Menú Principal
- function ocultarSeccion(idTarget) {
- const target = document.getElementById(idTarget);
- const menu = document.getElementById('menu-principal');
- const progressBarContainer = document.getElementById('progress-bar-container');
-
- if (!target) return;
-
- // Ocultar barra de progreso
- if (progressBarContainer) progressBarContainer.style.display = 'none';
-
- // 1. Iniciar animación de salida (fadeOut) en la vista activa
- target.classList.add('closing');
-
- // 2. Esperar 250ms a que termine el desvanecimiento
- setTimeout(() => {
- target.classList.remove('active', 'closing');
- target.style.display = 'none';
-
- // 3. Reaparecer el Menú Principal limpiamente con animación de entrada (fadeIn)
- menu.classList.remove('hidden');
- menu.classList.add('fadeIn');
-
- // Limpiar la URL hash y hacer scroll arriba
- history.pushState("", document.title, window.location.pathname + window.location.search);
- window.scrollTo({ top: 0, behavior: 'smooth' });
-
- // Remover clase auxiliar tras completar el fadeIn
- setTimeout(() => {
- menu.classList.remove('fadeIn');
- }, 400);
- }, 250);
- }
-
- // Control de tamaño de fuente del lector
  let currentFontSize = 19;
  function changeFontSize(delta) {
  currentFontSize += delta;
@@ -1445,7 +1058,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  document.documentElement.style.setProperty('--reader-font-size', currentFontSize + 'px');
  }
 
- // Control de selector de tema visual
  function changeTheme(themeName) {
  document.body.className = '';
  if (themeName !== 'default') {
@@ -1453,10 +1065,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  }
  }
 
- // Cálculo de progreso de lectura y tiempo restante en tiempo real
  function updateReadingProgress() {
  const secHistoria = document.getElementById('sec-historia');
- if (!secHistoria || secHistoria.style.display === 'none') return;
+ if (!secHistoria) return;
 
  const progressBar = document.getElementById('reading-progress-bar');
  const percentBadge = document.getElementById('reading-percent-badge');
@@ -1468,11 +1079,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  if (totalHeight > 0) {
  let progress = Math.min(Math.max((scrollPos / totalHeight) * 100, 0), 100);
  let roundedPercent = Math.round(progress);
- 
+
  if (progressBar) progressBar.style.width = roundedPercent + '%';
  if (percentBadge) percentBadge.innerText = ' ' + roundedPercent + '% leído';
 
- // Calcular tiempo restante (4 minutos base)
  let remainingMins = Math.ceil(4 * (1 - progress / 100));
  if (remainingMins <= 0) remainingMins = 0;
 
@@ -1486,17 +1096,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  }
  }
 
-   window.addEventListener('scroll', updateReadingProgress);
+ window.addEventListener('scroll', updateReadingProgress);
+ window.addEventListener('DOMContentLoaded', updateReadingProgress);
 
-  // Auto-cargar sección según URL hash al abrir la página
-  window.addEventListener('DOMContentLoaded', () => {
-    const hash = window.location.hash.replace('#', '');
-    if (hash === 'historia') mostrarSeccion('sec-historia', 'historia');
-    else if (hash === 'actos') mostrarSeccion('sec-actos', 'actos');
-    else if (hash === 'moraleja') mostrarSeccion('sec-moraleja', 'moraleja');
-  });
-
- // Mostrar notificación flotante (toast)
  function showToast(message) {
  const toast = document.getElementById('toast-notification');
  if (toast) {
