@@ -126,12 +126,13 @@
     }
 
     .map-dialog-viewport {
+      display: block;
+      flex: 1;
+      min-height: 0;
       overflow: auto;
       overscroll-behavior: contain;
       padding: 16px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
+      text-align: center;
       background: #07090D;
       border-bottom-left-radius: 16px;
       border-bottom-right-radius: 16px;
@@ -142,11 +143,11 @@
       width: 100%;
       max-width: 100%;
       height: auto;
+      margin: 0 auto;
       border-radius: 10px;
       border: 1px solid rgba(212, 175, 55, 0.25);
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65);
       transition: width 0.2s ease;
-      transform-origin: top left;
     }
 
     @media (max-width: 600px) {
@@ -211,7 +212,7 @@
     zoomPct = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, nextPct));
     img.style.width = `${zoomPct}%`;
     img.style.maxWidth = zoomPct === 100 ? '100%' : 'none';
-    viewport.style.justifyContent = zoomPct === 100 ? 'center' : 'flex-start';
+    img.style.margin = zoomPct === 100 ? '0 auto' : '0';
     zoomResetBtn.textContent = `${zoomPct} %`;
     zoomOutBtn.disabled = zoomPct <= MIN_ZOOM;
     zoomInBtn.disabled = zoomPct >= MAX_ZOOM;
