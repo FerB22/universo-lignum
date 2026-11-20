@@ -216,6 +216,59 @@
       transform: translateY(-1px);
     }
 
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .header-seal-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radii-badge);
+      color: var(--colors-textPrimary);
+      font-family: var(--fonts-ui);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: all 0.25s ease;
+      user-select: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .header-seal-btn:hover {
+      background: rgba(212, 175, 55, 0.1);
+      border-color: rgba(212, 175, 55, 0.35);
+      color: var(--colors-goldLight);
+      transform: translateY(-1px);
+    }
+
+    .seal-icon {
+      color: var(--colors-gold);
+      line-height: 1;
+    }
+
+    .seal-text-short {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .header-actions { gap: 6px; }
+      .header-seal-btn { padding: 6px 11px; font-size: 0.7rem; gap: 5px; }
+      .seal-text-full { display: none; }
+      .seal-text-short { display: inline; }
+      .back-home-btn { padding: 6px 11px; font-size: 0.72rem; }
+    }
+
     /* CONTENEDOR HERO MINIMALISTA */
     .hero-archive {
       text-align: center;
@@ -723,10 +776,17 @@
           </div>
         </a>
       </div>
-      <a href="../index.html" class="back-home-btn">
-        <span>‹</span>
-        <span>Volver a crónicas</span>
-      </a>
+      <div class="header-actions">
+        <button class="header-seal-btn" id="openMapBtn" type="button" data-map-src="../public/mapa-lignum-oficial.webp" data-map-fallback="../public/mapa-lignum-oficial.jpg" aria-label="Abrir Mapamundi de Lignum" title="Abrir Mapamundi de Lignum">
+          <span class="seal-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block;"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg></span>
+          <span class="seal-text-full">Mapamundi</span>
+          <span class="seal-text-short">Mapa</span>
+        </button>
+        <a href="../index.html" class="back-home-btn">
+          <span>‹</span>
+          <span>Volver a crónicas</span>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -1129,5 +1189,6 @@
 
     document.addEventListener('DOMContentLoaded', loadCompendio);
   </script>
+  <script src="../public/mapamundi.js" defer></script>
 </body>
 </html>

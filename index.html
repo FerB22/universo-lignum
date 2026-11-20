@@ -367,6 +367,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: none;
     }
 
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
     /* CONTENEDOR PRINCIPAL */
     main {
       flex: 1;
@@ -826,6 +833,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
       .seal-text-short {
         display: inline;
+      }
+      .header-actions {
+        gap: 6px;
       }
       .showcase-cover-wrapper {
         max-width: 240px;
@@ -1322,11 +1332,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="brand-sub">Biblioteca y crónicas de fantasía por Fernando Barra</span>
         </div>
       </a>
-      <button class="header-seal-btn" id="openDrawerBtn" aria-label="Abrir El saber del mundo" title="Abrir El saber del mundo">
-        <span class="seal-icon">✦</span>
-        <span class="seal-text-full">El saber del mundo</span>
-        <span class="seal-text-short">El saber</span>
-      </button>
+      <div class="header-actions">
+        <button class="header-seal-btn" id="openMapBtn" type="button" data-map-src="./public/mapa-lignum-oficial.webp" data-map-fallback="./public/mapa-lignum-oficial.jpg" aria-label="Abrir Mapamundi de Lignum" title="Abrir Mapamundi de Lignum">
+          <span class="seal-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block;"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg></span>
+          <span class="seal-text-full">Mapamundi</span>
+          <span class="seal-text-short">Mapa</span>
+        </button>
+        <button class="header-seal-btn" id="openDrawerBtn" type="button" aria-label="Abrir El saber del mundo" title="Abrir El saber del mundo">
+          <span class="seal-icon" aria-hidden="true">✦</span>
+          <span class="seal-text-full">El saber del mundo</span>
+          <span class="seal-text-short">El saber</span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -1991,5 +2008,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
     </div>
   </footer>
+  <script src="./public/mapamundi.js" defer></script>
 </body>
 </html>
